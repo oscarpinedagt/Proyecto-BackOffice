@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Servidor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IDPC4018\BackOffice</Value>
+    </Setting>
+    <Setting Name="Base_de_datos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BackOffice</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
