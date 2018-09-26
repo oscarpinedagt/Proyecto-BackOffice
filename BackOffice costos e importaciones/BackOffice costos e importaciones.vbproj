@@ -188,6 +188,12 @@
     <Compile Include="Recepción y seguimiento de costeos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Seguro.Designer.vb">
+      <DependentUpon>Seguro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguro.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Shipper o Carrier.Designer.vb">
       <DependentUpon>Shipper o Carrier.vb</DependentUpon>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recepción y seguimiento de costeos.resx">
       <DependentUpon>Recepción y seguimiento de costeos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguro.resx">
+      <DependentUpon>Seguro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shipper o Carrier.resx">
       <DependentUpon>Shipper o Carrier.vb</DependentUpon>

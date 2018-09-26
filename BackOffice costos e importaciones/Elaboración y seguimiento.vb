@@ -1431,7 +1431,6 @@
                     Next
                 End If
 
-
             Case "Contabilizar"
 
                 If GridView_CT.RowCount > 0 Then

@@ -19,6 +19,7 @@ Partial Class Costos_e_Importaciones
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Costos_e_Importaciones))
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.BBI_Envió_de_costeos = New DevExpress.XtraBars.BarButtonItem()
@@ -33,19 +34,22 @@ Partial Class Costos_e_Importaciones
         Me.BBI_SEG_Envió = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Shipper_Carrier = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Proveedores_locales = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Seguro = New DevExpress.XtraBars.BarButtonItem()
         Me.RP_Movimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_MOV_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Seguimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_SEG_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RP_Reportes = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RPG_Seguro = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Mantenimiento = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_Correos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Proveedores = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_MAN_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
-        Me.DefaultLookAndFeel = New DevExpress.LookAndFeel.DefaultLookAndFeel()
-        Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager()
-        Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView()
-        Me.NoDocumentsView1 = New DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView()
+        Me.DefaultLookAndFeel = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
+        Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
+        Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
+        Me.NoDocumentsView1 = New DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(Me.components)
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,11 +59,11 @@ Partial Class Costos_e_Importaciones
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_Envió_de_costeos, Me.BBI_Seguimiento_de_costeos, Me.BBI_Tipos_de_costeo, Me.BBI_Proveedores_cuentas_y_complementos_contables, Me.BBI_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_Elaboración_y_seguimiento, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_Shipper_Carrier, Me.BBI_Proveedores_locales})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_Envió_de_costeos, Me.BBI_Seguimiento_de_costeos, Me.BBI_Tipos_de_costeo, Me.BBI_Proveedores_cuentas_y_complementos_contables, Me.BBI_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_Elaboración_y_seguimiento, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_Shipper_Carrier, Me.BBI_Proveedores_locales, Me.BBI_Seguro})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 13
+        Me.RibbonControl.MaxItemId = 14
         Me.RibbonControl.Name = "RibbonControl"
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Mantenimiento})
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Mantenimiento})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         '
@@ -163,6 +167,14 @@ Partial Class Costos_e_Importaciones
         Me.BBI_Proveedores_locales.ImageOptions.Image = CType(resources.GetObject("BBI_Proveedores_locales.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_Proveedores_locales.Name = "BBI_Proveedores_locales"
         '
+        'BBI_Seguro
+        '
+        Me.BBI_Seguro.Caption = "Seguro"
+        Me.BBI_Seguro.Id = 13
+        Me.BBI_Seguro.ImageOptions.Image = CType(resources.GetObject("BBI_Seguro.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Seguro.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Seguro.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Seguro.Name = "BBI_Seguro"
+        '
         'RP_Movimientos
         '
         Me.RP_Movimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_MOV_Costeos})
@@ -189,6 +201,19 @@ Partial Class Costos_e_Importaciones
         Me.RPG_SEG_Costeos.ItemLinks.Add(Me.BBI_SEG_Envió)
         Me.RPG_SEG_Costeos.Name = "RPG_SEG_Costeos"
         Me.RPG_SEG_Costeos.Text = "Costeos"
+        '
+        'RP_Reportes
+        '
+        Me.RP_Reportes.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_Seguro})
+        Me.RP_Reportes.Name = "RP_Reportes"
+        Me.RP_Reportes.Text = "Reportes"
+        '
+        'RPG_Seguro
+        '
+        Me.RPG_Seguro.AllowTextClipping = False
+        Me.RPG_Seguro.ItemLinks.Add(Me.BBI_Seguro)
+        Me.RPG_Seguro.Name = "RPG_Seguro"
+        Me.RPG_Seguro.Text = "Seguro"
         '
         'RP_Mantenimiento
         '
@@ -287,4 +312,7 @@ Partial Class Costos_e_Importaciones
     Friend WithEvents BBI_Shipper_Carrier As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BBI_Proveedores_locales As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RPG_Proveedores As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BBI_Seguro As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RP_Reportes As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RPG_Seguro As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class

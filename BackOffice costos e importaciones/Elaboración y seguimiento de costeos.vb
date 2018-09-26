@@ -127,7 +127,7 @@
 
     Private Sub BBI_Generar_información_desde_informe_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_información_desde_informe.ItemClick
         If GridView.RowCount > 0 Then
-            FN.Exportar_GridControl_a_CSV(GridControl, "Costeos elaborados")
+            FN.Exportar_GridControl_a_Excel(GridControl, "Costeos elaborados")
         End If
     End Sub
 

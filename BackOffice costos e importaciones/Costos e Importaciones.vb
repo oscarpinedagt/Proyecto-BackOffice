@@ -71,4 +71,8 @@
     Private Sub BBI_Proveedores_locales_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Proveedores_locales.ItemClick
         FN.Abrir_formulario(Me, Proveedores_locales)
     End Sub
+
+    Private Sub BBI_Seguro_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Seguro.ItemClick
+        FN.Abrir_formulario(Me, Seguro)
+    End Sub
 End Class

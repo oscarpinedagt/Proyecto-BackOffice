@@ -324,7 +324,7 @@
 
     End Function
 
-    Public Sub Exportar_GridControl_a_CSV(GC As DevExpress.XtraGrid.GridControl, Nombre As String)
+    Public Sub Exportar_GridControl_a_Excel(GC As DevExpress.XtraGrid.GridControl, Nombre As String)
         Dim SFD As New SaveFileDialog With {.Filter = "Exportar formato Excel|*.xlsx", .FileName = Nombre}
         If SFD.ShowDialog = Windows.Forms.DialogResult.OK Then
             GC.ExportToXlsx(SFD.FileName)
