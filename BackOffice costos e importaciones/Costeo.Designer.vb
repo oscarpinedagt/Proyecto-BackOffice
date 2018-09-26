@@ -688,7 +688,7 @@ Partial Public Class Costeo
         Me.XrTableCell113.StylePriority.UsePadding = False
         Me.XrTableCell113.StylePriority.UseTextAlignment = False
         Me.XrTableCell113.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        Me.XrTableCell113.TextFormatString = "{0:n}"
+        Me.XrTableCell113.TextFormatString = "{0:0}"
         Me.XrTableCell113.Weight = 1.0839586988419989R
         '
         'XrTable14

@@ -75,9 +75,9 @@
         Return DT
     End Function
 
-    Public Function Tabla_de_datosXLSX(Archivo As String, SQL As String) As DataTable
-        Dim ConexionXLSX As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + Archivo + "; Extended Properties=""Excel 12.0;HDR=Yes;IMEX=1;""")
-        Dim DA As New OleDbDataAdapter(SQL, ConexionXLSX)
+    Public Function Tabla_de_datos_Excel(Archivo As String, SQL As String) As DataTable
+        Dim Conexion_Excel As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + Archivo + "; Extended Properties=""Excel 12.0;HDR=Yes;IMEX=1;""")
+        Dim DA As New OleDbDataAdapter(SQL, Conexion_Excel)
         Dim DT As New DataTable
         DA.Fill(DT)
         Return DT

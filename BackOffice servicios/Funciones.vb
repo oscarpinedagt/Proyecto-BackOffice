@@ -63,6 +63,7 @@
             Select Case Estado
                 Case "Nuevo"
                     If CTRL.Name = "BBI_Nuevo" Then CTRL.Enabled = True
+                    If CTRL.Name = "BBI_Cargar_datos_costeo_vehiculos" Then CTRL.Enabled = False
                     If CTRL.Name = "BBI_Guardar" Then CTRL.Enabled = False
                     If CTRL.Name = "BBI_Guardar_y_seguir" Then CTRL.Enabled = False
                     If CTRL.Name = "BBI_Guardar_y_limpiar" Then CTRL.Enabled = False
@@ -72,6 +73,7 @@
                     If CTRL.Name = "BBI_Buscar" Then CTRL.Enabled = True
                 Case "Guardar"
                     If CTRL.Name = "BBI_Nuevo" Then CTRL.Enabled = False
+                    If CTRL.Name = "BBI_Cargar_datos_costeo_vehiculos" Then CTRL.Enabled = True
                     If CTRL.Name = "BBI_Guardar" Then CTRL.Enabled = True
                     If CTRL.Name = "BBI_Guardar_y_seguir" Then CTRL.Enabled = True
                     If CTRL.Name = "BBI_Guardar_y_limpiar" Then CTRL.Enabled = True
@@ -88,6 +90,7 @@
                     If CTRL.Name = "BBI_Buscar" Then CTRL.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 Case "Buscar"
                     If CTRL.Name = "BBI_Nuevo" Then CTRL.Enabled = True
+                    If CTRL.Name = "BBI_Cargar_datos_costeo_vehiculos" Then CTRL.Enabled = False
                     If CTRL.Name = "BBI_Guardar" Then CTRL.Enabled = False
                     If CTRL.Name = "BBI_Guardar_y_seguir" Then CTRL.Enabled = False
                     If CTRL.Name = "BBI_Guardar_y_limpiar" Then CTRL.Enabled = False

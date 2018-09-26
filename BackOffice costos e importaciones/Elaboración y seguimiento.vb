@@ -114,7 +114,14 @@
             .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         End With
 
-        If LUE_Empresa.EditValue <> Nothing And ID = 0 Then
+    End Sub
+
+    Private Sub LUE_Tipo_de_mercadería_EditValueChanged(sender As Object, e As EventArgs) Handles LUE_Tipo_de_mercadería.EditValueChanged
+
+        LUE_Sub_empresa.EditValue = Nothing
+        LUE_Proveedor.EditValue = Nothing
+
+        If LUE_Empresa.EditValue <> Nothing And LUE_Tipo_de_mercadería.EditValue = "Repuestos" And ID = 0 Then
             Dim Fecha As DateTime = Now
             Dim Literales As String = Convert.ToString(SQL.Extraer_informacion_de_columna("a.Literales", "Empresas a, Grupo_de_empresas b", "Where a.RL_GE = b.Id_grupo_empresas and a.Razon_comercial='" + LUE_Empresa.EditValue + "'"))
             Dim ID_Ingreso As Integer = SQL.Nuevo_ID_alfanumerico("Ingreso_a_bodega", (Len("TRN" + Literales + Fecha.ToString("yyMM")) + 1).ToString + ",Len(Ingreso_a_bodega)", "Costeos", "Where Empresa='" + LUE_Empresa.EditValue + "' And SubString(Ingreso_a_bodega,1," + Len("TRN" + Literales + Fecha.ToString("yyMM")).ToString + ")='TRN" + Literales + Fecha.ToString("yyMM") + "'")
@@ -124,13 +131,6 @@
             LUE_Estado.EditValue = "En transito"
             FN.Validar_controles(GC_Datos_de_ingreso_a_bodega)
         End If
-
-    End Sub
-
-    Private Sub LUE_Tipo_de_mercadería_EditValueChanged(sender As Object, e As EventArgs) Handles LUE_Tipo_de_mercadería.EditValueChanged
-
-        LUE_Sub_empresa.EditValue = Nothing
-        LUE_Proveedor.EditValue = Nothing
 
         With LUE_Sub_empresa.Properties
             .DataSource = SQL.Tabla_de_datos("Select SE,Sub_empresa From Directorios_y_correos Where Empresa='" + LUE_Empresa.EditValue + "' And Tipo_de_mercaderia='" + LUE_Tipo_de_mercadería.EditValue + "' Group By SE,Sub_empresa")
@@ -339,7 +339,7 @@
 
     Private Sub GridView_DE_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView_DE.InitNewRow
 
-        GridView_DE.SetRowCellValue(e.RowHandle, "Id_documento_del_exterior", Format(Now, "yyMMddHHmmss"))
+        GridView_DE.SetRowCellValue(e.RowHandle, "Id_documento_del_exterior", Format(Now, "yyMMddHHmmssfff"))
         GridView_DE.SetRowCellValue(e.RowHandle, "RL_id_costeo", ID)
 
         If LUE_Moneda.EditValue <> Nothing Then
@@ -482,7 +482,7 @@
 
         If CK_Recibido.Checked = True Then
 
-            If LUE_Empresa.EditValue <> Nothing And ID <> 0 Then
+            If LUE_Empresa.EditValue <> Nothing And LUE_Tipo_de_mercadería.EditValue = "Repuestos" Then
 
                 Dim Fecha As DateTime = Now
                 Dim Literales As String = Convert.ToString(SQL.Extraer_informacion_de_columna("a.Literales", "Empresas a, Grupo_de_empresas b", "Where a.RL_GE = b.Id_grupo_empresas and a.Razon_comercial='" + LUE_Empresa.EditValue + "'"))
@@ -641,7 +641,7 @@
     End Sub
 
     Private Sub GridView_DL_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView_DL.InitNewRow
-        GridView_DL.SetRowCellValue(e.RowHandle, "Id_documento_local", Format(Now, "yyMMddHHmmss"))
+        GridView_DL.SetRowCellValue(e.RowHandle, "Id_documento_local", Format(Now, "yyMMddHHmmssfff"))
         GridView_DL.SetRowCellValue(e.RowHandle, "RL_id_costeo", ID)
     End Sub
 
@@ -747,6 +747,101 @@
 
         End With
 
+    End Sub
+
+    Private Sub Seguro()
+        If CK_Recibido.EditValue = True And LUE_Incoterm.EditValue <> Nothing And TE_Factor_de_cambio_GTQ.EditValue <> Nothing Then
+            Dim Documentos_USD As Double = GridView_DE.Columns("Total_USD").SummaryItem.SummaryValue
+            Dim Gastos_USD As Double = Val(TE_DAI.EditValue + GridView_DL.Columns("Valor_sin_IVA").SummaryItem.SummaryValue) / Val(TE_Factor_de_cambio_GTQ.EditValue)
+
+            If GridView_SG.RowCount = 0 Then
+                GridView_SG.AddNewRow()
+                Dim i As Integer = GridView_SG.GetRowHandle(GridView_SG.DataRowCount)
+                If GridView_SG.IsNewItemRow(i) Then
+                    GridView_SG.SetRowCellValue(i, "Id_seguro", Format(Now, "yyMMddHHmmssfff"))
+                    GridView_SG.SetRowCellValue(i, "RL_id_costeo", ID)
+                    If TE_Fecha_de_recepción.EditValue <> Nothing Then GridView_SG.SetRowCellValue(i, "Fecha_de_provisión", Convert.ToDateTime(TE_Fecha_de_recepción.EditValue).ToShortDateString)
+                    GridView_SG.SetRowCellValue(i, "Empresa", LUE_Empresa.EditValue)
+                    GridView_SG.SetRowCellValue(i, "Póliza_de_seguro", SQL.Extraer_informacion_de_columna("Poliza_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'"))
+                    GridView_SG.SetRowCellValue(i, "Guia|BL|Carta_de_porte", TE_Guia_BL_Carta_de_porte.EditValue)
+                    If TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue <> Nothing Then GridView_SG.SetRowCellValue(i, "Fecha_de_Guia|BL|Carta_de_porte", Convert.ToDateTime(TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue).ToShortDateString)
+                    GridView_SG.SetRowCellValue(i, "Shipper|Carrier", LUE_Shipper_Carrier.EditValue)
+
+                    Dim SB As New StringBuilder()
+                    Dim Separador As String = Nothing
+                    For F As Integer = 0 To GridView_DE.RowCount - 2
+                        If Not GridView_DE.IsNewItemRow(F) Then
+                            SB.Append(Separador).Append(GridView_DE.GetRowCellValue(F, "Documento"))
+                            Separador = "\"
+                        End If
+                    Next
+
+                    GridView_SG.SetRowCellValue(i, "Documentos", SB.ToString)
+                    GridView_SG.SetRowCellValue(i, "Contenedores_o_bultos", TE_Contenedores_o_bultos.EditValue)
+                    GridView_SG.SetRowCellValue(i, "Tipo_de_mercaderia", LUE_Tipo_de_mercadería.EditValue + " marca " + LUE_Marca.Text)
+                    GridView_SG.SetRowCellValue(i, "País_de_procedencia", TE_País_de_procedencia.EditValue)
+                    GridView_SG.SetRowCellValue(i, "Tipo_de_importacion", LUE_Tipo_de_importación.EditValue)
+                    GridView_SG.SetRowCellValue(i, "Factor_de_cambio_GTQ", TE_Factor_de_cambio_GTQ.EditValue)
+                    GridView_SG.SetRowCellValue(i, "Valor_costo", Documentos_USD)
+                    GridView_SG.SetRowCellValue(i, "Gastos_comprobables", Gastos_USD)
+                    GridView_SG.SetRowCellValue(i, "Total_costos_y_gastos", Documentos_USD + Gastos_USD)
+
+                    GridView_SG.SetRowCellValue(i, "Factor_prima", Val(SQL.Extraer_informacion_de_columna("Prima_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
+                    GridView_SG.SetRowCellValue(i, "Prima", Val(GridView_SG.GetRowCellValue(i, "Total_costos_y_gastos").ToString) * Val(GridView_SG.GetRowCellValue(i, "Factor_prima").ToString))
+
+                    GridView_SG.SetRowCellValue(i, "Factor_gastos_de_emisión", Val(SQL.Extraer_informacion_de_columna("[%_gastos_de_emisión]", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
+                    GridView_SG.SetRowCellValue(i, "Gastos_de_emisión", Val(GridView_SG.GetRowCellValue(i, "Prima").ToString) * Val(GridView_SG.GetRowCellValue(i, "Factor_gastos_de_emisión").ToString))
+
+                    GridView_SG.SetRowCellValue(i, "Total_seguro_USD", Val(GridView_SG.GetRowCellValue(i, "Prima").ToString) + Val(GridView_SG.GetRowCellValue(i, "Gastos_de_emisión").ToString))
+
+                    GridView_SG.SetRowCellValue(i, "Total_seguro_GTQ", Val(GridView_SG.GetRowCellValue(i, "Total_seguro_USD").ToString) * Val(GridView_SG.GetRowCellValue(i, "Factor_de_cambio_GTQ").ToString))
+
+                End If
+
+            Else
+
+                If TE_Fecha_de_recepción.EditValue <> Nothing Then GridView_SG.SetRowCellValue(0, "Fecha_de_provisión", Convert.ToDateTime(TE_Fecha_de_recepción.EditValue).ToShortDateString)
+                GridView_SG.SetRowCellValue(0, "Empresa", LUE_Empresa.EditValue)
+                GridView_SG.SetRowCellValue(0, "Póliza_de_seguro", SQL.Extraer_informacion_de_columna("Poliza_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'"))
+                GridView_SG.SetRowCellValue(0, "Guia|BL|Carta_de_porte", TE_Guia_BL_Carta_de_porte.EditValue)
+                If TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue <> Nothing Then GridView_SG.SetRowCellValue(0, "Fecha_de_Guia|BL|Carta_de_porte", Convert.ToDateTime(TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue).ToShortDateString)
+                GridView_SG.SetRowCellValue(0, "Shipper|Carrier", LUE_Shipper_Carrier.EditValue)
+
+                Dim SB As New StringBuilder()
+                Dim Separador As String = Nothing
+                For F As Integer = 0 To GridView_DE.RowCount - 2
+                    If Not GridView_DE.IsNewItemRow(F) Then
+                        SB.Append(Separador).Append(GridView_DE.GetRowCellValue(F, "Documento"))
+                        Separador = "\"
+                    End If
+                Next
+
+                GridView_SG.SetRowCellValue(0, "Documentos", SB.ToString)
+                GridView_SG.SetRowCellValue(0, "Contenedores_o_bultos", TE_Contenedores_o_bultos.EditValue)
+                GridView_SG.SetRowCellValue(0, "Tipo_de_mercaderia", LUE_Tipo_de_mercadería.EditValue + " marca " + LUE_Marca.Text)
+                GridView_SG.SetRowCellValue(0, "País_de_procedencia", TE_País_de_procedencia.EditValue)
+                GridView_SG.SetRowCellValue(0, "Tipo_de_importacion", LUE_Tipo_de_importación.EditValue)
+                GridView_SG.SetRowCellValue(0, "Factor_de_cambio_GTQ", TE_Factor_de_cambio_GTQ.EditValue)
+                GridView_SG.SetRowCellValue(0, "Valor_costo", Documentos_USD)
+                GridView_SG.SetRowCellValue(0, "Gastos_comprobables", Gastos_USD)
+                GridView_SG.SetRowCellValue(0, "Total_costos_y_gastos", Documentos_USD + Gastos_USD)
+
+                GridView_SG.SetRowCellValue(0, "Factor_prima", Val(SQL.Extraer_informacion_de_columna("Prima_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
+                GridView_SG.SetRowCellValue(0, "Prima", Val(GridView_SG.GetRowCellValue(0, "Total_costos_y_gastos").ToString) * Val(GridView_SG.GetRowCellValue(0, "Factor_prima").ToString))
+
+                GridView_SG.SetRowCellValue(0, "Factor_gastos_de_emisión", Val(SQL.Extraer_informacion_de_columna("[%_gastos_de_emisión]", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
+                GridView_SG.SetRowCellValue(0, "Gastos_de_emisión", Val(GridView_SG.GetRowCellValue(0, "Prima").ToString) * Val(GridView_SG.GetRowCellValue(0, "Factor_gastos_de_emisión").ToString))
+
+                GridView_SG.SetRowCellValue(0, "Total_seguro_USD", Val(GridView_SG.GetRowCellValue(0, "Prima").ToString) + Val(GridView_SG.GetRowCellValue(0, "Gastos_de_emisión").ToString))
+
+                GridView_SG.SetRowCellValue(0, "Total_seguro_GTQ", Val(GridView_SG.GetRowCellValue(0, "Total_seguro_USD").ToString) * Val(GridView_SG.GetRowCellValue(0, "Factor_de_cambio_GTQ").ToString))
+
+            End If
+
+            GridView_SG.PostEditor()
+            GridView_SG.UpdateCurrentRow()
+        End If
+        GridView_SG.UpdateSummary()
     End Sub
 
 #End Region
@@ -1001,6 +1096,7 @@
                 Cargar_contabilidad()
                 Descripción_contable = "Registro de mercadería en transito al inventario tipo " + LUE_Tipo_de_importación.EditValue + " de " + LUE_Proveedor.EditValue + " " + LUE_Tipo_de_mercadería.EditValue + " marca " + LUE_Marca.Text + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda
 
+                'Documentos del exterior
                 If GridView_DE.RowCount > 0 Then
                     For i As Integer = 0 To GridView_DE.DataRowCount - 1
 
@@ -1061,6 +1157,7 @@
                     Next
                 End If
 
+                'DAI
                 If TE_DAI.EditValue <> Nothing Then
 
                     GridView_CT.AddNewRow()
@@ -1082,6 +1179,7 @@
 
                 End If
 
+                'IVA
                 If TE_IVA.EditValue <> Nothing Then
 
                     GridView_CT.AddNewRow()
@@ -1106,6 +1204,7 @@
 
                 End If
 
+                'DAI e IVA
                 If TE_DAI_IVA.EditValue <> Nothing Then
 
                     GridView_CT.AddNewRow()
@@ -1127,6 +1226,73 @@
 
                 End If
 
+                'Perdida o ganancia cambiaria
+                If LUE_Tipo_de_mercadería.EditValue = "Vehiculos" And GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue <> 0 Then
+                    For X As Integer = 1 To 2
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+                            Select Case X
+                                Case 1
+
+                                    If GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue < 0 Then
+                                        GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_PerCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_PerCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_PerCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_PerCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_PerCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " Perdida cambiaria " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                        GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                        GridView_CT.SetRowCellValue(Dr, "Debe", Math.Abs(GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue))
+                                        GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                    Else
+                                        GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " Ganancia cambiaria " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                        GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                        GridView_CT.SetRowCellValue(Dr, "Debe", Math.Abs(GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue))
+                                        GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                    End If
+
+                                Case 2
+
+                                    If GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue < 0 Then
+                                        GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_MercTran"))
+                                        GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " Perdida cambiaria " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                        GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                        GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                        GridView_CT.SetRowCellValue(Dr, "Haber", Math.Abs(GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue))
+                                    Else
+                                        GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_GanCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_GanCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_GanCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_GanCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_GanCamb"))
+                                        GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " Ganancia cambiaria " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                        GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                        GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                        GridView_CT.SetRowCellValue(Dr, "Haber", Math.Abs(GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue))
+                                    End If
+
+                            End Select
+
+
+                        End If
+                    Next
+                End If
+
+                'Documentos locales
                 If GridView_DL.RowCount > 0 Then
                     For i As Integer = 0 To GridView_DL.DataRowCount - 1
 
@@ -1159,11 +1325,20 @@
 
                                         Case 2
 
-                                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_GtsLoc"))
-                                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_GtsLoc"))
-                                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_GtsLoc"))
-                                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_GtsLoc"))
-                                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_GtsLoc"))
+                                            If LUE_Tipo_de_mercadería.EditValue = "Vehiculos" And GridView_DL.GetRowCellValue(i, "Tipo_de_gasto") = "Iprima" Then
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvNeg"))
+                                            Else
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_GtsLoc"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_GtsLoc"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_GtsLoc"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_GtsLoc"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_GtsLoc"))
+                                            End If
+
                                             GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DL.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DL.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DL.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + GridView_DL.GetRowCellValue(i, "Proveedor") + " " + GridView_DL.GetRowCellValue(i, "Tipo_de_gasto") + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
                                             GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
 
@@ -1186,6 +1361,76 @@
                         End If
                     Next
                 End If
+
+                'Seguro
+                If GridView_SG.RowCount > 0 Then
+                    For i As Integer = 0 To GridView_SG.DataRowCount - 1
+
+                        If GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ") <> 0 Then
+
+                            For X As Integer = 1 To 2
+
+                                GridView_CT.AddNewRow()
+                                Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                                If GridView_CT.IsNewItemRow(Dr) Then
+
+                                    Select Case X
+                                        Case 1
+
+                                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_Inv"))
+                                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_Inv"))
+                                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_Inv"))
+                                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_Inv"))
+                                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_Inv"))
+                                            GridView_CT.SetRowCellValue(Dr, "Descripción", "Póliza de seguro " + GridView_SG.GetRowCellValue(i, "Póliza_de_seguro") + " " + Convert.ToDateTime(GridView_SG.GetRowCellValue(i, "Fecha_de_provisión")).ToShortDateString + " " + GridView_SG.GetRowCellValue(i, "Tipo_de_mercaderia") + " Seguro " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                            If GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ") > 0 Then
+                                                GridView_CT.SetRowCellValue(Dr, "Debe", GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ"))
+                                                GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                            Else
+                                                GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                GridView_CT.SetRowCellValue(Dr, "Haber", GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ"))
+                                            End If
+
+                                        Case 2
+
+                                            If LUE_Tipo_de_mercadería.EditValue = "Vehiculos" Then
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_MercTran"))
+                                            Else
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvNeg"))
+                                            End If
+                                            GridView_CT.SetRowCellValue(Dr, "Descripción", "Póliza de seguro " + GridView_SG.GetRowCellValue(i, "Póliza_de_seguro") + " " + Convert.ToDateTime(GridView_SG.GetRowCellValue(i, "Fecha_de_provisión")).ToShortDateString + " " + GridView_SG.GetRowCellValue(i, "Tipo_de_mercaderia") + " Seguro " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                            If GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ") > 0 Then
+                                                GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                GridView_CT.SetRowCellValue(Dr, "Haber", GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ"))
+                                            Else
+                                                GridView_CT.SetRowCellValue(Dr, "Debe", GridView_SG.GetRowCellValue(i, "Total_seguro_GTQ"))
+                                                GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                            End If
+
+                                    End Select
+
+                                End If
+
+                                GridView_CT.PostEditor()
+                                GridView_CT.UpdateCurrentRow()
+
+                            Next
+                        End If
+                    Next
+                End If
+
 
             Case "Contabilizar"
 
@@ -1273,6 +1518,85 @@
         Total_general()
         FN.Estado_del_menú("Guardar", BarManager)
         LUE_Empresa.Focus()
+    End Sub
+
+    Private Sub BBI_Cargar_datos_costeo_vehiculos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Cargar_datos_costeo_vehiculos.ItemClick
+        If LUE_Tipo_de_mercadería.EditValue = "Vehiculos" Then
+            Dim File As New OpenFileDialog() With {.Filter = "Excel|*.xlsx;*.xlsm;*.xls"}
+            If File.ShowDialog() = DialogResult.OK Then
+
+                Dim Dt_BL As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select BL,Fecha_de_arribo From [Costeo$] Group By BL,Fecha_de_arribo")
+
+                If Dt_BL(0)("BL").ToString <> "" Then
+                    TE_Guia_BL_Carta_de_porte.EditValue = Dt_BL(0)("BL")
+                    TE_Fecha_de_arribo.EditValue = Convert.ToDateTime(Dt_BL(0)("Fecha_de_arribo")).ToShortDateString + " 08:00:00"
+                End If
+
+                Dim Dt_PLZ As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select Poliza,Tasa_DUA From [Costeo$] Group By Poliza,Tasa_DUA")
+                If Dt_PLZ(0)("Poliza").ToString <> "" Then
+                    Dim PLZ() As String = Split(Dt_PLZ(0)("Poliza"), "-")
+                    TE_Compra.EditValue = PLZ(0)
+                    TE_Ingreso_a_bodega.EditValue = PLZ(1)
+                    TE_Fecha_de_ingreso_a_bodega.EditValue = Now
+                    LUE_Tipo_de_costeo.EditValue = "Normal"
+                    LUE_Estado.EditValue = "Completo"
+                    LUE_Moneda_de_negociación.EditValue = "USD"
+                    LUE_Moneda.EditValue = "USD"
+                    TE_Dua_Fauca_Face.EditValue = Dt_PLZ(0)("Poliza")
+                    TE_Factor_de_cambio_GTQ.EditValue = Dt_PLZ(0)("Tasa_DUA")
+                End If
+
+                ValidateChildren()
+                FN.Validar_controles(NP_Datos_de_importación)
+                FN.Validar_controles(NP_Declaración_aduanal)
+
+                Dim Dt_DOC As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select Pedido,Factura,Tasa,Sum(Fob) As FOB,Sum(Flete) As Flete,Sum(Seguro) As Seguro,Sum(Arancel) As Arancel,Sum(Agente)+Sum(Gastos_bancarios)+Sum(Terrestre)+Sum(Muellaje)+Sum(Oirsa)+Sum(Otros) As Gastos From [Costeo$] Group By Pedido,Factura,Tasa")
+                For Each Dr As DataRow In Dt_DOC.Rows
+                    If Dr("Factura").ToString <> "" Then
+                        GridView_DE.AddNewRow()
+                        Dim Dr_DE As Integer = GridView_DE.GetRowHandle(GridView_DE.DataRowCount)
+                        If GridView_DE.IsNewItemRow(Dr_DE) Then
+                            GridView_DE.SetRowCellValue(Dr_DE, "Tipo_de_documento", "Invoice")
+                            GridView_DE.SetRowCellValue(Dr_DE, "Documento", Dr("Factura").ToString + "-" + Dr("Pedido").ToString)
+                            GridView_DE.SetRowCellValue(Dr_DE, "Fecha", Convert.ToDateTime(TE_Fecha_de_arribo.EditValue).ToShortDateString)
+                            GridView_DE.SetRowCellValue(Dr_DE, "FOB", Dr("FOB"))
+                            GridView_DE.SetRowCellValue(Dr_DE, "Flete", Dr("Flete"))
+                            GridView_DE.SetRowCellValue(Dr_DE, "Factor_de_provisión_USD", 1)
+                            GridView_DE.SetRowCellValue(Dr_DE, "Factor_de_provisión_GTQ", Dr("Tasa"))
+                            GridView_DE.PostEditor()
+                            GridView_DE.UpdateCurrentRow()
+                        End If
+                    End If
+
+                    For x As Integer = 1 To 2
+                        GridView_DL.AddNewRow()
+                        Dim Dr_DL As Integer = GridView_DL.GetRowHandle(GridView_DL.DataRowCount)
+                        If GridView_DE.IsNewItemRow(Dr_DL) Then
+                            Select Case x
+                                Case 1
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_documento", "Recibo")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Documento", TE_Dua_Fauca_Face.EditValue + "-" + Dr("Pedido").ToString)
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Fecha", Convert.ToDateTime(Now).ToShortDateString)
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Proveedor", "SAT")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_gasto", "Iprima")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Valor", Dr("Arancel"))
+                                Case 2
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_documento", "GTS")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Documento", TE_Dua_Fauca_Face.EditValue + "-" + Dr("Pedido").ToString)
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Fecha", Convert.ToDateTime(Now).ToShortDateString)
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Proveedor", "GENERAL")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_gasto", "Gastos de importación")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Valor", Dr("Gastos"))
+                            End Select
+                        End If
+                        GridView_DL.PostEditor()
+                        GridView_DL.UpdateCurrentRow()
+                    Next
+
+                Next
+
+            End If
+        End If
     End Sub
 
     Private Sub Guardar(Instrucción As String)
@@ -1600,101 +1924,6 @@
             TE_Factor_USD.EditValue = Nothing
         End If
 
-    End Sub
-
-    Private Sub Seguro()
-        If CK_Recibido.EditValue = True And LUE_Incoterm.EditValue <> Nothing And TE_Factor_de_cambio_GTQ.EditValue <> Nothing Then
-            Dim Documentos_USD As Double = GridView_DE.Columns("Total_USD").SummaryItem.SummaryValue
-            Dim Gastos_USD As Double = Val(TE_DAI.EditValue + GridView_DL.Columns("Valor_sin_IVA").SummaryItem.SummaryValue) / Val(TE_Factor_de_cambio_GTQ.EditValue)
-
-            If GridView_SG.RowCount = 0 Then
-                GridView_SG.AddNewRow()
-                Dim i As Integer = GridView_SG.GetRowHandle(GridView_SG.DataRowCount)
-                If GridView_SG.IsNewItemRow(i) Then
-                    GridView_SG.SetRowCellValue(i, "Id_seguro", Format(Now, "yyMMddHHmmss"))
-                    GridView_SG.SetRowCellValue(i, "RL_id_costeo", ID)
-                    If TE_Fecha_de_recepción.EditValue <> Nothing Then GridView_SG.SetRowCellValue(i, "Fecha_de_provisión", Convert.ToDateTime(TE_Fecha_de_recepción.EditValue).ToShortDateString)
-                    GridView_SG.SetRowCellValue(i, "Empresa", LUE_Empresa.EditValue)
-                    GridView_SG.SetRowCellValue(i, "Póliza_de_seguro", SQL.Extraer_informacion_de_columna("Poliza_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'"))
-                    GridView_SG.SetRowCellValue(i, "Guia|BL|Carta_de_porte", TE_Guia_BL_Carta_de_porte.EditValue)
-                    If TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue <> Nothing Then GridView_SG.SetRowCellValue(i, "Fecha_de_Guia|BL|Carta_de_porte", Convert.ToDateTime(TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue).ToShortDateString)
-                    GridView_SG.SetRowCellValue(i, "Shipper|Carrier", LUE_Shipper_Carrier.EditValue)
-
-                    Dim SB As New StringBuilder()
-                    Dim Separador As String = Nothing
-                    For F As Integer = 0 To GridView_DE.RowCount - 2
-                        If Not GridView_DE.IsNewItemRow(F) Then
-                            SB.Append(Separador).Append(GridView_DE.GetRowCellValue(F, "Documento"))
-                            Separador = "\"
-                        End If
-                    Next
-
-                    GridView_SG.SetRowCellValue(i, "Documentos", SB.ToString)
-                    GridView_SG.SetRowCellValue(i, "Contenedores_o_bultos", TE_Contenedores_o_bultos.EditValue)
-                    GridView_SG.SetRowCellValue(i, "Tipo_de_mercaderia", LUE_Tipo_de_mercadería.EditValue + " marca " + LUE_Marca.Text)
-                    GridView_SG.SetRowCellValue(i, "País_de_procedencia", TE_País_de_procedencia.EditValue)
-                    GridView_SG.SetRowCellValue(i, "Tipo_de_importacion", LUE_Tipo_de_importación.EditValue)
-                    GridView_SG.SetRowCellValue(i, "Factor_de_cambio_GTQ", TE_Factor_de_cambio_GTQ.EditValue)
-                    GridView_SG.SetRowCellValue(i, "Valor_costo", Documentos_USD)
-                    GridView_SG.SetRowCellValue(i, "Gastos_comprobables", Gastos_USD)
-                    GridView_SG.SetRowCellValue(i, "Total_costos_y_gastos", Documentos_USD + Gastos_USD)
-
-                    GridView_SG.SetRowCellValue(i, "Factor_prima", Val(SQL.Extraer_informacion_de_columna("Prima_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
-                    GridView_SG.SetRowCellValue(i, "Prima", Val(GridView_SG.GetRowCellValue(i, "Total_costos_y_gastos").ToString) * Val(GridView_SG.GetRowCellValue(i, "Factor_prima").ToString))
-
-                    GridView_SG.SetRowCellValue(i, "Factor_gastos_de_emisión", Val(SQL.Extraer_informacion_de_columna("[%_gastos_de_emisión]", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
-                    GridView_SG.SetRowCellValue(i, "Gastos_de_emisión", Val(GridView_SG.GetRowCellValue(i, "Prima").ToString) * Val(GridView_SG.GetRowCellValue(i, "Factor_gastos_de_emisión").ToString))
-
-                    GridView_SG.SetRowCellValue(i, "Total_seguro_USD", Val(GridView_SG.GetRowCellValue(i, "Prima").ToString) + Val(GridView_SG.GetRowCellValue(i, "Gastos_de_emisión").ToString))
-
-                    GridView_SG.SetRowCellValue(i, "Total_seguro_GTQ", Val(GridView_SG.GetRowCellValue(i, "Total_seguro_USD").ToString) * Val(GridView_SG.GetRowCellValue(i, "Factor_de_cambio_GTQ").ToString))
-
-                End If
-
-            Else
-
-                If TE_Fecha_de_recepción.EditValue <> Nothing Then GridView_SG.SetRowCellValue(0, "Fecha_de_provisión", Convert.ToDateTime(TE_Fecha_de_recepción.EditValue).ToShortDateString)
-                GridView_SG.SetRowCellValue(0, "Empresa", LUE_Empresa.EditValue)
-                GridView_SG.SetRowCellValue(0, "Póliza_de_seguro", SQL.Extraer_informacion_de_columna("Poliza_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'"))
-                GridView_SG.SetRowCellValue(0, "Guia|BL|Carta_de_porte", TE_Guia_BL_Carta_de_porte.EditValue)
-                If TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue <> Nothing Then GridView_SG.SetRowCellValue(0, "Fecha_de_Guia|BL|Carta_de_porte", Convert.ToDateTime(TE_Fecha_de_Guia_BL_Carta_de_porte.EditValue).ToShortDateString)
-                GridView_SG.SetRowCellValue(0, "Shipper|Carrier", LUE_Shipper_Carrier.EditValue)
-
-                Dim SB As New StringBuilder()
-                Dim Separador As String = Nothing
-                For F As Integer = 0 To GridView_DE.RowCount - 2
-                    If Not GridView_DE.IsNewItemRow(F) Then
-                        SB.Append(Separador).Append(GridView_DE.GetRowCellValue(F, "Documento"))
-                        Separador = "\"
-                    End If
-                Next
-
-                GridView_SG.SetRowCellValue(0, "Documentos", SB.ToString)
-                GridView_SG.SetRowCellValue(0, "Contenedores_o_bultos", TE_Contenedores_o_bultos.EditValue)
-                GridView_SG.SetRowCellValue(0, "Tipo_de_mercaderia", LUE_Tipo_de_mercadería.EditValue + " marca " + LUE_Marca.Text)
-                GridView_SG.SetRowCellValue(0, "País_de_procedencia", TE_País_de_procedencia.EditValue)
-                GridView_SG.SetRowCellValue(0, "Tipo_de_importacion", LUE_Tipo_de_importación.EditValue)
-                GridView_SG.SetRowCellValue(0, "Factor_de_cambio_GTQ", TE_Factor_de_cambio_GTQ.EditValue)
-                GridView_SG.SetRowCellValue(0, "Valor_costo", Documentos_USD)
-                GridView_SG.SetRowCellValue(0, "Gastos_comprobables", Gastos_USD)
-                GridView_SG.SetRowCellValue(0, "Total_costos_y_gastos", Documentos_USD + Gastos_USD)
-
-                GridView_SG.SetRowCellValue(0, "Factor_prima", Val(SQL.Extraer_informacion_de_columna("Prima_de_seguro", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
-                GridView_SG.SetRowCellValue(0, "Prima", Val(GridView_SG.GetRowCellValue(0, "Total_costos_y_gastos").ToString) * Val(GridView_SG.GetRowCellValue(0, "Factor_prima").ToString))
-
-                GridView_SG.SetRowCellValue(0, "Factor_gastos_de_emisión", Val(SQL.Extraer_informacion_de_columna("[%_gastos_de_emisión]", "Incoterms", "Where Incoterm='" + LUE_Incoterm.EditValue + "'")))
-                GridView_SG.SetRowCellValue(0, "Gastos_de_emisión", Val(GridView_SG.GetRowCellValue(0, "Prima").ToString) * Val(GridView_SG.GetRowCellValue(0, "Factor_gastos_de_emisión").ToString))
-
-                GridView_SG.SetRowCellValue(0, "Total_seguro_USD", Val(GridView_SG.GetRowCellValue(0, "Prima").ToString) + Val(GridView_SG.GetRowCellValue(0, "Gastos_de_emisión").ToString))
-
-                GridView_SG.SetRowCellValue(0, "Total_seguro_GTQ", Val(GridView_SG.GetRowCellValue(0, "Total_seguro_USD").ToString) * Val(GridView_SG.GetRowCellValue(0, "Factor_de_cambio_GTQ").ToString))
-
-            End If
-
-            GridView_SG.PostEditor()
-            GridView_SG.UpdateCurrentRow()
-        End If
-        GridView_SG.UpdateSummary()
     End Sub
 
 End Class
