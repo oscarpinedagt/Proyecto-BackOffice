@@ -61,7 +61,6 @@
             .Columns(.ValueMember).Caption = Replace(.ValueMember, "_", " ")
             .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         End With
-        GridControl.RepositoryItems.Add(Item_directorio_matriz)
         GridView.Columns("Directorio_matriz").ColumnEdit = Item_directorio_matriz
     End Sub
 
@@ -75,7 +74,6 @@
             .Columns(.ValueMember).Caption = "Empresa"
             .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         End With
-        GridControl.RepositoryItems.Add(Item_Empresa)
         GridView.Columns("Empresa").ColumnEdit = Item_Empresa
     End Sub
 
@@ -89,7 +87,6 @@
             .Columns(.ValueMember).Caption = Replace(.ValueMember, "_", " ")
             .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         End With
-        GridControl.RepositoryItems.Add(Item_tipo_de_mercaderia)
         GridView.Columns("Tipo_de_mercaderia").ColumnEdit = Item_tipo_de_mercaderia
     End Sub
 
@@ -103,7 +100,6 @@
             .Columns("Sub_empresa").Caption = Replace("Sub_empresa", "_", " ")
             .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         End With
-        GridControl.RepositoryItems.Add(Item_SE)
         GridView.Columns("SE").ColumnEdit = Item_SE
     End Sub
 
