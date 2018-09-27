@@ -125,6 +125,12 @@
     <Compile Include="DS_BackOffice.vb">
       <DependentUpon>DS_BackOffice.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimiento - Tipos de gasto.Designer.vb">
+      <DependentUpon>Mantenimiento - Tipos de gasto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento - Tipos de gasto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Seguimientos - Elaboración de costeos.Designer.vb">
       <DependentUpon>Seguimientos - Elaboración de costeos.vb</DependentUpon>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Costos e Importaciones.resx">
       <DependentUpon>Costos e Importaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimiento - Tipos de gasto.resx">
+      <DependentUpon>Mantenimiento - Tipos de gasto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Elaboración de costeos.resx">
       <DependentUpon>Seguimientos - Elaboración de costeos.vb</DependentUpon>

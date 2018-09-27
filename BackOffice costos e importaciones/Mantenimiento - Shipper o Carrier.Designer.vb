@@ -41,6 +41,7 @@ Partial Class Mantenimiento_Shipper_o_Carrier
         '
         Me.GridView.GridControl = Me.GridControl
         Me.GridView.Name = "GridView"
+        Me.GridView.OptionsFind.AlwaysVisible = True
         Me.GridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False

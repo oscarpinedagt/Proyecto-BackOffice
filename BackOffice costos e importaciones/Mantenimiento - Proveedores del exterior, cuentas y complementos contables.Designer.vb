@@ -41,6 +41,7 @@ Partial Class Mantenimiento_Proveedores_del_exterior_cuentas_y_complementos_cont
         '
         Me.GridView.GridControl = Me.GridControl
         Me.GridView.Name = "GridView"
+        Me.GridView.OptionsFind.AlwaysVisible = True
         Me.GridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
