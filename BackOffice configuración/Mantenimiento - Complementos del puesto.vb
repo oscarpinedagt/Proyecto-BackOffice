@@ -1,4 +1,4 @@
-﻿Public Class Complementos_del_puesto
+﻿Public Class Mantenimiento_Complementos_del_puesto
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim Edicion As Boolean, i As Integer, Id_CP, Id_DP As Integer, Id_DV As Integer, Id_AR As Integer

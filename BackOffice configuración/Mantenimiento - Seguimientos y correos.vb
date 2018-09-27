@@ -1,4 +1,4 @@
-﻿Public Class Seguimientos_y_correos
+﻿Public Class Mantenimiento_Seguimientos_y_correos
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
 

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Contraseñas
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Mantenimiento_Seguimientos_y_correos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,9 +17,9 @@ Partial Class Contraseñas
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Contraseñas))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Seguimientos_y_correos))
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,16 +45,16 @@ Partial Class Contraseñas
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
-        'Contraseñas
+        'Mantenimiento_Seguimientos_y_correos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(498, 318)
         Me.Controls.Add(Me.GridControl)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Contraseñas"
+        Me.Name = "Mantenimiento_Seguimientos_y_correos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Contraseñas"
+        Me.Text = "Mantenimiento - Seguimientos y correos"
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -62,5 +62,5 @@ Partial Class Contraseñas
     End Sub
 
     Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
+    Public WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

@@ -1,4 +1,4 @@
-﻿Public Class Empresa
+﻿Public Class Mantenimiento_Empresa
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim ID As Integer, Edicion As Boolean

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Tipos_de_mercaderia
+Partial Class Mantenimiento_Sub_empresa
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -19,7 +19,7 @@ Partial Class Tipos_de_mercaderia
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tipos_de_mercaderia))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Sub_empresa))
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -33,7 +33,7 @@ Partial Class Tipos_de_mercaderia
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
         Me.GridControl.Size = New System.Drawing.Size(498, 318)
-        Me.GridControl.TabIndex = 1
+        Me.GridControl.TabIndex = 0
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
         '
@@ -45,16 +45,19 @@ Partial Class Tipos_de_mercaderia
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
-        'Tipos_de_mercaderia
+        'Mantenimiento_Sub_empresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(498, 318)
         Me.Controls.Add(Me.GridControl)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Tipos_de_mercaderia"
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "Mantenimiento_Sub_empresa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Tipos de mercaderia"
+        Me.Text = "Mantenimiento - Sub empresa"
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

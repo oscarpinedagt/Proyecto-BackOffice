@@ -1,4 +1,4 @@
-﻿Public Class Perfil_del_puesto
+﻿Public Class Mantenimiento_Perfil_del_puesto
     Dim SQL As New BackOffice_datos.SQL
 
     Private Sub Perfil_del_puesto_Load(sender As Object, e As EventArgs) Handles MyBase.Load

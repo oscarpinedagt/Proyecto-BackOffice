@@ -1,4 +1,4 @@
-﻿Public Class Sub_empresa
+﻿Public Class Mantenimiento_Sub_empresa
     Dim SQL As New BackOffice_datos.SQL
 
     Private Sub Sub_empresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load

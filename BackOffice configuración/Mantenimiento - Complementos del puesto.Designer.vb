@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Complementos_del_puesto
+Partial Class Mantenimiento_Complementos_del_puesto
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -19,22 +19,21 @@ Partial Class Complementos_del_puesto
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Complementos_del_puesto))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Complementos_del_puesto))
         Me.Menú = New DevExpress.XtraBars.Bar()
-        Me.DxErrorProvider = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
+        Me.DxErrorProvider = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider()
         Me.TE_Código = New DevExpress.XtraEditors.TextEdit()
         Me.LC_Código = New DevExpress.XtraEditors.LabelControl()
         Me.TE_Descripción = New DevExpress.XtraEditors.TextEdit()
         Me.LC_Descripción = New DevExpress.XtraEditors.LabelControl()
         Me.Tv_Complementos = New System.Windows.Forms.TreeView()
-        Me.Cms_Complementos = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Cms_Complementos = New System.Windows.Forms.ContextMenuStrip()
         Me.Mi_Crear_principal = New System.Windows.Forms.ToolStripMenuItem()
         Me.Mi_Crear_siguiente = New System.Windows.Forms.ToolStripMenuItem()
         Me.Tss_3 = New System.Windows.Forms.ToolStripSeparator()
         Me.Mi_Editar = New System.Windows.Forms.ToolStripMenuItem()
         Me.Mi_Eliminar = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.BarManager = New DevExpress.XtraBars.BarManager()
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.BBI_Nuevo = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Guardar = New DevExpress.XtraBars.BarButtonItem()
@@ -256,7 +255,7 @@ Partial Class Complementos_del_puesto
         Me.barDockControlRight.Manager = Me.BarManager
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 392)
         '
-        'Complementos_del_puesto
+        'Mantenimiento_Complementos_del_puesto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -272,9 +271,9 @@ Partial Class Complementos_del_puesto
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Name = "Complementos_del_puesto"
+        Me.Name = "Mantenimiento_Complementos_del_puesto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Complementos del puesto"
+        Me.Text = "Mantenimiento - Complementos del puesto"
         CType(Me.DxErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Código.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Descripción.Properties, System.ComponentModel.ISupportInitialize).EndInit()

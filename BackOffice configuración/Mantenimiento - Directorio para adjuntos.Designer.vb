@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Tipos_de_moneda
+Partial Class Mantenimiento_Directorio_para_adjuntos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -19,7 +19,7 @@ Partial Class Tipos_de_moneda
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tipos_de_moneda))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Directorio_para_adjuntos))
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,19 +45,16 @@ Partial Class Tipos_de_moneda
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
-        'Tipos_de_moneda
+        'Mantenimiento_Directorio_para_adjuntos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(498, 318)
         Me.Controls.Add(Me.GridControl)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "Tipos_de_moneda"
+        Me.Name = "Mantenimiento_Directorio_para_adjuntos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Tipos de moneda"
+        Me.Text = "Mantenimiento - Directorio para adjuntos"
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -65,5 +62,5 @@ Partial Class Tipos_de_moneda
     End Sub
 
     Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
+    Public WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

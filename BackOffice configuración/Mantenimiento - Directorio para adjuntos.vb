@@ -1,4 +1,4 @@
-﻿Public Class Directorio_para_adjuntos
+﻿Public Class Mantenimiento_Directorio_para_adjuntos
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
 

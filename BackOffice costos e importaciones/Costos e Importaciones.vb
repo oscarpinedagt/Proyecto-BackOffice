@@ -2,8 +2,8 @@
     Dim FN As New BackOffice_servicios.Funciones
     Dim Arg() As String = Split(Command$(), "/")
     Public Usuario As String = UCase(Arg(1))
-    Dim DPA As New BackOffice_configuración.Directorio_para_adjuntos
-    Dim SYC As New BackOffice_configuración.Seguimientos_y_correos
+    Dim DPA As New BackOffice_configuración.Mantenimiento_Directorio_para_adjuntos
+    Dim SYC As New BackOffice_configuración.Mantenimiento_Seguimientos_y_correos
 
     Private Sub Costos_e_Importaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Arg(0) = True Then RibbonControl.Enabled = True Else RibbonControl.Enabled = False

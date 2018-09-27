@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Seguimientos_y_correos
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Mantenimiento_Perfil_del_puesto
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,9 +17,9 @@ Partial Class Seguimientos_y_correos
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Seguimientos_y_correos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Perfil_del_puesto))
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -33,7 +33,7 @@ Partial Class Seguimientos_y_correos
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
         Me.GridControl.Size = New System.Drawing.Size(498, 318)
-        Me.GridControl.TabIndex = 3
+        Me.GridControl.TabIndex = 1
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
         '
@@ -45,16 +45,16 @@ Partial Class Seguimientos_y_correos
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
-        'Seguimientos_y_correos
+        'Mantenimiento_Perfil_del_puesto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(498, 318)
         Me.Controls.Add(Me.GridControl)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Seguimientos_y_correos"
+        Me.Name = "Mantenimiento_Perfil_del_puesto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Seguimientos y correos"
+        Me.Text = "Mantenimiento - Perfil del puesto"
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -62,5 +62,5 @@ Partial Class Seguimientos_y_correos
     End Sub
 
     Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
-    Public WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

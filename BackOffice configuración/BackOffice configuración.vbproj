@@ -86,10 +86,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Complementos del puesto.Designer.vb">
-      <DependentUpon>Complementos del puesto.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Complementos del puesto.Designer.vb">
+      <DependentUpon>Mantenimiento - Complementos del puesto.vb</DependentUpon>
     </Compile>
-    <Compile Include="Complementos del puesto.vb">
+    <Compile Include="Mantenimiento - Complementos del puesto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Configuración.Designer.vb">
@@ -98,34 +98,34 @@
     <Compile Include="Configuración.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contraseñas.Designer.vb">
-      <DependentUpon>Contraseñas.vb</DependentUpon>
+    <Compile Include="Administrador - Contraseñas.Designer.vb">
+      <DependentUpon>Administrador - Contraseñas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Contraseñas.vb">
+    <Compile Include="Administrador - Contraseñas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Directorio para adjuntos.Designer.vb">
-      <DependentUpon>Directorio para adjuntos.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Directorio para adjuntos.Designer.vb">
+      <DependentUpon>Mantenimiento - Directorio para adjuntos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Directorio para adjuntos.vb">
+    <Compile Include="Mantenimiento - Directorio para adjuntos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Directorios matrices.Designer.vb">
-      <DependentUpon>Directorios matrices.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Directorios matrices.Designer.vb">
+      <DependentUpon>Mantenimiento - Directorios matrices.vb</DependentUpon>
     </Compile>
-    <Compile Include="Directorios matrices.vb">
+    <Compile Include="Mantenimiento - Directorios matrices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empresa.Designer.vb">
-      <DependentUpon>Empresa.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Empresa.Designer.vb">
+      <DependentUpon>Mantenimiento - Empresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Empresa.vb">
+    <Compile Include="Mantenimiento - Empresa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Grupo de empresas.Designer.vb">
-      <DependentUpon>Grupo de empresas.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Grupo de empresas.Designer.vb">
+      <DependentUpon>Mantenimiento - Grupo de empresas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Grupo de empresas.vb">
+    <Compile Include="Mantenimiento - Grupo de empresas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -143,40 +143,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Perfil del puesto.Designer.vb">
-      <DependentUpon>Perfil del puesto.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Perfil del puesto.Designer.vb">
+      <DependentUpon>Mantenimiento - Perfil del puesto.vb</DependentUpon>
     </Compile>
-    <Compile Include="Perfil del puesto.vb">
+    <Compile Include="Mantenimiento - Perfil del puesto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguimientos y correos.Designer.vb">
-      <DependentUpon>Seguimientos y correos.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Seguimientos y correos.Designer.vb">
+      <DependentUpon>Mantenimiento - Seguimientos y correos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Seguimientos y correos.vb">
+    <Compile Include="Mantenimiento - Seguimientos y correos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sub empresa.Designer.vb">
-      <DependentUpon>Sub empresa.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Sub empresa.Designer.vb">
+      <DependentUpon>Mantenimiento - Sub empresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Sub empresa.vb">
+    <Compile Include="Mantenimiento - Sub empresa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tipos de mercaderia.Designer.vb">
-      <DependentUpon>Tipos de mercaderia.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Tipos de mercaderia.Designer.vb">
+      <DependentUpon>Mantenimiento - Tipos de mercaderia.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tipos de mercaderia.vb">
+    <Compile Include="Mantenimiento - Tipos de mercaderia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tipos de moneda.Designer.vb">
-      <DependentUpon>Tipos de moneda.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Tipos de moneda.Designer.vb">
+      <DependentUpon>Mantenimiento - Tipos de moneda.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tipos de moneda.vb">
+    <Compile Include="Mantenimiento - Tipos de moneda.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Complementos del puesto.resx">
-      <DependentUpon>Complementos del puesto.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Complementos del puesto.resx">
+      <DependentUpon>Mantenimiento - Complementos del puesto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuración.es-419.resx">
       <DependentUpon>Configuración.vb</DependentUpon>
@@ -184,20 +184,20 @@
     <EmbeddedResource Include="Configuración.resx">
       <DependentUpon>Configuración.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contraseñas.resx">
-      <DependentUpon>Contraseñas.vb</DependentUpon>
+    <EmbeddedResource Include="Administrador - Contraseñas.resx">
+      <DependentUpon>Administrador - Contraseñas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Directorio para adjuntos.resx">
-      <DependentUpon>Directorio para adjuntos.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Directorio para adjuntos.resx">
+      <DependentUpon>Mantenimiento - Directorio para adjuntos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Directorios matrices.resx">
-      <DependentUpon>Directorios matrices.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Directorios matrices.resx">
+      <DependentUpon>Mantenimiento - Directorios matrices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Empresa.resx">
-      <DependentUpon>Empresa.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Empresa.resx">
+      <DependentUpon>Mantenimiento - Empresa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Grupo de empresas.resx">
-      <DependentUpon>Grupo de empresas.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Grupo de empresas.resx">
+      <DependentUpon>Mantenimiento - Grupo de empresas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -206,20 +206,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perfil del puesto.resx">
-      <DependentUpon>Perfil del puesto.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Perfil del puesto.resx">
+      <DependentUpon>Mantenimiento - Perfil del puesto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguimientos y correos.resx">
-      <DependentUpon>Seguimientos y correos.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Seguimientos y correos.resx">
+      <DependentUpon>Mantenimiento - Seguimientos y correos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sub empresa.resx">
-      <DependentUpon>Sub empresa.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Sub empresa.resx">
+      <DependentUpon>Mantenimiento - Sub empresa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tipos de mercaderia.resx">
-      <DependentUpon>Tipos de mercaderia.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Tipos de mercaderia.resx">
+      <DependentUpon>Mantenimiento - Tipos de mercaderia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tipos de moneda.resx">
-      <DependentUpon>Tipos de moneda.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Tipos de moneda.resx">
+      <DependentUpon>Mantenimiento - Tipos de moneda.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿Public Class Tipos_de_mercaderia
+﻿Public Class Mantenimiento_Tipos_de_mercaderia
     Dim SQL As New BackOffice_datos.SQL
 
     Private Sub Tipos_de_mercaderia_Load(sender As Object, e As EventArgs) Handles MyBase.Load

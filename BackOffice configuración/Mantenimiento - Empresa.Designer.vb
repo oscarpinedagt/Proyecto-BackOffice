@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Empresa
+Partial Class Mantenimiento_Empresa
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -19,9 +19,8 @@ Partial Class Empresa
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Empresa))
-        Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Empresa))
+        Me.BarManager = New DevExpress.XtraBars.BarManager()
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Nuevo = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Guardar = New DevExpress.XtraBars.BarButtonItem()
@@ -47,7 +46,7 @@ Partial Class Empresa
         Me.LC_Domicilio_fiscal = New DevExpress.XtraEditors.LabelControl()
         Me.TE_Domicilio_fiscal = New DevExpress.XtraEditors.TextEdit()
         Me.LUE_Grupo_de_empresas = New DevExpress.XtraEditors.LookUpEdit()
-        Me.DxErrorProvider = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
+        Me.DxErrorProvider = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider()
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PE_Imágen.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TE_Nit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -299,7 +298,7 @@ Partial Class Empresa
         '
         Me.DxErrorProvider.ContainerControl = Me
         '
-        'Empresa
+        'Mantenimiento_Empresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -324,9 +323,9 @@ Partial Class Empresa
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Name = "Empresa"
+        Me.Name = "Mantenimiento_Empresa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Empresa"
+        Me.Text = "Mantenimiento - Empresa"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PE_Imágen.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Nit.Properties, System.ComponentModel.ISupportInitialize).EndInit()

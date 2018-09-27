@@ -1,4 +1,4 @@
-﻿Public Class Contraseñas
+﻿Public Class Administrador_Contraseñas
     Dim SQL As New BackOffice_datos.SQL
 
     Private Sub Contraseñas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
