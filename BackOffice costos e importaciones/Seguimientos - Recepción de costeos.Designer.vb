@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Recepción_y_seguimiento_de_costeos
+Partial Class Seguimientos_Recepción_de_costeos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,7 +20,7 @@ Partial Class Recepción_y_seguimiento_de_costeos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Recepción_y_seguimiento_de_costeos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Seguimientos_Recepción_de_costeos))
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Generar_información = New DevExpress.XtraBars.BarButtonItem()
@@ -220,7 +220,7 @@ Partial Class Recepción_y_seguimiento_de_costeos
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
-        'Recepción_y_seguimiento_de_costeos
+        'Seguimientos_Recepción_de_costeos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -233,9 +233,9 @@ Partial Class Recepción_y_seguimiento_de_costeos
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Name = "Recepción_y_seguimiento_de_costeos"
+        Me.Name = "Seguimientos_Recepción_de_costeos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Recepción y seguimiento de costeos"
+        Me.Text = "Seguimientos - Recepción de costeos"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PopupMenu, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).EndInit()

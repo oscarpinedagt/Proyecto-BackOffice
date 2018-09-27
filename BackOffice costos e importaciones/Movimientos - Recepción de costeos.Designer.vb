@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Recepción_de_costeos
+Partial Class Movimientos_Recepción_de_costeos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,7 +20,7 @@ Partial Class Recepción_de_costeos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Recepción_de_costeos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Movimientos_Recepción_de_costeos))
         Dim ButtonImageOptions1 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions2 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
@@ -663,7 +663,7 @@ Partial Class Recepción_de_costeos
         Me.RTBX_Comentarios.TabStop = False
         Me.RTBX_Comentarios.Text = ""
         '
-        'Recepción_de_costeos
+        'Movimientos_Recepción_de_costeos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -680,9 +680,9 @@ Partial Class Recepción_de_costeos
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Name = "Recepción_de_costeos"
+        Me.Name = "Movimientos_Recepción_de_costeos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Recepción de costeos"
+        Me.Text = "Movimientos - Recepción de costeos"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GC_Datos_de_ingreso_a_bodega, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GC_Datos_de_ingreso_a_bodega.ResumeLayout(False)

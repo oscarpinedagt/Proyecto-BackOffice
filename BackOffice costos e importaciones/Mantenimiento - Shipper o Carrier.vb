@@ -1,13 +1,13 @@
-﻿Public Class Incoterms
+﻿Public Class Mantenimiento_Shipper_o_Carrier
     Dim SQL As New BackOffice_datos.SQL
 
-    Private Sub Incoterms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Shipper_o_Carrier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_datos()
         Configurar_GridControl()
     End Sub
 
     Private Sub Cargar_datos()
-        SQL.Tabla_con_actualización_de_datos("Select * From Incoterms")
+        Sql.Tabla_con_actualización_de_datos("Select * From Shipper_Carrier")
         GridControl.DataSource = Sql.DT
     End Sub
 
@@ -16,26 +16,22 @@
             For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns
                 CL.Caption = Replace(CL.FieldName, "_", " ")
                 Select Case CL.FieldName
-                    Case "Id_incoterm"
+                    Case "Id_shipper_carrier"
                         CL.Visible = False
-                End Select
-                Select Case CL.FieldName
-                    Case "Prima_de_seguro", "%_gastos_de_emisión"
-                        CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                        CL.DisplayFormat.FormatString = "N6"
                 End Select
             Next
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
+
     End Sub
 
     Private Sub GridView_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView.InitNewRow
-        GridView.SetRowCellValue(e.RowHandle, "Id_incoterm", SQL.Nuevo_ID("Id_incoterm", "Incoterms"))
+        GridView.SetRowCellValue(e.RowHandle, "Id_shipper_carrier", Sql.Nuevo_ID("Id_shipper_carrier", "Shipper_Carrier"))
     End Sub
 
     Private Sub GridView_ValidateRow(sender As Object, e As DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs) Handles GridView.ValidateRow
-        If GridView.GetRowCellValue(e.RowHandle, "Incoterm").ToString <> "" And GridView.GetRowCellValue(e.RowHandle, "Poliza_de_seguro").ToString <> "" And GridView.GetRowCellValue(e.RowHandle, "Prima_de_seguro").ToString <> "" Then
+        If GridView.GetRowCellValue(e.RowHandle, "Razon_social").ToString <> "" And GridView.GetRowCellValue(e.RowHandle, "Razon_comercial").ToString <> "" Then
             e.Valid = True
         Else
             e.ErrorText = "Todos los campos son requeridos"
@@ -62,4 +58,5 @@
             End If
         End If
     End Sub
+
 End Class

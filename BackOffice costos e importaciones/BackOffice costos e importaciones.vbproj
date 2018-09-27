@@ -125,28 +125,28 @@
     <Compile Include="DS_BackOffice.vb">
       <DependentUpon>DS_BackOffice.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Elaboración y seguimiento de costeos.Designer.vb">
-      <DependentUpon>Elaboración y seguimiento de costeos.vb</DependentUpon>
+    <Compile Include="Seguimientos - Elaboración de costeos.Designer.vb">
+      <DependentUpon>Seguimientos - Elaboración de costeos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Elaboración y seguimiento de costeos.vb">
+    <Compile Include="Seguimientos - Elaboración de costeos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Elaboración y seguimiento.Designer.vb">
-      <DependentUpon>Elaboración y seguimiento.vb</DependentUpon>
+    <Compile Include="Movimientos - Elaboración de costeos.Designer.vb">
+      <DependentUpon>Movimientos - Elaboración de costeos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Elaboración y seguimiento.vb">
+    <Compile Include="Movimientos - Elaboración de costeos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Envió y seguimiento de costeos.Designer.vb">
-      <DependentUpon>Envió y seguimiento de costeos.vb</DependentUpon>
+    <Compile Include="Seguimientos - Envió de costeos.Designer.vb">
+      <DependentUpon>Seguimientos - Envió de costeos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Envió y seguimiento de costeos.vb">
+    <Compile Include="Seguimientos - Envió de costeos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Incoterms.Designer.vb">
-      <DependentUpon>Incoterms.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Incoterms.Designer.vb">
+      <DependentUpon>Mantenimiento - Incoterms.vb</DependentUpon>
     </Compile>
-    <Compile Include="Incoterms.vb">
+    <Compile Include="Mantenimiento - Incoterms.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -164,46 +164,46 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Proveedores cuentas y complementos contables.Designer.vb">
-      <DependentUpon>Proveedores cuentas y complementos contables.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Proveedores del exterior, cuentas y complementos contables.Designer.vb">
+      <DependentUpon>Mantenimiento - Proveedores del exterior, cuentas y complementos contables.vb</DependentUpon>
     </Compile>
-    <Compile Include="Proveedores cuentas y complementos contables.vb">
+    <Compile Include="Mantenimiento - Proveedores del exterior, cuentas y complementos contables.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Proveedores locales.Designer.vb">
-      <DependentUpon>Proveedores locales.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Proveedores locales.Designer.vb">
+      <DependentUpon>Mantenimiento - Proveedores locales.vb</DependentUpon>
     </Compile>
-    <Compile Include="Proveedores locales.vb">
+    <Compile Include="Mantenimiento - Proveedores locales.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recepción de costeos.Designer.vb">
-      <DependentUpon>Recepción de costeos.vb</DependentUpon>
+    <Compile Include="Movimientos - Recepción de costeos.Designer.vb">
+      <DependentUpon>Movimientos - Recepción de costeos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Recepción de costeos.vb">
+    <Compile Include="Movimientos - Recepción de costeos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recepción y seguimiento de costeos.Designer.vb">
-      <DependentUpon>Recepción y seguimiento de costeos.vb</DependentUpon>
+    <Compile Include="Seguimientos - Recepción de costeos.Designer.vb">
+      <DependentUpon>Seguimientos - Recepción de costeos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Recepción y seguimiento de costeos.vb">
+    <Compile Include="Seguimientos - Recepción de costeos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguro.Designer.vb">
-      <DependentUpon>Seguro.vb</DependentUpon>
+    <Compile Include="Reportes - Seguro.Designer.vb">
+      <DependentUpon>Reportes - Seguro.vb</DependentUpon>
     </Compile>
-    <Compile Include="Seguro.vb">
+    <Compile Include="Reportes - Seguro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shipper o Carrier.Designer.vb">
-      <DependentUpon>Shipper o Carrier.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Shipper o Carrier.Designer.vb">
+      <DependentUpon>Mantenimiento - Shipper o Carrier.vb</DependentUpon>
     </Compile>
-    <Compile Include="Shipper o Carrier.vb">
+    <Compile Include="Mantenimiento - Shipper o Carrier.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tipos de costeo.Designer.vb">
-      <DependentUpon>Tipos de costeo.vb</DependentUpon>
+    <Compile Include="Mantenimiento - Tipos de costeo.Designer.vb">
+      <DependentUpon>Mantenimiento - Tipos de costeo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tipos de costeo.vb">
+    <Compile Include="Mantenimiento - Tipos de costeo.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -217,17 +217,17 @@
     <EmbeddedResource Include="Costos e Importaciones.resx">
       <DependentUpon>Costos e Importaciones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Elaboración y seguimiento de costeos.resx">
-      <DependentUpon>Elaboración y seguimiento de costeos.vb</DependentUpon>
+    <EmbeddedResource Include="Seguimientos - Elaboración de costeos.resx">
+      <DependentUpon>Seguimientos - Elaboración de costeos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Elaboración y seguimiento.resx">
-      <DependentUpon>Elaboración y seguimiento.vb</DependentUpon>
+    <EmbeddedResource Include="Movimientos - Elaboración de costeos.resx">
+      <DependentUpon>Movimientos - Elaboración de costeos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Envió y seguimiento de costeos.resx">
-      <DependentUpon>Envió y seguimiento de costeos.vb</DependentUpon>
+    <EmbeddedResource Include="Seguimientos - Envió de costeos.resx">
+      <DependentUpon>Seguimientos - Envió de costeos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Incoterms.resx">
-      <DependentUpon>Incoterms.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Incoterms.resx">
+      <DependentUpon>Mantenimiento - Incoterms.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -236,26 +236,26 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Proveedores cuentas y complementos contables.resx">
-      <DependentUpon>Proveedores cuentas y complementos contables.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Proveedores del exterior, cuentas y complementos contables.resx">
+      <DependentUpon>Mantenimiento - Proveedores del exterior, cuentas y complementos contables.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Proveedores locales.resx">
-      <DependentUpon>Proveedores locales.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Proveedores locales.resx">
+      <DependentUpon>Mantenimiento - Proveedores locales.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recepción de costeos.resx">
-      <DependentUpon>Recepción de costeos.vb</DependentUpon>
+    <EmbeddedResource Include="Movimientos - Recepción de costeos.resx">
+      <DependentUpon>Movimientos - Recepción de costeos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recepción y seguimiento de costeos.resx">
-      <DependentUpon>Recepción y seguimiento de costeos.vb</DependentUpon>
+    <EmbeddedResource Include="Seguimientos - Recepción de costeos.resx">
+      <DependentUpon>Seguimientos - Recepción de costeos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguro.resx">
-      <DependentUpon>Seguro.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes - Seguro.resx">
+      <DependentUpon>Reportes - Seguro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Shipper o Carrier.resx">
-      <DependentUpon>Shipper o Carrier.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Shipper o Carrier.resx">
+      <DependentUpon>Mantenimiento - Shipper o Carrier.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tipos de costeo.resx">
-      <DependentUpon>Tipos de costeo.vb</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento - Tipos de costeo.resx">
+      <DependentUpon>Mantenimiento - Tipos de costeo.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

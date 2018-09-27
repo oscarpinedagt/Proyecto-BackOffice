@@ -1,4 +1,4 @@
-﻿Public Class Recepción_de_costeos
+﻿Public Class Movimientos_Recepción_de_costeos
     Dim SQl As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim Edicion As Boolean, Editables As String

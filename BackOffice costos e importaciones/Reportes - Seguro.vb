@@ -1,4 +1,4 @@
-﻿Public Class Seguro
+﻿Public Class Reportes_seguro
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
 

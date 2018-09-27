@@ -1,4 +1,4 @@
-﻿Public Class Elaboración_y_seguimiento
+﻿Public Class Movimientos_Elaboración_de_costeos
     Dim SQL As New BackOffice_datos.SQL, SQL_DE As New BackOffice_datos.SQL, SQL_DL As New BackOffice_datos.SQL, SQL_SG As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim CT As Costeo

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Tipos_de_costeo
+Partial Class Mantenimiento_Proveedores_del_exterior_cuentas_y_complementos_contables
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -19,7 +19,7 @@ Partial Class Tipos_de_costeo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tipos_de_costeo))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mantenimiento_Proveedores_del_exterior_cuentas_y_complementos_contables))
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -33,7 +33,7 @@ Partial Class Tipos_de_costeo
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
         Me.GridControl.Size = New System.Drawing.Size(498, 318)
-        Me.GridControl.TabIndex = 3
+        Me.GridControl.TabIndex = 4
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
         '
@@ -45,16 +45,16 @@ Partial Class Tipos_de_costeo
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
-        'Tipos_de_costeo
+        'Mantenimiento_Proveedores_del_exterior_cuentas_y_complementos_contables
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(498, 318)
         Me.Controls.Add(Me.GridControl)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Tipos_de_costeo"
+        Me.Name = "Mantenimiento_Proveedores_del_exterior_cuentas_y_complementos_contables"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Tipos de costeo"
+        Me.Text = "Mantenimiento - Proveedores del exterior, cuentas y complementos contables"
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

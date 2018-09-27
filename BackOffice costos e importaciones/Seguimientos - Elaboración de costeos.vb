@@ -1,4 +1,4 @@
-﻿Public Class Elaboración_y_seguimiento_de_costeos
+﻿Public Class Seguimientos_Elaboración_de_costeos
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
 
@@ -104,14 +104,14 @@
 
     Private Sub GridControl_DoubleClick(sender As Object, e As EventArgs) Handles GridControl.DoubleClick
         If GridView.GetRowCellValue(GridView.FocusedRowHandle, "Grupo_de_empresas") = "Grupo Automotriz" Then
-            FN.Abrir_formulario(Costos_e_Importaciones, Elaboración_y_seguimiento)
-            With Elaboración_y_seguimiento
+            FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Elaboración_de_costeos)
+            With Movimientos_Elaboración_de_costeos
                 .ID = GridView.GetRowCellValue(GridView.FocusedRowHandle, "Id_costeo")
                 .Datos_consulta()
             End With
         Else
-            FN.Abrir_formulario(Costos_e_Importaciones, Recepción_de_costeos)
-            With Recepción_de_costeos
+            FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Recepción_de_costeos)
+            With Movimientos_Recepción_de_costeos
                 .ID = GridView.GetRowCellValue(GridView.FocusedRowHandle, "Id_costeo")
                 .Datos_consulta()
             End With

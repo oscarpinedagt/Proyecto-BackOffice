@@ -1,4 +1,4 @@
-﻿Public Class Proveedores_cuentas_y_complementos_contables
+﻿Public Class Mantenimiento_Proveedores_del_exterior_cuentas_y_complementos_contables
     Dim SQL As New BackOffice_datos.SQL
 
     Private Sub Proveedores_cuentas_y_complementos_contables_Load(sender As Object, e As EventArgs) Handles MyBase.Load
