@@ -79,4 +79,8 @@
     Private Sub BBI_MAN_Tipos_de_gasto_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_MAN_Tipos_de_gasto.ItemClick
         FN.Abrir_formulario(Me, Mantenimiento_Tipos_de_gasto)
     End Sub
+
+    Private Sub BBI_SEG_Mercadería_en_transito_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_SEG_Mercadería_en_transito.ItemClick
+        FN.Abrir_formulario(Me, Seguimientos_Mercadería_en_transito)
+    End Sub
 End Class

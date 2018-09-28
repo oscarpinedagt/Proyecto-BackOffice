@@ -1925,4 +1925,9 @@
 
     End Sub
 
+    Public Sub Estado_busqueda()
+        BBI_Cancelar_ItemClick(Nothing, Nothing)
+        FN.Estado_del_menú("Buscar", BarManager)
+    End Sub
+
 End Class

@@ -131,6 +131,12 @@
     <Compile Include="Mantenimiento - Tipos de gasto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Seguimientos - Mercadería en transito.Designer.vb">
+      <DependentUpon>Seguimientos - Mercadería en transito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguimientos - Mercadería en transito.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Seguimientos - Elaboración de costeos.Designer.vb">
       <DependentUpon>Seguimientos - Elaboración de costeos.vb</DependentUpon>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento - Tipos de gasto.resx">
       <DependentUpon>Mantenimiento - Tipos de gasto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguimientos - Mercadería en transito.resx">
+      <DependentUpon>Seguimientos - Mercadería en transito.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Elaboración de costeos.resx">
       <DependentUpon>Seguimientos - Elaboración de costeos.vb</DependentUpon>
