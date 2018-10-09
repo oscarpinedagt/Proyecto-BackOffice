@@ -83,4 +83,8 @@
     Private Sub BBI_SEG_Mercadería_en_transito_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_SEG_Mercadería_en_transito.ItemClick
         FN.Abrir_formulario(Me, Seguimientos_Mercadería_en_transito)
     End Sub
+
+    Private Sub BBI_SEG_Control_de_IPRIMA_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_SEG_Control_de_IPRIMA.ItemClick
+        FN.Abrir_formulario(Me, Seguimientos_Control_de_IPRIMA)
+    End Sub
 End Class

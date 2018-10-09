@@ -9,8 +9,7 @@
     End Sub
 
     Private Sub Cargar_datos(Condicion As String)
-        GridControl.DataSource = SQL.Tabla_de_datos("Select * From Seguro " + Condicion)
-        GridControl.RefreshDataSource()
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Seguro " + Condicion)
         Configurar_GridControl()
     End Sub
 
@@ -78,4 +77,21 @@
             FN.Exportar_GridControl_a_Excel(GridControl, "Seguro del " + Replace(DE_Fecha_inicial.DateTime.ToShortDateString, "/", "") + " al " + Replace(DE_Fecha_final.DateTime.ToShortDateString, "/", ""))
         End If
     End Sub
+
+    Private Sub GridView_RowDeleted(sender As Object, e As DevExpress.Data.RowDeletedEventArgs) Handles GridView.RowDeleted
+        SQL.Actualizar_tabla()
+    End Sub
+
+    Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
+        If e.KeyData = Keys.Delete Then
+            If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Eliminar"}
+                SEG.ShowDialog()
+                If SEG.Resultado = True Then
+                    GridView.DeleteRow(GridView.FocusedRowHandle)
+                End If
+            End If
+        End If
+    End Sub
+
 End Class

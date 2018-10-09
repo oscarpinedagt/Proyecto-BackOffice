@@ -7,8 +7,7 @@
     End Sub
 
     Private Sub Cargar_datos()
-        Sql.Tabla_con_actualización_de_datos("Select * From Shipper_Carrier")
-        GridControl.DataSource = Sql.DT
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Shipper_Carrier")
     End Sub
 
     Private Sub Configurar_GridControl()

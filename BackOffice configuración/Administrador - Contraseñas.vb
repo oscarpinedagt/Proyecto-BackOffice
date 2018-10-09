@@ -7,8 +7,7 @@
     End Sub
 
     Private Sub Cargar_datos()
-        SQL.Tabla_con_actualización_de_datos("Select * From Contraseñas")
-        GridControl.DataSource = Sql.DT
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Contraseñas")
     End Sub
 
     Private Sub Configurar_GridControl()

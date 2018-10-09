@@ -283,7 +283,7 @@
 
         'Datos de ingreso a bodega
         FN.Limpiar_controles(GC_Datos_de_ingreso_a_bodega)
-        Editables = Dt.Rows(0)("Empresa").ToString + Dt.Rows(0)("Compra").ToString + Dt.Rows(0)("Ingreso_a_bodega").ToString
+        Editables = FN.Valor(Dt.Rows(0)("Empresa")) + "-" + FN.Valor(Dt.Rows(0)("Compra")) + "-" + FN.Valor(Dt.Rows(0)("Ingreso_a_bodega"))
         LUE_Empresa.EditValue = FN.Valor(Dt.Rows(0)("Empresa"))
         LUE_Tipo_de_mercadería.EditValue = FN.Valor(Dt.Rows(0)("Tipo_de_mercaderia"))
         LUE_Sub_empresa.EditValue = FN.Valor(Dt.Rows(0)("SE"))

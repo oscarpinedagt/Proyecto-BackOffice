@@ -1,6 +1,5 @@
 ﻿Public Class SQL
-    Private CB As SqlCommandBuilder
-    Public Property DA As SqlDataAdapter : Property DT As DataTable
+    Private DA As SqlDataAdapter, CB As SqlCommandBuilder, DT As DataTable
     Public Conexion As New SqlConnection("Data Source=" + My.Settings.Servidor + ";Initial Catalog=" + My.Settings.Base_de_datos + ";Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
 
     Public Function Insertar(Tabla As String, Campos As String, Valores As String, Optional Contiene_imágen As Boolean = False, Optional Imágen_a_Byte As Byte() = Nothing) As Boolean
@@ -83,12 +82,13 @@
         Return DT
     End Function
 
-    Public Sub Tabla_con_actualización_de_datos(SQL As String)
+    Public Function Tabla_con_actualización_de_datos(SQL As String) As DataTable
         DA = New SqlDataAdapter(SQL, Conexion)
         CB = New SqlCommandBuilder(DA)
         DT = New DataTable
         DA.Fill(DT)
-    End Sub
+        Return DT
+    End Function
 
     Public Sub Actualizar_tabla()
         Try

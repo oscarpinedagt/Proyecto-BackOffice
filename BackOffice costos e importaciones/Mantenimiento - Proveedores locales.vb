@@ -6,10 +6,8 @@
         Configurar_GridControl()
     End Sub
 
-
     Private Sub Cargar_datos()
-        SQL.Tabla_con_actualización_de_datos("Select * From Proveedores_locales")
-        GridControl.DataSource = Sql.DT
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Proveedores_locales")
     End Sub
 
     Private Sub Configurar_GridControl()

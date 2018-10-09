@@ -7,8 +7,7 @@
     End Sub
 
     Private Sub Cargar_datos()
-        SQL.Tabla_con_actualización_de_datos("Select * From Directorios_matrices")
-        GridControl.DataSource = SQL.DT
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Directorios_matrices")
     End Sub
 
     Private Sub Configurar_GridControl()

@@ -53,6 +53,8 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
         Me.NoDocumentsView1 = New DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(Me.components)
+        Me.RPG_Control_de_IPRIMA = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.BBI_SEG_Control_de_IPRIMA = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,9 +64,9 @@ Partial Class Costos_e_Importaciones
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimiento_de_costeos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimiento_de_costeos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 16
+        Me.RibbonControl.MaxItemId = 17
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Mantenimiento})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
@@ -209,7 +211,7 @@ Partial Class Costos_e_Importaciones
         '
         'RP_Seguimientos
         '
-        Me.RP_Seguimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_SEG_Costeos, Me.RPG_Mercadería_en_transito})
+        Me.RP_Seguimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_SEG_Costeos, Me.RPG_Mercadería_en_transito, Me.RPG_Control_de_IPRIMA})
         Me.RP_Seguimientos.Name = "RP_Seguimientos"
         Me.RP_Seguimientos.Text = "Seguimientos"
         '
@@ -289,6 +291,21 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager.View = Me.TabbedView
         Me.DocumentManager.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView, Me.NoDocumentsView1})
         '
+        'RPG_Control_de_IPRIMA
+        '
+        Me.RPG_Control_de_IPRIMA.AllowTextClipping = False
+        Me.RPG_Control_de_IPRIMA.ItemLinks.Add(Me.BBI_SEG_Control_de_IPRIMA)
+        Me.RPG_Control_de_IPRIMA.Name = "RPG_Control_de_IPRIMA"
+        Me.RPG_Control_de_IPRIMA.Text = "Control de IPRIMA"
+        '
+        'BBI_SEG_Control_de_IPRIMA
+        '
+        Me.BBI_SEG_Control_de_IPRIMA.Caption = "Control de IPRIMA"
+        Me.BBI_SEG_Control_de_IPRIMA.Id = 16
+        Me.BBI_SEG_Control_de_IPRIMA.ImageOptions.Image = CType(resources.GetObject("BBI_SEG_Control_de_IPRIMA.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_SEG_Control_de_IPRIMA.ImageOptions.LargeImage = CType(resources.GetObject("BBI_SEG_Control_de_IPRIMA.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_SEG_Control_de_IPRIMA.Name = "BBI_SEG_Control_de_IPRIMA"
+        '
         'Costos_e_Importaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -345,4 +362,6 @@ Partial Class Costos_e_Importaciones
     Friend WithEvents BBI_MAN_Tipos_de_gasto As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RPG_Mercadería_en_transito As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BBI_SEG_Mercadería_en_transito As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_SEG_Control_de_IPRIMA As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RPG_Control_de_IPRIMA As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class

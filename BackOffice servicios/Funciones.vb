@@ -324,6 +324,16 @@
 
     End Function
 
+    Public Function Campo_tabla(Información As Object)
+
+        If IsDBNull(Información) Then
+            Return "Null"
+        Else
+            Return "'" + Información.ToString + "'"
+        End If
+
+    End Function
+
     Public Sub Exportar_GridControl_a_Excel(GC As DevExpress.XtraGrid.GridControl, Nombre As String)
         Dim SFD As New SaveFileDialog With {.Filter = "Exportar formato Excel|*.xlsx", .FileName = Nombre}
         If SFD.ShowDialog = Windows.Forms.DialogResult.OK Then

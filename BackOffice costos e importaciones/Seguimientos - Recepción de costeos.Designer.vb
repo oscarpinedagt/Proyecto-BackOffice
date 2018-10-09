@@ -108,6 +108,7 @@ Partial Class Seguimientos_Recepción_de_costeos
         Me.BBI_Cargar_costeos.Caption = "Cargar costeos"
         Me.BBI_Cargar_costeos.Id = 19
         Me.BBI_Cargar_costeos.ImageOptions.Image = CType(resources.GetObject("BBI_Cargar_costeos.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Cargar_costeos.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Cargar_costeos.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Cargar_costeos.Name = "BBI_Cargar_costeos"
         '
         'BBI_Envió_de_seguimiento_de_costeos

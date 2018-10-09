@@ -6,8 +6,7 @@
         Configurar_GridControl()
     End Sub
     Private Sub Cargar_datos()
-        SQL.Tabla_con_actualización_de_datos("Select * From Sub_empresas")
-        GridControl.DataSource = Sql.DT
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Sub_empresas")
     End Sub
 
     Private Sub Configurar_GridControl()

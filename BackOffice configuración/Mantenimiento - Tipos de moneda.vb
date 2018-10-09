@@ -6,11 +6,9 @@
         Configurar_GridControl()
     End Sub
 
-
     Private Sub Cargar_datos()
-        SQL.Tabla_con_actualización_de_datos("Select * From Tipos_de_moneda")
-        GridControl.DataSource = SQL.DT
-        End Sub
+        GridControl.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From Tipos_de_moneda")
+    End Sub
 
     Private Sub Configurar_GridControl()
         With GridView

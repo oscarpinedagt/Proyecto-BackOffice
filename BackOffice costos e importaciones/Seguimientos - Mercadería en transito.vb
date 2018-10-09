@@ -23,8 +23,20 @@
                 End If
 
                 Select Case CL.FieldName
-                    Case "Id_costeo"
+                    Case "Id_costeo", "Comentarios"
                         CL.Visible = False
+                End Select
+
+                Select Case CL.FieldName
+                    Case "Empresa"
+                        CL.Group()
+                End Select
+
+                Select Case CL.FieldName
+                    Case "Comentarios"
+                        .PreviewFieldName = CL.FieldName
+                        .OptionsView.ShowPreview = True
+                        .OptionsView.AutoCalcPreviewLineCount = True
                 End Select
 
                 Select Case CL.FieldName
@@ -34,7 +46,8 @@
                 End Select
 
             Next
-
+            .ExpandAllGroups()
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
@@ -64,7 +77,9 @@
 
     Private Sub BBI_Generar_información_desde_informe_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_a_Excel.ItemClick
         If GridView.RowCount > 0 Then
+            GridView.Columns("Comentarios").Visible = True
             FN.Exportar_GridControl_a_Excel(GridControl, "Mercadería en transito al " + Replace(Convert.ToDateTime(Now).ToShortDateString, "/", ""))
+            GridView.Columns("Comentarios").Visible = False
         End If
     End Sub
 
