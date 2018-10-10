@@ -25,12 +25,13 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar = New DevExpress.XtraBars.Bar()
         Me.BBI_Generar_información = New DevExpress.XtraBars.BarButtonItem()
-        Me.PopupMenu = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.PopupMenu_Generación = New DevExpress.XtraBars.PopupMenu(Me.components)
         Me.BBI_Disponibles = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Solicitados = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Liquidados = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Cargar_reporte_de_polizas = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Cargar_facturación = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Envió_a_tesorería = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -39,7 +40,7 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.PC_Parametros = New DevExpress.XtraEditors.PanelControl()
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PopupMenu, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu_Generación, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,9 +63,9 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.BarManager.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager.DockControls.Add(Me.barDockControlRight)
         Me.BarManager.Form = Me
-        Me.BarManager.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BBI_Generar_información, Me.BBI_Cargar_facturación, Me.BBI_Cargar_reporte_de_polizas, Me.BBI_Disponibles, Me.BBI_Solicitados, Me.BBI_Liquidados})
+        Me.BarManager.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BBI_Generar_información, Me.BBI_Cargar_facturación, Me.BBI_Cargar_reporte_de_polizas, Me.BBI_Disponibles, Me.BBI_Solicitados, Me.BBI_Liquidados, Me.BBI_Envió_a_tesorería})
         Me.BarManager.MainMenu = Me.Bar
-        Me.BarManager.MaxItemId = 29
+        Me.BarManager.MaxItemId = 32
         '
         'Bar
         '
@@ -72,7 +73,7 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.Bar.DockCol = 0
         Me.Bar.DockRow = 0
         Me.Bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_reporte_de_polizas, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_facturación, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_reporte_de_polizas, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_facturación, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Envió_a_tesorería)})
         Me.Bar.OptionsBar.UseWholeRow = True
         Me.Bar.Text = "Menú"
         '
@@ -81,17 +82,17 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.BBI_Generar_información.ActAsDropDown = True
         Me.BBI_Generar_información.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
         Me.BBI_Generar_información.Caption = "Generar información"
-        Me.BBI_Generar_información.DropDownControl = Me.PopupMenu
+        Me.BBI_Generar_información.DropDownControl = Me.PopupMenu_Generación
         Me.BBI_Generar_información.Id = 15
         Me.BBI_Generar_información.ImageOptions.Image = CType(resources.GetObject("BBI_Generar_información.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_Generar_información.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Generar_información.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Generar_información.Name = "BBI_Generar_información"
         '
-        'PopupMenu
+        'PopupMenu_Generación
         '
-        Me.PopupMenu.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Disponibles), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Solicitados), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Liquidados)})
-        Me.PopupMenu.Manager = Me.BarManager
-        Me.PopupMenu.Name = "PopupMenu"
+        Me.PopupMenu_Generación.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Disponibles), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Solicitados), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Liquidados)})
+        Me.PopupMenu_Generación.Manager = Me.BarManager
+        Me.PopupMenu_Generación.Name = "PopupMenu_Generación"
         '
         'BBI_Disponibles
         '
@@ -126,6 +127,15 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.BBI_Cargar_facturación.ImageOptions.Image = CType(resources.GetObject("BBI_Cargar_facturación.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_Cargar_facturación.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Cargar_facturación.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Cargar_facturación.Name = "BBI_Cargar_facturación"
+        '
+        'BBI_Envió_a_tesorería
+        '
+        Me.BBI_Envió_a_tesorería.ActAsDropDown = True
+        Me.BBI_Envió_a_tesorería.Caption = "Envió a tesorería"
+        Me.BBI_Envió_a_tesorería.Id = 29
+        Me.BBI_Envió_a_tesorería.ImageOptions.Image = CType(resources.GetObject("BBI_Envió_a_tesorería.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Envió_a_tesorería.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Envió_a_tesorería.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Envió_a_tesorería.Name = "BBI_Envió_a_tesorería"
         '
         'barDockControlTop
         '
@@ -204,7 +214,7 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Seguimientos - Control de IPRIMA"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PopupMenu, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu_Generación, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).EndInit()
@@ -223,11 +233,12 @@ Partial Class Seguimientos_Control_de_IPRIMA
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents PopupMenu As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents PopupMenu_Generación As DevExpress.XtraBars.PopupMenu
     Friend WithEvents BBI_Disponibles As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BBI_Solicitados As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BBI_Liquidados As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents PC_Parametros As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents BBI_Envió_a_tesorería As DevExpress.XtraBars.BarButtonItem
 End Class

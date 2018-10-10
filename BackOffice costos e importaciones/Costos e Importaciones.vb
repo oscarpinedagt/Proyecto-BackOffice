@@ -27,7 +27,7 @@
         End With
     End Sub
 
-    Private Sub BBI_MAN_Seguimiento_de_costeos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_MAN_Seguimiento_de_costeos.ItemClick
+    Private Sub BBI_MAN_Seguimiento_de_costeos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_MAN_Seguimientos_y_correos.ItemClick
         FN.Abrir_formulario(Me, SYC)
         SYC.GridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
     End Sub

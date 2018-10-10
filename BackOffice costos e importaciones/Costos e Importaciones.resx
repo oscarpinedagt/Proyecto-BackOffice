@@ -367,22 +367,22 @@
   </data>
   <data name="BBI_SEG_Control_de_IPRIMA.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAASdEVYdFRpdGxlAERyaXZpbmc7Q2FyO7bj1MUAAABySURBVDhPpY1BEoAwCAP7wX7KV/k7lJlS
-        A8RO0cMemqRLE5Ff0LACDSukoB9nv5EXtHN79xgDOsQO8zian5XQoWTmVmpopM/G6OZWMytQsA0KTJKu
-        BNyWCSo8ApCUiAJ2ZcVS4C4BbuMEX6FhBRruI+0CczKct/K1ICwAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABJ0RVh0VGl0
+        bGUARHJpdmluZztDYXI7tuPUxQAAAHJJREFUOE+ljUESgDAIA/vBfspX+TuUmVIDxE7Rwx6apEsTkV/Q
+        sAINK6SgH2e/kRe0c3v3GAM6xA7zOJqfldChZOZWamikz8bo5lYzK1CwDQpMkq4E3JYJKjwCkJSIAnZl
+        xVLgLgFu4wRfoWEFGu4j7QJzMpy38rUgLAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="BBI_SEG_Control_de_IPRIMA.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAASdEVYdFRpdGxlAERyaXZpbmc7Q2FyO7bj1MUAAAFsSURBVFhHxdO9TQNBFARgC1qgASRyREAR
-        CFEDIiHCLoICcAlE9EBCQO4EUQZEgCxIWGZOu9b7s9eH7tbBJ9jZN/tsJCYppZ0Kw5bCsKUwbCkMWwrD
-        llxwcfsYOYJ7eIdU8QacZce9Zfe5ICidwBKiZZt8wTGo9+w+F9gCPMMvnIqs1uMsO08i69ieC0zhHPht
-        HkTWqfSIHXbPROZ6LhDD+/AK33CYsz7YYfcF9nLm9rmgDMIV8BvMRdYXu3zjsmR23+oXXM7ysPQJB7LQ
-        B7vwkd+SZmVGDtshmpf7/8Ibd+bNTrmXgws7NKKF+wAFLqdmeCj8t7yx+9SB8vBP/jmk7k27Tx2oFGxO
-        5a7G9mjdnTrQNo/U2B6tu1MHkg+Nwe5TB4pKQ7L71IEwNCq7zwUYCj/5UOw+daCoNCS7Tx0oKmWrP+OW
-        ojewQu9TB8LQtS3lzM1ukjvuHTunDrsQhi2FYUth2FIYthSG7aTJH7cepL8eFhR4AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABJ0RVh0VGl0
+        bGUARHJpdmluZztDYXI7tuPUxQAAAWxJREFUWEfF071NA0EUBGALWqABJHJEQBEIUQMiIcIuggJwCUT0
+        QEJA7gRRBkSALEhYZk671vuz14fu1sEn2Nk3+2wkJimlnQrDlsKwpTBsKQxbCsOWXHBx+xg5gnt4h1Tx
+        Bpxlx71l97kgKJ3AEqJlm3zBMaj37D4X2AI8wy+ciqzW4yw7TyLr2J4LTOEc+G0eRNap9Igdds9E5nou
+        EMP78ArfcJizPthh9wX2cub2uaAMwhXwG8xF1he7fOOyZHbf6hdczvKw9AkHstAHu/CR35JmZUYO2yGa
+        l/v/wht35s1OuZeDCzs0ooX7AAUup2Z4KPy3vLH71IHy8E/+OaTuTbtPHagUbE7lrsb2aN2dOtA2j9TY
+        Hq27UweSD43B7lMHikpDsvvUgTA0KrvPBRgKP/lQ7D51oKg0JLtPHSgqZas/45aiN7BC71MHwtC1LeXM
+        zW6SO+4dO6cOuxCGLYVhS2HYUhi2FIbtpMkftx6kvx4WFHgAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="DefaultLookAndFeel.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

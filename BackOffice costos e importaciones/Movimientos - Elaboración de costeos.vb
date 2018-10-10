@@ -1015,75 +1015,132 @@
 
                         If GridView_DE.GetRowCellValue(i, "Total_GTQ") <> 0 Then
 
-                            For X As Integer = 1 To 3
+                            If GridView_DE.GetRowCellValue(i, "Tipo_de_documento").ToString.Contains("Provisión") Then
 
-                                GridView_CT.AddNewRow()
-                                Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
-                                If GridView_CT.IsNewItemRow(Dr) Then
+                                For X As Integer = 1 To 2
 
-                                    Select Case X
-                                        Case 1
+                                    GridView_CT.AddNewRow()
+                                    Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                                    If GridView_CT.IsNewItemRow(Dr) Then
 
-                                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_MercTran"))
-                                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_MercTran"))
-                                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_MercTran"))
-                                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_MercTran"))
-                                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_MercTran"))
-                                            GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
-                                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+                                        Select Case X
+                                            Case 1
 
-                                            If GridView_DE.GetRowCellValue(i, "Total_GTQ") > 0 Then
-                                                GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
-                                                GridView_CT.SetRowCellValue(Dr, "Haber", 0)
-                                            Else
-                                                GridView_CT.SetRowCellValue(Dr, "Debe", 0)
-                                                GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
-                                            End If
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                                GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
 
-                                        Case 2
+                                                If GridView_DE.GetRowCellValue(i, "Total_GTQ") > 0 Then
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                                Else
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
+                                                End If
 
-                                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_ProvExt"))
-                                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_ProvExt"))
-                                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvExt"))
-                                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvExt"))
-                                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvExt"))
-                                            GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
-                                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+                                            Case 2
 
-                                            If GridView_DE.GetRowCellValue(i, "Total_USD") > 0 Then
-                                                GridView_CT.SetRowCellValue(Dr, "Debe", 0)
-                                                GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_USD"))
-                                            Else
-                                                GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_USD"))
-                                                GridView_CT.SetRowCellValue(Dr, "Haber", 0)
-                                            End If
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvNeg"))
+                                                GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                                GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
 
-                                        Case 3
+                                                If GridView_DE.GetRowCellValue(i, "Total_GTQ") > 0 Then
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
+                                                Else
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                                End If
 
-                                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_DifCamb"))
-                                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_DifCamb"))
-                                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_DifCamb"))
-                                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_DifCamb"))
-                                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_DifCamb"))
-                                            GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
-                                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+                                        End Select
 
-                                            If GridView_DE.GetRowCellValue(i, "Total_USD") > 0 Then
-                                                GridView_CT.SetRowCellValue(Dr, "Debe", 0)
-                                                GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_GTQ") - GridView_DE.GetRowCellValue(i, "Total_USD"))
-                                            Else
-                                                GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_GTQ") - GridView_DE.GetRowCellValue(i, "Total_USD"))
-                                                GridView_CT.SetRowCellValue(Dr, "Haber", 0)
-                                            End If
+                                    End If
 
-                                    End Select
+                                    GridView_CT.PostEditor()
+                                    GridView_CT.UpdateCurrentRow()
 
-                                End If
+                                Next
 
-                                GridView_CT.PostEditor()
-                                GridView_CT.UpdateCurrentRow()
+                            Else
 
-                            Next
+                                For X As Integer = 1 To 3
+
+                                    GridView_CT.AddNewRow()
+                                    Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                                    If GridView_CT.IsNewItemRow(Dr) Then
+
+                                        Select Case X
+                                            Case 1
+
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_MercTran"))
+                                                GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                                GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                                If GridView_DE.GetRowCellValue(i, "Total_GTQ") > 0 Then
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                                Else
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_GTQ"))
+                                                End If
+
+                                            Case 2
+
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_ProvExt"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_ProvExt"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvExt"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvExt"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvExt"))
+                                                GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                                GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                                If GridView_DE.GetRowCellValue(i, "Total_USD") > 0 Then
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_USD"))
+                                                Else
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_USD"))
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                                End If
+
+                                            Case 3
+
+                                                GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_DifCamb"))
+                                                GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_DifCamb"))
+                                                GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_DifCamb"))
+                                                GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_DifCamb"))
+                                                GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_DifCamb"))
+                                                GridView_CT.SetRowCellValue(Dr, "Descripción", GridView_DE.GetRowCellValue(i, "Tipo_de_documento") + " " + GridView_DE.GetRowCellValue(i, "Documento") + " " + Convert.ToDateTime(GridView_DE.GetRowCellValue(i, "Fecha")).ToShortDateString + " " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                                                GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_Guia_BL_Carta_de_porte.EditValue, 13))
+
+                                                If GridView_DE.GetRowCellValue(i, "Total_USD") > 0 Then
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", GridView_DE.GetRowCellValue(i, "Total_GTQ") - GridView_DE.GetRowCellValue(i, "Total_USD"))
+                                                Else
+                                                    GridView_CT.SetRowCellValue(Dr, "Debe", GridView_DE.GetRowCellValue(i, "Total_GTQ") - GridView_DE.GetRowCellValue(i, "Total_USD"))
+                                                    GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+                                                End If
+
+                                        End Select
+
+                                    End If
+
+                                    GridView_CT.PostEditor()
+                                    GridView_CT.UpdateCurrentRow()
+
+                                Next
+                            End If
                         End If
                     Next
                 End If
