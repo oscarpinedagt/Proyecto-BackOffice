@@ -128,7 +128,7 @@
         Cargar_datos("Where (Formulario_IPRIMA is not null or Formulario_IPRIMA <> '') And (Documentos is not null or Documentos <> '') And (Fecha_de_confirmación_de_pago is not null or Fecha_de_confirmación_de_pago <> '') Order By DUA,Documentos")
     End Sub
 
-    Private Sub BBI_Cargar_costeos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Cargar_reporte_de_polizas.ItemClick
+    Private Sub BBI_Cargar_reporte_de_polizas_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Cargar_reporte_de_polizas.ItemClick
         Dim File As New OpenFileDialog() With {.Filter = "Excel|*.xlsx;*.xlsm"}
         If File.ShowDialog() = DialogResult.OK Then
 
@@ -202,8 +202,7 @@
     End Sub
 
     Private Sub GridView_RowUpdated(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles GridView.RowUpdated
-        GridView.PostEditor()
-        GridView.UpdateCurrentRow()
+        SQL.Aceptar_cambios_de_tabla()
         SQL.Actualizar_tabla()
     End Sub
 

@@ -43,11 +43,11 @@
     End Sub
 
     Private Sub GridView_RowUpdated(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles GridView.RowUpdated
-        Sql.Actualizar_tabla()
+        SQL.Actualizar_tabla()
     End Sub
 
     Private Sub GridView_RowDeleted(sender As Object, e As DevExpress.Data.RowDeletedEventArgs) Handles GridView.RowDeleted
-        Sql.Actualizar_tabla()
+        SQL.Actualizar_tabla()
     End Sub
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown

@@ -90,10 +90,19 @@
         Return DT
     End Function
 
-    Public Sub Actualizar_tabla()
+    Public Sub Aceptar_cambios_de_tabla()
         Try
             If DT.Rows.Count > 0 Then
                 DT.AcceptChanges()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString, MsgBoxStyle.Critical, "Actualización tabla de datos")
+        End Try
+    End Sub
+
+    Public Sub Actualizar_tabla()
+        Try
+            If DT.Rows.Count > 0 Then
                 DA.Update(DT)
             End If
         Catch ex As Exception
