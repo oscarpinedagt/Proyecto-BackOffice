@@ -20,6 +20,7 @@
                 If CL.FieldName.ToString.Contains("Fecha") Then
                     CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
                     CL.DisplayFormat.FormatString = "g"
+                    CL.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
                     Select Case CL.FieldName
                         Case "Fecha_DUA", "Fecha_formulario_IPRIMA"
                             CL.DisplayFormat.FormatString = "d"
@@ -34,6 +35,11 @@
                 Select Case CL.FieldName
                     Case "Inventario", "DUA"
                         CL.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+                End Select
+
+                Select Case CL.FieldName
+                    Case "Formulario_IPRIMA", "No_de_acceso_formulario_IPRIMA", "No_de_contingencia_formulario_IPRIMA"
+                        CL.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
                 End Select
 
                 Select Case CL.FieldName
@@ -196,6 +202,8 @@
     End Sub
 
     Private Sub GridView_RowUpdated(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles GridView.RowUpdated
+        GridView.PostEditor()
+        GridView.UpdateCurrentRow()
         SQL.Actualizar_tabla()
     End Sub
 
@@ -229,7 +237,7 @@
         Dim DT As DataTable = GridControl.DataSource
 
         Dim Uniauto = From R In DT Where R("Empresa") = "UNIAUTO, S.A." Group R By Empresa = R("Empresa"), Póliza = R("DUA"), Boleta = R("Formulario_IPRIMA"), No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA") Into Group
-                      Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT"))), No_de_contingencia}
+                      Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT")))), No_de_contingencia}
 
         If Uniauto.Count.ToString > 0 Then
 
@@ -249,9 +257,9 @@
                 MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
                 MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Empresa + "&nbsp;</td>")
                 MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Póliza + "&nbsp;</td>")
-                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Boleta + "&nbsp;</td>")
-                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("#,##0.00") + "&nbsp;</td>")
-                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.No_de_contingencia + "&nbsp;</td>")
+                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.Boleta) + "&nbsp;</td>")
+                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
+                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.No_de_contingencia) + "&nbsp;</td>")
                 MyString.AppendLine("</tr></font></tt>")
             Next
 
@@ -260,7 +268,7 @@
         End If
 
         Dim Didea = From R In DT Where R("Empresa") = "DIDEA, S.A." Group R By Empresa = R("Empresa"), Póliza = R("DUA"), Boleta = R("Formulario_IPRIMA"), No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA") Into Group
-                    Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT"))), No_de_contingencia}
+                    Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT")))), No_de_contingencia}
 
         If Didea.Count.ToString > 0 Then
 
@@ -280,9 +288,9 @@
                 MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
                 MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Empresa + "&nbsp;</td>")
                 MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Póliza + "&nbsp;</td>")
-                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Boleta + "&nbsp;</td>")
-                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("#,##0.00") + "&nbsp;</td>")
-                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.No_de_contingencia + "&nbsp;</td>")
+                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.Boleta) + "&nbsp;</td>")
+                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
+                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.No_de_contingencia) + "&nbsp;</td>")
                 MyString.AppendLine("</tr></font></tt>")
             Next
 
@@ -291,7 +299,7 @@
         End If
 
         Dim AutosEuropa = From R In DT Where R("Empresa") = "AUTOS EUROPA, S.A." Group R By Empresa = R("Empresa"), Póliza = R("DUA"), Boleta = R("Formulario_IPRIMA"), No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA") Into Group
-                          Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT"))), No_de_contingencia}
+                          Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT")))), No_de_contingencia}
 
         If AutosEuropa.Count.ToString > 0 Then
 
@@ -311,9 +319,9 @@
                 MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
                 MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Empresa + "&nbsp;</td>")
                 MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Póliza + "&nbsp;</td>")
-                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Boleta + "&nbsp;</td>")
-                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("#,##0.00") + "&nbsp;</td>")
-                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.No_de_contingencia + "&nbsp;</td>")
+                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.Boleta) + "&nbsp;</td>")
+                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
+                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.No_de_contingencia) + "&nbsp;</td>")
                 MyString.AppendLine("</tr></font></tt>")
             Next
 

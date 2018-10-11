@@ -93,6 +93,7 @@
     Public Sub Actualizar_tabla()
         Try
             If DT.Rows.Count > 0 Then
+                DT.AcceptChanges()
                 DA.Update(DT)
             End If
         Catch ex As Exception
