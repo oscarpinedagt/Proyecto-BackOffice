@@ -183,7 +183,7 @@
             MyString.AppendLine("""Recuerda que trabajar en equipo y confiar en la capacidad de este, forma parte del éxito.""")
             MyString.AppendLine("</font></tt></body></html>")
 
-            Dim Dt_correo As DataTable = SQL.Tabla_de_datos("Select * From Directorios_y_correos Where Sub_empresa ='" & LUE_Sub_empresa.Text & "'")
+            Dim Dt_correo As DataTable = SQL.Tabla_de_datos("Select * From Directorios_y_correos Where Empresa+Tipo_de_mercaderia+Sub_empresa ='" & LUE_Empresa.EditValue + LUE_Tipo_de_mercadería.EditValue + LUE_Sub_empresa.Text & "'")
             FN.Enviar_correo(, Dt_correo.Rows(0)("Correo_electronico_para").ToString, Dt_correo.Rows(0)("Correo_electronico_cc").ToString, Dt_correo.Rows(0)("Correo_electronico_cco").ToString, "Envió de costeos SE " & TE_SE.Text & " - " & LUE_Sub_empresa.Text, MyString.ToString, Archivos)
 
             Dim Fecha As DateTime = Now

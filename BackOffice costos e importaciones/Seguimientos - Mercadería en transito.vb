@@ -46,6 +46,10 @@
                 End Select
 
             Next
+
+            AddHandler GridView.CustomDrawRowPreview, Sub(s, e)
+                                                          e.Appearance.ForeColor = Color.Green
+                                                      End Sub
             .ExpandAllGroups()
             .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
             .OptionsView.ColumnAutoWidth = False
