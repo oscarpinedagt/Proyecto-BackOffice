@@ -202,7 +202,6 @@
     End Sub
 
     Private Sub GridView_RowUpdated(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles GridView.RowUpdated
-        SQL.Aceptar_cambios_de_tabla()
         SQL.Actualizar_tabla()
     End Sub
 
@@ -235,7 +234,7 @@
 
         Dim DT As DataTable = GridControl.DataSource
 
-        Dim Uniauto = From R In DT Where R("Empresa") = "UNIAUTO, S.A." Group R By Empresa = R("Empresa"), Póliza = R("DUA"), Boleta = R("Formulario_IPRIMA"), No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA") Into Group
+        Dim Uniauto = From R In DT Where R("Empresa") = "UNIAUTO, S.A." And R("Formulario_IPRIMA").ToString <> "" Group R By Empresa = R("Empresa").ToString, Póliza = R("DUA").ToString, Boleta = R("Formulario_IPRIMA").ToString, No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA").ToString Into Group
                       Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT")))), No_de_contingencia}
 
         If Uniauto.Count.ToString > 0 Then
@@ -266,7 +265,7 @@
 
         End If
 
-        Dim Didea = From R In DT Where R("Empresa") = "DIDEA, S.A." Group R By Empresa = R("Empresa"), Póliza = R("DUA"), Boleta = R("Formulario_IPRIMA"), No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA") Into Group
+        Dim Didea = From R In DT Where R("Empresa") = "DIDEA, S.A." And R("Formulario_IPRIMA").ToString <> "" Group R By Empresa = R("Empresa").ToString, Póliza = R("DUA").ToString, Boleta = R("Formulario_IPRIMA").ToString, No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA").ToString Into Group
                     Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT")))), No_de_contingencia}
 
         If Didea.Count.ToString > 0 Then
@@ -297,7 +296,7 @@
 
         End If
 
-        Dim AutosEuropa = From R In DT Where R("Empresa") = "AUTOS EUROPA, S.A." Group R By Empresa = R("Empresa"), Póliza = R("DUA"), Boleta = R("Formulario_IPRIMA"), No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA") Into Group
+        Dim AutosEuropa = From R In DT Where R("Empresa") = "AUTOS EUROPA, S.A." And R("Formulario_IPRIMA").ToString <> "" Group R By Empresa = R("Empresa").ToString, Póliza = R("DUA").ToString, Boleta = R("Formulario_IPRIMA").ToString, No_de_contingencia = R("No_de_contingencia_formulario_IPRIMA").ToString Into Group
                           Select New With {Empresa, Póliza, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_IPRIMA_SAT") Is DBNull.Value, 0, x("Valor_IPRIMA_SAT")))), No_de_contingencia}
 
         If AutosEuropa.Count.ToString > 0 Then
@@ -335,4 +334,5 @@
         FN.Enviar_correo(, Dt_correo.Rows(0)("Correo_electronico_para").ToString, Dt_correo.Rows(0)("Correo_electronico_cc").ToString, Dt_correo.Rows(0)("Correo_electronico_cco").ToString, "Pago de IPRIMAS " & Fecha, MyString.ToString, )
 
     End Sub
+
 End Class
