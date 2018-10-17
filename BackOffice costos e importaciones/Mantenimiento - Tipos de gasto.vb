@@ -29,7 +29,7 @@
     End Sub
 
     Private Sub GridView_ValidateRow(sender As Object, e As DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs) Handles GridView.ValidateRow
-        If GridView.GetRowCellValue(e.RowHandle, "Tipos_de_gasto").ToString <> "" Then
+        If GridView.GetRowCellValue(e.RowHandle, "Tipo_de_gasto").ToString <> "" Then
             e.Valid = True
         Else
             e.ErrorText = "Todos los campos son requeridos"

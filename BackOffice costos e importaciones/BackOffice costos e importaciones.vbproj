@@ -131,6 +131,12 @@
     <Compile Include="Mantenimiento - Tipos de gasto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Seguimientos - Contraseñas.Designer.vb">
+      <DependentUpon>Seguimientos - Contraseñas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguimientos - Contraseñas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Seguimientos - Control de IPRIMA.Designer.vb">
       <DependentUpon>Seguimientos - Control de IPRIMA.vb</DependentUpon>
     </Compile>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento - Tipos de gasto.resx">
       <DependentUpon>Mantenimiento - Tipos de gasto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguimientos - Contraseñas.resx">
+      <DependentUpon>Seguimientos - Contraseñas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Control de IPRIMA.resx">
       <DependentUpon>Seguimientos - Control de IPRIMA.vb</DependentUpon>
