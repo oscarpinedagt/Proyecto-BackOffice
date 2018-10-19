@@ -93,6 +93,18 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GridControl_DE = New DevExpress.XtraGrid.GridControl()
         Me.GridView_DE = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.NP_Declaración_aduanal = New DevExpress.XtraBars.Navigation.NavigationPage()
+        Me.GC_Rectificación = New DevExpress.XtraEditors.GroupControl()
+        Me.TE_R_DAI_IVA = New DevExpress.XtraEditors.TextEdit()
+        Me.TE_R_IVA = New DevExpress.XtraEditors.TextEdit()
+        Me.LC_R_DAI_IVA = New DevExpress.XtraEditors.LabelControl()
+        Me.LC_R_IVA = New DevExpress.XtraEditors.LabelControl()
+        Me.TE_R_DAI = New DevExpress.XtraEditors.TextEdit()
+        Me.LC_R_DAI = New DevExpress.XtraEditors.LabelControl()
+        Me.TE_R_Fecha_de_Dua_Fauca_Face = New DevExpress.XtraEditors.TextEdit()
+        Me.LC_R_Fecha_Dua_Fauca_Face = New DevExpress.XtraEditors.LabelControl()
+        Me.TE_R_Dua_Fauca_Face = New DevExpress.XtraEditors.TextEdit()
+        Me.LC_R_Dua_Fauca_Face = New DevExpress.XtraEditors.LabelControl()
+        Me.CK_Rectificación = New DevExpress.XtraEditors.CheckEdit()
         Me.TE_Total_GTQ = New DevExpress.XtraEditors.TextEdit()
         Me.TE_DAI_IVA = New DevExpress.XtraEditors.TextEdit()
         Me.TE_Total_USD = New DevExpress.XtraEditors.TextEdit()
@@ -181,6 +193,14 @@ Partial Class Movimientos_Elaboración_de_costeos
         CType(Me.GridControl_DE, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView_DE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NP_Declaración_aduanal.SuspendLayout()
+        CType(Me.GC_Rectificación, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GC_Rectificación.SuspendLayout()
+        CType(Me.TE_R_DAI_IVA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TE_R_IVA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TE_R_DAI.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TE_R_Fecha_de_Dua_Fauca_Face.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TE_R_Dua_Fauca_Face.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CK_Rectificación.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TE_Total_GTQ.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TE_DAI_IVA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TE_Total_USD.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -313,15 +333,15 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager
-        Me.barDockControlTop.Size = New System.Drawing.Size(807, 26)
+        Me.barDockControlTop.Size = New System.Drawing.Size(844, 26)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 512)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 536)
         Me.barDockControlBottom.Manager = Me.BarManager
-        Me.barDockControlBottom.Size = New System.Drawing.Size(807, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(844, 0)
         '
         'barDockControlLeft
         '
@@ -329,15 +349,15 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 26)
         Me.barDockControlLeft.Manager = Me.BarManager
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 486)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 510)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(807, 26)
+        Me.barDockControlRight.Location = New System.Drawing.Point(844, 26)
         Me.barDockControlRight.Manager = Me.BarManager
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 486)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 510)
         '
         'DxErrorProvider
         '
@@ -370,7 +390,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GC_Datos_de_ingreso_a_bodega.Dock = System.Windows.Forms.DockStyle.Top
         Me.GC_Datos_de_ingreso_a_bodega.Location = New System.Drawing.Point(0, 26)
         Me.GC_Datos_de_ingreso_a_bodega.Name = "GC_Datos_de_ingreso_a_bodega"
-        Me.GC_Datos_de_ingreso_a_bodega.Size = New System.Drawing.Size(807, 126)
+        Me.GC_Datos_de_ingreso_a_bodega.Size = New System.Drawing.Size(844, 126)
         Me.GC_Datos_de_ingreso_a_bodega.TabIndex = 0
         Me.GC_Datos_de_ingreso_a_bodega.Text = "Datos de ingreso a bodega"
         '
@@ -599,7 +619,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Datos.Pages.AddRange(New DevExpress.XtraBars.Navigation.NavigationPageBase() {Me.NP_Datos_de_importación, Me.NP_Documentos_del_exterior, Me.NP_Declaración_aduanal, Me.NP_Recolección_de_documentos, Me.NP_Documentos_locales, Me.NP_Seguro, Me.NP_Comentarios, Me.NP_Costeo, Me.NP_Contabilidad})
         Me.NP_Datos.RegularSize = New System.Drawing.Size(807, 347)
         Me.NP_Datos.SelectedPage = Me.NP_Datos_de_importación
-        Me.NP_Datos.Size = New System.Drawing.Size(807, 360)
+        Me.NP_Datos.Size = New System.Drawing.Size(844, 384)
         Me.NP_Datos.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded
         Me.NP_Datos.TabIndex = 1
         Me.NP_Datos.Text = "Datos"
@@ -628,7 +648,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Datos_de_importación.Controls.Add(Me.LUE_Incoterm)
         Me.NP_Datos_de_importación.Controls.Add(Me.LUE_Tipo_de_importación)
         Me.NP_Datos_de_importación.Name = "NP_Datos_de_importación"
-        Me.NP_Datos_de_importación.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Datos_de_importación.Size = New System.Drawing.Size(651, 338)
         '
         'TE_País_de_procedencia
         '
@@ -833,6 +853,8 @@ Partial Class Movimientos_Elaboración_de_costeos
         'NP_Declaración_aduanal
         '
         Me.NP_Declaración_aduanal.Caption = "03 - Declaración aduanal"
+        Me.NP_Declaración_aduanal.Controls.Add(Me.GC_Rectificación)
+        Me.NP_Declaración_aduanal.Controls.Add(Me.CK_Rectificación)
         Me.NP_Declaración_aduanal.Controls.Add(Me.TE_Total_GTQ)
         Me.NP_Declaración_aduanal.Controls.Add(Me.TE_DAI_IVA)
         Me.NP_Declaración_aduanal.Controls.Add(Me.TE_Total_USD)
@@ -866,7 +888,132 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Declaración_aduanal.Controls.Add(Me.LC_Contenedores_o_bultos)
         Me.NP_Declaración_aduanal.Controls.Add(Me.LC_Dua_Fauca_Face)
         Me.NP_Declaración_aduanal.Name = "NP_Declaración_aduanal"
-        Me.NP_Declaración_aduanal.Size = New System.Drawing.Size(807, 360)
+        Me.NP_Declaración_aduanal.Size = New System.Drawing.Size(651, 338)
+        '
+        'GC_Rectificación
+        '
+        Me.GC_Rectificación.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.GC_Rectificación.Controls.Add(Me.TE_R_DAI_IVA)
+        Me.GC_Rectificación.Controls.Add(Me.TE_R_IVA)
+        Me.GC_Rectificación.Controls.Add(Me.LC_R_DAI_IVA)
+        Me.GC_Rectificación.Controls.Add(Me.LC_R_IVA)
+        Me.GC_Rectificación.Controls.Add(Me.TE_R_DAI)
+        Me.GC_Rectificación.Controls.Add(Me.LC_R_DAI)
+        Me.GC_Rectificación.Controls.Add(Me.TE_R_Fecha_de_Dua_Fauca_Face)
+        Me.GC_Rectificación.Controls.Add(Me.LC_R_Fecha_Dua_Fauca_Face)
+        Me.GC_Rectificación.Controls.Add(Me.TE_R_Dua_Fauca_Face)
+        Me.GC_Rectificación.Controls.Add(Me.LC_R_Dua_Fauca_Face)
+        Me.GC_Rectificación.Location = New System.Drawing.Point(0, 224)
+        Me.GC_Rectificación.Name = "GC_Rectificación"
+        Me.GC_Rectificación.Size = New System.Drawing.Size(651, 57)
+        Me.GC_Rectificación.TabIndex = 33
+        Me.GC_Rectificación.Visible = False
+        '
+        'TE_R_DAI_IVA
+        '
+        Me.TE_R_DAI_IVA.Location = New System.Drawing.Point(462, 24)
+        Me.TE_R_DAI_IVA.Name = "TE_R_DAI_IVA"
+        Me.TE_R_DAI_IVA.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
+        Me.TE_R_DAI_IVA.Properties.Appearance.Options.UseBackColor = True
+        Me.TE_R_DAI_IVA.Properties.Appearance.Options.UseTextOptions = True
+        Me.TE_R_DAI_IVA.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.TE_R_DAI_IVA.Properties.Mask.EditMask = "n2"
+        Me.TE_R_DAI_IVA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.TE_R_DAI_IVA.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.TE_R_DAI_IVA.Size = New System.Drawing.Size(100, 20)
+        Me.TE_R_DAI_IVA.TabIndex = 9
+        Me.TE_R_DAI_IVA.TabStop = False
+        '
+        'TE_R_IVA
+        '
+        Me.TE_R_IVA.Location = New System.Drawing.Point(356, 24)
+        Me.TE_R_IVA.Name = "TE_R_IVA"
+        Me.TE_R_IVA.Properties.Appearance.Options.UseTextOptions = True
+        Me.TE_R_IVA.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.TE_R_IVA.Properties.Mask.EditMask = "n2"
+        Me.TE_R_IVA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.TE_R_IVA.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.TE_R_IVA.Size = New System.Drawing.Size(100, 20)
+        Me.TE_R_IVA.TabIndex = 7
+        '
+        'LC_R_DAI_IVA
+        '
+        Me.LC_R_DAI_IVA.Location = New System.Drawing.Point(462, 4)
+        Me.LC_R_DAI_IVA.Name = "LC_R_DAI_IVA"
+        Me.LC_R_DAI_IVA.Size = New System.Drawing.Size(49, 13)
+        Me.LC_R_DAI_IVA.TabIndex = 8
+        Me.LC_R_DAI_IVA.Text = "DAI + IVA"
+        '
+        'LC_R_IVA
+        '
+        Me.LC_R_IVA.Location = New System.Drawing.Point(356, 4)
+        Me.LC_R_IVA.Name = "LC_R_IVA"
+        Me.LC_R_IVA.Size = New System.Drawing.Size(17, 13)
+        Me.LC_R_IVA.TabIndex = 6
+        Me.LC_R_IVA.Text = "IVA"
+        '
+        'TE_R_DAI
+        '
+        Me.TE_R_DAI.Location = New System.Drawing.Point(250, 24)
+        Me.TE_R_DAI.Name = "TE_R_DAI"
+        Me.TE_R_DAI.Properties.Appearance.Options.UseTextOptions = True
+        Me.TE_R_DAI.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.TE_R_DAI.Properties.Mask.EditMask = "n2"
+        Me.TE_R_DAI.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.TE_R_DAI.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.TE_R_DAI.Size = New System.Drawing.Size(100, 20)
+        Me.TE_R_DAI.TabIndex = 5
+        '
+        'LC_R_DAI
+        '
+        Me.LC_R_DAI.Location = New System.Drawing.Point(250, 4)
+        Me.LC_R_DAI.Name = "LC_R_DAI"
+        Me.LC_R_DAI.Size = New System.Drawing.Size(18, 13)
+        Me.LC_R_DAI.TabIndex = 4
+        Me.LC_R_DAI.Text = "DAI"
+        '
+        'TE_R_Fecha_de_Dua_Fauca_Face
+        '
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.Location = New System.Drawing.Point(144, 24)
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.Name = "TE_R_Fecha_de_Dua_Fauca_Face"
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.Properties.Mask.EditMask = "g"
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.Size = New System.Drawing.Size(100, 20)
+        Me.TE_R_Fecha_de_Dua_Fauca_Face.TabIndex = 3
+        '
+        'LC_R_Fecha_Dua_Fauca_Face
+        '
+        Me.LC_R_Fecha_Dua_Fauca_Face.Location = New System.Drawing.Point(144, 4)
+        Me.LC_R_Fecha_Dua_Fauca_Face.Name = "LC_R_Fecha_Dua_Fauca_Face"
+        Me.LC_R_Fecha_Dua_Fauca_Face.Size = New System.Drawing.Size(29, 13)
+        Me.LC_R_Fecha_Dua_Fauca_Face.TabIndex = 2
+        Me.LC_R_Fecha_Dua_Fauca_Face.Text = "Fecha"
+        '
+        'TE_R_Dua_Fauca_Face
+        '
+        Me.TE_R_Dua_Fauca_Face.Location = New System.Drawing.Point(13, 24)
+        Me.TE_R_Dua_Fauca_Face.Name = "TE_R_Dua_Fauca_Face"
+        Me.TE_R_Dua_Fauca_Face.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TE_R_Dua_Fauca_Face.Size = New System.Drawing.Size(125, 20)
+        Me.TE_R_Dua_Fauca_Face.TabIndex = 1
+        '
+        'LC_R_Dua_Fauca_Face
+        '
+        Me.LC_R_Dua_Fauca_Face.Location = New System.Drawing.Point(13, 3)
+        Me.LC_R_Dua_Fauca_Face.Name = "LC_R_Dua_Fauca_Face"
+        Me.LC_R_Dua_Fauca_Face.Size = New System.Drawing.Size(89, 13)
+        Me.LC_R_Dua_Fauca_Face.TabIndex = 0
+        Me.LC_R_Dua_Fauca_Face.Text = "DUA|FAUCA|FACE"
+        '
+        'CK_Rectificación
+        '
+        Me.CK_Rectificación.Location = New System.Drawing.Point(13, 199)
+        Me.CK_Rectificación.MenuManager = Me.BarManager
+        Me.CK_Rectificación.Name = "CK_Rectificación"
+        Me.CK_Rectificación.Properties.Caption = "¿Contiene rectificación?"
+        Me.CK_Rectificación.Size = New System.Drawing.Size(153, 19)
+        Me.CK_Rectificación.TabIndex = 32
         '
         'TE_Total_GTQ
         '
@@ -1419,7 +1566,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(807, 512)
+        Me.ClientSize = New System.Drawing.Size(844, 536)
         Me.Controls.Add(Me.NP_Datos)
         Me.Controls.Add(Me.GC_Datos_de_ingreso_a_bodega)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -1466,6 +1613,15 @@ Partial Class Movimientos_Elaboración_de_costeos
         CType(Me.GridView_DE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NP_Declaración_aduanal.ResumeLayout(False)
         Me.NP_Declaración_aduanal.PerformLayout()
+        CType(Me.GC_Rectificación, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GC_Rectificación.ResumeLayout(False)
+        Me.GC_Rectificación.PerformLayout()
+        CType(Me.TE_R_DAI_IVA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TE_R_IVA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TE_R_DAI.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TE_R_Fecha_de_Dua_Fauca_Face.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TE_R_Dua_Fauca_Face.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CK_Rectificación.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Total_GTQ.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_DAI_IVA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Total_USD.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1630,4 +1786,16 @@ Partial Class Movimientos_Elaboración_de_costeos
     Friend WithEvents GridControl_CT As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView_CT As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BBI_Cargar_datos_costeo_vehiculos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents GC_Rectificación As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents TE_R_DAI_IVA As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TE_R_IVA As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LC_R_DAI_IVA As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LC_R_IVA As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TE_R_DAI As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LC_R_DAI As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TE_R_Fecha_de_Dua_Fauca_Face As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LC_R_Fecha_Dua_Fauca_Face As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TE_R_Dua_Fauca_Face As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LC_R_Dua_Fauca_Face As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CK_Rectificación As DevExpress.XtraEditors.CheckEdit
 End Class

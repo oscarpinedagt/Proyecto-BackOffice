@@ -100,6 +100,12 @@
               <Mapping SourceColumn="Moneda1" DataSetColumn="Moneda1" />
               <Mapping SourceColumn="Descripción" DataSetColumn="Descripción" />
               <Mapping SourceColumn="Comparativo_moneda_USD" DataSetColumn="Comparativo_moneda_USD" />
+              <Mapping SourceColumn="Rectificación" DataSetColumn="Rectificación" />
+              <Mapping SourceColumn="R_Dua|Fauca|Face" DataSetColumn="R_Dua|Fauca|Face" />
+              <Mapping SourceColumn="R_Fecha_de_Dua|Fauca|Face" DataSetColumn="R_Fecha_de_Dua|Fauca|Face" />
+              <Mapping SourceColumn="R_DAI" DataSetColumn="R_DAI" />
+              <Mapping SourceColumn="R_IVA" DataSetColumn="R_IVA" />
+              <Mapping SourceColumn="R_DAI_e_IVA" DataSetColumn="R_DAI_e_IVA" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -596,7 +602,7 @@ SELECT Id_seguro, RL_id_costeo, Fecha_de_provisión, Empresa, Póliza_de_seguro,
   <xs:element name="DS_BackOffice" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_BackOffice" msprop:Generator_UserDSName="DS_BackOffice">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Costeos" msprop:Generator_TableClassName="CosteosDataTable" msprop:Generator_TableVarName="tableCosteos" msprop:Generator_TablePropName="Costeos" msprop:Generator_RowDeletingName="CosteosRowDeleting" msprop:Generator_RowChangingName="CosteosRowChanging" msprop:Generator_RowEvHandlerName="CosteosRowChangeEventHandler" msprop:Generator_RowDeletedName="CosteosRowDeleted" msprop:Generator_UserTableName="Costeos" msprop:Generator_RowChangedName="CosteosRowChanged" msprop:Generator_RowEvArgName="CosteosRowChangeEvent" msprop:Generator_RowClassName="CosteosRow">
+        <xs:element name="Costeos" msprop:Generator_TableClassName="CosteosDataTable" msprop:Generator_TableVarName="tableCosteos" msprop:Generator_RowChangedName="CosteosRowChanged" msprop:Generator_TablePropName="Costeos" msprop:Generator_RowDeletingName="CosteosRowDeleting" msprop:Generator_RowChangingName="CosteosRowChanging" msprop:Generator_RowEvHandlerName="CosteosRowChangeEventHandler" msprop:Generator_RowDeletedName="CosteosRowDeleted" msprop:Generator_RowClassName="CosteosRow" msprop:Generator_UserTableName="Costeos" msprop:Generator_RowEvArgName="CosteosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_costeo" msprop:Generator_ColumnVarNameInTable="columnId_costeo" msprop:Generator_ColumnPropNameInRow="Id_costeo" msprop:Generator_ColumnPropNameInTable="Id_costeoColumn" msprop:Generator_UserColumnName="Id_costeo" type="xs:int" />
@@ -900,10 +906,22 @@ SELECT Id_seguro, RL_id_costeo, Fecha_de_provisión, Empresa, Póliza_de_seguro,
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Documentos_del_exterior" msprop:Generator_TableClassName="Documentos_del_exteriorDataTable" msprop:Generator_TableVarName="tableDocumentos_del_exterior" msprop:Generator_TablePropName="Documentos_del_exterior" msprop:Generator_RowDeletingName="Documentos_del_exteriorRowDeleting" msprop:Generator_RowChangingName="Documentos_del_exteriorRowChanging" msprop:Generator_RowEvHandlerName="Documentos_del_exteriorRowChangeEventHandler" msprop:Generator_RowDeletedName="Documentos_del_exteriorRowDeleted" msprop:Generator_UserTableName="Documentos_del_exterior" msprop:Generator_RowChangedName="Documentos_del_exteriorRowChanged" msprop:Generator_RowEvArgName="Documentos_del_exteriorRowChangeEvent" msprop:Generator_RowClassName="Documentos_del_exteriorRow" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Rectificación" msprop:Generator_ColumnVarNameInTable="columnRectificación" msprop:Generator_ColumnPropNameInRow="Rectificación" msprop:Generator_ColumnPropNameInTable="RectificaciónColumn" msprop:Generator_UserColumnName="Rectificación" type="xs:boolean" minOccurs="0" />
+              <xs:element name="R_Dua_x007C_Fauca_x007C_Face" msprop:Generator_ColumnVarNameInTable="_columnR_Dua_Fauca_Face" msprop:Generator_ColumnPropNameInRow="_R_Dua_Fauca_Face" msprop:Generator_ColumnPropNameInTable="_R_Dua_Fauca_FaceColumn" msprop:Generator_UserColumnName="R_Dua|Fauca|Face" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="R_Fecha_de_Dua_x007C_Fauca_x007C_Face" msprop:Generator_ColumnVarNameInTable="_columnR_Fecha_de_Dua_Fauca_Face" msprop:Generator_ColumnPropNameInRow="_R_Fecha_de_Dua_Fauca_Face" msprop:Generator_ColumnPropNameInTable="_R_Fecha_de_Dua_Fauca_FaceColumn" msprop:Generator_UserColumnName="R_Fecha_de_Dua|Fauca|Face" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="R_DAI" msprop:Generator_ColumnVarNameInTable="columnR_DAI" msprop:Generator_ColumnPropNameInRow="R_DAI" msprop:Generator_ColumnPropNameInTable="R_DAIColumn" msprop:Generator_UserColumnName="R_DAI" type="xs:decimal" minOccurs="0" />
+              <xs:element name="R_IVA" msprop:Generator_ColumnVarNameInTable="columnR_IVA" msprop:Generator_ColumnPropNameInRow="R_IVA" msprop:Generator_ColumnPropNameInTable="R_IVAColumn" msprop:Generator_UserColumnName="R_IVA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="R_DAI_e_IVA" msprop:Generator_ColumnVarNameInTable="columnR_DAI_e_IVA" msprop:Generator_ColumnPropNameInRow="R_DAI_e_IVA" msprop:Generator_ColumnPropNameInTable="R_DAI_e_IVAColumn" msprop:Generator_UserColumnName="R_DAI_e_IVA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Documentos_del_exterior" msprop:Generator_TableClassName="Documentos_del_exteriorDataTable" msprop:Generator_TableVarName="tableDocumentos_del_exterior" msprop:Generator_RowChangedName="Documentos_del_exteriorRowChanged" msprop:Generator_TablePropName="Documentos_del_exterior" msprop:Generator_RowDeletingName="Documentos_del_exteriorRowDeleting" msprop:Generator_RowChangingName="Documentos_del_exteriorRowChanging" msprop:Generator_RowEvHandlerName="Documentos_del_exteriorRowChangeEventHandler" msprop:Generator_RowDeletedName="Documentos_del_exteriorRowDeleted" msprop:Generator_RowClassName="Documentos_del_exteriorRow" msprop:Generator_UserTableName="Documentos_del_exterior" msprop:Generator_RowEvArgName="Documentos_del_exteriorRowChangeEvent" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:appinfo>
-                    <msdata:Relationship name="Costeos_Documentos_del_exterior" msdata:parent="Costeos" msdata:child="Documentos_del_exterior" msdata:parentkey="Id_costeo" msdata:childkey="RL_id_costeo" msprop:Generator_UserChildTable="Documentos_del_exterior" msprop:Generator_ChildPropName="GetDocumentos_del_exteriorRows" msprop:Generator_UserRelationName="Costeos_Documentos_del_exterior" msprop:Generator_RelationVarName="relationCosteos_Documentos_del_exterior" msprop:Generator_UserParentTable="Costeos" msprop:Generator_ParentPropName="CosteosRow" />
+                    <msdata:Relationship name="Costeos_Documentos_del_exterior" msdata:parent="Costeos" msdata:child="Documentos_del_exterior" msdata:parentkey="Id_costeo" msdata:childkey="RL_id_costeo" msprop:Generator_UserChildTable="Documentos_del_exterior" msprop:Generator_ChildPropName="GetDocumentos_del_exteriorRows" msprop:Generator_UserRelationName="Costeos_Documentos_del_exterior" msprop:Generator_ParentPropName="CosteosRow" msprop:Generator_RelationVarName="relationCosteos_Documentos_del_exterior" msprop:Generator_UserParentTable="Costeos" />
                   </xs:appinfo>
                 </xs:annotation>
                 <xs:complexType>
@@ -950,10 +968,10 @@ SELECT Id_seguro, RL_id_costeo, Fecha_de_provisión, Empresa, Póliza_de_seguro,
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="Documentos_locales" msprop:Generator_TableClassName="Documentos_localesDataTable" msprop:Generator_TableVarName="tableDocumentos_locales" msprop:Generator_TablePropName="Documentos_locales" msprop:Generator_RowDeletingName="Documentos_localesRowDeleting" msprop:Generator_RowChangingName="Documentos_localesRowChanging" msprop:Generator_RowEvHandlerName="Documentos_localesRowChangeEventHandler" msprop:Generator_RowDeletedName="Documentos_localesRowDeleted" msprop:Generator_UserTableName="Documentos_locales" msprop:Generator_RowChangedName="Documentos_localesRowChanged" msprop:Generator_RowEvArgName="Documentos_localesRowChangeEvent" msprop:Generator_RowClassName="Documentos_localesRow" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Documentos_locales" msprop:Generator_TableClassName="Documentos_localesDataTable" msprop:Generator_TableVarName="tableDocumentos_locales" msprop:Generator_RowChangedName="Documentos_localesRowChanged" msprop:Generator_TablePropName="Documentos_locales" msprop:Generator_RowDeletingName="Documentos_localesRowDeleting" msprop:Generator_RowChangingName="Documentos_localesRowChanging" msprop:Generator_RowEvHandlerName="Documentos_localesRowChangeEventHandler" msprop:Generator_RowDeletedName="Documentos_localesRowDeleted" msprop:Generator_RowClassName="Documentos_localesRow" msprop:Generator_UserTableName="Documentos_locales" msprop:Generator_RowEvArgName="Documentos_localesRowChangeEvent" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:appinfo>
-                    <msdata:Relationship name="Costeos_Documentos_locales" msdata:parent="Costeos" msdata:child="Documentos_locales" msdata:parentkey="Id_costeo" msdata:childkey="RL_id_costeo" msprop:Generator_UserChildTable="Documentos_locales" msprop:Generator_ChildPropName="GetDocumentos_localesRows" msprop:Generator_UserRelationName="Costeos_Documentos_locales" msprop:Generator_RelationVarName="relationCosteos_Documentos_locales" msprop:Generator_UserParentTable="Costeos" msprop:Generator_ParentPropName="CosteosRow" />
+                    <msdata:Relationship name="Costeos_Documentos_locales" msdata:parent="Costeos" msdata:child="Documentos_locales" msdata:parentkey="Id_costeo" msdata:childkey="RL_id_costeo" msprop:Generator_UserChildTable="Documentos_locales" msprop:Generator_ChildPropName="GetDocumentos_localesRows" msprop:Generator_UserRelationName="Costeos_Documentos_locales" msprop:Generator_ParentPropName="CosteosRow" msprop:Generator_RelationVarName="relationCosteos_Documentos_locales" msprop:Generator_UserParentTable="Costeos" />
                   </xs:appinfo>
                 </xs:annotation>
                 <xs:complexType>
@@ -994,10 +1012,10 @@ SELECT Id_seguro, RL_id_costeo, Fecha_de_provisión, Empresa, Póliza_de_seguro,
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="Seguro" msprop:Generator_TableClassName="SeguroDataTable" msprop:Generator_TableVarName="tableSeguro" msprop:Generator_TablePropName="Seguro" msprop:Generator_RowDeletingName="SeguroRowDeleting" msprop:Generator_RowChangingName="SeguroRowChanging" msprop:Generator_RowEvHandlerName="SeguroRowChangeEventHandler" msprop:Generator_RowDeletedName="SeguroRowDeleted" msprop:Generator_UserTableName="Seguro" msprop:Generator_RowChangedName="SeguroRowChanged" msprop:Generator_RowEvArgName="SeguroRowChangeEvent" msprop:Generator_RowClassName="SeguroRow" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Seguro" msprop:Generator_TableClassName="SeguroDataTable" msprop:Generator_TableVarName="tableSeguro" msprop:Generator_RowChangedName="SeguroRowChanged" msprop:Generator_TablePropName="Seguro" msprop:Generator_RowDeletingName="SeguroRowDeleting" msprop:Generator_RowChangingName="SeguroRowChanging" msprop:Generator_RowEvHandlerName="SeguroRowChangeEventHandler" msprop:Generator_RowDeletedName="SeguroRowDeleted" msprop:Generator_RowClassName="SeguroRow" msprop:Generator_UserTableName="Seguro" msprop:Generator_RowEvArgName="SeguroRowChangeEvent" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:appinfo>
-                    <msdata:Relationship name="Costeos_Seguro" msdata:parent="Costeos" msdata:child="Seguro" msdata:parentkey="Id_costeo" msdata:childkey="RL_id_costeo" msprop:Generator_UserChildTable="Seguro" msprop:Generator_ChildPropName="GetSeguroRows" msprop:Generator_UserRelationName="Costeos_Seguro" msprop:Generator_RelationVarName="relationCosteos_Seguro" msprop:Generator_UserParentTable="Costeos" msprop:Generator_ParentPropName="CosteosRow" />
+                    <msdata:Relationship name="Costeos_Seguro" msdata:parent="Costeos" msdata:child="Seguro" msdata:parentkey="Id_costeo" msdata:childkey="RL_id_costeo" msprop:Generator_UserChildTable="Seguro" msprop:Generator_ChildPropName="GetSeguroRows" msprop:Generator_UserRelationName="Costeos_Seguro" msprop:Generator_ParentPropName="CosteosRow" msprop:Generator_RelationVarName="relationCosteos_Seguro" msprop:Generator_UserParentTable="Costeos" />
                   </xs:appinfo>
                 </xs:annotation>
                 <xs:complexType>

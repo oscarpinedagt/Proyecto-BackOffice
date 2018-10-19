@@ -87,4 +87,8 @@
     Private Sub BBI_SEG_Control_de_IPRIMA_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_SEG_Control_de_IPRIMA.ItemClick
         FN.Abrir_formulario(Me, Seguimientos_Control_de_IPRIMA)
     End Sub
+
+    Private Sub BBI_Contraseñas_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Contraseñas.ItemClick
+        FN.Abrir_formulario(Me, Seguimientos_Contraseñas)
+    End Sub
 End Class

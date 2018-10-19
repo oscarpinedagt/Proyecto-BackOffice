@@ -564,6 +564,18 @@ Partial Public Class DS_BackOffice
         
         Private columnComparativo_moneda_USD As Global.System.Data.DataColumn
         
+        Private columnRectificación As Global.System.Data.DataColumn
+        
+        Private _columnR_Dua_Fauca_Face As Global.System.Data.DataColumn
+        
+        Private _columnR_Fecha_de_Dua_Fauca_Face As Global.System.Data.DataColumn
+        
+        Private columnR_DAI As Global.System.Data.DataColumn
+        
+        Private columnR_IVA As Global.System.Data.DataColumn
+        
+        Private columnR_DAI_e_IVA As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1232,6 +1244,54 @@ Partial Public Class DS_BackOffice
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property RectificaciónColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRectificación
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property _R_Dua_Fauca_FaceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me._columnR_Dua_Fauca_Face
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property _R_Fecha_de_Dua_Fauca_FaceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me._columnR_Fecha_de_Dua_Fauca_Face
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property R_DAIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnR_DAI
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property R_IVAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnR_IVA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property R_DAI_e_IVAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnR_DAI_e_IVA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1347,9 +1407,15 @@ Partial Public Class DS_BackOffice
                     ByVal Id_moneda As Integer,  _
                     ByVal Moneda1 As String,  _
                     ByVal Descripción As String,  _
-                    ByVal Comparativo_moneda_USD As String) As CosteosRow
+                    ByVal Comparativo_moneda_USD As String,  _
+                    ByVal Rectificación As Boolean,  _
+                    ByVal _R_Dua_Fauca_Face As String,  _
+                    ByVal _R_Fecha_de_Dua_Fauca_Face As Date,  _
+                    ByVal R_DAI As Decimal,  _
+                    ByVal R_IVA As Decimal,  _
+                    ByVal R_DAI_e_IVA As Decimal) As CosteosRow
             Dim rowCosteosRow As CosteosRow = CType(Me.NewRow,CosteosRow)
-            Dim columnValuesArray() As Object = New Object() {Id_costeo, Grupo_de_empresas, Empresa, Tipo_de_mercaderia, SE, Sub_empresa, Compra, Ingreso_a_bodega, Fecha_de_ingreso_a_bodega, Semana_ingreso_a_bodega, Mes_ingreso_a_bodega, Año_ingreso_a_bodega, Tipo_de_costeo, Estado, Proveedor, Marca, País_de_procedencia, Tipo_de_importacion, Incoterm, Moneda_de_negociación, _Shipper_Carrier, _Guia_BL_Carta_de_porte, _Fecha_de_Guia_BL_Carta_de_porte, Fecha_de_arribo, Régimen, _Dua_Fauca_Face, _Fecha_de_Dua_Fauca_Face, Contenedores_o_bultos, Moneda, Factor_de_cambio_USD, Factor_de_cambio_GTQ, FOB_USD, Flete_USD, Seguro_USD, Otros_USD, Total_USD, Total_GTQ, DAI, IVA, DAI_e_IVA, Recibido, Usuario_que_recibe, Fecha_de_recepcion, Semana_recepcion_año, Semana_recepcion, Mes_recepcion, Año_recepcion, Dif_Ing_Rec, Costeo_asignado_a, Elaborado, Usuario_que_elabora, Fecha_de_elaboracion, Semana_elaboracion, Mes_elaboracion, Año_elaboracion, Dif_Rec_Ela, Revisado, Usuario_que_revisa, Fecha_de_revision, Dif_Ela_Rev, Enviado, Usuario_que_envia, Fecha_de_envio, Dif_Rev_Env, Dif_Ela_Env, Archivo, Comentarios, Id_empresa, Nit, Literales, Razon_social, Razon_comercial, Domicilio_fiscal, Logo, RL_GE, Id_moneda, Moneda1, Descripción, Comparativo_moneda_USD}
+            Dim columnValuesArray() As Object = New Object() {Id_costeo, Grupo_de_empresas, Empresa, Tipo_de_mercaderia, SE, Sub_empresa, Compra, Ingreso_a_bodega, Fecha_de_ingreso_a_bodega, Semana_ingreso_a_bodega, Mes_ingreso_a_bodega, Año_ingreso_a_bodega, Tipo_de_costeo, Estado, Proveedor, Marca, País_de_procedencia, Tipo_de_importacion, Incoterm, Moneda_de_negociación, _Shipper_Carrier, _Guia_BL_Carta_de_porte, _Fecha_de_Guia_BL_Carta_de_porte, Fecha_de_arribo, Régimen, _Dua_Fauca_Face, _Fecha_de_Dua_Fauca_Face, Contenedores_o_bultos, Moneda, Factor_de_cambio_USD, Factor_de_cambio_GTQ, FOB_USD, Flete_USD, Seguro_USD, Otros_USD, Total_USD, Total_GTQ, DAI, IVA, DAI_e_IVA, Recibido, Usuario_que_recibe, Fecha_de_recepcion, Semana_recepcion_año, Semana_recepcion, Mes_recepcion, Año_recepcion, Dif_Ing_Rec, Costeo_asignado_a, Elaborado, Usuario_que_elabora, Fecha_de_elaboracion, Semana_elaboracion, Mes_elaboracion, Año_elaboracion, Dif_Rec_Ela, Revisado, Usuario_que_revisa, Fecha_de_revision, Dif_Ela_Rev, Enviado, Usuario_que_envia, Fecha_de_envio, Dif_Rev_Env, Dif_Ela_Env, Archivo, Comentarios, Id_empresa, Nit, Literales, Razon_social, Razon_comercial, Domicilio_fiscal, Logo, RL_GE, Id_moneda, Moneda1, Descripción, Comparativo_moneda_USD, Rectificación, _R_Dua_Fauca_Face, _R_Fecha_de_Dua_Fauca_Face, R_DAI, R_IVA, R_DAI_e_IVA}
             rowCosteosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCosteosRow)
             Return rowCosteosRow
@@ -1457,6 +1523,12 @@ Partial Public Class DS_BackOffice
             Me.columnMoneda1 = MyBase.Columns("Moneda1")
             Me.columnDescripción = MyBase.Columns("Descripción")
             Me.columnComparativo_moneda_USD = MyBase.Columns("Comparativo_moneda_USD")
+            Me.columnRectificación = MyBase.Columns("Rectificación")
+            Me._columnR_Dua_Fauca_Face = MyBase.Columns("R_Dua|Fauca|Face")
+            Me._columnR_Fecha_de_Dua_Fauca_Face = MyBase.Columns("R_Fecha_de_Dua|Fauca|Face")
+            Me.columnR_DAI = MyBase.Columns("R_DAI")
+            Me.columnR_IVA = MyBase.Columns("R_IVA")
+            Me.columnR_DAI_e_IVA = MyBase.Columns("R_DAI_e_IVA")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1630,6 +1702,22 @@ Partial Public Class DS_BackOffice
             MyBase.Columns.Add(Me.columnDescripción)
             Me.columnComparativo_moneda_USD = New Global.System.Data.DataColumn("Comparativo_moneda_USD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnComparativo_moneda_USD)
+            Me.columnRectificación = New Global.System.Data.DataColumn("Rectificación", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRectificación)
+            Me._columnR_Dua_Fauca_Face = New Global.System.Data.DataColumn("R_Dua|Fauca|Face", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnR_Dua_Fauca_Face.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnR_Dua_Fauca_Face")
+            Me._columnR_Dua_Fauca_Face.ExtendedProperties.Add("Generator_UserColumnName", "R_Dua|Fauca|Face")
+            MyBase.Columns.Add(Me._columnR_Dua_Fauca_Face)
+            Me._columnR_Fecha_de_Dua_Fauca_Face = New Global.System.Data.DataColumn("R_Fecha_de_Dua|Fauca|Face", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnR_Fecha_de_Dua_Fauca_Face.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnR_Fecha_de_Dua_Fauca_Face")
+            Me._columnR_Fecha_de_Dua_Fauca_Face.ExtendedProperties.Add("Generator_UserColumnName", "R_Fecha_de_Dua|Fauca|Face")
+            MyBase.Columns.Add(Me._columnR_Fecha_de_Dua_Fauca_Face)
+            Me.columnR_DAI = New Global.System.Data.DataColumn("R_DAI", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnR_DAI)
+            Me.columnR_IVA = New Global.System.Data.DataColumn("R_IVA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnR_IVA)
+            Me.columnR_DAI_e_IVA = New Global.System.Data.DataColumn("R_DAI_e_IVA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnR_DAI_e_IVA)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId_costeo}, true))
             Me.columnId_costeo.AllowDBNull = false
             Me.columnId_costeo.Unique = true
@@ -1686,6 +1774,7 @@ Partial Public Class DS_BackOffice
             Me.columnMoneda1.MaxLength = 15
             Me.columnDescripción.MaxLength = 50
             Me.columnComparativo_moneda_USD.MaxLength = 15
+            Me._columnR_Dua_Fauca_Face.MaxLength = 15
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4520,6 +4609,97 @@ Partial Public Class DS_BackOffice
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Rectificación() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.RectificaciónColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Rectificación' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.RectificaciónColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property _R_Dua_Fauca_Face() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos._R_Dua_Fauca_FaceColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'R_Dua|Fauca|Face' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos._R_Dua_Fauca_FaceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property _R_Fecha_de_Dua_Fauca_Face() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos._R_Fecha_de_Dua_Fauca_FaceColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'R_Fecha_de_Dua|Fauca|Face' de la tabla 'Costeos' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos._R_Fecha_de_Dua_Fauca_FaceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property R_DAI() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.R_DAIColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'R_DAI' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.R_DAIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property R_IVA() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.R_IVAColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'R_IVA' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.R_IVAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property R_DAI_e_IVA() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.R_DAI_e_IVAColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'R_DAI_e_IVA' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.R_DAI_e_IVAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsGrupo_de_empresasNull() As Boolean
             Return Me.IsNull(Me.tableCosteos.Grupo_de_empresasColumn)
         End Function
@@ -5440,6 +5620,78 @@ Partial Public Class DS_BackOffice
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetComparativo_moneda_USDNull()
             Me(Me.tableCosteos.Comparativo_moneda_USDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsRectificaciónNull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.RectificaciónColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetRectificaciónNull()
+            Me(Me.tableCosteos.RectificaciónColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Is_R_Dua_Fauca_FaceNull() As Boolean
+            Return Me.IsNull(Me.tableCosteos._R_Dua_Fauca_FaceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Set_R_Dua_Fauca_FaceNull()
+            Me(Me.tableCosteos._R_Dua_Fauca_FaceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Is_R_Fecha_de_Dua_Fauca_FaceNull() As Boolean
+            Return Me.IsNull(Me.tableCosteos._R_Fecha_de_Dua_Fauca_FaceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Set_R_Fecha_de_Dua_Fauca_FaceNull()
+            Me(Me.tableCosteos._R_Fecha_de_Dua_Fauca_FaceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsR_DAINull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.R_DAIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetR_DAINull()
+            Me(Me.tableCosteos.R_DAIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsR_IVANull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.R_IVAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetR_IVANull()
+            Me(Me.tableCosteos.R_IVAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsR_DAI_e_IVANull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.R_DAI_e_IVAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetR_DAI_e_IVANull()
+            Me(Me.tableCosteos.R_DAI_e_IVAColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7309,6 +7561,12 @@ Namespace DS_BackOfficeTableAdapters
             tableMapping.ColumnMappings.Add("Moneda1", "Moneda1")
             tableMapping.ColumnMappings.Add("Descripción", "Descripción")
             tableMapping.ColumnMappings.Add("Comparativo_moneda_USD", "Comparativo_moneda_USD")
+            tableMapping.ColumnMappings.Add("Rectificación", "Rectificación")
+            tableMapping.ColumnMappings.Add("R_Dua|Fauca|Face", "R_Dua|Fauca|Face")
+            tableMapping.ColumnMappings.Add("R_Fecha_de_Dua|Fauca|Face", "R_Fecha_de_Dua|Fauca|Face")
+            tableMapping.ColumnMappings.Add("R_DAI", "R_DAI")
+            tableMapping.ColumnMappings.Add("R_IVA", "R_IVA")
+            tableMapping.ColumnMappings.Add("R_DAI_e_IVA", "R_DAI_e_IVA")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         

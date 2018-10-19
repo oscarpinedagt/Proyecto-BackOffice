@@ -198,6 +198,19 @@
         Total_general()
     End Sub
 
+    Private Sub CK_Rectificación_CheckedChanged(sender As Object, e As EventArgs) Handles CK_Rectificación.CheckedChanged
+        If CK_Rectificación.Checked = True Then
+            GC_Rectificación.Visible = True
+        Else
+            GC_Rectificación.Visible = False
+        End If
+    End Sub
+
+    Private Sub Valores_DAI_IVA_rectificación(sender As Object, e As EventArgs) Handles TE_R_DAI.EditValueChanged, TE_R_IVA.EditValueChanged
+        TE_R_DAI_IVA.EditValue = Val(TE_R_DAI.EditValue) + Val(TE_R_IVA.EditValue)
+        Total_general()
+    End Sub
+
     Private Sub LUE_Empresa_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles LUE_Empresa.Validating
         FN.Validar_campos(LUE_Empresa, "Debes asignar una empresa", DxErrorProvider)
     End Sub
@@ -749,7 +762,7 @@
     Private Sub Seguro()
         If CK_Recibido.EditValue = True And LUE_Incoterm.EditValue <> Nothing And TE_Factor_de_cambio_GTQ.EditValue <> Nothing Then
             Dim Documentos_USD As Double = GridView_DE.Columns("Total_USD").SummaryItem.SummaryValue
-            Dim Gastos_USD As Double = Val(TE_DAI.EditValue + GridView_DL.Columns("Valor_sin_IVA").SummaryItem.SummaryValue) / Val(TE_Factor_de_cambio_GTQ.EditValue)
+            Dim Gastos_USD As Double = Val(TE_DAI.EditValue + TE_R_DAI.EditValue + GridView_DL.Columns("Valor_sin_IVA").SummaryItem.SummaryValue) / Val(TE_Factor_de_cambio_GTQ.EditValue)
 
             If GridView_SG.RowCount = 0 Then
                 GridView_SG.AddNewRow()
@@ -1282,6 +1295,75 @@
 
                     End If
 
+                    'DAI rectificación
+                    If TE_R_DAI.EditValue <> Nothing Then
+
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+
+                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_R_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " DAI " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_R_Dua_Fauca_Face.EditValue, 13))
+
+                            GridView_CT.SetRowCellValue(Dr, "Debe", TE_R_DAI.EditValue)
+                            GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+
+                        End If
+
+                    End If
+
+                    'IVA rectificación
+                    If TE_R_IVA.EditValue <> Nothing Then
+
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+
+                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_R_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " IVA " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_R_Dua_Fauca_Face.EditValue, 13))
+
+                            GridView_CT.SetRowCellValue(Dr, "Debe", TE_R_IVA.EditValue)
+                            GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+
+                            GridView_CT.SetRowCellValue(Dr, "TRN_IVA", Dt.Rows(0)("TRN_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Proveedor_IVA", Dt.Rows(0)("Prov_IVA"))
+
+                        End If
+
+                    End If
+
+                    'DAI e IVA rectificación
+                    If TE_R_DAI_IVA.EditValue <> Nothing Then
+
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+
+                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_R_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " Liquidación DUA " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_R_Dua_Fauca_Face.EditValue, 13))
+
+                            GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                            GridView_CT.SetRowCellValue(Dr, "Haber", TE_R_DAI_IVA.EditValue)
+
+                        End If
+
+                    End If
+
                     'Perdida o ganancia cambiaria
                     If LUE_Tipo_de_mercadería.EditValue = "Vehiculos" And GridView_DE.Columns("Diferencial_GTQ").SummaryItem.SummaryValue <> 0 Then
                         For X As Integer = 1 To 2
@@ -1614,6 +1696,75 @@
 
                             GridView_CT.SetRowCellValue(Dr, "Debe", 0)
                             GridView_CT.SetRowCellValue(Dr, "Haber", TE_DAI_IVA.EditValue)
+
+                        End If
+
+                    End If
+
+                    'DAI rectificación
+                    If TE_R_DAI.EditValue <> Nothing Then
+
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+
+                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_Inv"))
+                            GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_R_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " DAI " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_R_Dua_Fauca_Face.EditValue, 13))
+
+                            GridView_CT.SetRowCellValue(Dr, "Debe", TE_R_DAI.EditValue)
+                            GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+
+                        End If
+
+                    End If
+
+                    'IVA rectificación
+                    If TE_R_IVA.EditValue <> Nothing Then
+
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+
+                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_R_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " IVA " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_R_Dua_Fauca_Face.EditValue, 13))
+
+                            GridView_CT.SetRowCellValue(Dr, "Debe", TE_R_IVA.EditValue)
+                            GridView_CT.SetRowCellValue(Dr, "Haber", 0)
+
+                            GridView_CT.SetRowCellValue(Dr, "TRN_IVA", Dt.Rows(0)("TRN_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Proveedor_IVA", Dt.Rows(0)("Prov_IVA"))
+
+                        End If
+
+                    End If
+
+                    'DAI e IVA rectificación
+                    If TE_R_DAI_IVA.EditValue <> Nothing Then
+
+                        GridView_CT.AddNewRow()
+                        Dim Dr As Integer = GridView_CT.GetRowHandle(GridView_CT.DataRowCount)
+                        If GridView_CT.IsNewItemRow(Dr) Then
+
+                            GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_Antpos"))
+                            GridView_CT.SetRowCellValue(Dr, "Descripción", LUE_Régimen.EditValue + " " + TE_R_Dua_Fauca_Face.EditValue + " " + Convert.ToDateTime(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString + " Liquidación DUA " + LUE_Shipper_Carrier.EditValue + " " + TE_Guia_BL_Carta_de_porte.EditValue + " " + Ref_moneda)
+                            GridView_CT.SetRowCellValue(Dr, "Documento", Strings.Right(TE_R_Dua_Fauca_Face.EditValue, 13))
+
+                            GridView_CT.SetRowCellValue(Dr, "Debe", 0)
+                            GridView_CT.SetRowCellValue(Dr, "Haber", TE_R_DAI_IVA.EditValue)
 
                         End If
 
@@ -2001,7 +2152,7 @@
                 If SQL.Duplicados("Costeos", "Where Empresa+'-'+IsNull(Compra,'')+'-'+IsNull(Ingreso_a_bodega,'')='" + LUE_Empresa.EditValue + "-" + TE_Compra.EditValue + "-" + TE_Ingreso_a_bodega.EditValue + "'") = False And Edicion = False Then
                     Dim ID_GN As Integer = SQL.Nuevo_ID("Id_costeo", "Costeos")
 
-                    SQL.Insertar("Costeos", "Id_costeo,Grupo_de_empresas,Empresa,Tipo_de_mercaderia,SE,Sub_empresa,Compra,Ingreso_a_bodega,Fecha_de_ingreso_a_bodega,Tipo_de_costeo,Estado,Proveedor,Marca,País_de_procedencia,Tipo_de_importacion,Incoterm,Moneda_de_negociación,[Shipper|Carrier],[Guia|BL|Carta_de_porte],[Fecha_de_Guia|BL|Carta_de_porte],Fecha_de_arribo,Régimen,[Dua|Fauca|Face],[Fecha_de_Dua|Fauca|Face],Contenedores_o_bultos,Moneda,Factor_de_cambio_USD,Factor_de_cambio_GTQ,FOB_USD,Flete_USD,Seguro_USD,Otros_USD,Total_USD,Total_GTQ,DAI,IVA,DAI_e_IVA,Recibido,Usuario_que_recibe,Fecha_de_recepcion,Costeo_asignado_a,Comentarios", ID_GN.ToString + ",'" + SQL.Extraer_informacion_de_columna("b.Grupo", "Empresas a, Grupo_de_empresas b", "Where a.Razon_comercial='" + LUE_Empresa.Text + "' And a.RL_GE=b.Id_grupo_empresas") + "'," + FN.Campo(LUE_Empresa) + "," + FN.Campo(LUE_Tipo_de_mercadería) + "," + FN.Campo(TE_SE) + ",'" + SQL.Extraer_informacion_de_columna("Sub_empresa", "Sub_empresas", "Where SE='" + TE_SE.Text + "'") + "'," + FN.Campo(TE_Compra) + "," + FN.Campo(TE_Ingreso_a_bodega) + "," + FN.Campo(TE_Fecha_de_ingreso_a_bodega) + "," + FN.Campo(LUE_Tipo_de_costeo) + "," + FN.Campo(LUE_Estado) + "," + FN.Campo(LUE_Proveedor) + ",'" + LUE_Marca.Text + "'," + FN.Campo(TE_País_de_procedencia) + "," + FN.Campo(LUE_Tipo_de_importación) + "," + FN.Campo(LUE_Incoterm) + "," + FN.Campo(LUE_Moneda_de_negociación) + "," + FN.Campo(LUE_Shipper_Carrier) + "," + FN.Campo(TE_Guia_BL_Carta_de_porte) + "," + FN.Campo(TE_Fecha_de_Guia_BL_Carta_de_porte) + "," + FN.Campo(TE_Fecha_de_arribo) + "," + FN.Campo(LUE_Régimen) + "," + FN.Campo(TE_Dua_Fauca_Face) + "," + FN.Campo(TE_Fecha_de_Dua_Fauca_Face) + "," + FN.Campo(TE_Contenedores_o_bultos) + "," + FN.Campo(LUE_Moneda) + "," + FN.Campo(TE_Factor_de_cambio_USD) + "," + FN.Campo(TE_Factor_de_cambio_GTQ) + "," + FN.Campo(TE_FOB_USD) + "," + FN.Campo(TE_Flete_USD) + "," + FN.Campo(TE_Seguro_USD) + "," + FN.Campo(TE_Otros_USD) + "," + FN.Campo(TE_Total_USD) + "," + FN.Campo(TE_Total_GTQ) + "," + FN.Campo(TE_DAI) + "," + FN.Campo(TE_IVA) + "," + FN.Campo(TE_DAI_IVA) + ",'" + CK_Recibido.Checked.ToString + "'," + FN.Campo(TE_Usuario_que_recibe) + "," + FN.Campo(TE_Fecha_de_recepción) + "," + FN.Campo(LUE_Costeo_asignado_a) + ",'" + RTBX_Comentarios.Text + "'")
+                    SQL.Insertar("Costeos", "Id_costeo,Grupo_de_empresas,Empresa,Tipo_de_mercaderia,SE,Sub_empresa,Compra,Ingreso_a_bodega,Fecha_de_ingreso_a_bodega,Tipo_de_costeo,Estado,Proveedor,Marca,País_de_procedencia,Tipo_de_importacion,Incoterm,Moneda_de_negociación,[Shipper|Carrier],[Guia|BL|Carta_de_porte],[Fecha_de_Guia|BL|Carta_de_porte],Fecha_de_arribo,Régimen,[Dua|Fauca|Face],[Fecha_de_Dua|Fauca|Face],Contenedores_o_bultos,Moneda,Factor_de_cambio_USD,Factor_de_cambio_GTQ,FOB_USD,Flete_USD,Seguro_USD,Otros_USD,Total_USD,Total_GTQ,DAI,IVA,DAI_e_IVA,Rectificación,[R_Dua|Fauca|Face],[R_Fecha_de_Dua|Fauca|Face],R_DAI,R_IVA,R_DAI_e_IVA,Recibido,Usuario_que_recibe,Fecha_de_recepcion,Costeo_asignado_a,Comentarios", ID_GN.ToString + ",'" + SQL.Extraer_informacion_de_columna("b.Grupo", "Empresas a, Grupo_de_empresas b", "Where a.Razon_comercial='" + LUE_Empresa.Text + "' And a.RL_GE=b.Id_grupo_empresas") + "'," + FN.Campo(LUE_Empresa) + "," + FN.Campo(LUE_Tipo_de_mercadería) + "," + FN.Campo(TE_SE) + ",'" + SQL.Extraer_informacion_de_columna("Sub_empresa", "Sub_empresas", "Where SE='" + TE_SE.Text + "'") + "'," + FN.Campo(TE_Compra) + "," + FN.Campo(TE_Ingreso_a_bodega) + "," + FN.Campo(TE_Fecha_de_ingreso_a_bodega) + "," + FN.Campo(LUE_Tipo_de_costeo) + "," + FN.Campo(LUE_Estado) + "," + FN.Campo(LUE_Proveedor) + ",'" + LUE_Marca.Text + "'," + FN.Campo(TE_País_de_procedencia) + "," + FN.Campo(LUE_Tipo_de_importación) + "," + FN.Campo(LUE_Incoterm) + "," + FN.Campo(LUE_Moneda_de_negociación) + "," + FN.Campo(LUE_Shipper_Carrier) + "," + FN.Campo(TE_Guia_BL_Carta_de_porte) + "," + FN.Campo(TE_Fecha_de_Guia_BL_Carta_de_porte) + "," + FN.Campo(TE_Fecha_de_arribo) + "," + FN.Campo(LUE_Régimen) + "," + FN.Campo(TE_Dua_Fauca_Face) + "," + FN.Campo(TE_Fecha_de_Dua_Fauca_Face) + "," + FN.Campo(TE_Contenedores_o_bultos) + "," + FN.Campo(LUE_Moneda) + "," + FN.Campo(TE_Factor_de_cambio_USD) + "," + FN.Campo(TE_Factor_de_cambio_GTQ) + "," + FN.Campo(TE_FOB_USD) + "," + FN.Campo(TE_Flete_USD) + "," + FN.Campo(TE_Seguro_USD) + "," + FN.Campo(TE_Otros_USD) + "," + FN.Campo(TE_Total_USD) + "," + FN.Campo(TE_Total_GTQ) + "," + FN.Campo(TE_DAI) + "," + FN.Campo(TE_IVA) + "," + FN.Campo(TE_DAI_IVA) + ",'" + CK_Rectificación.Checked.ToString + "'," + FN.Campo(TE_R_Dua_Fauca_Face) + "," + FN.Campo(TE_R_Fecha_de_Dua_Fauca_Face) + "," + FN.Campo(TE_R_DAI) + "," + FN.Campo(TE_R_IVA) + "," + FN.Campo(TE_R_DAI_IVA) + ",'" + CK_Recibido.Checked.ToString + "'," + FN.Campo(TE_Usuario_que_recibe) + "," + FN.Campo(TE_Fecha_de_recepción) + "," + FN.Campo(LUE_Costeo_asignado_a) + ",'" + RTBX_Comentarios.Text + "'")
 
                     If GridView_DE.RowCount > 0 Then
                         For i As Integer = 0 To GridView_DE.DataRowCount - 1
@@ -2038,7 +2189,7 @@
                 ElseIf Edicion = True And LUE_Estado.Text <> "Anulado" Then
                     If Editables = LUE_Empresa.EditValue + "-" + TE_Compra.EditValue + "-" + TE_Ingreso_a_bodega.EditValue Then
 
-                        SQL.Actualizar("Costeos", "Grupo_de_empresas='" + SQL.Extraer_informacion_de_columna("b.Grupo", "Empresas a, Grupo_de_empresas b ", "Where a.Razon_comercial='" + LUE_Empresa.EditValue + "' And a.RL_GE=b.Id_grupo_empresas") + "',Empresa=" + FN.Campo(LUE_Empresa) + ",Tipo_de_mercaderia=" + FN.Campo(LUE_Tipo_de_mercadería) + ",SE=" + FN.Campo(TE_SE) + ",Sub_empresa='" + SQL.Extraer_informacion_de_columna("Sub_empresa", "Sub_empresas", "Where SE='" + TE_SE.EditValue.ToString + "'") + "',Compra=" + FN.Campo(TE_Compra) + ",Ingreso_a_bodega=" + FN.Campo(TE_Ingreso_a_bodega) + ",Fecha_de_ingreso_a_bodega=" + FN.Campo(TE_Fecha_de_ingreso_a_bodega) + ",Tipo_de_costeo=" + FN.Campo(LUE_Tipo_de_costeo) + ",Estado=" + FN.Campo(LUE_Estado) + ",Proveedor=" + FN.Campo(LUE_Proveedor) + ",Marca='" + LUE_Marca.Text + "',País_de_procedencia=" + FN.Campo(TE_País_de_procedencia) + ",Tipo_de_importacion=" + FN.Campo(LUE_Tipo_de_importación) + ",Incoterm=" + FN.Campo(LUE_Incoterm) + ",Moneda_de_negociación=" + FN.Campo(LUE_Moneda_de_negociación) + ",[Shipper|Carrier]=" + FN.Campo(LUE_Shipper_Carrier) + ",[Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Guia_BL_Carta_de_porte) + ",[Fecha_de_Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Fecha_de_Guia_BL_Carta_de_porte) + ",Fecha_de_arribo=" + FN.Campo(TE_Fecha_de_arribo) + ",Régimen=" + FN.Campo(LUE_Régimen) + ",[Dua|Fauca|Face]=" + FN.Campo(TE_Dua_Fauca_Face) + ",[Fecha_de_Dua|Fauca|Face]=" + FN.Campo(TE_Fecha_de_Dua_Fauca_Face) + ",Contenedores_o_bultos=" + FN.Campo(TE_Contenedores_o_bultos) + ",Moneda=" + FN.Campo(LUE_Moneda) + ",Factor_de_cambio_USD=" + FN.Campo(TE_Factor_de_cambio_USD) + ",Factor_de_cambio_GTQ=" + FN.Campo(TE_Factor_de_cambio_GTQ) + ",FOB_USD=" + FN.Campo(TE_FOB_USD) + ",Flete_USD=" + FN.Campo(TE_Flete_USD) + ",Seguro_USD=" + FN.Campo(TE_Seguro_USD) + ",Otros_USD=" + FN.Campo(TE_Otros_USD) + ",Total_USD=" + FN.Campo(TE_Total_USD) + ",Total_GTQ=" + FN.Campo(TE_Total_GTQ) + ",DAI=" + FN.Campo(TE_DAI) + ",IVA=" + FN.Campo(TE_IVA) + ",DAI_e_IVA=" + FN.Campo(TE_DAI_IVA) + ",Recibido='" + CK_Recibido.Checked.ToString + "',Usuario_que_recibe=" + FN.Campo(TE_Usuario_que_recibe) + ",Fecha_de_recepcion=" + FN.Campo(TE_Fecha_de_recepción) + ",Costeo_asignado_a=" + FN.Campo(LUE_Costeo_asignado_a) + ",Comentarios='" + RTBX_Comentarios.Text + "'", "Id_costeo=" + ID.ToString)
+                        SQL.Actualizar("Costeos", "Grupo_de_empresas='" + SQL.Extraer_informacion_de_columna("b.Grupo", "Empresas a, Grupo_de_empresas b ", "Where a.Razon_comercial='" + LUE_Empresa.EditValue + "' And a.RL_GE=b.Id_grupo_empresas") + "',Empresa=" + FN.Campo(LUE_Empresa) + ",Tipo_de_mercaderia=" + FN.Campo(LUE_Tipo_de_mercadería) + ",SE=" + FN.Campo(TE_SE) + ",Sub_empresa='" + SQL.Extraer_informacion_de_columna("Sub_empresa", "Sub_empresas", "Where SE='" + TE_SE.EditValue.ToString + "'") + "',Compra=" + FN.Campo(TE_Compra) + ",Ingreso_a_bodega=" + FN.Campo(TE_Ingreso_a_bodega) + ",Fecha_de_ingreso_a_bodega=" + FN.Campo(TE_Fecha_de_ingreso_a_bodega) + ",Tipo_de_costeo=" + FN.Campo(LUE_Tipo_de_costeo) + ",Estado=" + FN.Campo(LUE_Estado) + ",Proveedor=" + FN.Campo(LUE_Proveedor) + ",Marca='" + LUE_Marca.Text + "',País_de_procedencia=" + FN.Campo(TE_País_de_procedencia) + ",Tipo_de_importacion=" + FN.Campo(LUE_Tipo_de_importación) + ",Incoterm=" + FN.Campo(LUE_Incoterm) + ",Moneda_de_negociación=" + FN.Campo(LUE_Moneda_de_negociación) + ",[Shipper|Carrier]=" + FN.Campo(LUE_Shipper_Carrier) + ",[Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Guia_BL_Carta_de_porte) + ",[Fecha_de_Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Fecha_de_Guia_BL_Carta_de_porte) + ",Fecha_de_arribo=" + FN.Campo(TE_Fecha_de_arribo) + ",Régimen=" + FN.Campo(LUE_Régimen) + ",[Dua|Fauca|Face]=" + FN.Campo(TE_Dua_Fauca_Face) + ",[Fecha_de_Dua|Fauca|Face]=" + FN.Campo(TE_Fecha_de_Dua_Fauca_Face) + ",Contenedores_o_bultos=" + FN.Campo(TE_Contenedores_o_bultos) + ",Moneda=" + FN.Campo(LUE_Moneda) + ",Factor_de_cambio_USD=" + FN.Campo(TE_Factor_de_cambio_USD) + ",Factor_de_cambio_GTQ=" + FN.Campo(TE_Factor_de_cambio_GTQ) + ",FOB_USD=" + FN.Campo(TE_FOB_USD) + ",Flete_USD=" + FN.Campo(TE_Flete_USD) + ",Seguro_USD=" + FN.Campo(TE_Seguro_USD) + ",Otros_USD=" + FN.Campo(TE_Otros_USD) + ",Total_USD=" + FN.Campo(TE_Total_USD) + ",Total_GTQ=" + FN.Campo(TE_Total_GTQ) + ",DAI=" + FN.Campo(TE_DAI) + ",IVA=" + FN.Campo(TE_IVA) + ",DAI_e_IVA=" + FN.Campo(TE_DAI_IVA) + ",Rectificación='" + CK_Rectificación.Checked.ToString + "',[R_Dua|Fauca|Face]=" + FN.Campo(TE_R_Dua_Fauca_Face) + ",[R_Fecha_de_Dua|Fauca|Face]=" + FN.Campo(TE_R_Fecha_de_Dua_Fauca_Face) + ",R_DAI=" + FN.Campo(TE_R_DAI) + ",R_IVA=" + FN.Campo(TE_R_IVA) + ",R_DAI_e_IVA=" + FN.Campo(TE_R_DAI_IVA) + ",Recibido='" + CK_Recibido.Checked.ToString + "',Usuario_que_recibe=" + FN.Campo(TE_Usuario_que_recibe) + ",Fecha_de_recepcion=" + FN.Campo(TE_Fecha_de_recepción) + ",Costeo_asignado_a=" + FN.Campo(LUE_Costeo_asignado_a) + ",Comentarios='" + RTBX_Comentarios.Text + "'", "Id_costeo=" + ID.ToString)
 
                         If GridView_DE.RowCount > 0 Then
                             For i As Integer = 0 To GridView_DE.DataRowCount - 1
@@ -2070,7 +2221,7 @@
                     Else
                         If SQL.Duplicados("Costeos", "Where Empresa+'-'+IsNull(Compra,'')+'-'+IsNull(Ingreso_a_bodega,'')='" + LUE_Empresa.EditValue + "-" + TE_Compra.EditValue + "-" + TE_Ingreso_a_bodega.EditValue + "'") = False Then
 
-                            SQL.Actualizar("Costeos", "Grupo_de_empresas='" + SQL.Extraer_informacion_de_columna("b.Grupo", "Empresas a, Grupo_de_empresas b ", "Where a.Razon_comercial='" + LUE_Empresa.EditValue + "' And a.RL_GE=b.Id_grupo_empresas") + "',Empresa=" + FN.Campo(LUE_Empresa) + ",Tipo_de_mercaderia=" + FN.Campo(LUE_Tipo_de_mercadería) + ",SE=" + FN.Campo(TE_SE) + ",Sub_empresa='" + SQL.Extraer_informacion_de_columna("Sub_empresa", "Sub_empresas", "Where SE='" + TE_SE.EditValue.ToString + "'") + "',Compra=" + FN.Campo(TE_Compra) + ",Ingreso_a_bodega=" + FN.Campo(TE_Ingreso_a_bodega) + ",Fecha_de_ingreso_a_bodega=" + FN.Campo(TE_Fecha_de_ingreso_a_bodega) + ",Tipo_de_costeo=" + FN.Campo(LUE_Tipo_de_costeo) + ",Estado=" + FN.Campo(LUE_Estado) + ",Proveedor=" + FN.Campo(LUE_Proveedor) + ",Marca='" + LUE_Marca.Text + "',País_de_procedencia=" + FN.Campo(TE_País_de_procedencia) + ",Tipo_de_importacion=" + FN.Campo(LUE_Tipo_de_importación) + ",Incoterm=" + FN.Campo(LUE_Incoterm) + ",Moneda_de_negociación=" + FN.Campo(LUE_Moneda_de_negociación) + ",[Shipper|Carrier]=" + FN.Campo(LUE_Shipper_Carrier) + ",[Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Guia_BL_Carta_de_porte) + ",[Fecha_de_Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Fecha_de_Guia_BL_Carta_de_porte) + ",Fecha_de_arribo=" + FN.Campo(TE_Fecha_de_arribo) + ",Régimen=" + FN.Campo(LUE_Régimen) + ",[Dua|Fauca|Face]=" + FN.Campo(TE_Dua_Fauca_Face) + ",[Fecha_de_Dua|Fauca|Face]=" + FN.Campo(TE_Fecha_de_Dua_Fauca_Face) + ",Contenedores_o_bultos=" + FN.Campo(TE_Contenedores_o_bultos) + ",Moneda=" + FN.Campo(LUE_Moneda) + ",Factor_de_cambio_USD=" + FN.Campo(TE_Factor_de_cambio_USD) + ",Factor_de_cambio_GTQ=" + FN.Campo(TE_Factor_de_cambio_GTQ) + ",FOB_USD=" + FN.Campo(TE_FOB_USD) + ",Flete_USD=" + FN.Campo(TE_Flete_USD) + ",Seguro_USD=" + FN.Campo(TE_Seguro_USD) + ",Otros_USD=" + FN.Campo(TE_Otros_USD) + ",Total_USD=" + FN.Campo(TE_Total_USD) + ",Total_GTQ=" + FN.Campo(TE_Total_GTQ) + ",DAI=" + FN.Campo(TE_DAI) + ",IVA=" + FN.Campo(TE_IVA) + ",DAI_e_IVA=" + FN.Campo(TE_DAI_IVA) + ",Recibido='" + CK_Recibido.Checked.ToString + "',Usuario_que_recibe=" + FN.Campo(TE_Usuario_que_recibe) + ",Fecha_de_recepcion=" + FN.Campo(TE_Fecha_de_recepción) + ",Costeo_asignado_a=" + FN.Campo(LUE_Costeo_asignado_a) + ",Comentarios='" + RTBX_Comentarios.Text + "'", "Id_costeo=" + ID.ToString)
+                            SQL.Actualizar("Costeos", "Grupo_de_empresas='" + SQL.Extraer_informacion_de_columna("b.Grupo", "Empresas a, Grupo_de_empresas b ", "Where a.Razon_comercial='" + LUE_Empresa.EditValue + "' And a.RL_GE=b.Id_grupo_empresas") + "',Empresa=" + FN.Campo(LUE_Empresa) + ",Tipo_de_mercaderia=" + FN.Campo(LUE_Tipo_de_mercadería) + ",SE=" + FN.Campo(TE_SE) + ",Sub_empresa='" + SQL.Extraer_informacion_de_columna("Sub_empresa", "Sub_empresas", "Where SE='" + TE_SE.EditValue.ToString + "'") + "',Compra=" + FN.Campo(TE_Compra) + ",Ingreso_a_bodega=" + FN.Campo(TE_Ingreso_a_bodega) + ",Fecha_de_ingreso_a_bodega=" + FN.Campo(TE_Fecha_de_ingreso_a_bodega) + ",Tipo_de_costeo=" + FN.Campo(LUE_Tipo_de_costeo) + ",Estado=" + FN.Campo(LUE_Estado) + ",Proveedor=" + FN.Campo(LUE_Proveedor) + ",Marca='" + LUE_Marca.Text + "',País_de_procedencia=" + FN.Campo(TE_País_de_procedencia) + ",Tipo_de_importacion=" + FN.Campo(LUE_Tipo_de_importación) + ",Incoterm=" + FN.Campo(LUE_Incoterm) + ",Moneda_de_negociación=" + FN.Campo(LUE_Moneda_de_negociación) + ",[Shipper|Carrier]=" + FN.Campo(LUE_Shipper_Carrier) + ",[Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Guia_BL_Carta_de_porte) + ",[Fecha_de_Guia|BL|Carta_de_porte]=" + FN.Campo(TE_Fecha_de_Guia_BL_Carta_de_porte) + ",Fecha_de_arribo=" + FN.Campo(TE_Fecha_de_arribo) + ",Régimen=" + FN.Campo(LUE_Régimen) + ",[Dua|Fauca|Face]=" + FN.Campo(TE_Dua_Fauca_Face) + ",[Fecha_de_Dua|Fauca|Face]=" + FN.Campo(TE_Fecha_de_Dua_Fauca_Face) + ",Contenedores_o_bultos=" + FN.Campo(TE_Contenedores_o_bultos) + ",Moneda=" + FN.Campo(LUE_Moneda) + ",Factor_de_cambio_USD=" + FN.Campo(TE_Factor_de_cambio_USD) + ",Factor_de_cambio_GTQ=" + FN.Campo(TE_Factor_de_cambio_GTQ) + ",FOB_USD=" + FN.Campo(TE_FOB_USD) + ",Flete_USD=" + FN.Campo(TE_Flete_USD) + ",Seguro_USD=" + FN.Campo(TE_Seguro_USD) + ",Otros_USD=" + FN.Campo(TE_Otros_USD) + ",Total_USD=" + FN.Campo(TE_Total_USD) + ",Total_GTQ=" + FN.Campo(TE_Total_GTQ) + ",DAI=" + FN.Campo(TE_DAI) + ",IVA=" + FN.Campo(TE_IVA) + ",DAI_e_IVA=" + FN.Campo(TE_DAI_IVA) + ",Rectificación='" + CK_Rectificación.Checked.ToString + "',[R_Dua|Fauca|Face]=" + FN.Campo(TE_R_Dua_Fauca_Face) + ",[R_Fecha_de_Dua|Fauca|Face]=" + FN.Campo(TE_R_Fecha_de_Dua_Fauca_Face) + ",R_DAI=" + FN.Campo(TE_R_DAI) + ",R_IVA=" + FN.Campo(TE_R_IVA) + ",R_DAI_e_IVA=" + FN.Campo(TE_R_DAI_IVA) + ",Recibido='" + CK_Recibido.Checked.ToString + "',Usuario_que_recibe=" + FN.Campo(TE_Usuario_que_recibe) + ",Fecha_de_recepcion=" + FN.Campo(TE_Fecha_de_recepción) + ",Costeo_asignado_a=" + FN.Campo(LUE_Costeo_asignado_a) + ",Comentarios='" + RTBX_Comentarios.Text + "'", "Id_costeo=" + ID.ToString)
 
                             If GridView_DE.RowCount > 0 Then
                                 For i As Integer = 0 To GridView_DE.DataRowCount - 1
@@ -2105,6 +2256,7 @@
                     End If
                 ElseIf Edicion = True And LUE_Estado.EditValue = "Anulado" Then
                     SQL.Actualizar("Costeos", "Estado='" + LUE_Estado.EditValue + "',Recibido='False',Usuario_que_recibe=NULL,Fecha_de_recepcion=NULL,Costeo_asignado_a=NULL,Elaborado='False',Fecha_de_elaboracion=NULL,Usuario_que_elabora=NULL,Archivo=NULL", "Id_costeo=" + ID.ToString)
+                    SQL.Eliminar("Seguro", "RL_id_costeo=" + ID.ToString)
                 Else
                     MsgBox("El ingreso que intentas registrar ya existe", MsgBoxStyle.Critical, "Recepción de costeos")
                 End If
@@ -2144,6 +2296,7 @@
         FN.Limpiar_controles(NP_Datos_de_importación) : FN.Deshabilitar_controles(NP_Datos_de_importación)
         Cargar_documentos_del_exterior("Where RL_id_costeo = 0") : GridView_DE.OptionsBehavior.Editable = False
         FN.Limpiar_controles(NP_Declaración_aduanal) : FN.Deshabilitar_controles(NP_Declaración_aduanal)
+        FN.Limpiar_controles(GC_Rectificación) : FN.Deshabilitar_controles(GC_Rectificación)
         FN.Limpiar_controles(NP_Recolección_de_documentos) : FN.Deshabilitar_controles(NP_Recolección_de_documentos)
         Cargar_documentos_locales("Where RL_id_costeo = 0") : GridView_DL.OptionsBehavior.Editable = False
         Cargar_Seguro("Where RL_id_costeo = 0") : GridView_SG.OptionsBehavior.Editable = False
@@ -2168,6 +2321,7 @@
                 FN.Habilitar_controles(GC_Datos_de_ingreso_a_bodega)
                 FN.Habilitar_controles(NP_Datos_de_importación)
                 FN.Habilitar_controles(NP_Declaración_aduanal)
+                FN.Habilitar_controles(GC_Rectificación)
                 FN.Habilitar_controles(NP_Recolección_de_documentos)
                 GridView_DE.OptionsBehavior.Editable = True : GridView_DL.OptionsBehavior.Editable = True
                 FN.Estado_del_menú("Guardar", BarManager)
@@ -2249,6 +2403,14 @@
         TE_IVA.EditValue = FN.Valor(Dt.Rows(0)("IVA"))
         TE_DAI_IVA.EditValue = FN.Valor(Dt.Rows(0)("DAI_e_IVA"))
 
+        'Datos de declaración aduanal rectificación
+        CK_Rectificación.EditValue = FN.Valor(Dt.Rows(0)("Rectificación"))
+        TE_R_Dua_Fauca_Face.EditValue = FN.Valor(Dt.Rows(0)("R_Dua|Fauca|Face"))
+        TE_R_Fecha_de_Dua_Fauca_Face.EditValue = FN.Valor(Dt.Rows(0)("R_Fecha_de_Dua|Fauca|Face"))
+        TE_R_DAI.EditValue = FN.Valor(Dt.Rows(0)("R_DAI"))
+        TE_R_IVA.EditValue = FN.Valor(Dt.Rows(0)("R_IVA"))
+        TE_R_DAI_IVA.EditValue = FN.Valor(Dt.Rows(0)("R_DAI_e_IVA"))
+
         'Datos de recolección de documentos
         RemoveHandler CK_Recibido.CheckedChanged, AddressOf CK_Recibido_CheckedChanged
         FN.Limpiar_controles(NP_Recolección_de_documentos)
@@ -2297,7 +2459,7 @@
 
         Seguro()
 
-        Dim Total As Double = Val(GridView_DE.Columns("Total_GTQ").SummaryItem.SummaryValue) + Val(TE_DAI.EditValue) + Val(GridView_DL.Columns("Valor_sin_IVA").SummaryItem.SummaryValue) + Val(GridView_SG.Columns("Total_seguro_GTQ").SummaryItem.SummaryValue)
+        Dim Total As Double = Val(GridView_DE.Columns("Total_GTQ").SummaryItem.SummaryValue) + Val(TE_DAI.EditValue) + Val(TE_R_DAI.EditValue) + Val(GridView_DL.Columns("Valor_sin_IVA").SummaryItem.SummaryValue) + Val(GridView_SG.Columns("Total_seguro_GTQ").SummaryItem.SummaryValue)
 
         If Total <> 0 Then
 

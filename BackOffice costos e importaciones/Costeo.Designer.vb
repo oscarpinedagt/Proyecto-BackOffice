@@ -32,6 +32,8 @@ Partial Public Class Costeo
         Dim XrSummary11 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary()
         Dim XrSummary12 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary()
         Dim XrSummary13 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary()
+        Dim XrSummary14 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary()
+        Dim XrSummary15 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary()
         Dim QrCodeGenerator1 As DevExpress.XtraPrinting.BarCode.QRCodeGenerator = New DevExpress.XtraPrinting.BarCode.QRCodeGenerator()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
@@ -155,15 +157,40 @@ Partial Public Class Costeo
         Me.XrTableCell50 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell51 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell52 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableRow30 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell136 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell137 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell138 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell139 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell140 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell141 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell142 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell143 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell144 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell145 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell146 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTable4 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow6 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell147 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell133 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell58 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell61 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell62 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell63 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableRow7 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell148 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell134 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell59 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell72 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell73 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell74 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableRow9 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell149 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell135 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell60 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell55 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell56 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell57 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand()
         Me.XrLabel31 = New DevExpress.XtraReports.UI.XRLabel()
         Me.DetailReport4 = New DevExpress.XtraReports.UI.DetailReportBand()
@@ -1513,7 +1540,6 @@ Partial Public Class Costeo
         'Detail2
         '
         Me.Detail2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable5, Me.XrTable4})
-        Me.Detail2.HeightF = 76.04166!
         Me.Detail2.Name = "Detail2"
         '
         'XrTable5
@@ -1526,8 +1552,8 @@ Partial Public Class Costeo
         Me.XrTable5.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
         Me.XrTable5.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrTable5.Name = "XrTable5"
-        Me.XrTable5.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4, Me.XrTableRow5})
-        Me.XrTable5.SizeF = New System.Drawing.SizeF(800.0!, 25.0!)
+        Me.XrTable5.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4, Me.XrTableRow5, Me.XrTableRow30})
+        Me.XrTable5.SizeF = New System.Drawing.SizeF(800.0!, 37.5!)
         Me.XrTable5.StylePriority.UseBorderColor = False
         Me.XrTable5.StylePriority.UseBorderDashStyle = False
         Me.XrTable5.StylePriority.UseBorders = False
@@ -1781,7 +1807,7 @@ Partial Public Class Costeo
         Me.XrTableCell42.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTableCell42.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumRecordNumber([Dua|Fauca|Face])")})
+        Me.XrTableCell42.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[Dua|Fauca|Face]),'',1)")})
         Me.XrTableCell42.Font = New System.Drawing.Font("Calibri", 7.0!)
         Me.XrTableCell42.Multiline = True
         Me.XrTableCell42.Name = "XrTableCell42"
@@ -1791,9 +1817,6 @@ Partial Public Class Costeo
         Me.XrTableCell42.StylePriority.UseBorders = False
         Me.XrTableCell42.StylePriority.UseFont = False
         Me.XrTableCell42.StylePriority.UsePadding = False
-        XrSummary9.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
-        Me.XrTableCell42.Summary = XrSummary9
-        Me.XrTableCell42.Text = "No."
         Me.XrTableCell42.Weight = 0.54371952247385691R
         '
         'XrTableCell43
@@ -2005,6 +2028,243 @@ Partial Public Class Costeo
         Me.XrTableCell52.TextFormatString = "{0:n2}"
         Me.XrTableCell52.Weight = 0.92800063362808749R
         '
+        'XrTableRow30
+        '
+        Me.XrTableRow30.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell136, Me.XrTableCell137, Me.XrTableCell138, Me.XrTableCell139, Me.XrTableCell140, Me.XrTableCell141, Me.XrTableCell142, Me.XrTableCell143, Me.XrTableCell144, Me.XrTableCell145, Me.XrTableCell146})
+        Me.XrTableRow30.Name = "XrTableRow30"
+        Me.XrTableRow30.Weight = 1.0R
+        '
+        'XrTableCell136
+        '
+        Me.XrTableCell136.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell136.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell136.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell136.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', 2)")})
+        Me.XrTableCell136.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell136.Multiline = True
+        Me.XrTableCell136.Name = "XrTableCell136"
+        Me.XrTableCell136.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell136.StylePriority.UseBorderColor = False
+        Me.XrTableCell136.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell136.StylePriority.UseBorders = False
+        Me.XrTableCell136.StylePriority.UseFont = False
+        Me.XrTableCell136.StylePriority.UsePadding = False
+        Me.XrTableCell136.Weight = 0.54371952247385691R
+        '
+        'XrTableCell137
+        '
+        Me.XrTableCell137.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell137.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell137.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell137.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Régimen])")})
+        Me.XrTableCell137.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell137.Multiline = True
+        Me.XrTableCell137.Name = "XrTableCell137"
+        Me.XrTableCell137.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell137.StylePriority.UseBorderColor = False
+        Me.XrTableCell137.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell137.StylePriority.UseBorders = False
+        Me.XrTableCell137.StylePriority.UseFont = False
+        Me.XrTableCell137.StylePriority.UsePadding = False
+        Me.XrTableCell137.Weight = 0.92006427991284334R
+        '
+        'XrTableCell138
+        '
+        Me.XrTableCell138.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell138.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell138.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell138.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [R_Dua|Fauca|Face])")})
+        Me.XrTableCell138.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell138.Multiline = True
+        Me.XrTableCell138.Name = "XrTableCell138"
+        Me.XrTableCell138.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell138.StylePriority.UseBorderColor = False
+        Me.XrTableCell138.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell138.StylePriority.UseBorders = False
+        Me.XrTableCell138.StylePriority.UseFont = False
+        Me.XrTableCell138.StylePriority.UsePadding = False
+        Me.XrTableCell138.Weight = 1.0500380400632472R
+        '
+        'XrTableCell139
+        '
+        Me.XrTableCell139.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell139.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell139.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell139.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [R_Fecha_de_Dua|Fauca|Face])")})
+        Me.XrTableCell139.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell139.Multiline = True
+        Me.XrTableCell139.Name = "XrTableCell139"
+        Me.XrTableCell139.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell139.StylePriority.UseBorderColor = False
+        Me.XrTableCell139.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell139.StylePriority.UseBorders = False
+        Me.XrTableCell139.StylePriority.UseFont = False
+        Me.XrTableCell139.StylePriority.UsePadding = False
+        Me.XrTableCell139.TextFormatString = "{0:dd/MM/yyyy}"
+        Me.XrTableCell139.Weight = 0.74916722427321891R
+        '
+        'XrTableCell140
+        '
+        Me.XrTableCell140.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell140.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell140.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell140.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [FOB_USD])")})
+        Me.XrTableCell140.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell140.Multiline = True
+        Me.XrTableCell140.Name = "XrTableCell140"
+        Me.XrTableCell140.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell140.StylePriority.UseBorderColor = False
+        Me.XrTableCell140.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell140.StylePriority.UseBorders = False
+        Me.XrTableCell140.StylePriority.UseFont = False
+        Me.XrTableCell140.StylePriority.UsePadding = False
+        Me.XrTableCell140.StylePriority.UseTextAlignment = False
+        Me.XrTableCell140.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell140.TextFormatString = "{0:n2}"
+        Me.XrTableCell140.Weight = 0.87000212887029182R
+        '
+        'XrTableCell141
+        '
+        Me.XrTableCell141.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell141.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell141.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell141.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Flete_USD])")})
+        Me.XrTableCell141.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell141.Multiline = True
+        Me.XrTableCell141.Name = "XrTableCell141"
+        Me.XrTableCell141.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell141.StylePriority.UseBorderColor = False
+        Me.XrTableCell141.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell141.StylePriority.UseBorders = False
+        Me.XrTableCell141.StylePriority.UseFont = False
+        Me.XrTableCell141.StylePriority.UsePadding = False
+        Me.XrTableCell141.StylePriority.UseTextAlignment = False
+        Me.XrTableCell141.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell141.TextFormatString = "{0:n2}"
+        Me.XrTableCell141.Weight = 0.87000207859245016R
+        '
+        'XrTableCell142
+        '
+        Me.XrTableCell142.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell142.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell142.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell142.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Seguro_USD])")})
+        Me.XrTableCell142.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell142.Multiline = True
+        Me.XrTableCell142.Name = "XrTableCell142"
+        Me.XrTableCell142.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell142.StylePriority.UseBorderColor = False
+        Me.XrTableCell142.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell142.StylePriority.UseBorders = False
+        Me.XrTableCell142.StylePriority.UseFont = False
+        Me.XrTableCell142.StylePriority.UsePadding = False
+        Me.XrTableCell142.StylePriority.UseTextAlignment = False
+        Me.XrTableCell142.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell142.TextFormatString = "{0:n2}"
+        Me.XrTableCell142.Weight = 0.870001715166206R
+        '
+        'XrTableCell143
+        '
+        Me.XrTableCell143.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell143.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell143.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell143.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Otros_USD])")})
+        Me.XrTableCell143.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell143.Multiline = True
+        Me.XrTableCell143.Name = "XrTableCell143"
+        Me.XrTableCell143.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell143.StylePriority.UseBorderColor = False
+        Me.XrTableCell143.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell143.StylePriority.UseBorders = False
+        Me.XrTableCell143.StylePriority.UseFont = False
+        Me.XrTableCell143.StylePriority.UsePadding = False
+        Me.XrTableCell143.StylePriority.UseTextAlignment = False
+        Me.XrTableCell143.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell143.TextFormatString = "{0:n2}"
+        Me.XrTableCell143.Weight = 0.8700028054449378R
+        '
+        'XrTableCell144
+        '
+        Me.XrTableCell144.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell144.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell144.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell144.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Total_USD])")})
+        Me.XrTableCell144.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell144.Multiline = True
+        Me.XrTableCell144.Name = "XrTableCell144"
+        Me.XrTableCell144.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell144.StylePriority.UseBorderColor = False
+        Me.XrTableCell144.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell144.StylePriority.UseBorders = False
+        Me.XrTableCell144.StylePriority.UseFont = False
+        Me.XrTableCell144.StylePriority.UsePadding = False
+        Me.XrTableCell144.StylePriority.UseTextAlignment = False
+        Me.XrTableCell144.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell144.TextFormatString = "{0:n2}"
+        Me.XrTableCell144.Weight = 0.92800088679952442R
+        '
+        'XrTableCell145
+        '
+        Me.XrTableCell145.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell145.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell145.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell145.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Factor_de_cambio_GTQ])")})
+        Me.XrTableCell145.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell145.Multiline = True
+        Me.XrTableCell145.Name = "XrTableCell145"
+        Me.XrTableCell145.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell145.StylePriority.UseBorderColor = False
+        Me.XrTableCell145.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell145.StylePriority.UseBorders = False
+        Me.XrTableCell145.StylePriority.UseFont = False
+        Me.XrTableCell145.StylePriority.UsePadding = False
+        Me.XrTableCell145.StylePriority.UseTextAlignment = False
+        Me.XrTableCell145.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell145.TextFormatString = "{0:n6}"
+        Me.XrTableCell145.Weight = 0.92800161365201228R
+        '
+        'XrTableCell146
+        '
+        Me.XrTableCell146.BorderColor = System.Drawing.Color.Silver
+        Me.XrTableCell146.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell146.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell146.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', [Total_GTQ])")})
+        Me.XrTableCell146.Font = New System.Drawing.Font("Calibri", 7.0!)
+        Me.XrTableCell146.Multiline = True
+        Me.XrTableCell146.Name = "XrTableCell146"
+        Me.XrTableCell146.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell146.StylePriority.UseBorderColor = False
+        Me.XrTableCell146.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell146.StylePriority.UseBorders = False
+        Me.XrTableCell146.StylePriority.UseFont = False
+        Me.XrTableCell146.StylePriority.UsePadding = False
+        Me.XrTableCell146.StylePriority.UseTextAlignment = False
+        Me.XrTableCell146.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell146.TextFormatString = "{0:n2}"
+        Me.XrTableCell146.Weight = 0.92800063362808749R
+        '
         'XrTable4
         '
         Me.XrTable4.BorderColor = System.Drawing.Color.Silver
@@ -2013,10 +2273,10 @@ Partial Public Class Costeo
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTable4.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.XrTable4.LocationFloat = New DevExpress.Utils.PointFloat(570.7557!, 37.5!)
+        Me.XrTable4.LocationFloat = New DevExpress.Utils.PointFloat(375.18!, 50.0!)
         Me.XrTable4.Name = "XrTable4"
-        Me.XrTable4.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow6, Me.XrTableRow7})
-        Me.XrTable4.SizeF = New System.Drawing.SizeF(229.2443!, 25.0!)
+        Me.XrTable4.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow6, Me.XrTableRow7, Me.XrTableRow9})
+        Me.XrTable4.SizeF = New System.Drawing.SizeF(424.8199!, 37.5!)
         Me.XrTable4.StylePriority.UseBorderColor = False
         Me.XrTable4.StylePriority.UseBorderDashStyle = False
         Me.XrTable4.StylePriority.UseBorders = False
@@ -2026,9 +2286,60 @@ Partial Public Class Costeo
         '
         'XrTableRow6
         '
-        Me.XrTableRow6.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell61, Me.XrTableCell62, Me.XrTableCell63})
+        Me.XrTableRow6.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell147, Me.XrTableCell133, Me.XrTableCell58, Me.XrTableCell61, Me.XrTableCell62, Me.XrTableCell63})
         Me.XrTableRow6.Name = "XrTableRow6"
         Me.XrTableRow6.Weight = 1.0R
+        '
+        'XrTableCell147
+        '
+        Me.XrTableCell147.BackColor = System.Drawing.Color.SteelBlue
+        Me.XrTableCell147.Font = New System.Drawing.Font("Calibri", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell147.ForeColor = System.Drawing.Color.White
+        Me.XrTableCell147.Multiline = True
+        Me.XrTableCell147.Name = "XrTableCell147"
+        Me.XrTableCell147.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell147.StylePriority.UseBackColor = False
+        Me.XrTableCell147.StylePriority.UseFont = False
+        Me.XrTableCell147.StylePriority.UseForeColor = False
+        Me.XrTableCell147.StylePriority.UsePadding = False
+        Me.XrTableCell147.StylePriority.UseTextAlignment = False
+        Me.XrTableCell147.Text = "No."
+        Me.XrTableCell147.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.XrTableCell147.Weight = 0.54943793632887161R
+        '
+        'XrTableCell133
+        '
+        Me.XrTableCell133.BackColor = System.Drawing.Color.SteelBlue
+        Me.XrTableCell133.Font = New System.Drawing.Font("Calibri", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell133.ForeColor = System.Drawing.Color.White
+        Me.XrTableCell133.Multiline = True
+        Me.XrTableCell133.Name = "XrTableCell133"
+        Me.XrTableCell133.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell133.StylePriority.UseBackColor = False
+        Me.XrTableCell133.StylePriority.UseFont = False
+        Me.XrTableCell133.StylePriority.UseForeColor = False
+        Me.XrTableCell133.StylePriority.UsePadding = False
+        Me.XrTableCell133.StylePriority.UseTextAlignment = False
+        Me.XrTableCell133.Text = "Documento"
+        Me.XrTableCell133.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.XrTableCell133.Weight = 0.87218780470658419R
+        '
+        'XrTableCell58
+        '
+        Me.XrTableCell58.BackColor = System.Drawing.Color.SteelBlue
+        Me.XrTableCell58.Font = New System.Drawing.Font("Calibri", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell58.ForeColor = System.Drawing.Color.White
+        Me.XrTableCell58.Multiline = True
+        Me.XrTableCell58.Name = "XrTableCell58"
+        Me.XrTableCell58.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell58.StylePriority.UseBackColor = False
+        Me.XrTableCell58.StylePriority.UseFont = False
+        Me.XrTableCell58.StylePriority.UseForeColor = False
+        Me.XrTableCell58.StylePriority.UsePadding = False
+        Me.XrTableCell58.StylePriority.UseTextAlignment = False
+        Me.XrTableCell58.Text = "Fecha"
+        Me.XrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.XrTableCell58.Weight = 0.88025377044269981R
         '
         'XrTableCell61
         '
@@ -2045,7 +2356,7 @@ Partial Public Class Costeo
         Me.XrTableCell61.StylePriority.UseTextAlignment = False
         Me.XrTableCell61.Text = "DAI GTQ"
         Me.XrTableCell61.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        Me.XrTableCell61.Weight = 0.815405998932996R
+        Me.XrTableCell61.Weight = 0.938937503302077R
         '
         'XrTableCell62
         '
@@ -2062,7 +2373,7 @@ Partial Public Class Costeo
         Me.XrTableCell62.StylePriority.UseTextAlignment = False
         Me.XrTableCell62.Text = "IVA GTQ"
         Me.XrTableCell62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        Me.XrTableCell62.Weight = 0.86577659424867348R
+        Me.XrTableCell62.Weight = 0.93893453617409284R
         '
         'XrTableCell63
         '
@@ -2079,13 +2390,71 @@ Partial Public Class Costeo
         Me.XrTableCell63.StylePriority.UseTextAlignment = False
         Me.XrTableCell63.Text = "DAI + IVA"
         Me.XrTableCell63.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        Me.XrTableCell63.Weight = 0.86577711004923341R
+        Me.XrTableCell63.Weight = 0.93893679859092727R
         '
         'XrTableRow7
         '
-        Me.XrTableRow7.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell72, Me.XrTableCell73, Me.XrTableCell74})
+        Me.XrTableRow7.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell148, Me.XrTableCell134, Me.XrTableCell59, Me.XrTableCell72, Me.XrTableCell73, Me.XrTableCell74})
         Me.XrTableRow7.Name = "XrTableRow7"
         Me.XrTableRow7.Weight = 1.0R
+        '
+        'XrTableCell148
+        '
+        Me.XrTableCell148.BackColor = System.Drawing.Color.Transparent
+        Me.XrTableCell148.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell148.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell148.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[Dua|Fauca|Face]),'',1)")})
+        Me.XrTableCell148.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell148.Multiline = True
+        Me.XrTableCell148.Name = "XrTableCell148"
+        Me.XrTableCell148.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell148.StylePriority.UseBackColor = False
+        Me.XrTableCell148.StylePriority.UseBorderColor = False
+        Me.XrTableCell148.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell148.StylePriority.UseFont = False
+        Me.XrTableCell148.StylePriority.UsePadding = False
+        Me.XrTableCell148.StylePriority.UseTextAlignment = False
+        Me.XrTableCell148.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.XrTableCell148.Weight = 0.5485973837247301R
+        '
+        'XrTableCell134
+        '
+        Me.XrTableCell134.BackColor = System.Drawing.Color.Transparent
+        Me.XrTableCell134.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell134.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell134.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Dua|Fauca|Face]")})
+        Me.XrTableCell134.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell134.Multiline = True
+        Me.XrTableCell134.Name = "XrTableCell134"
+        Me.XrTableCell134.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell134.StylePriority.UseBackColor = False
+        Me.XrTableCell134.StylePriority.UseBorderColor = False
+        Me.XrTableCell134.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell134.StylePriority.UseFont = False
+        Me.XrTableCell134.StylePriority.UsePadding = False
+        Me.XrTableCell134.StylePriority.UseTextAlignment = False
+        Me.XrTableCell134.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell134.Weight = 0.86825638308616138R
+        '
+        'XrTableCell59
+        '
+        Me.XrTableCell59.BackColor = System.Drawing.Color.Transparent
+        Me.XrTableCell59.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell59.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell59.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Fecha_de_Dua|Fauca|Face]")})
+        Me.XrTableCell59.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell59.Multiline = True
+        Me.XrTableCell59.Name = "XrTableCell59"
+        Me.XrTableCell59.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell59.StylePriority.UseBackColor = False
+        Me.XrTableCell59.StylePriority.UseBorderColor = False
+        Me.XrTableCell59.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell59.StylePriority.UseFont = False
+        Me.XrTableCell59.StylePriority.UsePadding = False
+        Me.XrTableCell59.StylePriority.UseTextAlignment = False
+        Me.XrTableCell59.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell59.TextFormatString = "{0:dd/MM/yyyy}"
+        Me.XrTableCell59.Weight = 0.87760851293240183R
         '
         'XrTableCell72
         '
@@ -2102,11 +2471,11 @@ Partial Public Class Costeo
         Me.XrTableCell72.StylePriority.UseFont = False
         Me.XrTableCell72.StylePriority.UsePadding = False
         Me.XrTableCell72.StylePriority.UseTextAlignment = False
-        XrSummary10.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
-        Me.XrTableCell72.Summary = XrSummary10
+        XrSummary9.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell72.Summary = XrSummary9
         Me.XrTableCell72.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.XrTableCell72.TextFormatString = "{0:n2}"
-        Me.XrTableCell72.Weight = 0.81285967547157278R
+        Me.XrTableCell72.Weight = 0.93620136519382147R
         '
         'XrTableCell73
         '
@@ -2124,7 +2493,7 @@ Partial Public Class Costeo
         Me.XrTableCell73.Text = "Total USD"
         Me.XrTableCell73.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.XrTableCell73.TextFormatString = "{0:n2}"
-        Me.XrTableCell73.Weight = 0.86705009503710306R
+        Me.XrTableCell73.Weight = 0.94009749077575866R
         '
         'XrTableCell74
         '
@@ -2142,7 +2511,134 @@ Partial Public Class Costeo
         Me.XrTableCell74.Text = "Total GTQ"
         Me.XrTableCell74.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.XrTableCell74.TextFormatString = "{0:n2}"
-        Me.XrTableCell74.Weight = 0.86704993272222708R
+        Me.XrTableCell74.Weight = 0.94009622702246687R
+        '
+        'XrTableRow9
+        '
+        Me.XrTableRow9.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell149, Me.XrTableCell135, Me.XrTableCell60, Me.XrTableCell55, Me.XrTableCell56, Me.XrTableCell57})
+        Me.XrTableRow9.Name = "XrTableRow9"
+        Me.XrTableRow9.Weight = 1.0R
+        '
+        'XrTableCell149
+        '
+        Me.XrTableCell149.BackColor = System.Drawing.Color.Transparent
+        Me.XrTableCell149.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell149.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell149.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "iif(IsNullOrEmpty([Costeos].[R_Dua|Fauca|Face]),'', 2)")})
+        Me.XrTableCell149.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell149.Multiline = True
+        Me.XrTableCell149.Name = "XrTableCell149"
+        Me.XrTableCell149.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell149.StylePriority.UseBackColor = False
+        Me.XrTableCell149.StylePriority.UseBorderColor = False
+        Me.XrTableCell149.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell149.StylePriority.UseFont = False
+        Me.XrTableCell149.StylePriority.UsePadding = False
+        Me.XrTableCell149.StylePriority.UseTextAlignment = False
+        Me.XrTableCell149.Text = "2"
+        Me.XrTableCell149.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.XrTableCell149.Weight = 0.5485973837247301R
+        '
+        'XrTableCell135
+        '
+        Me.XrTableCell135.BackColor = System.Drawing.Color.Transparent
+        Me.XrTableCell135.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell135.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell135.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[R_Dua|Fauca|Face]")})
+        Me.XrTableCell135.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell135.Multiline = True
+        Me.XrTableCell135.Name = "XrTableCell135"
+        Me.XrTableCell135.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell135.StylePriority.UseBackColor = False
+        Me.XrTableCell135.StylePriority.UseBorderColor = False
+        Me.XrTableCell135.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell135.StylePriority.UseFont = False
+        Me.XrTableCell135.StylePriority.UsePadding = False
+        Me.XrTableCell135.StylePriority.UseTextAlignment = False
+        Me.XrTableCell135.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell135.Weight = 0.86825638308616138R
+        '
+        'XrTableCell60
+        '
+        Me.XrTableCell60.BackColor = System.Drawing.Color.Transparent
+        Me.XrTableCell60.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell60.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell60.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[R_Fecha_de_Dua|Fauca|Face]")})
+        Me.XrTableCell60.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell60.Multiline = True
+        Me.XrTableCell60.Name = "XrTableCell60"
+        Me.XrTableCell60.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell60.StylePriority.UseBackColor = False
+        Me.XrTableCell60.StylePriority.UseBorderColor = False
+        Me.XrTableCell60.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell60.StylePriority.UseFont = False
+        Me.XrTableCell60.StylePriority.UsePadding = False
+        Me.XrTableCell60.StylePriority.UseTextAlignment = False
+        Me.XrTableCell60.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell60.TextFormatString = "{0:dd/MM/yyyy}"
+        Me.XrTableCell60.Weight = 0.87760851293240183R
+        '
+        'XrTableCell55
+        '
+        Me.XrTableCell55.BackColor = System.Drawing.SystemColors.Info
+        Me.XrTableCell55.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell55.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell55.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[R_DAI]")})
+        Me.XrTableCell55.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell55.Multiline = True
+        Me.XrTableCell55.Name = "XrTableCell55"
+        Me.XrTableCell55.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell55.StylePriority.UseBackColor = False
+        Me.XrTableCell55.StylePriority.UseBorderColor = False
+        Me.XrTableCell55.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell55.StylePriority.UseFont = False
+        Me.XrTableCell55.StylePriority.UsePadding = False
+        Me.XrTableCell55.StylePriority.UseTextAlignment = False
+        XrSummary10.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell55.Summary = XrSummary10
+        Me.XrTableCell55.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell55.TextFormatString = "{0:n2}"
+        Me.XrTableCell55.Weight = 0.93620136519382147R
+        '
+        'XrTableCell56
+        '
+        Me.XrTableCell56.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell56.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell56.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[R_IVA]")})
+        Me.XrTableCell56.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell56.Multiline = True
+        Me.XrTableCell56.Name = "XrTableCell56"
+        Me.XrTableCell56.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell56.StylePriority.UseBorderColor = False
+        Me.XrTableCell56.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell56.StylePriority.UseFont = False
+        Me.XrTableCell56.StylePriority.UsePadding = False
+        Me.XrTableCell56.StylePriority.UseTextAlignment = False
+        XrSummary11.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell56.Summary = XrSummary11
+        Me.XrTableCell56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell56.TextFormatString = "{0:n2}"
+        Me.XrTableCell56.Weight = 0.94009749077575866R
+        '
+        'XrTableCell57
+        '
+        Me.XrTableCell57.BorderColor = System.Drawing.Color.Gray
+        Me.XrTableCell57.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot
+        Me.XrTableCell57.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[R_DAI_e_IVA]")})
+        Me.XrTableCell57.Font = New System.Drawing.Font("Calibri", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.XrTableCell57.Multiline = True
+        Me.XrTableCell57.Name = "XrTableCell57"
+        Me.XrTableCell57.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrTableCell57.StylePriority.UseBorderColor = False
+        Me.XrTableCell57.StylePriority.UseBorderDashStyle = False
+        Me.XrTableCell57.StylePriority.UseFont = False
+        Me.XrTableCell57.StylePriority.UsePadding = False
+        Me.XrTableCell57.StylePriority.UseTextAlignment = False
+        XrSummary12.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell57.Summary = XrSummary12
+        Me.XrTableCell57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell57.TextFormatString = "{0:n2}"
+        Me.XrTableCell57.Weight = 0.94009622702246687R
         '
         'GroupHeader2
         '
@@ -2166,7 +2662,7 @@ Partial Public Class Costeo
         Me.XrLabel31.StylePriority.UseBorders = False
         Me.XrLabel31.StylePriority.UseFont = False
         Me.XrLabel31.StylePriority.UseTextAlignment = False
-        Me.XrLabel31.Text = "Póliza de Importación"
+        Me.XrLabel31.Text = "Póliza de importación"
         Me.XrLabel31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'DetailReport4
@@ -2419,8 +2915,8 @@ Partial Public Class Costeo
         Me.XrTableCell78.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrTableCell78.StylePriority.UsePadding = False
         Me.XrTableCell78.StylePriority.UseTextAlignment = False
-        XrSummary11.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
-        Me.XrTableCell78.Summary = XrSummary11
+        XrSummary13.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell78.Summary = XrSummary13
         Me.XrTableCell78.Text = "XrTableCell23"
         Me.XrTableCell78.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         Me.XrTableCell78.Weight = 0.35289951524220253R
@@ -2683,8 +3179,8 @@ Partial Public Class Costeo
         Me.XrTableCell95.StylePriority.UseFont = False
         Me.XrTableCell95.StylePriority.UsePadding = False
         Me.XrTableCell95.StylePriority.UseTextAlignment = False
-        XrSummary12.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
-        Me.XrTableCell95.Summary = XrSummary12
+        XrSummary14.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell95.Summary = XrSummary14
         Me.XrTableCell95.Text = "XrTableCell10"
         Me.XrTableCell95.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.XrTableCell95.TextFormatString = "{0:n2}"
@@ -2705,8 +3201,8 @@ Partial Public Class Costeo
         Me.XrTableCell96.StylePriority.UseFont = False
         Me.XrTableCell96.StylePriority.UsePadding = False
         Me.XrTableCell96.StylePriority.UseTextAlignment = False
-        XrSummary13.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
-        Me.XrTableCell96.Summary = XrSummary13
+        XrSummary15.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
+        Me.XrTableCell96.Summary = XrSummary15
         Me.XrTableCell96.Text = "XrTableCell11"
         Me.XrTableCell96.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.XrTableCell96.TextFormatString = "{0:n2}"
@@ -3047,7 +3543,7 @@ Partial Public Class Costeo
         'Total_DAI_GTQ
         '
         Me.Total_DAI_GTQ.DataMember = "Costeos"
-        Me.Total_DAI_GTQ.Expression = "iif(IsNullOrEmpty([DAI]),0,[DAI])"
+        Me.Total_DAI_GTQ.Expression = "iif(IsNullOrEmpty([DAI]),0,[DAI])+iif(IsNullOrEmpty([R_DAI]),0,[R_DAI])"
         Me.Total_DAI_GTQ.Name = "Total_DAI_GTQ"
         '
         'Total_gastos_GTQ
@@ -3324,4 +3820,29 @@ Partial Public Class Costeo
     Friend WithEvents Total_FOB As DevExpress.XtraReports.UI.CalculatedField
     Friend WithEvents Total_FOB_USD As DevExpress.XtraReports.UI.CalculatedField
     Friend WithEvents Total_DAI_GL As DevExpress.XtraReports.UI.CalculatedField
+    Friend WithEvents XrTableRow9 As DevExpress.XtraReports.UI.XRTableRow
+    Friend WithEvents XrTableCell55 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell56 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell57 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableRow30 As DevExpress.XtraReports.UI.XRTableRow
+    Friend WithEvents XrTableCell136 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell137 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell138 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell139 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell140 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell141 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell142 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell143 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell144 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell145 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell146 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell147 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell133 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell58 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell148 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell134 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell59 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell149 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell135 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCell60 As DevExpress.XtraReports.UI.XRTableCell
 End Class

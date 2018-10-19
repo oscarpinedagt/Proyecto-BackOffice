@@ -38,12 +38,14 @@ Partial Class Costos_e_Importaciones
         Me.BBI_MAN_Tipos_de_gasto = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_SEG_Mercadería_en_transito = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_SEG_Control_de_IPRIMA = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Contraseñas = New DevExpress.XtraBars.BarButtonItem()
         Me.RP_Movimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_MOV_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Seguimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_SEG_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Mercadería_en_transito = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Control_de_IPRIMA = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RPG_Contraseñas = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Reportes = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_Seguro = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Mantenimiento = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -64,9 +66,9 @@ Partial Class Costos_e_Importaciones
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 17
+        Me.RibbonControl.MaxItemId = 18
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Mantenimiento})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
@@ -85,7 +87,7 @@ Partial Class Costos_e_Importaciones
         '
         Me.BBI_MAN_Seguimientos_y_correos.Caption = "Seguimientos y correos"
         Me.BBI_MAN_Seguimientos_y_correos.Id = 2
-        Me.BBI_MAN_Seguimientos_y_correos.ImageOptions.Image = CType(resources.GetObject("BBI_MAN_Seguimiento_de_costeos.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_MAN_Seguimientos_y_correos.ImageOptions.Image = CType(resources.GetObject("BBI_MAN_Seguimientos_y_correos.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_MAN_Seguimientos_y_correos.Name = "BBI_MAN_Seguimientos_y_correos"
         Me.BBI_MAN_Seguimientos_y_correos.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
             Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
@@ -204,6 +206,14 @@ Partial Class Costos_e_Importaciones
         Me.BBI_SEG_Control_de_IPRIMA.ImageOptions.LargeImage = CType(resources.GetObject("BBI_SEG_Control_de_IPRIMA.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_SEG_Control_de_IPRIMA.Name = "BBI_SEG_Control_de_IPRIMA"
         '
+        'BBI_Contraseñas
+        '
+        Me.BBI_Contraseñas.Caption = "Contraseñas"
+        Me.BBI_Contraseñas.Id = 17
+        Me.BBI_Contraseñas.ImageOptions.Image = CType(resources.GetObject("BBI_Contraseñas.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Contraseñas.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Contraseñas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Contraseñas.Name = "BBI_Contraseñas"
+        '
         'RP_Movimientos
         '
         Me.RP_Movimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_MOV_Costeos})
@@ -219,7 +229,7 @@ Partial Class Costos_e_Importaciones
         '
         'RP_Seguimientos
         '
-        Me.RP_Seguimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_SEG_Costeos, Me.RPG_Mercadería_en_transito, Me.RPG_Control_de_IPRIMA})
+        Me.RP_Seguimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_SEG_Costeos, Me.RPG_Mercadería_en_transito, Me.RPG_Control_de_IPRIMA, Me.RPG_Contraseñas})
         Me.RP_Seguimientos.Name = "RP_Seguimientos"
         Me.RP_Seguimientos.Text = "Seguimientos"
         '
@@ -244,6 +254,13 @@ Partial Class Costos_e_Importaciones
         Me.RPG_Control_de_IPRIMA.ItemLinks.Add(Me.BBI_SEG_Control_de_IPRIMA)
         Me.RPG_Control_de_IPRIMA.Name = "RPG_Control_de_IPRIMA"
         Me.RPG_Control_de_IPRIMA.Text = "Control de IPRIMA"
+        '
+        'RPG_Contraseñas
+        '
+        Me.RPG_Contraseñas.AllowTextClipping = False
+        Me.RPG_Contraseñas.ItemLinks.Add(Me.BBI_Contraseñas)
+        Me.RPG_Contraseñas.Name = "RPG_Contraseñas"
+        Me.RPG_Contraseñas.Text = "Contraseñas"
         '
         'RP_Reportes
         '
@@ -364,4 +381,6 @@ Partial Class Costos_e_Importaciones
     Friend WithEvents BBI_SEG_Mercadería_en_transito As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BBI_SEG_Control_de_IPRIMA As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RPG_Control_de_IPRIMA As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BBI_Contraseñas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RPG_Contraseñas As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class
