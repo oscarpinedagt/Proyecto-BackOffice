@@ -131,6 +131,12 @@
     <Compile Include="Mantenimiento - Tipos de gasto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.Designer.vb">
+      <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Seguimientos - Contraseñas.Designer.vb">
       <DependentUpon>Seguimientos - Contraseñas.vb</DependentUpon>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento - Tipos de gasto.resx">
       <DependentUpon>Mantenimiento - Tipos de gasto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.resx">
+      <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Contraseñas.resx">
       <DependentUpon>Seguimientos - Contraseñas.vb</DependentUpon>

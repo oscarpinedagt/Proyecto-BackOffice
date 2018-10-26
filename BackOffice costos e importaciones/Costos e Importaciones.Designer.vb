@@ -57,6 +57,8 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
         Me.NoDocumentsView1 = New DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(Me.components)
+        Me.RPG_Contabilización = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.BBI_DUAS_IPRIMAS_FAUCAS = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,9 +68,9 @@ Partial Class Costos_e_Importaciones
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas, Me.BBI_DUAS_IPRIMAS_FAUCAS})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 18
+        Me.RibbonControl.MaxItemId = 19
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Mantenimiento})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
@@ -216,7 +218,7 @@ Partial Class Costos_e_Importaciones
         '
         'RP_Movimientos
         '
-        Me.RP_Movimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_MOV_Costeos})
+        Me.RP_Movimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_MOV_Costeos, Me.RPG_Contabilización})
         Me.RP_Movimientos.Name = "RP_Movimientos"
         Me.RP_Movimientos.Text = "Movimientos"
         '
@@ -323,6 +325,21 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager.View = Me.TabbedView
         Me.DocumentManager.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView, Me.NoDocumentsView1})
         '
+        'RPG_Contabilización
+        '
+        Me.RPG_Contabilización.AllowTextClipping = False
+        Me.RPG_Contabilización.ItemLinks.Add(Me.BBI_DUAS_IPRIMAS_FAUCAS)
+        Me.RPG_Contabilización.Name = "RPG_Contabilización"
+        Me.RPG_Contabilización.Text = "Contabilización"
+        '
+        'BBI_DUAS_IPRIMAS_FAUCAS
+        '
+        Me.BBI_DUAS_IPRIMAS_FAUCAS.Caption = "DUAS - IPRIMAS - FAUCAS"
+        Me.BBI_DUAS_IPRIMAS_FAUCAS.Id = 18
+        Me.BBI_DUAS_IPRIMAS_FAUCAS.ImageOptions.Image = CType(resources.GetObject("BBI_DUAS_IPRIMAS_FAUCAS.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_DUAS_IPRIMAS_FAUCAS.ImageOptions.LargeImage = CType(resources.GetObject("BBI_DUAS_IPRIMAS_FAUCAS.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_DUAS_IPRIMAS_FAUCAS.Name = "BBI_DUAS_IPRIMAS_FAUCAS"
+        '
         'Costos_e_Importaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -383,4 +400,6 @@ Partial Class Costos_e_Importaciones
     Friend WithEvents RPG_Control_de_IPRIMA As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BBI_Contraseñas As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RPG_Contraseñas As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BBI_DUAS_IPRIMAS_FAUCAS As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RPG_Contabilización As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class

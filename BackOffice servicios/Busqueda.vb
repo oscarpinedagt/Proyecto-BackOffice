@@ -1,6 +1,6 @@
 ﻿Public Class Busqueda
     Dim SQL As New BackOffice_datos.SQL
-    Public Property Consulta As String : Property Columna_ID As String : Property ID_resultado As Integer : Property Alinear As String
+    Public Property Consulta As String : Property Columna_ID As String : Property ID_resultado As String : Property Alinear As String
     Private Sub Busqueda_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_datos()
         Configurar_GridControl()

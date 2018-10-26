@@ -336,7 +336,7 @@
         GridView_DE.Columns("Fecha").ColumnEdit = Item
     End Sub
 
-    Private Sub Columna_Moneda_DE()
+    Private Sub Columna_moneda_DE()
         Dim Item As New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
         With Item
             .DataSource = SQL.Tabla_de_datos("Select Moneda From Tipos_de_moneda Order By Moneda")
@@ -949,6 +949,7 @@
         DT.Columns.Add("Empleado_ISR", GetType(Integer))
         DT.Columns.Add("TRN_IVA", GetType(Integer))
         DT.Columns.Add("Proveedor_IVA", GetType(Integer))
+        DT.Columns.Add("Fecha_IVA", GetType(Date))
         Return DT
     End Function
 
@@ -980,7 +981,7 @@
                         CL.Width = 280
                     Case "Documento"
                         CL.Width = 75
-                    Case "Agrupador", "Empleado_ISR", "TRN_IVA", "Proveedor_IVA"
+                    Case "Agrupador", "Empleado_ISR", "TRN_IVA", "Proveedor_IVA", "Fecha_IVA"
                         CL.Width = 40
                 End Select
 
@@ -1268,7 +1269,7 @@
 
                             GridView_CT.SetRowCellValue(Dr, "TRN_IVA", Dt.Rows(0)("TRN_IVA"))
                             GridView_CT.SetRowCellValue(Dr, "Proveedor_IVA", Dt.Rows(0)("Prov_IVA"))
-
+                            GridView_CT.SetRowCellValue(Dr, "Fecha_IVA", CDate(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString)
                         End If
 
                     End If
@@ -1337,6 +1338,7 @@
 
                             GridView_CT.SetRowCellValue(Dr, "TRN_IVA", Dt.Rows(0)("TRN_IVA"))
                             GridView_CT.SetRowCellValue(Dr, "Proveedor_IVA", Dt.Rows(0)("Prov_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Fecha_IVA", CDate(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString)
 
                         End If
 
@@ -1674,6 +1676,7 @@
 
                             GridView_CT.SetRowCellValue(Dr, "TRN_IVA", Dt.Rows(0)("TRN_IVA"))
                             GridView_CT.SetRowCellValue(Dr, "Proveedor_IVA", Dt.Rows(0)("Prov_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Fecha_IVA", CDate(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString)
 
                         End If
 
@@ -1743,6 +1746,7 @@
 
                             GridView_CT.SetRowCellValue(Dr, "TRN_IVA", Dt.Rows(0)("TRN_IVA"))
                             GridView_CT.SetRowCellValue(Dr, "Proveedor_IVA", Dt.Rows(0)("Prov_IVA"))
+                            GridView_CT.SetRowCellValue(Dr, "Fecha_IVA", CDate(TE_R_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString)
 
                         End If
 
@@ -2014,9 +2018,11 @@
                         SendKeys.Send("{TAB}")
 
                         SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
-                        SendKeys.Send("{TAB 3}")
+                        SendKeys.Send("{TAB}")
 
                         If GridView_CT.GetRowCellValue(i, "Alterno") = 10081 Then
+                            SendKeys.Send(GridView_CT.GetRowCellValue(i, "Agrupador").ToString)
+                            SendKeys.Send("{TAB 2}")
                             SendKeys.Send(GridView_CT.GetRowCellValue(i, "TRN_IVA"))
                             SendKeys.Send("{TAB}")
                             SendKeys.Send(GridView_CT.GetRowCellValue(i, "Proveedor_IVA"))
@@ -2028,11 +2034,13 @@
                             SendKeys.Send("{TAB}")
                             SendKeys.Send("{ENTER}")
                             SendKeys.Send("{TAB 2}")
-                            SendKeys.Send(Convert.ToDateTime(TE_Fecha_de_Dua_Fauca_Face.EditValue).ToShortDateString)
+                            SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha")).ToShortDateString)
                             SendKeys.Send("{TAB 11}")
                             SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
                             SendKeys.Send("{TAB 2}")
                             SendKeys.Send("^g")
+                        Else
+                            SendKeys.Send("{TAB 2}")
                         End If
 
                     Next
