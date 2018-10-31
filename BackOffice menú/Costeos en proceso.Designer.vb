@@ -20,46 +20,78 @@ Partial Class Costeos_en_proceso
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Costeos_en_proceso))
-        Me.RTBX_Costeos_en_proceso = New System.Windows.Forms.RichTextBox()
         Me.TMR_Cerrar_notificación = New System.Windows.Forms.Timer()
+        Me.GC_DUAS_IPRIMAS_FAUCAS = New DevExpress.XtraEditors.GroupControl()
+        Me.GridControl = New DevExpress.XtraGrid.GridControl()
+        Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
+        CType(Me.GC_DUAS_IPRIMAS_FAUCAS, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GC_DUAS_IPRIMAS_FAUCAS.SuspendLayout()
+        CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'RTBX_Costeos_en_proceso
-        '
-        Me.RTBX_Costeos_en_proceso.BackColor = System.Drawing.SystemColors.Window
-        Me.RTBX_Costeos_en_proceso.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RTBX_Costeos_en_proceso.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RTBX_Costeos_en_proceso.Location = New System.Drawing.Point(15, 0)
-        Me.RTBX_Costeos_en_proceso.Name = "RTBX_Costeos_en_proceso"
-        Me.RTBX_Costeos_en_proceso.ReadOnly = True
-        Me.RTBX_Costeos_en_proceso.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical
-        Me.RTBX_Costeos_en_proceso.Size = New System.Drawing.Size(693, 513)
-        Me.RTBX_Costeos_en_proceso.TabIndex = 0
-        Me.RTBX_Costeos_en_proceso.Text = ""
         '
         'TMR_Cerrar_notificación
         '
         Me.TMR_Cerrar_notificación.Enabled = True
         Me.TMR_Cerrar_notificación.Interval = 1500000
         '
+        'GC_DUAS_IPRIMAS_FAUCAS
+        '
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Controls.Add(Me.GridControl)
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Location = New System.Drawing.Point(14, 0)
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Name = "GC_DUAS_IPRIMAS_FAUCAS"
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Size = New System.Drawing.Size(934, 513)
+        Me.GC_DUAS_IPRIMAS_FAUCAS.TabIndex = 1
+        '
+        'GridControl
+        '
+        Me.GridControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
+        Me.GridControl.Font = New System.Drawing.Font("Tahoma", 7.0!)
+        Me.GridControl.Location = New System.Drawing.Point(2, 21)
+        Me.GridControl.MainView = Me.GridView
+        Me.GridControl.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
+        Me.GridControl.Name = "GridControl"
+        Me.GridControl.Size = New System.Drawing.Size(930, 490)
+        Me.GridControl.TabIndex = 1
+        Me.GridControl.UseEmbeddedNavigator = True
+        Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
+        '
+        'GridView
+        '
+        Me.GridView.DetailHeight = 296
+        Me.GridView.GridControl = Me.GridControl
+        Me.GridView.Name = "GridView"
+        Me.GridView.OptionsBehavior.Editable = False
+        Me.GridView.OptionsSelection.MultiSelect = True
+        Me.GridView.OptionsView.ShowGroupPanel = False
+        '
         'Costeos_en_proceso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(708, 528)
-        Me.Controls.Add(Me.RTBX_Costeos_en_proceso)
+        Me.ClientSize = New System.Drawing.Size(948, 528)
+        Me.Controls.Add(Me.GC_DUAS_IPRIMAS_FAUCAS)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Costeos_en_proceso"
-        Me.Padding = New System.Windows.Forms.Padding(15, 0, 0, 15)
+        Me.Padding = New System.Windows.Forms.Padding(14, 0, 0, 15)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Costeos en proceso de elaboración y envió"
+        Me.Text = "Costeos en proceso de elaboración y envío"
+        CType(Me.GC_DUAS_IPRIMAS_FAUCAS, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GC_DUAS_IPRIMAS_FAUCAS.ResumeLayout(False)
+        CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents RTBX_Costeos_en_proceso As RichTextBox
     Friend WithEvents TMR_Cerrar_notificación As Timer
+    Friend WithEvents GC_DUAS_IPRIMAS_FAUCAS As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

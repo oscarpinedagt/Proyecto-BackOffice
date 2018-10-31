@@ -51,9 +51,9 @@
         If Not DxErrorProvider.HasErrors Then
             Try
                 If SQL.Duplicados("Empresas", "Where Nit='" + TE_Nit.Text + "'") = False And Edicion = False Then
-                    SQL.Insertar("Empresas", "Id_empresa,Nit,Literales,Razon_social,Razon_comercial,Domicilio_fiscal,Logo,RL_GE", SQL.Nuevo_ID("Id_empresa", "Empresas").ToString + "," + FN.Campo(TE_Nit) + "," + FN.Campo(TE_Literales) + "," + FN.Campo(TE_Razón_social) + "," + FN.Campo(TE_Razón_comercial) + "," + FN.Campo(TE_Domicilio_fiscal) + ",@Imágen," + FN.Campo(LUE_Grupo_de_empresas), True, FN.Imágen_a_Bytes(PE_Imágen.Image))
+                    SQL.Insertar("Empresas", "Id_empresa,Nit,Literales,Razon_social,Razon_comercial,Domicilio_fiscal,Logo,RL_GE", SQL.Nuevo_ID("Id_empresa", "Empresas").ToString + "," + FN.Campo(TE_Nit) + "," + FN.Campo(TE_Literales) + "," + FN.Campo(TE_Razón_social) + "," + FN.Campo(TE_Razón_comercial) + "," + FN.Campo(TE_Domicilio_fiscal) + ",@Imágen," + FN.Campo(LUE_Grupo_de_empresas), FN.Imágen_a_Bytes(PE_Imágen.Image))
                 ElseIf Edicion = True Then
-                    SQL.Actualizar("Empresas", "Nit=" + FN.Campo(TE_Nit) + ",Literales=" + FN.Campo(TE_Literales) + ",Razon_social=" + FN.Campo(TE_Razón_social) + ",Razon_comercial=" + FN.Campo(TE_Razón_comercial) + ",Domicilio_fiscal=" + FN.Campo(TE_Domicilio_fiscal) + ",Logo=@Imágen,RL_GE=" + FN.Campo(LUE_Grupo_de_empresas), "Id_empresa=" + ID.ToString, True, FN.Imágen_a_Bytes(PE_Imágen.Image))
+                    SQL.Actualizar("Empresas", "Nit=" + FN.Campo(TE_Nit) + ",Literales=" + FN.Campo(TE_Literales) + ",Razon_social=" + FN.Campo(TE_Razón_social) + ",Razon_comercial=" + FN.Campo(TE_Razón_comercial) + ",Domicilio_fiscal=" + FN.Campo(TE_Domicilio_fiscal) + ",Logo=@Imágen,RL_GE=" + FN.Campo(LUE_Grupo_de_empresas), "Id_empresa=" + ID.ToString, FN.Imágen_a_Bytes(PE_Imágen.Image))
                 Else
                     MsgBox("La empresa que intentas registrar ya existe", MsgBoxStyle.Critical, "Crear empresa")
                 End If

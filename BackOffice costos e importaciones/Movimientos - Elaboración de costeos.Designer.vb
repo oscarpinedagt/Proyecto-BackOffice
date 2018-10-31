@@ -1499,7 +1499,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Costeo.Caption = "08 - Costeo"
         Me.NP_Costeo.Controls.Add(Me.GC_Costeo)
         Me.NP_Costeo.Name = "NP_Costeo"
-        Me.NP_Costeo.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Costeo.Size = New System.Drawing.Size(651, 338)
         '
         'GC_Costeo
         '
@@ -1511,7 +1511,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GC_Costeo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_Costeo.Location = New System.Drawing.Point(0, 0)
         Me.GC_Costeo.Name = "GC_Costeo"
-        Me.GC_Costeo.Size = New System.Drawing.Size(614, 314)
+        Me.GC_Costeo.Size = New System.Drawing.Size(651, 338)
         Me.GC_Costeo.TabIndex = 0
         '
         'DocumentViewer
@@ -1520,7 +1520,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.DocumentViewer.IsMetric = True
         Me.DocumentViewer.Location = New System.Drawing.Point(2, 21)
         Me.DocumentViewer.Name = "DocumentViewer"
-        Me.DocumentViewer.Size = New System.Drawing.Size(610, 291)
+        Me.DocumentViewer.Size = New System.Drawing.Size(647, 315)
         Me.DocumentViewer.TabIndex = 1
         '
         'NP_Contabilidad

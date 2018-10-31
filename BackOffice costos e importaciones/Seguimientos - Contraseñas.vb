@@ -22,8 +22,8 @@
                     Select Case CL.FieldName
                         Case "Fecha_de_pago"
                             CL.DisplayFormat.FormatString = "d"
-                            CL.OptionsColumn.AllowEdit = False
-                            CL.OptionsColumn.AllowFocus = False
+                            CL.OptionsColumn.AllowEdit = True
+                            CL.OptionsColumn.AllowFocus = True
                     End Select
                 End If
 

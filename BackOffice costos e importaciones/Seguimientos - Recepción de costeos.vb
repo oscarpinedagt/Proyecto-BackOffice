@@ -126,7 +126,7 @@
         Dim File As New OpenFileDialog() With {.Filter = "Excel|*.xlsx"}
         If File.ShowDialog() = DialogResult.OK Then
 
-            Dim Dt_Tecun As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [TECUN, S.A.$]")
+            Dim Dt_Tecun As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [TECUN, S.A.$]")
             For Each Dr As DataRow In Dt_Tecun.Rows
                 If Dr("Compra").ToString <> "" Then
                     If SQL.Duplicados("Costeos", "Where Empresa+Compra ='TECUN, S.A." + Dr("Compra").ToString + "'") = False And Dr("Depto") <> 9 Then
@@ -137,7 +137,7 @@
                 End If
             Next
 
-            Dim Dt_Insectrol As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [INSECTROL, S.A.$]")
+            Dim Dt_Insectrol As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [INSECTROL, S.A.$]")
             For Each Dr As DataRow In Dt_Insectrol.Rows
                 If Dr("Compra").ToString <> "" Then
                     If SQL.Duplicados("Costeos", "Where Empresa+Compra ='INSECTROL, S.A." + Dr("Compra").ToString + "'") = False And Dr("Depto") <> 9 Then
@@ -148,7 +148,7 @@
                 End If
             Next
 
-            Dim Dt_Vehiculos As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [VEHICULOS$]")
+            Dim Dt_Vehiculos As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [VEHICULOS$]")
             For Each Dr As DataRow In Dt_Vehiculos.Rows
                 If Dr("Ingreso_a_bodega").ToString <> "" Then
                     If SQL.Duplicados("Costeos", "Where Empresa+Compra+Ingreso_a_bodega ='" + Dr("Empresa").ToString + Dr("Compra").ToString + Dr("Ingreso_a_bodega").ToString + "'") = False Then

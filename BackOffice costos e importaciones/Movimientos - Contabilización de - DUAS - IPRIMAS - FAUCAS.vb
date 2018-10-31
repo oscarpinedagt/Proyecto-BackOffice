@@ -165,6 +165,13 @@
                     Case "Total_pago", "DAI", "IVA", "Diferencia"
                         CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         CL.DisplayFormat.FormatString = "n2"
+
+                        With CL.SummaryItem
+                            .SummaryType = DevExpress.Data.SummaryItemType.Sum
+                            .FieldName = CL.FieldName
+                            .DisplayFormat = "{0:n2}"
+                        End With
+
                 End Select
 
                 Select Case CL.FieldName
@@ -304,6 +311,36 @@
         If e.RepositoryItem.Name = "Proveedor" Then
             Columna_proveedor()
         End If
+    End Sub
+
+    Private Sub GC_DUAS_IPRIMAS_FAUCAS_CustomButtonClick(sender As Object, e As DevExpress.XtraBars.Docking2010.BaseButtonEventArgs) Handles GC_DUAS_IPRIMAS_FAUCAS.CustomButtonClick
+
+        Select Case e.Button.Properties.Caption
+
+            Case "Imprimir"
+                If GridControl_DC.IsPrintingAvailable Then
+                    GridControl_DC.ShowPrintPreview()
+                End If
+        End Select
+
+    End Sub
+
+    Private Sub GridView_DC_PrintInitialize(sender As Object, e As DevExpress.XtraGrid.Views.Base.PrintInitializeEventArgs) Handles GridView_DC.PrintInitialize
+        Dim PSB As DevExpress.XtraPrinting.PrintingSystemBase = CType(e.PrintingSystem, DevExpress.XtraPrinting.PrintingSystemBase)
+        PSB.PageSettings.Landscape = True
+        PSB.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Letter
+
+
+
+        PSB.PageSettings.TopMargin = 100
+        PSB.PageSettings.LeftMargin = 0
+        PSB.PageSettings.RightMargin = 0
+        PSB.PageSettings.BottomMargin = 100
+
+
+        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.Content.AddRange(New String() {"", "Contabilización de DUAS - IPRIMAS - FAUCAS " + LUE_Empresa.EditValue, ""})
+        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Footer.Content.AddRange(New String() {"", "", "Pages: [Page # of Pages #]"})
+
     End Sub
 
 #End Region
@@ -643,7 +680,7 @@
                             SendKeys.Send("{TAB}")
                             SendKeys.Send("{ENTER}")
                             SendKeys.Send("{TAB 2}")
-                            SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha")).ToShortDateString)
+                            SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
                             SendKeys.Send("{TAB 11}")
                             SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
                             SendKeys.Send("{TAB 2}")
@@ -777,6 +814,7 @@
                             Case "Código"
                                 CL.OptionsColumn.ReadOnly = True
                         End Select
+
                     Next
 
             End Select

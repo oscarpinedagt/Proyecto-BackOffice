@@ -273,7 +273,6 @@ Partial Public Class Costeo
         Me.Total_gastos_GTQ = New DevExpress.XtraReports.UI.CalculatedField()
         Me.Total_FOB = New DevExpress.XtraReports.UI.CalculatedField()
         Me.Total_FOB_USD = New DevExpress.XtraReports.UI.CalculatedField()
-        Me.Total_DAI_GL = New DevExpress.XtraReports.UI.CalculatedField()
         CType(Me.XrTable12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable14, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3525,19 +3524,19 @@ Partial Public Class Costeo
         '
         Me.Total_DE_GTQ.DataMember = "Costeos.Costeos_Documentos_del_exterior"
         Me.Total_DE_GTQ.DisplayName = "Total_DE_GTQ"
-        Me.Total_DE_GTQ.Expression = "sum([Total_GTQ])"
+        Me.Total_DE_GTQ.Expression = "iif(IsNullOrEmpty(sum([Total_GTQ])),0,sum([Total_GTQ]))"
         Me.Total_DE_GTQ.Name = "Total_DE_GTQ"
         '
         'Total_DL_GTQ
         '
         Me.Total_DL_GTQ.DataMember = "Costeos.Costeos_Documentos_locales"
-        Me.Total_DL_GTQ.Expression = "Sum([Valor_sin_IVA])"
+        Me.Total_DL_GTQ.Expression = "iif(IsNullOrEmpty(Sum([Valor_sin_IVA])" & Global.Microsoft.VisualBasic.ChrW(10) & "),0,Sum([Valor_sin_IVA])" & Global.Microsoft.VisualBasic.ChrW(10) & ")"
         Me.Total_DL_GTQ.Name = "Total_DL_GTQ"
         '
         'Total_SG_GTQ
         '
         Me.Total_SG_GTQ.DataMember = "Costeos.Costeos_Seguro"
-        Me.Total_SG_GTQ.Expression = "Sum([Total_seguro_GTQ])"
+        Me.Total_SG_GTQ.Expression = "iif(IsNullOrEmpty(Sum([Total_seguro_GTQ])),0,Sum([Total_seguro_GTQ]))"
         Me.Total_SG_GTQ.Name = "Total_SG_GTQ"
         '
         'Total_DAI_GTQ
@@ -3567,16 +3566,10 @@ Partial Public Class Costeo
     "tor_de_cambio_USD] )"
         Me.Total_FOB_USD.Name = "Total_FOB_USD"
         '
-        'Total_DAI_GL
-        '
-        Me.Total_DAI_GL.DataMember = "Costeos.Costeos_Documentos_locales"
-        Me.Total_DAI_GL.Expression = "[Tipo_de_gasto][[Dai]].Sum([Valor_sin_IVA])"
-        Me.Total_DAI_GL.Name = "Total_DAI_GL"
-        '
         'Costeo
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.DetailReport, Me.DetailReport1, Me.DetailReport4, Me.DetailReport2, Me.PageFooter})
-        Me.CalculatedFields.AddRange(New DevExpress.XtraReports.UI.CalculatedField() {Me.Total_general, Me.Factor_USD, Me.Total_DE_USD, Me.Total_DE_GTQ, Me.Total_DL_GTQ, Me.Total_SG_GTQ, Me.Total_DAI_GTQ, Me.Total_gastos_GTQ, Me.Total_FOB, Me.Total_FOB_USD, Me.Total_DAI_GL})
+        Me.CalculatedFields.AddRange(New DevExpress.XtraReports.UI.CalculatedField() {Me.Total_general, Me.Factor_USD, Me.Total_DE_USD, Me.Total_DE_GTQ, Me.Total_DL_GTQ, Me.Total_SG_GTQ, Me.Total_DAI_GTQ, Me.Total_gastos_GTQ, Me.Total_FOB, Me.Total_FOB_USD})
         Me.ComponentStorage.AddRange(New System.ComponentModel.IComponent() {Me.DS_BackOffice})
         Me.DataAdapter = Me.TA_Costeos
         Me.DataSource = Me.DS_BackOffice
@@ -3819,7 +3812,6 @@ Partial Public Class Costeo
     Friend WithEvents XrTableCell54 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents Total_FOB As DevExpress.XtraReports.UI.CalculatedField
     Friend WithEvents Total_FOB_USD As DevExpress.XtraReports.UI.CalculatedField
-    Friend WithEvents Total_DAI_GL As DevExpress.XtraReports.UI.CalculatedField
     Friend WithEvents XrTableRow9 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell55 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell56 As DevExpress.XtraReports.UI.XRTableCell

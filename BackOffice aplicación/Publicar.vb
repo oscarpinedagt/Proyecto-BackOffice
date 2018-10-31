@@ -21,22 +21,24 @@
         My.Settings.Save()
     End Sub
 
-    Public Sub Actualizar_ejecutables(DirO As String, DirD As String)
-        Dim DI As New DirectoryInfo(DirD)
-        If Not DI.Exists Then DI.Create()
+    Public Sub Actualizar_ejecutables(DirO As DirectoryInfo, DirD As DirectoryInfo)
+        If Not DirD.Exists Then DirD.Create()
         Dim Ext As New List(Of String) From {"*.exe", "*.dll", "*.txt", "*.xlsx"}
-        For Each FileO In My.Computer.FileSystem.GetFiles(DirO, FileIO.SearchOption.SearchAllSubDirectories, Ext.ToArray)
+        For Each FileO In My.Computer.FileSystem.GetFiles(DirO.FullName, FileIO.SearchOption.SearchAllSubDirectories, Ext.ToArray)
             If FileO <> Application.ExecutablePath Then
-                Dim FileD As String = DirD & "\" & FileO.Remove(0, DirO.Length + 1)
+                Dim FileD As String = DirD.FullName & "\" & FileO.Remove(0, DirO.FullName.Length + 1)
                 My.Computer.FileSystem.CopyFile(FileO, FileD, True)
             End If
         Next
     End Sub
 
     Private Sub SB_Publicar_Click(sender As Object, e As EventArgs) Handles SB_Publicar.Click
+        ValidateChildren()
+        Dim DirO As New DirectoryInfo(Application.StartupPath)
+        Dim DirD As New DirectoryInfo(BE_Directorio.EditValue)
+        CK_Recordar_directorio_CheckedChanged(Nothing, Nothing)
         Try
-            Actualizar_ejecutables(Application.StartupPath, BE_Directorio.Text)
-            CK_Recordar_directorio_CheckedChanged(Nothing, Nothing)
+            Actualizar_ejecutables(DirO, DirD)
             MsgBox("Publicación exitosa", MsgBoxStyle.Information, "Publicación de aplicaciones")
         Catch ex As Exception
             MsgBox(ex.Message.ToString, MsgBoxStyle.Critical, "Publicación de aplicaciones")

@@ -1,6 +1,7 @@
 ﻿Public Class Información_de_archivos
+    Dim WithEvents FSW As New FileSystemWatcher, DI As DirectoryInfo
     Dim SQL As New BackOffice_datos.SQL
-    Dim WithEvents FSW As New FileSystemWatcher
+
     Private Sub Información_de_archivos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BE_Directorio.EditValue = My.Settings.Directorio
     End Sub
@@ -13,8 +14,8 @@
     End Sub
 
     Private Sub CK_Activar_monitoreo_de_archivos_CheckedChanged(sender As Object, e As EventArgs) Handles CK_Activar_monitoreo_de_archivos.CheckedChanged
-
-        Dim DI As New DirectoryInfo(BE_Directorio.Text)
+        ValidateChildren()
+        DI = New DirectoryInfo(BE_Directorio.EditValue)
         If DI.Exists Then
             My.Settings.Directorio = DI.FullName
             My.Settings.Save()
@@ -44,29 +45,29 @@
 
             Case WatcherChangeTypes.Created
                 If FI.Exists And FI.Name.IndexOf("-") > 0 Then
-                    Dim TDoc() As String = Split(Replace(FI.Name, FI.Extension, ""), "-")
+                    Dim TDoc() As String = Replace(FI.Name, FI.Extension, "").Split("-")
                     Dim FS As FileSecurity = FI.GetAccessControl
                     Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
-                    Dim Datos_propietario() As String = Split(Propietario.ToString, "\")
+                    Dim Datos_propietario() As String = Propietario.ToString.Split("\")
 
-                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName.ToString + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
+                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
 
                 End If
 
             Case WatcherChangeTypes.Changed
                 If FI.Exists And FI.Name.IndexOf("-") > 0 Then
-                    Dim TDoc() As String = Split(Replace(FI.Name, FI.Extension, ""), "-")
+                    Dim TDoc() As String = Replace(FI.Name, FI.Extension, "").Split("-")
                     Dim FS As FileSecurity = FI.GetAccessControl
                     Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
-                    Dim Datos_propietario() As String = Split(Propietario.ToString, "\")
+                    Dim Datos_propietario() As String = Propietario.ToString.Split("\")
 
-                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName.ToString + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
+                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
 
                 End If
 
             Case WatcherChangeTypes.Deleted
                 If Not FI.Exists And FI.Name.IndexOf("-") > 0 Then
-                    Dim TDoc() As String = Split(Replace(FI.Name, FI.Extension, ""), "-")
+                    Dim TDoc() As String = Replace(FI.Name, FI.Extension, "").Split("-")
 
                     SQL.Actualizar("Costeos", "Compra=NULL,Elaborado='False',Fecha_de_elaboracion=NULL,Usuario_que_elabora=NULL,Archivo=NULL", "Compra='" + TDoc(0) + "' And Ingreso_a_bodega='" + TDoc(1) + "'")
 
@@ -77,12 +78,12 @@
     Private Sub OnRenamed(sender As Object, e As RenamedEventArgs)
         Dim FI As New FileInfo(e.FullPath)
         If FI.Exists And FI.Name.IndexOf("-") > 0 Then
-            Dim TDoc() As String = Split(Replace(FI.Name, FI.Extension, ""), "-")
+            Dim TDoc() As String = Replace(FI.Name, FI.Extension, "").Split("-")
             Dim FS As FileSecurity = FI.GetAccessControl
             Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
-            Dim Datos_propietario() As String = Split(Propietario.ToString, "\")
+            Dim Datos_propietario() As String = Propietario.ToString.Split("\")
 
-            SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName.ToString + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
+            SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
 
         End If
     End Sub

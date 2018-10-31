@@ -132,21 +132,21 @@
         Dim File As New OpenFileDialog() With {.Filter = "Excel|*.xlsx;*.xlsm"}
         If File.ShowDialog() = DialogResult.OK Then
 
-            Dim Dt_Uniauto As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [Uniauto$]")
+            Dim Dt_Uniauto As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [Uniauto$]")
             For Each Dr As DataRow In Dt_Uniauto.Rows
                 If SQL.Duplicados("Control_de_iprima", "Where Empresa+Chasis ='UNIAUTO, S.A." + Dr("Chasis").ToString + "'") = False Then
                     SQL.Insertar("Control_de_iprima", "Id_iprima,Empresa,Pedido,Factura,Inventario,Linea,Color,Motor,Chasis,Fecha_DUA,Régimen,DUA,CIF_DUA,TC_DUA,Valor_IPRIMA_sistema", SQL.Nuevo_ID("Id_iprima", "Control_de_iprima").ToString + ",'UNIAUTO, S.A.'," + FN.Campo_tabla(Dr("Pedido")) + "," + FN.Campo_tabla(Dr("Factura")) + "," + FN.Campo_tabla(Dr("Inventario")) + "," + FN.Campo_tabla(Dr("Linea")) + "," + FN.Campo_tabla(Dr("Color")) + "," + FN.Campo_tabla(Dr("Motor")) + "," + FN.Campo_tabla(Dr("Chasis")) + "," + FN.Campo_tabla(FN.Quitar_espacios_innecesarios(Dr("Fecha"))) + "," + FN.Campo_tabla(Dr("Tipo")) + "," + FN.Campo_tabla(Dr("Poliza")) + "," + FN.Campo_tabla(Dr("CIF")) + "," + FN.Campo_tabla(Dr("TC_Poliza")) + "," + FN.Campo_tabla(Dr("IPRIMA")))
                 End If
             Next
 
-            Dim Dt_Didea As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [Didea$]")
+            Dim Dt_Didea As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [Didea$]")
             For Each Dr As DataRow In Dt_Didea.Rows
                 If SQL.Duplicados("Control_de_iprima", "Where Empresa+Chasis ='DIDEA, S.A." + Dr("Chasis").ToString + "'") = False Then
                     SQL.Insertar("Control_de_iprima", "Id_iprima,Empresa,Pedido,Factura,Inventario,Linea,Color,Motor,Chasis,Fecha_DUA,Régimen,DUA,CIF_DUA,TC_DUA,Valor_IPRIMA_sistema", SQL.Nuevo_ID("Id_iprima", "Control_de_iprima").ToString + ",'DIDEA, S.A.'," + FN.Campo_tabla(Dr("Pedido")) + "," + FN.Campo_tabla(Dr("Factura")) + "," + FN.Campo_tabla(Dr("Inventario")) + "," + FN.Campo_tabla(Dr("Linea")) + "," + FN.Campo_tabla(Dr("Color")) + "," + FN.Campo_tabla(Dr("Motor")) + "," + FN.Campo_tabla(Dr("Chasis")) + "," + FN.Campo_tabla(FN.Quitar_espacios_innecesarios(Dr("Fecha"))) + "," + FN.Campo_tabla(Dr("Tipo")) + "," + FN.Campo_tabla(Dr("Poliza")) + "," + FN.Campo_tabla(Dr("CIF")) + "," + FN.Campo_tabla(Dr("TC_Poliza")) + "," + FN.Campo_tabla(Dr("IPRIMA")))
                 End If
             Next
 
-            Dim Dt_Autos_Europa As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [Autos Europa$]")
+            Dim Dt_Autos_Europa As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [Autos Europa$]")
             For Each Dr As DataRow In Dt_Autos_Europa.Rows
                 If SQL.Duplicados("Control_de_iprima", "Where Empresa+Chasis ='AUTOS EUROPA, S.A." + Dr("Chasis").ToString + "'") = False Then
                     SQL.Insertar("Control_de_iprima", "Id_iprima,Empresa,Pedido,Factura,Inventario,Linea,Color,Motor,Chasis,Fecha_DUA,Régimen,DUA,CIF_DUA,TC_DUA,Valor_IPRIMA_sistema", SQL.Nuevo_ID("Id_iprima", "Control_de_iprima").ToString + ",'AUTOS EUROPA, S.A.'," + FN.Campo_tabla(Dr("Pedido")) + "," + FN.Campo_tabla(Dr("Factura")) + "," + FN.Campo_tabla(Dr("Inventario")) + "," + FN.Campo_tabla(Dr("Linea")) + "," + FN.Campo_tabla(Dr("Color")) + "," + FN.Campo_tabla(Dr("Motor")) + "," + FN.Campo_tabla(Dr("Chasis")) + "," + FN.Campo_tabla(FN.Quitar_espacios_innecesarios(Dr("Fecha"))) + "," + FN.Campo_tabla(Dr("Tipo")) + "," + FN.Campo_tabla(Dr("Poliza")) + "," + FN.Campo_tabla(Dr("CIF")) + "," + FN.Campo_tabla(Dr("TC_Poliza")) + "," + FN.Campo_tabla(Dr("IPRIMA")))
@@ -162,7 +162,7 @@
         Dim File As New OpenFileDialog() With {.Filter = "Excel|*.xlsx;*.xlsm"}
         If File.ShowDialog() = DialogResult.OK Then
 
-            Dim Dt_Uniauto As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [Uniauto$]")
+            Dim Dt_Uniauto As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [Uniauto$]")
             For Each Dr As DataRow In Dt_Uniauto.Rows
                 If SQL.Duplicados("Control_de_iprima", "Where Empresa+Chasis+DUA ='UNIAUTO, S.A." + Dr("Chasis").ToString + Dr("Poliza").ToString + "'") = True Then
                     If SQL.Duplicados("Facturación_vehiculos", "Where Chasis+DUA+Factura ='" + Dr("Chasis").ToString + Dr("Poliza").ToString + Dr("No_Factura").ToString + "'") = False Then
@@ -171,7 +171,7 @@
                 End If
             Next
 
-            Dim Dt_Didea As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [Didea$]")
+            Dim Dt_Didea As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [Didea$]")
             For Each Dr As DataRow In Dt_Didea.Rows
                 If SQL.Duplicados("Control_de_iprima", "Where Empresa+Chasis+DUA ='DIDEA, S.A." + Dr("Chasis").ToString + Dr("Poliza").ToString + "'") = True Then
                     If SQL.Duplicados("Facturación_vehiculos", "Where Chasis+DUA+Factura ='" + Dr("Chasis").ToString + Dr("Poliza").ToString + Dr("No_Factura").ToString + "'") = False Then
@@ -180,7 +180,7 @@
                 End If
             Next
 
-            Dim Dt_Autos_Europa As DataTable = SQL.Tabla_de_datos_Excel(File.FileName, "Select * From [Autos Europa$]")
+            Dim Dt_Autos_Europa As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select * From [Autos Europa$]")
             For Each Dr As DataRow In Dt_Autos_Europa.Rows
                 If SQL.Duplicados("Control_de_iprima", "Where Empresa+Chasis+DUA ='AUTOS EUROPA, S.A." + Dr("Chasis").ToString + Dr("Poliza").ToString + "'") = True Then
                     If SQL.Duplicados("Facturación_vehiculos", "Where Chasis+DUA+Factura ='" + Dr("Chasis").ToString + Dr("Poliza").ToString + Dr("No_Factura").ToString + "'") = False Then

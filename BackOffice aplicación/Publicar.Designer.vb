@@ -46,7 +46,7 @@ Partial Class Publicar
         '
         'SB_Publicar
         '
-        Me.SB_Publicar.Location = New System.Drawing.Point(500, 67)
+        Me.SB_Publicar.Location = New System.Drawing.Point(500, 74)
         Me.SB_Publicar.Name = "SB_Publicar"
         Me.SB_Publicar.Size = New System.Drawing.Size(120, 23)
         Me.SB_Publicar.TabIndex = 1

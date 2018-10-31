@@ -48,6 +48,7 @@ Partial Class Menú
         Me.progressPanel.AppearanceDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.progressPanel.AppearanceDescription.Options.UseFont = True
         Me.progressPanel.BarAnimationElementThickness = 2
+        Me.progressPanel.Caption = "Por favor espere"
         Me.progressPanel.Description = "Cargando menú..."
         Me.progressPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.progressPanel.ImageHorzOffset = 20
