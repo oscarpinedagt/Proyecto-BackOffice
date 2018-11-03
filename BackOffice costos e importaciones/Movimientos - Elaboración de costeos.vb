@@ -2052,7 +2052,12 @@
                             SendKeys.Send("{TAB}")
                             SendKeys.Send("{ENTER}")
                             SendKeys.Send("{TAB 2}")
-                            SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
+                            If CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToString("dd") = 31 Then
+                                SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToString("/MM/yyyy/"))
+                                SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
+                            Else
+                                SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
+                            End If
                             SendKeys.Send("{TAB 11}")
                             SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
                             SendKeys.Send("{TAB 2}")

@@ -50,7 +50,7 @@
                     Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
                     Dim Datos_propietario() As String = Propietario.ToString.Split("\")
 
-                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
+                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "' And Estado<>'Anulado'")
 
                 End If
 
@@ -61,7 +61,7 @@
                     Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
                     Dim Datos_propietario() As String = Propietario.ToString.Split("\")
 
-                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
+                    SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "' And Estado<>'Anulado'")
 
                 End If
 
@@ -83,7 +83,7 @@
             Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
             Dim Datos_propietario() As String = Propietario.ToString.Split("\")
 
-            SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "'")
+            SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName + "'", "(Elaborado<>'True' Or Elaborado Is Null) And Ingreso_a_bodega='" + TDoc(1) + "' And Estado<>'Anulado'")
 
         End If
     End Sub

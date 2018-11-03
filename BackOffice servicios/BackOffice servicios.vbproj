@@ -120,6 +120,12 @@
     <Compile Include="Contraseña.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Costeos en proceso.designer.vb">
+      <DependentUpon>Costeos en proceso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Costeos en proceso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funciones.vb" />
     <Compile Include="Inicio de sesión.Designer.vb">
       <DependentUpon>Inicio de sesión.vb</DependentUpon>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contraseña.resx">
       <DependentUpon>Contraseña.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Costeos en proceso.resx">
+      <DependentUpon>Costeos en proceso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio de sesión.resx">
       <DependentUpon>Inicio de sesión.vb</DependentUpon>

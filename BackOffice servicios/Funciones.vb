@@ -224,8 +224,8 @@
                 Dim FI As New FileInfo(Archivo)
                 Dim FS As FileSecurity = FI.GetAccessControl
                 Dim Propietario As NTAccount = CType(FS.GetOwner(GetType(NTAccount)), NTAccount)
-                Dim Datos_propietario() As String = Split(Propietario.ToString, "\")
-                Dim TDoc() As String = Split(Replace(FI.Name, FI.Extension, ""), "-")
+                Dim Datos_propietario() As String = Propietario.ToString.Split("\")
+                Dim TDoc() As String = Replace(FI.Name, FI.Extension, "").Split("-")
 
                 If FI.Name.IndexOf("-") > 0 And FI.LastWriteTime >= Fecha Then
                     If Generar_archivo = True Then
@@ -235,8 +235,8 @@
                         SB.Append(",").Append("""" + FI.LastWriteTime + """")
                         SB.Append(Environment.NewLine)
                     ElseIf Generar_archivo = False Then
-                        SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName.ToString + "'", "Ingreso_a_bodega='" + TDoc(1) + "' And (Elaborado<>'True' Or Elaborado Is Null)")
-                        SQL.Actualizar("Costeos", "Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "'", "Ingreso_a_bodega='" + TDoc(1) + "'")
+                        SQL.Actualizar("Costeos", "Compra='" + TDoc(0) + "',Elaborado='True',Usuario_que_elabora='" + UCase(Datos_propietario(1)) + "',Archivo='" + FI.FullName.ToString + "'", "Ingreso_a_bodega='" + TDoc(1) + "' And Estado<>'Anulado' And (Elaborado<>'True' Or Elaborado Is Null)")
+                        SQL.Actualizar("Costeos", "Fecha_de_elaboracion='" + FI.LastWriteTime.ToString + "'", "Ingreso_a_bodega='" + TDoc(1) + "' And Estado<>'Anulado'")
                     End If
                 End If
             Next

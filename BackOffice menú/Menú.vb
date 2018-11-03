@@ -2,7 +2,7 @@
     Dim WithEvents FSW As New FileSystemWatcher
     Dim SQL As New BackOffice_datos.SQL
     Dim Arg() As String = Command$().Split("/"), DI As DirectoryInfo
-    Dim Información_de_archivos As New BackOffice_información_de_archivos.Información_de_archivos
+    Dim IDF As New BackOffice_información_de_archivos.Información_de_archivos
 
     Sub New()
         InitializeComponent()
@@ -103,7 +103,8 @@
         End If
     End Sub
     Private Sub TRM_Costeos_en_proceso_Tick(sender As Object, e As EventArgs) Handles TRM_Costeos_en_proceso.Tick
-        Costeos_en_proceso.Show()
+        Dim CEP As New BackOffice_servicios.Costeos_en_proceso
+        CEP.Show()
     End Sub
 
     Private Function Listar_procesos(Directorio As String) As Integer
@@ -125,7 +126,7 @@
         Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Información de archivos"}
         SEG.ShowDialog()
         If SEG.Resultado = True Then
-            Información_de_archivos.Show()
+            IDF.Show()
         End If
         SEG.Dispose()
     End Sub

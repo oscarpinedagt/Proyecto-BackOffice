@@ -19,8 +19,9 @@ Partial Class Costeos_en_proceso
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Costeos_en_proceso))
-        Me.TMR_Cerrar_notificación = New System.Windows.Forms.Timer()
+        Me.TMR_Cerrar_notificación = New System.Windows.Forms.Timer(Me.components)
         Me.GC_DUAS_IPRIMAS_FAUCAS = New DevExpress.XtraEditors.GroupControl()
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -74,11 +75,8 @@ Partial Class Costeos_en_proceso
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(948, 528)
         Me.Controls.Add(Me.GC_DUAS_IPRIMAS_FAUCAS)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "Costeos_en_proceso"
         Me.Padding = New System.Windows.Forms.Padding(14, 0, 0, 15)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

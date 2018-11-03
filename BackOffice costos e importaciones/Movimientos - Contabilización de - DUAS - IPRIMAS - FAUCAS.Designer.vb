@@ -160,15 +160,15 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager
-        Me.barDockControlTop.Size = New System.Drawing.Size(1015, 26)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1018, 26)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 525)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 528)
         Me.barDockControlBottom.Manager = Me.BarManager
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1015, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1018, 0)
         '
         'barDockControlLeft
         '
@@ -176,15 +176,15 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 26)
         Me.barDockControlLeft.Manager = Me.BarManager
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 499)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 502)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1015, 26)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1018, 26)
         Me.barDockControlRight.Manager = Me.BarManager
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 499)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 502)
         '
         'GC_Datos_de_registro
         '
@@ -195,7 +195,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.GC_Datos_de_registro.Dock = System.Windows.Forms.DockStyle.Top
         Me.GC_Datos_de_registro.Location = New System.Drawing.Point(0, 26)
         Me.GC_Datos_de_registro.Name = "GC_Datos_de_registro"
-        Me.GC_Datos_de_registro.Size = New System.Drawing.Size(1015, 80)
+        Me.GC_Datos_de_registro.Size = New System.Drawing.Size(1018, 80)
         Me.GC_Datos_de_registro.TabIndex = 4
         Me.GC_Datos_de_registro.Text = "Datos de registro"
         '
@@ -282,7 +282,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.NP_DUAS_IPRIMAS_FAUCAS.Caption = "01 - DUAS - IPRIMAS - FAUCAS"
         Me.NP_DUAS_IPRIMAS_FAUCAS.Controls.Add(Me.GC_DUAS_IPRIMAS_FAUCAS)
         Me.NP_DUAS_IPRIMAS_FAUCAS.Name = "NP_DUAS_IPRIMAS_FAUCAS"
-        Me.NP_DUAS_IPRIMAS_FAUCAS.Size = New System.Drawing.Size(825, 373)
+        Me.NP_DUAS_IPRIMAS_FAUCAS.Size = New System.Drawing.Size(828, 376)
         '
         'GC_DUAS_IPRIMAS_FAUCAS
         '
@@ -292,7 +292,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.GC_DUAS_IPRIMAS_FAUCAS.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_DUAS_IPRIMAS_FAUCAS.Location = New System.Drawing.Point(0, 0)
         Me.GC_DUAS_IPRIMAS_FAUCAS.Name = "GC_DUAS_IPRIMAS_FAUCAS"
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Size = New System.Drawing.Size(825, 373)
+        Me.GC_DUAS_IPRIMAS_FAUCAS.Size = New System.Drawing.Size(828, 376)
         Me.GC_DUAS_IPRIMAS_FAUCAS.TabIndex = 0
         '
         'GridControl_DC
@@ -301,7 +301,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.GridControl_DC.Location = New System.Drawing.Point(2, 21)
         Me.GridControl_DC.MainView = Me.GridView_DC
         Me.GridControl_DC.Name = "GridControl_DC"
-        Me.GridControl_DC.Size = New System.Drawing.Size(821, 350)
+        Me.GridControl_DC.Size = New System.Drawing.Size(824, 353)
         Me.GridControl_DC.TabIndex = 1
         Me.GridControl_DC.UseEmbeddedNavigator = True
         Me.GridControl_DC.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_DC})
@@ -327,9 +327,9 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.NP_Datos.PageProperties.ShowCollapseButton = False
         Me.NP_Datos.PageProperties.ShowExpandButton = False
         Me.NP_Datos.Pages.AddRange(New DevExpress.XtraBars.Navigation.NavigationPageBase() {Me.NP_DUAS_IPRIMAS_FAUCAS, Me.NP_Contabilidad, Me.NP_Mantenimiento})
-        Me.NP_Datos.RegularSize = New System.Drawing.Size(1015, 419)
+        Me.NP_Datos.RegularSize = New System.Drawing.Size(1018, 422)
         Me.NP_Datos.SelectedPage = Me.NP_DUAS_IPRIMAS_FAUCAS
-        Me.NP_Datos.Size = New System.Drawing.Size(1015, 419)
+        Me.NP_Datos.Size = New System.Drawing.Size(1018, 422)
         Me.NP_Datos.TabIndex = 5
         Me.NP_Datos.Text = "Datos"
         '
@@ -382,7 +382,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1015, 525)
+        Me.ClientSize = New System.Drawing.Size(1018, 528)
         Me.Controls.Add(Me.NP_Datos)
         Me.Controls.Add(Me.GC_Datos_de_registro)
         Me.Controls.Add(Me.barDockControlLeft)

@@ -2,6 +2,7 @@
     Dim SQL As New BackOffice_datos.SQL, SQL_Proveedores As New BackOffice_datos.SQL, SQL_Cuentas_y_complementos As New BackOffice_datos.SQL, SQL_Países As New BackOffice_datos.SQL, SQL_Aduanas As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim Edicion As Boolean, MT As String, Descripción_contable As String
+
     Private Sub Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_datos()
         BBI_Cancelar_ItemClick(sender, Nothing)
@@ -26,7 +27,7 @@
 
     Private Sub BBI_Nuevo_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Nuevo.ItemClick
         FN.Limpiar_controles(GC_Datos_de_registro) : FN.Habilitar_controles(GC_Datos_de_registro)
-        TE_Lote_No.EditValue = Format(Now, "yyMMddHHmmssfff")
+        TE_Lote_No.EditValue = Now.ToString("yyMMddHHmmssfff")
         Duas_Iprimas_Faucas("Where RL_Lote_No =" + Val(TE_Lote_No.EditValue).ToString) : GridView_DC.OptionsBehavior.Editable = True
         Cargar_contabilidad() : GridView_CT.OptionsBehavior.Editable = False
         ValidateChildren()
@@ -680,13 +681,18 @@
                             SendKeys.Send("{TAB}")
                             SendKeys.Send("{ENTER}")
                             SendKeys.Send("{TAB 2}")
-                            SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
+                            If CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToString("dd") = 31 Then
+                                SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToString("/MM/yyyy/"))
+                                SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
+                            Else
+                                SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
+                            End If
                             SendKeys.Send("{TAB 11}")
-                            SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
-                            SendKeys.Send("{TAB 2}")
-                            SendKeys.Send("^g")
-                        Else
-                            SendKeys.Send("{TAB 2}")
+                                SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
+                                SendKeys.Send("{TAB 2}")
+                                SendKeys.Send("^g")
+                            Else
+                                SendKeys.Send("{TAB 2}")
                         End If
 
                     Next
