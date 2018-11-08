@@ -1,6 +1,7 @@
 ﻿Public Class Seguimientos_Control_de_IPRIMA
     Dim SQL As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
+    Dim Tipo_de_reporte As String
 
     Private Sub Seguimientos_Control_de_Iprima_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_datos("Where Id_iprima = 0")
@@ -112,19 +113,22 @@
     Private Sub BBI_Disponibles_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Disponibles.ItemClick
         GridView.FormatRules.Clear()
         GridView.OptionsSelection.MultiSelect = False
+        Tipo_de_reporte = "Disponibles"
         Cargar_datos("Where ((Documentos is null or Documentos = '') And (Formulario_IPRIMA is null or Formulario_IPRIMA = '')) or ((Documentos is null or Documentos = '') And (Formulario_IPRIMA is not null or Formulario_IPRIMA <> '')) Order By Fecha_DUA")
     End Sub
 
     Private Sub BBI_Solicitados_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Solicitados.ItemClick
         Formato_condicional()
         GridView.OptionsSelection.MultiSelect = True
-        GridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect
+        'GridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect
+        Tipo_de_reporte = "Solicitados"
         Cargar_datos("Where (Documentos is not null or Documentos <> '') And (Fecha_de_confirmación_de_pago is null or Fecha_de_confirmación_de_pago = '')  Order By DUA,Documentos")
     End Sub
 
     Private Sub BBI_Liquidados_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Liquidados.ItemClick
         GridView.FormatRules.Clear()
         GridView.OptionsSelection.MultiSelect = False
+        Tipo_de_reporte = "Liquidados"
         Cargar_datos("Where (Formulario_IPRIMA is not null or Formulario_IPRIMA <> '') And (Documentos is not null or Documentos <> '') And (Fecha_de_confirmación_de_pago is not null or Fecha_de_confirmación_de_pago <> '') Order By DUA,Documentos")
     End Sub
 
@@ -333,6 +337,12 @@
         Dim Dt_correo As DataTable = SQL.Tabla_de_datos("Select * From Seguimientos_y_correos Where Tipo_de_seguimiento ='Pagos Tesorería'")
         FN.Enviar_correo(, Dt_correo.Rows(0)("Correo_electronico_para").ToString, Dt_correo.Rows(0)("Correo_electronico_cc").ToString, Dt_correo.Rows(0)("Correo_electronico_cco").ToString, "Pago de IPRIMAS " & Fecha, MyString.ToString, )
 
+    End Sub
+
+    Private Sub BBI_Generar_a_Excel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_a_Excel.ItemClick
+        If GridView.RowCount > 0 Then
+            FN.Exportar_GridControl_a_Excel(GridControl, "Control de IPRIMAS " + LCase(Tipo_de_reporte) + " al " + Replace(Now.ToShortDateString, "/", ""))
+        End If
     End Sub
 
 End Class

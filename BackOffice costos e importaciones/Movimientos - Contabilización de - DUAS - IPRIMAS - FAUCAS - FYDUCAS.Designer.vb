@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
+Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_FYDUCAS
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,14 +20,14 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS))
+        Dim ButtonImageOptions8 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim ButtonImageOptions9 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions2 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions3 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions1 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions4 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions5 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions6 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions7 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim ButtonImageOptions3 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim ButtonImageOptions10 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim ButtonImageOptions11 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_FYDUCAS))
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Nuevo = New DevExpress.XtraBars.BarButtonItem()
@@ -249,9 +249,9 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         'GC_Contabilidad
         '
         Me.GC_Contabilidad.Controls.Add(Me.GridControl_CT)
-        ButtonImageOptions2.Image = CType(resources.GetObject("ButtonImageOptions2.Image"), System.Drawing.Image)
-        ButtonImageOptions3.Image = CType(resources.GetObject("ButtonImageOptions3.Image"), System.Drawing.Image)
-        Me.GC_Contabilidad.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Generar partida", True, ButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Contabilizar", True, ButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
+        ButtonImageOptions8.Image = CType(resources.GetObject("ButtonImageOptions8.Image"), System.Drawing.Image)
+        ButtonImageOptions9.Image = CType(resources.GetObject("ButtonImageOptions9.Image"), System.Drawing.Image)
+        Me.GC_Contabilidad.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Generar partida", True, ButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Contabilizar", True, ButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
         Me.GC_Contabilidad.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_Contabilidad.Location = New System.Drawing.Point(0, 0)
         Me.GC_Contabilidad.Name = "GC_Contabilidad"
@@ -287,8 +287,8 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         'GC_DUAS_IPRIMAS_FAUCAS
         '
         Me.GC_DUAS_IPRIMAS_FAUCAS.Controls.Add(Me.GridControl_DC)
-        ButtonImageOptions1.Image = CType(resources.GetObject("ButtonImageOptions1.Image"), System.Drawing.Image)
-        Me.GC_DUAS_IPRIMAS_FAUCAS.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Imprimir", True, ButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
+        ButtonImageOptions2.Image = CType(resources.GetObject("ButtonImageOptions2.Image"), System.Drawing.Image)
+        Me.GC_DUAS_IPRIMAS_FAUCAS.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Imprimir", True, ButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
         Me.GC_DUAS_IPRIMAS_FAUCAS.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_DUAS_IPRIMAS_FAUCAS.Location = New System.Drawing.Point(0, 0)
         Me.GC_DUAS_IPRIMAS_FAUCAS.Name = "GC_DUAS_IPRIMAS_FAUCAS"
@@ -338,20 +338,20 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.NP_Mantenimiento.Caption = "03 - Mantenimiento"
         Me.NP_Mantenimiento.Controls.Add(Me.GroupControl_MT)
         Me.NP_Mantenimiento.Name = "NP_Mantenimiento"
-        Me.NP_Mantenimiento.Size = New System.Drawing.Size(825, 373)
+        Me.NP_Mantenimiento.Size = New System.Drawing.Size(828, 376)
         '
         'GroupControl_MT
         '
         Me.GroupControl_MT.Controls.Add(Me.GridControl_MT)
-        ButtonImageOptions4.Image = CType(resources.GetObject("ButtonImageOptions4.Image"), System.Drawing.Image)
-        ButtonImageOptions5.Image = CType(resources.GetObject("ButtonImageOptions5.Image"), System.Drawing.Image)
-        ButtonImageOptions6.Image = CType(resources.GetObject("ButtonImageOptions6.Image"), System.Drawing.Image)
-        ButtonImageOptions7.Image = CType(resources.GetObject("ButtonImageOptions7.Image"), System.Drawing.Image)
-        Me.GroupControl_MT.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Proveedores", True, ButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Países", True, ButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Aduanas", True, ButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Cuentas y complementos", True, ButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
+        ButtonImageOptions1.Image = CType(resources.GetObject("ButtonImageOptions1.Image"), System.Drawing.Image)
+        ButtonImageOptions3.Image = CType(resources.GetObject("ButtonImageOptions3.Image"), System.Drawing.Image)
+        ButtonImageOptions10.Image = CType(resources.GetObject("ButtonImageOptions10.Image"), System.Drawing.Image)
+        ButtonImageOptions11.Image = CType(resources.GetObject("ButtonImageOptions11.Image"), System.Drawing.Image)
+        Me.GroupControl_MT.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Proveedores", True, ButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Países", True, ButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Aduanas", True, ButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Cuentas y complementos", True, ButtonImageOptions11, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
         Me.GroupControl_MT.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl_MT.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl_MT.Name = "GroupControl_MT"
-        Me.GroupControl_MT.Size = New System.Drawing.Size(825, 373)
+        Me.GroupControl_MT.Size = New System.Drawing.Size(828, 376)
         Me.GroupControl_MT.TabIndex = 1
         '
         'GridControl_MT
@@ -360,7 +360,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.GridControl_MT.Location = New System.Drawing.Point(2, 21)
         Me.GridControl_MT.MainView = Me.GridView_MT
         Me.GridControl_MT.Name = "GridControl_MT"
-        Me.GridControl_MT.Size = New System.Drawing.Size(821, 350)
+        Me.GridControl_MT.Size = New System.Drawing.Size(824, 353)
         Me.GridControl_MT.TabIndex = 2
         Me.GridControl_MT.UseEmbeddedNavigator = True
         Me.GridControl_MT.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_MT})
@@ -369,6 +369,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         '
         Me.GridView_MT.GridControl = Me.GridControl_MT
         Me.GridView_MT.Name = "GridView_MT"
+        Me.GridView_MT.OptionsFind.AlwaysVisible = True
         Me.GridView_MT.OptionsSelection.MultiSelect = True
         Me.GridView_MT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
         Me.GridView_MT.OptionsView.ShowFooter = True
@@ -378,7 +379,7 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         '
         Me.DxErrorProvider.ContainerControl = Me
         '
-        'Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
+        'Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_FYDUCAS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -391,9 +392,9 @@ Partial Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Name = "Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS"
+        Me.Name = "Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_FYDUCAS"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS"
+        Me.Text = "Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GC_Datos_de_registro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GC_Datos_de_registro.ResumeLayout(False)

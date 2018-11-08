@@ -93,6 +93,10 @@
     End Sub
 
     Private Sub BBI_DUAS_IPRIMAS_FAUCAS_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_DUAS_IPRIMAS_FAUCAS.ItemClick
-        FN.Abrir_formulario(Me, Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS)
+        FN.Abrir_formulario(Me, Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_FYDUCAS)
+    End Sub
+
+    Private Sub BBI_Garantias_fabrica_taller_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Garantias_fabrica_taller.ItemClick
+        FN.Abrir_formulario(Me, Seguimientos_Garantias_fabrica_taller)
     End Sub
 End Class

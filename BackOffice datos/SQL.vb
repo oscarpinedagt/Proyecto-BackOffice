@@ -117,11 +117,11 @@
     End Function
 
     Public Function Extraer_informacion_de_columna(Nombre_de_columna As String, Tabla As String, Optional Condicion As String = Nothing) As String
-        Dim DA As New SqlDataAdapter("Select " + Nombre_de_columna + " As Seleccion From " + Tabla + " " + Condicion, Conexion)
+        Dim DA As New SqlDataAdapter("Select " + Nombre_de_columna + " As Selección From " + Tabla + " " + Condicion, Conexion)
         Dim DT As New DataTable
         DA.Fill(DT)
         If DT.Rows.Count > 0 Then
-            Return DT.Rows(0)("Seleccion").ToString
+            Return DT.Rows(0)("Selección").ToString
         Else
             Return Nothing
         End If

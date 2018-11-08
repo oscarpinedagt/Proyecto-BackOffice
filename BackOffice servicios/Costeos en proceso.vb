@@ -71,6 +71,7 @@
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
+
     End Sub
 
 End Class

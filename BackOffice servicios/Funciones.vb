@@ -328,6 +328,8 @@
 
         If IsDBNull(Información) Then
             Return "Null"
+        ElseIf IsNothing(Información) Then
+            Return "Null"
         Else
             Return "'" + Información.ToString + "'"
         End If

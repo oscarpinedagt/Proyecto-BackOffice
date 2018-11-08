@@ -131,10 +131,10 @@
     <Compile Include="Mantenimiento - Tipos de gasto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.Designer.vb">
-      <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.vb</DependentUpon>
+    <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.Designer.vb">
+      <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.vb</DependentUpon>
     </Compile>
-    <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.vb">
+    <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Seguimientos - Contraseñas.Designer.vb">
@@ -143,10 +143,10 @@
     <Compile Include="Seguimientos - Contraseñas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguimientos - Control de garantias fabrica taller.Designer.vb">
-      <DependentUpon>Seguimientos - Control de garantias fabrica taller.vb</DependentUpon>
+    <Compile Include="Seguimientos - Garantias fabrica taller.Designer.vb">
+      <DependentUpon>Seguimientos - Garantias fabrica taller.vb</DependentUpon>
     </Compile>
-    <Compile Include="Seguimientos - Control de garantias fabrica taller.vb">
+    <Compile Include="Seguimientos - Garantias fabrica taller.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Seguimientos - Control de IPRIMA.Designer.vb">
@@ -256,14 +256,14 @@
     <EmbeddedResource Include="Mantenimiento - Tipos de gasto.resx">
       <DependentUpon>Mantenimiento - Tipos de gasto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.resx">
-      <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS.vb</DependentUpon>
+    <EmbeddedResource Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.resx">
+      <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Contraseñas.resx">
       <DependentUpon>Seguimientos - Contraseñas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguimientos - Control de garantias fabrica taller.resx">
-      <DependentUpon>Seguimientos - Control de garantias fabrica taller.vb</DependentUpon>
+    <EmbeddedResource Include="Seguimientos - Garantias fabrica taller.resx">
+      <DependentUpon>Seguimientos - Garantias fabrica taller.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Control de IPRIMA.resx">
       <DependentUpon>Seguimientos - Control de IPRIMA.vb</DependentUpon>

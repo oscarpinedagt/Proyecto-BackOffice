@@ -1,4 +1,4 @@
-﻿Public Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS
+﻿Public Class Movimientos_Contabilización_de_DUAS_IPRIMAS_FAUCAS_FYDUCAS
     Dim SQL As New BackOffice_datos.SQL, SQL_Proveedores As New BackOffice_datos.SQL, SQL_Cuentas_y_complementos As New BackOffice_datos.SQL, SQL_Países As New BackOffice_datos.SQL, SQL_Aduanas As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim Edicion As Boolean, MT As String, Descripción_contable As String
@@ -215,9 +215,11 @@
         Dim Item As New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
         Dim DT_TDC As New DataTable
         DT_TDC.Columns.Add("Tipo_de_documento")
-        DT_TDC.Rows.Add("DUA")
-        DT_TDC.Rows.Add("IPRIMA")
-        DT_TDC.Rows.Add("FAUCA")
+        DT_TDC.Columns.Add("Descripción")
+        DT_TDC.Rows.Add("DUA", "Declaración Única Aduanera")
+        DT_TDC.Rows.Add("IPRIMA", "Impuesto a la Primera Matrícula")
+        DT_TDC.Rows.Add("FAUCA", "Formulario Aduanero Único Centroamericano")
+        DT_TDC.Rows.Add("FYDUCA", "Factura y Declaración Única Centroamericana")
 
         With Item
             .DataSource = DT_TDC
@@ -320,6 +322,10 @@
 
             Case "Imprimir"
                 If GridControl_DC.IsPrintingAvailable Then
+                    GridView_DC.OptionsPrint.UsePrintStyles = True
+                    GridView_DC.AppearancePrint.HeaderPanel.Font = New Font("Tahoma", 6)
+                    GridView_DC.AppearancePrint.Row.Font = New Font("Tahoma", 6)
+                    GridView_DC.AppearancePrint.FooterPanel.Font = New Font("Tahoma", 6)
                     GridControl_DC.ShowPrintPreview()
                 End If
         End Select
@@ -569,7 +575,7 @@
 
                                     End If
 
-                                Case "FAUCA"
+                                Case "FAUCA", "FYDUCA"
 
                                     'IVA
                                     If Val(GridView_DC.GetRowCellValue(i, "IVA").ToString) <> 0 Then
@@ -688,11 +694,11 @@
                                 SendKeys.Send(CDate(GridView_CT.GetRowCellValue(i, "Fecha_IVA")).ToShortDateString)
                             End If
                             SendKeys.Send("{TAB 11}")
-                                SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
-                                SendKeys.Send("{TAB 2}")
-                                SendKeys.Send("^g")
-                            Else
-                                SendKeys.Send("{TAB 2}")
+                            SendKeys.Send(Math.Abs(GridView_CT.GetRowCellValue(i, "Debe") - GridView_CT.GetRowCellValue(i, "Haber")))
+                            SendKeys.Send("{TAB 2}")
+                            SendKeys.Send("^g")
+                        Else
+                            SendKeys.Send("{TAB 2}")
                         End If
 
                     Next

@@ -104,7 +104,9 @@
     End Sub
     Private Sub TRM_Costeos_en_proceso_Tick(sender As Object, e As EventArgs) Handles TRM_Costeos_en_proceso.Tick
         Dim CEP As New BackOffice_servicios.Costeos_en_proceso
-        CEP.Show()
+        If CEP.GridView.RowCount > 0 Then
+            CEP.Show()
+        End If
     End Sub
 
     Private Function Listar_procesos(Directorio As String) As Integer
