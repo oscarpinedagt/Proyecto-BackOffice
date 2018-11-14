@@ -3,15 +3,14 @@
 
     Private Sub Costeos_en_proceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text = Text & " al " & Now
-        Cargar_costeos_en_proceso()
+        Configurar_costeos_en_proceso()
     End Sub
 
     Private Sub TMR_Cerrar_notificación_Tick(sender As Object, e As EventArgs) Handles TMR_Cerrar_notificación.Tick
         Dispose()
     End Sub
 
-    Private Sub Cargar_costeos_en_proceso()
-        GridControl.DataSource = SQL.Tabla_de_datos("SELECT Costeo_asignado_a,Empresa,Tipo_de_mercaderia,Sub_empresa,Tipo_de_importacion,Compra,Ingreso_a_bodega,Fecha_de_recepcion,Elaborado,Dif_Rec_Ela,Enviado,Dif_Rec_Env,Comentarios From Costeos Where Recibido='True' And ((Elaborado='False' or Elaborado Is Null) Or (Enviado='False' or Enviado Is Null)) And (Fecha_de_ingreso_a_bodega>= GETDATE()-60) Order By Ingreso_a_bodega")
+    Private Sub Configurar_costeos_en_proceso()
 
         With GridView
             For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns

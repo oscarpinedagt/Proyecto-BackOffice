@@ -1,6 +1,6 @@
 ﻿Public Class Costeo
 
-    Public Property Id_costeo As Integer
+    Public Property Id_costeo As String
 
     Private Sub Costeo_DataSourceDemanded(sender As Object, e As EventArgs) Handles MyBase.DataSourceDemanded
         TA_Costeos.GetData(Id_costeo)

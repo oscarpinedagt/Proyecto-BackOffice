@@ -139,7 +139,7 @@
     End Sub
 
 
-#Region "DUAS - IPRIMAS - FAUCAS"
+#Region "DUAS - IPRIMAS - FAUCAS - FYDUCAS"
 
     Private Sub Duas_Iprimas_Faucas(Condición As String)
         GridControl_DC.DataSource = SQL.Tabla_con_actualización_de_datos("Select * From DUAS_IPRIMAS_FAUCAS " + Condición)
@@ -347,6 +347,20 @@
 
         CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.Content.AddRange(New String() {"", "Contabilización de DUAS - IPRIMAS - FAUCAS " + LUE_Empresa.EditValue, ""})
         CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Footer.Content.AddRange(New String() {"", "", "Pages: [Page # of Pages #]"})
+
+    End Sub
+
+    Private Sub GridView_DC_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView_DC.KeyDown
+        If e.KeyData = Keys.Delete Then
+            If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                GridView_MT.DeleteRow(GridView_MT.FocusedRowHandle)
+
+            End If
+        ElseIf e.KeyData = Keys.Control + Keys.Delete Then
+            GridView_DC.SetRowCellValue(GridView_DC.FocusedRowHandle, GridView_DC.FocusedColumn, Nothing)
+        End If
+
 
     End Sub
 

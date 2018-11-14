@@ -19,8 +19,9 @@ Partial Class Costeos_en_proceso
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Costeos_en_proceso))
-        Me.TMR_Cerrar_notificación = New System.Windows.Forms.Timer()
+        Me.TMR_Cerrar_notificación = New System.Windows.Forms.Timer(Me.components)
         Me.GC_DUAS_IPRIMAS_FAUCAS = New DevExpress.XtraEditors.GroupControl()
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -89,6 +90,6 @@ Partial Class Costeos_en_proceso
     End Sub
     Friend WithEvents TMR_Cerrar_notificación As Timer
     Friend WithEvents GC_DUAS_IPRIMAS_FAUCAS As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
     Public WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
+    Public WithEvents GridControl As DevExpress.XtraGrid.GridControl
 End Class
