@@ -20,15 +20,15 @@ Partial Class Movimientos_Elaboración_de_costeos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Movimientos_Elaboración_de_costeos))
+        Dim ButtonImageOptions9 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim ButtonImageOptions10 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions1 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions2 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim ButtonImageOptions11 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions3 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions4 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Dim ButtonImageOptions5 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions6 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions7 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions8 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Movimientos_Elaboración_de_costeos))
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Nuevo = New DevExpress.XtraBars.BarButtonItem()
@@ -161,6 +161,9 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GC_Contabilidad = New DevExpress.XtraEditors.GroupControl()
         Me.GridControl_CT = New DevExpress.XtraGrid.GridControl()
         Me.GridView_CT = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.NP_Certificaciones = New DevExpress.XtraBars.Navigation.NavigationPage()
+        Me.GridControl_CF = New DevExpress.XtraGrid.GridControl()
+        Me.GridView_CF = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GC_Datos_de_ingreso_a_bodega, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -239,6 +242,9 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GC_Contabilidad.SuspendLayout()
         CType(Me.GridControl_CT, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView_CT, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.NP_Certificaciones.SuspendLayout()
+        CType(Me.GridControl_CF, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView_CF, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager
@@ -610,17 +616,17 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Datos.Controls.Add(Me.NP_Seguro)
         Me.NP_Datos.Controls.Add(Me.NP_Costeo)
         Me.NP_Datos.Controls.Add(Me.NP_Contabilidad)
+        Me.NP_Datos.Controls.Add(Me.NP_Certificaciones)
         Me.NP_Datos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NP_Datos.Location = New System.Drawing.Point(0, 152)
         Me.NP_Datos.Name = "NP_Datos"
         Me.NP_Datos.PageProperties.AllowHtmlDraw = False
         Me.NP_Datos.PageProperties.ShowCollapseButton = False
         Me.NP_Datos.PageProperties.ShowExpandButton = False
-        Me.NP_Datos.Pages.AddRange(New DevExpress.XtraBars.Navigation.NavigationPageBase() {Me.NP_Datos_de_importación, Me.NP_Documentos_del_exterior, Me.NP_Declaración_aduanal, Me.NP_Recolección_de_documentos, Me.NP_Documentos_locales, Me.NP_Seguro, Me.NP_Comentarios, Me.NP_Costeo, Me.NP_Contabilidad})
-        Me.NP_Datos.RegularSize = New System.Drawing.Size(807, 347)
+        Me.NP_Datos.Pages.AddRange(New DevExpress.XtraBars.Navigation.NavigationPageBase() {Me.NP_Datos_de_importación, Me.NP_Documentos_del_exterior, Me.NP_Declaración_aduanal, Me.NP_Recolección_de_documentos, Me.NP_Documentos_locales, Me.NP_Seguro, Me.NP_Comentarios, Me.NP_Certificaciones, Me.NP_Costeo, Me.NP_Contabilidad})
+        Me.NP_Datos.RegularSize = New System.Drawing.Size(844, 384)
         Me.NP_Datos.SelectedPage = Me.NP_Datos_de_importación
         Me.NP_Datos.Size = New System.Drawing.Size(844, 384)
-        Me.NP_Datos.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded
         Me.NP_Datos.TabIndex = 1
         Me.NP_Datos.Text = "Datos"
         '
@@ -828,7 +834,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Documentos_del_exterior.Caption = "02 - Documentos del exterior"
         Me.NP_Documentos_del_exterior.Controls.Add(Me.GridControl_DE)
         Me.NP_Documentos_del_exterior.Name = "NP_Documentos_del_exterior"
-        Me.NP_Documentos_del_exterior.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Documentos_del_exterior.Size = New System.Drawing.Size(844, 384)
         '
         'GridControl_DE
         '
@@ -836,7 +842,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GridControl_DE.Location = New System.Drawing.Point(0, 0)
         Me.GridControl_DE.MainView = Me.GridView_DE
         Me.GridControl_DE.Name = "GridControl_DE"
-        Me.GridControl_DE.Size = New System.Drawing.Size(614, 314)
+        Me.GridControl_DE.Size = New System.Drawing.Size(844, 384)
         Me.GridControl_DE.TabIndex = 0
         Me.GridControl_DE.UseEmbeddedNavigator = True
         Me.GridControl_DE.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_DE})
@@ -888,7 +894,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Declaración_aduanal.Controls.Add(Me.LC_Contenedores_o_bultos)
         Me.NP_Declaración_aduanal.Controls.Add(Me.LC_Dua_Fauca_Face)
         Me.NP_Declaración_aduanal.Name = "NP_Declaración_aduanal"
-        Me.NP_Declaración_aduanal.Size = New System.Drawing.Size(651, 338)
+        Me.NP_Declaración_aduanal.Size = New System.Drawing.Size(844, 384)
         '
         'GC_Rectificación
         '
@@ -1338,7 +1344,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Documentos_locales.Caption = "05 - Documentos locales"
         Me.NP_Documentos_locales.Controls.Add(Me.GridControl_DL)
         Me.NP_Documentos_locales.Name = "NP_Documentos_locales"
-        Me.NP_Documentos_locales.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Documentos_locales.Size = New System.Drawing.Size(844, 384)
         '
         'GridControl_DL
         '
@@ -1346,7 +1352,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GridControl_DL.Location = New System.Drawing.Point(0, 0)
         Me.GridControl_DL.MainView = Me.GridView_DL
         Me.GridControl_DL.Name = "GridControl_DL"
-        Me.GridControl_DL.Size = New System.Drawing.Size(614, 314)
+        Me.GridControl_DL.Size = New System.Drawing.Size(844, 384)
         Me.GridControl_DL.TabIndex = 0
         Me.GridControl_DL.UseEmbeddedNavigator = True
         Me.GridControl_DL.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_DL})
@@ -1365,19 +1371,19 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Comentarios.Caption = "07 - Comentarios"
         Me.NP_Comentarios.Controls.Add(Me.GC_Comentarios)
         Me.NP_Comentarios.Name = "NP_Comentarios"
-        Me.NP_Comentarios.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Comentarios.Size = New System.Drawing.Size(651, 338)
         '
         'GC_Comentarios
         '
         Me.GC_Comentarios.Controls.Add(Me.RTBX_Comentarios)
-        ButtonImageOptions1.Image = CType(resources.GetObject("ButtonImageOptions1.Image"), System.Drawing.Image)
-        ButtonImageOptions2.Image = CType(resources.GetObject("ButtonImageOptions2.Image"), System.Drawing.Image)
-        Me.GC_Comentarios.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Nuevo comentario", True, ButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Envió de comentarios", True, ButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
+        ButtonImageOptions9.Image = CType(resources.GetObject("ButtonImageOptions9.Image"), System.Drawing.Image)
+        ButtonImageOptions10.Image = CType(resources.GetObject("ButtonImageOptions10.Image"), System.Drawing.Image)
+        Me.GC_Comentarios.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Nuevo comentario", True, ButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Envió de comentarios", True, ButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
         Me.GC_Comentarios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_Comentarios.Location = New System.Drawing.Point(0, 0)
         Me.GC_Comentarios.Name = "GC_Comentarios"
         Me.GC_Comentarios.Padding = New System.Windows.Forms.Padding(10, 10, 0, 10)
-        Me.GC_Comentarios.Size = New System.Drawing.Size(614, 314)
+        Me.GC_Comentarios.Size = New System.Drawing.Size(651, 338)
         Me.GC_Comentarios.TabIndex = 0
         '
         'RTBX_Comentarios
@@ -1389,7 +1395,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.RTBX_Comentarios.Name = "RTBX_Comentarios"
         Me.RTBX_Comentarios.ReadOnly = True
         Me.RTBX_Comentarios.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical
-        Me.RTBX_Comentarios.Size = New System.Drawing.Size(600, 271)
+        Me.RTBX_Comentarios.Size = New System.Drawing.Size(637, 295)
         Me.RTBX_Comentarios.TabIndex = 0
         Me.RTBX_Comentarios.TabStop = False
         Me.RTBX_Comentarios.Text = ""
@@ -1405,7 +1411,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Recolección_de_documentos.Controls.Add(Me.LC_Usuario_que_recibe)
         Me.NP_Recolección_de_documentos.Controls.Add(Me.CK_Recibido)
         Me.NP_Recolección_de_documentos.Name = "NP_Recolección_de_documentos"
-        Me.NP_Recolección_de_documentos.Size = New System.Drawing.Size(807, 360)
+        Me.NP_Recolección_de_documentos.Size = New System.Drawing.Size(844, 384)
         '
         'LC_Costeo_asignado_a
         '
@@ -1473,7 +1479,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.NP_Seguro.Caption = "06 - Seguro"
         Me.NP_Seguro.Controls.Add(Me.GridControl_SG)
         Me.NP_Seguro.Name = "NP_Seguro"
-        Me.NP_Seguro.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Seguro.Size = New System.Drawing.Size(844, 384)
         '
         'GridControl_SG
         '
@@ -1481,7 +1487,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GridControl_SG.Location = New System.Drawing.Point(0, 0)
         Me.GridControl_SG.MainView = Me.GridView_SG
         Me.GridControl_SG.Name = "GridControl_SG"
-        Me.GridControl_SG.Size = New System.Drawing.Size(614, 314)
+        Me.GridControl_SG.Size = New System.Drawing.Size(844, 384)
         Me.GridControl_SG.TabIndex = 1
         Me.GridControl_SG.UseEmbeddedNavigator = True
         Me.GridControl_SG.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_SG})
@@ -1496,22 +1502,22 @@ Partial Class Movimientos_Elaboración_de_costeos
         '
         'NP_Costeo
         '
-        Me.NP_Costeo.Caption = "08 - Costeo"
+        Me.NP_Costeo.Caption = "09 - Costeo"
         Me.NP_Costeo.Controls.Add(Me.GC_Costeo)
         Me.NP_Costeo.Name = "NP_Costeo"
-        Me.NP_Costeo.Size = New System.Drawing.Size(651, 338)
+        Me.NP_Costeo.Size = New System.Drawing.Size(844, 384)
         '
         'GC_Costeo
         '
         Me.GC_Costeo.Controls.Add(Me.DocumentViewer)
-        ButtonImageOptions3.Image = CType(resources.GetObject("ButtonImageOptions3.Image"), System.Drawing.Image)
-        ButtonImageOptions4.Image = CType(resources.GetObject("ButtonImageOptions4.Image"), System.Drawing.Image)
-        ButtonImageOptions5.Image = CType(resources.GetObject("ButtonImageOptions5.Image"), System.Drawing.Image)
-        Me.GC_Costeo.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Generar costeo", True, ButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, False, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Generar PDF", True, ButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Imprimir", True, ButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
+        ButtonImageOptions1.Image = CType(resources.GetObject("ButtonImageOptions1.Image"), System.Drawing.Image)
+        ButtonImageOptions2.Image = CType(resources.GetObject("ButtonImageOptions2.Image"), System.Drawing.Image)
+        ButtonImageOptions11.Image = CType(resources.GetObject("ButtonImageOptions11.Image"), System.Drawing.Image)
+        Me.GC_Costeo.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Generar costeo", True, ButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, False, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Generar PDF", True, ButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Imprimir", True, ButtonImageOptions11, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
         Me.GC_Costeo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_Costeo.Location = New System.Drawing.Point(0, 0)
         Me.GC_Costeo.Name = "GC_Costeo"
-        Me.GC_Costeo.Size = New System.Drawing.Size(651, 338)
+        Me.GC_Costeo.Size = New System.Drawing.Size(844, 384)
         Me.GC_Costeo.TabIndex = 0
         '
         'DocumentViewer
@@ -1520,27 +1526,27 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.DocumentViewer.IsMetric = True
         Me.DocumentViewer.Location = New System.Drawing.Point(2, 21)
         Me.DocumentViewer.Name = "DocumentViewer"
-        Me.DocumentViewer.Size = New System.Drawing.Size(647, 315)
+        Me.DocumentViewer.Size = New System.Drawing.Size(840, 361)
         Me.DocumentViewer.TabIndex = 1
         '
         'NP_Contabilidad
         '
-        Me.NP_Contabilidad.Caption = "09 - Contabilidad"
+        Me.NP_Contabilidad.Caption = "10 - Contabilidad"
         Me.NP_Contabilidad.Controls.Add(Me.GC_Contabilidad)
         Me.NP_Contabilidad.Name = "NP_Contabilidad"
-        Me.NP_Contabilidad.Size = New System.Drawing.Size(614, 314)
+        Me.NP_Contabilidad.Size = New System.Drawing.Size(844, 384)
         '
         'GC_Contabilidad
         '
         Me.GC_Contabilidad.Controls.Add(Me.GridControl_CT)
-        ButtonImageOptions6.Image = CType(resources.GetObject("ButtonImageOptions6.Image"), System.Drawing.Image)
-        ButtonImageOptions7.Image = CType(resources.GetObject("ButtonImageOptions7.Image"), System.Drawing.Image)
-        ButtonImageOptions8.Image = CType(resources.GetObject("ButtonImageOptions8.Image"), System.Drawing.Image)
-        Me.GC_Contabilidad.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Partida MT", True, ButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Partida INV", True, ButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Contabilizar", True, ButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
+        ButtonImageOptions3.Image = CType(resources.GetObject("ButtonImageOptions3.Image"), System.Drawing.Image)
+        ButtonImageOptions4.Image = CType(resources.GetObject("ButtonImageOptions4.Image"), System.Drawing.Image)
+        ButtonImageOptions5.Image = CType(resources.GetObject("ButtonImageOptions5.Image"), System.Drawing.Image)
+        Me.GC_Contabilidad.CustomHeaderButtons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Partida MT", True, ButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Partida INV", True, ButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1), New DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Contabilizar", True, ButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, Nothing, -1)})
         Me.GC_Contabilidad.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GC_Contabilidad.Location = New System.Drawing.Point(0, 0)
         Me.GC_Contabilidad.Name = "GC_Contabilidad"
-        Me.GC_Contabilidad.Size = New System.Drawing.Size(614, 314)
+        Me.GC_Contabilidad.Size = New System.Drawing.Size(844, 384)
         Me.GC_Contabilidad.TabIndex = 0
         '
         'GridControl_CT
@@ -1549,7 +1555,7 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GridControl_CT.Location = New System.Drawing.Point(2, 21)
         Me.GridControl_CT.MainView = Me.GridView_CT
         Me.GridControl_CT.Name = "GridControl_CT"
-        Me.GridControl_CT.Size = New System.Drawing.Size(610, 291)
+        Me.GridControl_CT.Size = New System.Drawing.Size(840, 361)
         Me.GridControl_CT.TabIndex = 2
         Me.GridControl_CT.UseEmbeddedNavigator = True
         Me.GridControl_CT.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_CT})
@@ -1561,6 +1567,33 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GridView_CT.OptionsSelection.MultiSelect = True
         Me.GridView_CT.OptionsView.ShowFooter = True
         Me.GridView_CT.OptionsView.ShowGroupPanel = False
+        '
+        'NP_Certificaciones
+        '
+        Me.NP_Certificaciones.Caption = "08 - Certificaciones"
+        Me.NP_Certificaciones.Controls.Add(Me.GridControl_CF)
+        Me.NP_Certificaciones.Name = "NP_Certificaciones"
+        Me.NP_Certificaciones.Size = New System.Drawing.Size(651, 338)
+        '
+        'GridControl_CF
+        '
+        Me.GridControl_CF.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl_CF.Location = New System.Drawing.Point(0, 0)
+        Me.GridControl_CF.MainView = Me.GridView_CF
+        Me.GridControl_CF.Name = "GridControl_CF"
+        Me.GridControl_CF.Size = New System.Drawing.Size(651, 338)
+        Me.GridControl_CF.TabIndex = 1
+        Me.GridControl_CF.UseEmbeddedNavigator = True
+        Me.GridControl_CF.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView_CF})
+        '
+        'GridView_CF
+        '
+        Me.GridView_CF.GridControl = Me.GridControl_CF
+        Me.GridView_CF.Name = "GridView_CF"
+        Me.GridView_CF.OptionsSelection.MultiSelect = True
+        Me.GridView_CF.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
+        Me.GridView_CF.OptionsView.ShowFooter = True
+        Me.GridView_CF.OptionsView.ShowGroupPanel = False
         '
         'Movimientos_Elaboración_de_costeos
         '
@@ -1661,6 +1694,9 @@ Partial Class Movimientos_Elaboración_de_costeos
         Me.GC_Contabilidad.ResumeLayout(False)
         CType(Me.GridControl_CT, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView_CT, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.NP_Certificaciones.ResumeLayout(False)
+        CType(Me.GridControl_CF, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView_CF, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1798,4 +1834,7 @@ Partial Class Movimientos_Elaboración_de_costeos
     Friend WithEvents TE_R_Dua_Fauca_Face As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LC_R_Dua_Fauca_Face As DevExpress.XtraEditors.LabelControl
     Friend WithEvents CK_Rectificación As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents NP_Certificaciones As DevExpress.XtraBars.Navigation.NavigationPage
+    Friend WithEvents GridControl_CF As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView_CF As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

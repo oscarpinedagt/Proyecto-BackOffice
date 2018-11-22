@@ -1,5 +1,5 @@
 ﻿Public Class Movimientos_Elaboración_de_costeos
-    Dim SQL As New BackOffice_datos.SQL, SQL_DE As New BackOffice_datos.SQL, SQL_DL As New BackOffice_datos.SQL, SQL_SG As New BackOffice_datos.SQL
+    Dim SQL As New BackOffice_datos.SQL, SQL_DE As New BackOffice_datos.SQL, SQL_DL As New BackOffice_datos.SQL, SQL_SG As New BackOffice_datos.SQL, SQL_CF As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
     Dim CT As Costeo
     Dim Edicion As Boolean, Editables As String, Descripción_contable As String
@@ -920,6 +920,113 @@
         End If
 
     End Sub
+
+#End Region
+
+#Region "Certificaciones"
+
+    Private Sub Cargar_certificaciones(Condición As String)
+
+        GridControl_CF.DataSource = SQL_CF.Tabla_con_actualización_de_datos("Select * From Certificaciones " + Condición)
+        Configurar_certificaciones()
+
+    End Sub
+
+    Private Sub Configurar_certificaciones()
+
+        With GridView_CF
+
+            For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns
+                CL.Caption = Replace(CL.FieldName, "_", " ")
+
+                Select Case CL.FieldName
+                    Case "Id_certificación", "RL_id_costeo"
+                        CL.Visible = False
+                        CL.OptionsColumn.AllowEdit = False
+                        CL.OptionsColumn.AllowFocus = False
+                End Select
+
+                Select Case CL.FieldName
+                    Case "Tipo_de_certificación"
+                        CL.Width = 300
+                    Case "Imágen"
+                        CL.Width = 150
+                End Select
+
+            Next
+            .RowHeight = 100
+            .OptionsView.ColumnAutoWidth = False
+            '.BestFitColumns()
+
+        End With
+
+        Columna_tipo_de_certificacion_CF()
+        Columna_imágen_CF()
+
+    End Sub
+
+    Private Sub Columna_tipo_de_certificacion_CF()
+        Dim Item As New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
+
+        Dim DT As New DataTable
+        DT.Columns.Add("Tipo_de_certificación")
+        DT.Rows.Add("Fecha de ingreso a bodega")
+        DT.Rows.Add("Fecha de AWB - BL - Carta de porte")
+        DT.Rows.Add("Fecha de arribo")
+        DT.Rows.Add("Fecha de DUA - FAUCA - FACE")
+        DT.Rows.Add("Fecha de recepción documentos locales")
+
+        Dim DV As DataView = New DataView(DT)
+
+        With Item
+            .DataSource = DV
+            .ValueMember = "Tipo_de_certificación"
+            .DisplayMember = .ValueMember
+            .PopulateColumns()
+            .Columns(.ValueMember).Caption = Replace(.ValueMember, "_", " ")
+            .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+        End With
+        GridView_CF.Columns("Tipo_de_certificación").ColumnEdit = Item
+    End Sub
+
+    Private Sub Columna_imágen_CF()
+        Dim Item As New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+        With Item
+            .Name = "Imágen"
+            .SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom
+            Dim Expandir As New DevExpress.Utils.ContextButton With {.Caption = "Expandir", .Name = "Expandir"}
+            Expandir.ImageOptions.Image = DevExpress.Images.ImageResourceCache.Default.GetImage("images/zoom/zoom2_16x16.png")
+            .ContextButtons.Add(Expandir)
+        End With
+
+        AddHandler Item.ContextButtonClick, Sub(s, e)
+                                                Dim VI As New BackOffice_servicios.Visor_de_imágenes
+                                                If e.Item.Name = "Expandir" Then
+                                                    GridView_CF.PostEditor()
+                                                    GridView_CF.UpdateCurrentRow()
+                                                    VI.PictureEdit.EditValue = GridView_CF.GetRowCellValue(GridView_CF.FocusedRowHandle, GridView_CF.FocusedColumn)
+                                                    VI.StartPosition = FormStartPosition.CenterScreen
+                                                    VI.ShowDialog()
+                                                End If
+                                            End Sub
+
+        GridView_CF.Columns("Imágen").ColumnEdit = Item
+    End Sub
+
+    Private Sub GridView_CF_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView_CF.InitNewRow
+        GridView_CF.SetRowCellValue(e.RowHandle, "Id_certificación", Format(Now, "yyMMddHHmmssfff"))
+        GridView_CF.SetRowCellValue(e.RowHandle, "RL_id_costeo", ID)
+    End Sub
+
+    Private Sub GridView_CF_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView_CF.KeyDown
+        If e.KeyData = Keys.Delete Then
+            If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                GridView_CF.DeleteRow(GridView_CF.FocusedRowHandle)
+            End If
+        End If
+    End Sub
+
+
 
 #End Region
 
@@ -2081,10 +2188,11 @@
         FN.Limpiar_controles(NP_Declaración_aduanal) : FN.Habilitar_controles(NP_Declaración_aduanal)
         FN.Limpiar_controles(NP_Recolección_de_documentos) : FN.Habilitar_controles(NP_Recolección_de_documentos)
         Cargar_documentos_locales("Where RL_id_costeo = 0") : GridView_DL.OptionsBehavior.Editable = True
+        Cargar_certificaciones("Where RL_id_costeo = 0") : GridView_CF.OptionsBehavior.Editable = True
         Cargar_Seguro("Where RL_id_costeo = 0") : GridView_SG.OptionsBehavior.Editable = False
         FN.Limpiar_controles(GC_Comentarios)
         DocumentViewer.DocumentSource = "(none)" : DocumentViewer.Status = "El documento no contiene ninguna página."
-        Cargar_Contabilidad() : GridView_CT.OptionsBehavior.Editable = False
+        Cargar_contabilidad() : GridView_CT.OptionsBehavior.Editable = False
         ID = Nothing : Edicion = False
         ValidateChildren()
         FN.Validar_controles(NP_Datos_de_importación)
@@ -2229,6 +2337,16 @@
 
                     SQL_SG.Actualizar_tabla()
 
+                    If GridView_CF.RowCount > 0 Then
+                        For i As Integer = 0 To GridView_CF.DataRowCount - 1
+                            GridView_CF.SetRowCellValue(i, "RL_id_costeo", ID_GN)
+                            GridView_CF.PostEditor()
+                            GridView_CF.UpdateCurrentRow()
+                        Next
+                    End If
+
+                    SQL_CF.Actualizar_tabla()
+
                     ID = ID_GN
 
                 ElseIf Edicion = True And LUE_Estado.Text <> "Anulado" Then
@@ -2263,6 +2381,15 @@
 
                         SQL_SG.Actualizar_tabla()
 
+                        If GridView_CF.RowCount > 0 Then
+                            For i As Integer = 0 To GridView_CF.DataRowCount - 1
+                                GridView_CF.PostEditor()
+                                GridView_CF.UpdateCurrentRow()
+                            Next
+                        End If
+
+                        SQL_CF.Actualizar_tabla()
+
                     Else
                         If SQL.Duplicados("Costeos", "Where Empresa+'-'+IsNull(Compra,'')+'-'+IsNull(Ingreso_a_bodega,'')='" + LUE_Empresa.EditValue + "-" + TE_Compra.EditValue + "-" + TE_Ingreso_a_bodega.EditValue + "'") = False Then
 
@@ -2294,6 +2421,15 @@
                             End If
 
                             SQL_SG.Actualizar_tabla()
+
+                            If GridView_CF.RowCount > 0 Then
+                                For i As Integer = 0 To GridView_CF.DataRowCount - 1
+                                    GridView_CF.PostEditor()
+                                    GridView_CF.UpdateCurrentRow()
+                                Next
+                            End If
+
+                            SQL_CF.Actualizar_tabla()
 
                         Else
                             MsgBox("El ingreso que intentas actualizar ya existe", MsgBoxStyle.Critical, "Recepción de costeos")
@@ -2344,10 +2480,11 @@
         FN.Limpiar_controles(GC_Rectificación) : FN.Deshabilitar_controles(GC_Rectificación)
         FN.Limpiar_controles(NP_Recolección_de_documentos) : FN.Deshabilitar_controles(NP_Recolección_de_documentos)
         Cargar_documentos_locales("Where RL_id_costeo = 0") : GridView_DL.OptionsBehavior.Editable = False
+        Cargar_certificaciones("Where RL_id_costeo = 0") : GridView_CF.OptionsBehavior.Editable = False
         Cargar_Seguro("Where RL_id_costeo = 0") : GridView_SG.OptionsBehavior.Editable = False
         FN.Limpiar_controles(GC_Comentarios)
         DocumentViewer.DocumentSource = "(none)" : DocumentViewer.Status = "El documento no contiene ninguna página."
-        Cargar_Contabilidad() : GridView_CT.OptionsBehavior.Editable = False
+        Cargar_contabilidad() : GridView_CT.OptionsBehavior.Editable = False
         ID = Nothing : Edicion = False
         ValidateChildren()
         FN.Validar_controles(NP_Datos_de_importación)
@@ -2368,7 +2505,7 @@
                 FN.Habilitar_controles(NP_Declaración_aduanal)
                 FN.Habilitar_controles(GC_Rectificación)
                 FN.Habilitar_controles(NP_Recolección_de_documentos)
-                GridView_DE.OptionsBehavior.Editable = True : GridView_DL.OptionsBehavior.Editable = True
+                GridView_DE.OptionsBehavior.Editable = True : GridView_DL.OptionsBehavior.Editable = True : GridView_CF.OptionsBehavior.Editable = True
                 FN.Estado_del_menú("Guardar", BarManager)
             End If
         End If
@@ -2384,6 +2521,7 @@
                     SQL.Eliminar("Documentos_del_exterior", "RL_id_costeo=" + ID.ToString)
                     SQL.Eliminar("Documentos_locales", "RL_id_costeo=" + ID.ToString)
                     SQL.Eliminar("Seguro", "RL_id_costeo=" + ID.ToString)
+                    SQL.Eliminar("Certificaciones", "RL_id_costeo=" + ID.ToString)
                     BBI_Cancelar_ItemClick(sender, Nothing)
                 End If
             Catch ex As Exception
@@ -2470,6 +2608,9 @@
 
         'Datos documentos locales
         Cargar_Seguro("Where RL_id_costeo = " + ID.ToString)
+
+        'Certificaciones
+        Cargar_certificaciones("Where RL_id_costeo = " + ID.ToString)
 
         'Comentarios
         FN.Limpiar_controles(GC_Comentarios)

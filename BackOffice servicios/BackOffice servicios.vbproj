@@ -154,6 +154,12 @@
     <Compile Include="Usuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Visor de imágenes.Designer.vb">
+      <DependentUpon>Visor de imágenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Visor de imágenes.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Busqueda.resx">
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario.resx">
       <DependentUpon>Usuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor de imágenes.resx">
+      <DependentUpon>Visor de imágenes.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

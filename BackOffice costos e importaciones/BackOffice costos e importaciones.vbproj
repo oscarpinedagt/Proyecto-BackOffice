@@ -68,6 +68,7 @@
     <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -242,6 +243,12 @@
     <Compile Include="Mantenimiento - Tipos de costeo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Tableros 4DX - Unidades y tiempos por mes - semana - estadia.Designer.vb">
+      <DependentUpon>Tableros 4DX - Unidades y tiempos por mes - semana - estadia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tableros 4DX - Unidades y tiempos por mes - semana - estadia.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Costeo.resx">
@@ -310,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento - Tipos de costeo.resx">
       <DependentUpon>Mantenimiento - Tipos de costeo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tableros 4DX - Unidades y tiempos por mes - semana - estadia.resx">
+      <DependentUpon>Tableros 4DX - Unidades y tiempos por mes - semana - estadia.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

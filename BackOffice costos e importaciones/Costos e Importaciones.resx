@@ -427,7 +427,7 @@
         KzCX85ByAhEFUBgzxrVVAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="BarButtonItem1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BBI_Garantias_fabrica_taller.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
         7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANYSURBVFhHzZfL
@@ -448,7 +448,7 @@
         LU76Cyz4Dkit0JInWIvZAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="BarButtonItem1.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BBI_Garantias_fabrica_taller.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
         7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANYSURBVFhHzZfL
@@ -467,6 +467,25 @@
         PxMgCvVuMfKS/1OgdJvMDg5f+eHBCxQ2kf2NAN+rlx4YPIEo8myBjPNgLoHO0kCviLM5oliADe/ucgF2
         QGQPi6XBXsD3A1rhZDTRzQ++ZQI/LxaOjI6uDYVDG/JEiLBdpFJNNUTisfNhMXpJkMkhfk8o3cNLKaWu
         LU76Cyz4Dkit0JInWIvZAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBHYXVnZTtM
+        aW5lYXI73Jtj8QAAAH9JREFUOE/NzMERgCAMBEB6ogW/VmEnvinIUuwm5pgk4pgMoh8fK3CJl4joEzcc
+        4YYjUinlAiGfmVEjtz/x23ZxaRcrWdISnOGeDmqjkoKQzM8CXOZ1owjm+zKRwvuHBT38o8H7VuCdrJvb
+        RcnQRDnjWAreqgX4fOGGI9zwOUoHzp2u3cB6VUMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBHYXVnZTtM
+        aW5lYXI73Jtj8QAAALRJREFUWEftzsERwiAQheH0lBa8pgo78UxBlpJu1iwDDOKvmIy+5JDDF3eeC7zB
+        zHaFoRKGShgqYaiEoRKGShgqYdgTQrB32t2e+KGLPvD9scmyce19dQH//Uo605aIj6f/uvK7mwukc7lE
+        eTzlXWnvuUB9iQIWmG5328rPz9eL9fieOwucBbCAEhbwuV7491yGxaqDv5rLsIiz0uEK7OKllRqGShgq
+        YaiEoRKGShgqYahjwwNpREbEIRYuvAAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="DefaultLookAndFeel.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

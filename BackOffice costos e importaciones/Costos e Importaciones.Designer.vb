@@ -41,6 +41,7 @@ Partial Class Costos_e_Importaciones
         Me.BBI_Contraseñas = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_DUAS_IPRIMAS_FAUCAS = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Garantias_fabrica_taller = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia = New DevExpress.XtraBars.BarButtonItem()
         Me.RP_Movimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_MOV_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Contabilización = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -56,6 +57,8 @@ Partial Class Costos_e_Importaciones
         Me.RPG_Correos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Proveedores = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_MAN_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RP_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RPG_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.DefaultLookAndFeel = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
@@ -70,11 +73,11 @@ Partial Class Costos_e_Importaciones
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas, Me.BBI_DUAS_IPRIMAS_FAUCAS, Me.BBI_Garantias_fabrica_taller})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas, Me.BBI_DUAS_IPRIMAS_FAUCAS, Me.BBI_Garantias_fabrica_taller, Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 20
+        Me.RibbonControl.MaxItemId = 21
         Me.RibbonControl.Name = "RibbonControl"
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Mantenimiento})
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Mantenimiento, Me.RP_Tableros_4DX})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         '
@@ -230,9 +233,17 @@ Partial Class Costos_e_Importaciones
         '
         Me.BBI_Garantias_fabrica_taller.Caption = "Garantias taller fabrica"
         Me.BBI_Garantias_fabrica_taller.Id = 19
-        Me.BBI_Garantias_fabrica_taller.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
-        Me.BBI_Garantias_fabrica_taller.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Garantias_fabrica_taller.ImageOptions.Image = CType(resources.GetObject("BBI_Garantias_fabrica_taller.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Garantias_fabrica_taller.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Garantias_fabrica_taller.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Garantias_fabrica_taller.Name = "BBI_Garantias_fabrica_taller"
+        '
+        'BBI_Unidades_y_tiempos_por_mes_semana_estadia
+        '
+        Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia.Caption = "Unidades y tiempos por mes - semana - estadia"
+        Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia.Id = 20
+        Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.Image = CType(resources.GetObject("BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia.Name = "BBI_Unidades_y_tiempos_por_mes_semana_estadia"
         '
         'RP_Movimientos
         '
@@ -338,6 +349,18 @@ Partial Class Costos_e_Importaciones
         Me.RPG_MAN_Costeos.Name = "RPG_MAN_Costeos"
         Me.RPG_MAN_Costeos.Text = "Costeos"
         '
+        'RP_Tableros_4DX
+        '
+        Me.RP_Tableros_4DX.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_Tableros_4DX})
+        Me.RP_Tableros_4DX.Name = "RP_Tableros_4DX"
+        Me.RP_Tableros_4DX.Text = "Tableros 4DX"
+        '
+        'RPG_Tableros_4DX
+        '
+        Me.RPG_Tableros_4DX.ItemLinks.Add(Me.BBI_Unidades_y_tiempos_por_mes_semana_estadia)
+        Me.RPG_Tableros_4DX.Name = "RPG_Tableros_4DX"
+        Me.RPG_Tableros_4DX.Text = "Tableros 4DX"
+        '
         'RibbonStatusBar
         '
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 634)
@@ -421,4 +444,7 @@ Partial Class Costos_e_Importaciones
     Friend WithEvents RPG_Contabilización As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BBI_Garantias_fabrica_taller As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RPG_Garantias_taller_fabrica As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BBI_Unidades_y_tiempos_por_mes_semana_estadia As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RP_Tableros_4DX As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RPG_Tableros_4DX As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class
