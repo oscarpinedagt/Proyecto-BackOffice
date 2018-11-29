@@ -32,13 +32,22 @@
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
         If e.KeyData = Keys.Enter Then
-            GridControl_DoubleClick(sender, Nothing)
+            GridView_DoubleClick(sender, Nothing)
         End If
     End Sub
 
-    Private Sub GridControl_DoubleClick(sender As Object, e As EventArgs) Handles GridControl.DoubleClick
-        ID_resultado = GridView.GetRowCellValue(GridView.FocusedRowHandle, Columna_ID)
-        Close()
+    Private Sub GridView_DoubleClick(sender As Object, e As EventArgs) Handles GridView.DoubleClick
+        Dim ea As DevExpress.Utils.DXMouseEventArgs = TryCast(e, DevExpress.Utils.DXMouseEventArgs)
+        Dim Info As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo = GridView.CalcHitInfo(ea.Location)
+
+        Dim i As Integer = GridView.GetRowCellValue(Info.RowHandle, Columna_ID)
+
+        If Info.InRow Or Info.InRowCell Then
+            If i > 0 And i.ToString <> "" Then
+                ID_resultado = i
+                Close()
+            End If
+        End If
     End Sub
 
     Private Sub Busqueda_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown

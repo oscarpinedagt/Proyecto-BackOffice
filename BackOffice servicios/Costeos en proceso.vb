@@ -3,6 +3,7 @@
 
     Private Sub Costeos_en_proceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text = Text & " al " & Now
+        CKE_Ver_comentarios.Checked = True
         Configurar_costeos_en_proceso()
     End Sub
 
@@ -36,7 +37,7 @@
                     Case "Comentarios"
                         CL.Visible = False
                         .PreviewFieldName = CL.FieldName
-                        .OptionsView.ShowPreview = True
+                        .OptionsView.ShowPreview = CKE_Ver_comentarios.Checked
                         .OptionsView.AutoCalcPreviewLineCount = True
                 End Select
 
@@ -44,6 +45,7 @@
             AddHandler GridView.CustomDrawRowPreview, Sub(s, e)
                                                           e.Appearance.ForeColor = Color.Green
                                                       End Sub
+
             AddHandler GridView.RowCellStyle, Sub(s, e)
                                                   Dim CL As String = e.Column.FieldName
                                                   If CL = "Dif_Rec_Ela" Or CL = "Dif_Rec_Env" Then
@@ -57,6 +59,7 @@
                                                       End Select
                                                   End If
                                               End Sub
+
             AddHandler GridView.GroupLevelStyle, Sub(s, e)
                                                      Select Case e.Level
                                                          Case 0
@@ -71,6 +74,10 @@
             .BestFitColumns()
         End With
 
+    End Sub
+
+    Private Sub CKE_Ver_comentarios_CheckedChanged(sender As Object, e As EventArgs) Handles CKE_Ver_comentarios.CheckedChanged
+        GridView.OptionsView.ShowPreview = CKE_Ver_comentarios.Checked
     End Sub
 
 End Class

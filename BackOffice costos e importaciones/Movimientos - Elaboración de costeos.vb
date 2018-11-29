@@ -2188,7 +2188,7 @@
         FN.Limpiar_controles(NP_Declaración_aduanal) : FN.Habilitar_controles(NP_Declaración_aduanal)
         FN.Limpiar_controles(NP_Recolección_de_documentos) : FN.Habilitar_controles(NP_Recolección_de_documentos)
         Cargar_documentos_locales("Where RL_id_costeo = 0") : GridView_DL.OptionsBehavior.Editable = True
-        Cargar_certificaciones("Where RL_id_costeo = 0") : GridView_CF.OptionsBehavior.Editable = True
+        Cargar_certificaciones("Where RL_id_costeo = 0") : GridView_CF.OptionsBehavior.ReadOnly = False
         Cargar_Seguro("Where RL_id_costeo = 0") : GridView_SG.OptionsBehavior.Editable = False
         FN.Limpiar_controles(GC_Comentarios)
         DocumentViewer.DocumentSource = "(none)" : DocumentViewer.Status = "El documento no contiene ninguna página."
@@ -2480,7 +2480,7 @@
         FN.Limpiar_controles(GC_Rectificación) : FN.Deshabilitar_controles(GC_Rectificación)
         FN.Limpiar_controles(NP_Recolección_de_documentos) : FN.Deshabilitar_controles(NP_Recolección_de_documentos)
         Cargar_documentos_locales("Where RL_id_costeo = 0") : GridView_DL.OptionsBehavior.Editable = False
-        Cargar_certificaciones("Where RL_id_costeo = 0") : GridView_CF.OptionsBehavior.Editable = False
+        Cargar_certificaciones("Where RL_id_costeo = 0") : GridView_CF.OptionsBehavior.ReadOnly = True
         Cargar_Seguro("Where RL_id_costeo = 0") : GridView_SG.OptionsBehavior.Editable = False
         FN.Limpiar_controles(GC_Comentarios)
         DocumentViewer.DocumentSource = "(none)" : DocumentViewer.Status = "El documento no contiene ninguna página."
@@ -2505,7 +2505,7 @@
                 FN.Habilitar_controles(NP_Declaración_aduanal)
                 FN.Habilitar_controles(GC_Rectificación)
                 FN.Habilitar_controles(NP_Recolección_de_documentos)
-                GridView_DE.OptionsBehavior.Editable = True : GridView_DL.OptionsBehavior.Editable = True : GridView_CF.OptionsBehavior.Editable = True
+                GridView_DE.OptionsBehavior.Editable = True : GridView_DL.OptionsBehavior.Editable = True : GridView_CF.OptionsBehavior.ReadOnly = False
                 FN.Estado_del_menú("Guardar", BarManager)
             End If
         End If

@@ -62,4 +62,15 @@
             FN.Abrir_formulario(Me, Administrador_Contraseñas)
         End If
     End Sub
+
+    Private Sub BBI_Crear_BackUp_base_de_datos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Crear_BackUp_base_de_datos.ItemClick
+        Dim SQL As New BackOffice_datos.SQL
+        Try
+            SQL.BackUpBD()
+            MsgBox("BackUp creado correctamente", MsgBoxStyle.Information, "Crear BackUp")
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString, MsgBoxStyle.Information, "Crear BackUp")
+        End Try
+    End Sub
+
 End Class

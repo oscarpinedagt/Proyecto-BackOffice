@@ -60,19 +60,26 @@
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
         If e.KeyData = Keys.Enter Then
-            GridControl_DoubleClick(sender, Nothing)
+            GridView_DoubleClick(sender, Nothing)
         End If
     End Sub
 
-    Private Sub GridControl_DoubleClick(sender As Object, e As EventArgs) Handles GridControl.DoubleClick
+    Private Sub GridView_DoubleClick(sender As Object, e As EventArgs) Handles GridView.DoubleClick
+        Dim ea As DevExpress.Utils.DXMouseEventArgs = TryCast(e, DevExpress.Utils.DXMouseEventArgs)
+        Dim Info As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo = GridView.CalcHitInfo(ea.Location)
 
-        FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Elaboración_de_costeos)
-        With Movimientos_Elaboración_de_costeos
-            .Estado_busqueda()
-            .ID = GridView.GetRowCellValue(GridView.FocusedRowHandle, "Id_costeo")
-            .Datos_consulta()
-        End With
+        Dim i As Integer = GridView.GetRowCellValue(Info.RowHandle, "Id_costeo")
 
+        If Info.InRow Or Info.InRowCell Then
+            If i > 0 And i.ToString <> "" Then
+                FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Elaboración_de_costeos)
+                With Movimientos_Elaboración_de_costeos
+                    .ID = i
+                    .Datos_consulta()
+                    FN.Estado_del_menú("Buscar", .BarManager)
+                End With
+            End If
+        End If
     End Sub
 
     Private Sub BBI_Generar_información_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_información.ItemClick

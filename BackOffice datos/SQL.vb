@@ -149,4 +149,24 @@
         End If
     End Function
 
+    Public Function BackUpBD() As Boolean
+        Dim i As Integer
+        Try
+            Dim Insertar_datos As New SqlCommand("BackUp DataBase BackOffice To Disk = 'C:\BackOffice BackUp BD\BackUp " + Now.ToString("yyMMddHHmm") + "'", Conexion)
+            Conexion.Open()
+            i = Insertar_datos.ExecuteNonQuery
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString, MsgBoxStyle.Critical, "Crear BackUp")
+        Finally
+            Conexion.Close()
+        End Try
+
+        If i > 0 Then
+            Return True
+        Else
+            Return False
+        End If
+
+    End Function
+
 End Class

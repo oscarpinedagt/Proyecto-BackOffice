@@ -100,7 +100,11 @@
         FN.Abrir_formulario(Me, Seguimientos_Garantias_fabrica_taller)
     End Sub
 
-    Private Sub BBI_Unidades_y_tiempos_por_mes_semana_estadia_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Unidades_y_tiempos_por_mes_semana_estadia.ItemClick
-        FN.Abrir_formulario(Me, Tableros_4DX_Unidades_y_tiempos_por_mes_semana_estadia)
+    Private Sub BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia.ItemClick
+        FN.Abrir_formulario(Me, Tableros_4DX_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia)
+    End Sub
+
+    Private Sub BBI_Información_detallada_por_semana_mes_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Información_detallada_por_semana_mes.ItemClick
+        FN.Abrir_formulario(Me, Tableros_4DX_Información_detallada_por_mes_semana)
     End Sub
 End Class

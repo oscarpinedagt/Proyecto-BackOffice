@@ -35,9 +35,9 @@ Partial Class Configuración
         Me.BBI_Tipos_de_moneda = New DevExpress.XtraBars.BarButtonItem()
         Me.RP_Mantenimiento = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RP_Empresa = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RPG_Tipos_de_movimientos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Complementos_del_puesto = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Usuario = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RPG_Tipos_de_movimientos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Directorios = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPB_Seguimientos_y_correos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Administrador = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -46,6 +46,7 @@ Partial Class Configuración
         Me.DefaultLookAndFeel = New DevExpress.LookAndFeel.DefaultLookAndFeel()
         Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager()
         Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView()
+        Me.BBI_Crear_BackUp_base_de_datos = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,9 +55,9 @@ Partial Class Configuración
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_Grupo_de_empresas, Me.BBI_Empresa, Me.BBI_Sub_empresa, Me.BBI_Complementos_del_puesto, Me.BBI_Perfil_del_puesto, Me.BBI_Tipos_de_mercaderia, Me.BBI_Usuario, Me.BBI_Directorios_matrices, Me.BBI_Directorios_para_adjuntos, Me.BBI_seguimientos_y_correos, Me.BBI_Contraseñas, Me.BBI_Tipos_de_moneda})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_Grupo_de_empresas, Me.BBI_Empresa, Me.BBI_Sub_empresa, Me.BBI_Complementos_del_puesto, Me.BBI_Perfil_del_puesto, Me.BBI_Tipos_de_mercaderia, Me.BBI_Usuario, Me.BBI_Directorios_matrices, Me.BBI_Directorios_para_adjuntos, Me.BBI_seguimientos_y_correos, Me.BBI_Contraseñas, Me.BBI_Tipos_de_moneda, Me.BBI_Crear_BackUp_base_de_datos})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 15
+        Me.RibbonControl.MaxItemId = 16
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Mantenimiento, Me.RP_Administrador})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
@@ -138,6 +139,7 @@ Partial Class Configuración
         Me.BBI_Contraseñas.Caption = "Contraseñas"
         Me.BBI_Contraseñas.Id = 11
         Me.BBI_Contraseñas.ImageOptions.Image = CType(resources.GetObject("BBI_Contraseñas.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Contraseñas.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Contraseñas.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Contraseñas.Name = "BBI_Contraseñas"
         '
         'BBI_Tipos_de_moneda
@@ -161,13 +163,6 @@ Partial Class Configuración
         Me.RP_Empresa.Name = "RP_Empresa"
         Me.RP_Empresa.Text = "Empresa"
         '
-        'RPG_Tipos_de_movimientos
-        '
-        Me.RPG_Tipos_de_movimientos.ItemLinks.Add(Me.BBI_Tipos_de_mercaderia)
-        Me.RPG_Tipos_de_movimientos.ItemLinks.Add(Me.BBI_Tipos_de_moneda)
-        Me.RPG_Tipos_de_movimientos.Name = "RPG_Tipos_de_movimientos"
-        Me.RPG_Tipos_de_movimientos.Text = "Tipos de movimientos"
-        '
         'RPG_Complementos_del_puesto
         '
         Me.RPG_Complementos_del_puesto.ItemLinks.Add(Me.BBI_Complementos_del_puesto)
@@ -180,6 +175,13 @@ Partial Class Configuración
         Me.RPG_Usuario.ItemLinks.Add(Me.BBI_Usuario)
         Me.RPG_Usuario.Name = "RPG_Usuario"
         Me.RPG_Usuario.Text = "Usuario"
+        '
+        'RPG_Tipos_de_movimientos
+        '
+        Me.RPG_Tipos_de_movimientos.ItemLinks.Add(Me.BBI_Tipos_de_mercaderia)
+        Me.RPG_Tipos_de_movimientos.ItemLinks.Add(Me.BBI_Tipos_de_moneda)
+        Me.RPG_Tipos_de_movimientos.Name = "RPG_Tipos_de_movimientos"
+        Me.RPG_Tipos_de_movimientos.Text = "Tipos de movimientos"
         '
         'RPG_Directorios
         '
@@ -203,6 +205,7 @@ Partial Class Configuración
         'RPG_Administrador
         '
         Me.RPG_Administrador.ItemLinks.Add(Me.BBI_Contraseñas)
+        Me.RPG_Administrador.ItemLinks.Add(Me.BBI_Crear_BackUp_base_de_datos)
         Me.RPG_Administrador.Name = "RPG_Administrador"
         Me.RPG_Administrador.Text = "Administrador"
         '
@@ -224,6 +227,14 @@ Partial Class Configuración
         Me.DocumentManager.MenuManager = Me.RibbonControl
         Me.DocumentManager.View = Me.TabbedView
         Me.DocumentManager.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView})
+        '
+        'BBI_Crear_BackUp_base_de_datos
+        '
+        Me.BBI_Crear_BackUp_base_de_datos.Caption = "Crear BackUp base de datos"
+        Me.BBI_Crear_BackUp_base_de_datos.Id = 15
+        Me.BBI_Crear_BackUp_base_de_datos.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Crear_BackUp_base_de_datos.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Crear_BackUp_base_de_datos.Name = "BBI_Crear_BackUp_base_de_datos"
         '
         'Configuración
         '
@@ -275,4 +286,5 @@ Partial Class Configuración
     Friend WithEvents DocumentManager As DevExpress.XtraBars.Docking2010.DocumentManager
     Friend WithEvents TabbedView As DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView
     Friend WithEvents BBI_Tipos_de_moneda As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_Crear_BackUp_base_de_datos As DevExpress.XtraBars.BarButtonItem
 End Class

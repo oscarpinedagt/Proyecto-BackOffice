@@ -1,4 +1,4 @@
-﻿Public Class Tableros_4DX_Unidades_y_tiempos_por_mes_semana_estadia
+﻿Public Class Tableros_4DX_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia
     Dim SQL As New BackOffice_datos.SQL
     Private Sub Tableros_4DX_Unidades_y_tiempos_por_mes_semana_estadia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TE_Año.EditValue = Now.ToString("yyyy")
@@ -55,7 +55,7 @@
     Private Sub Cargar_datos(Condicion As String)
         GridControl.DataSource = SQL.Tabla_de_datos("Select Ing.Semana,Ing.Grupo_de_empresas,Ing.Tipo_de_mercaderia,Ing.Estadia,Sum(Ing.Enero)[Ene-Ingresos],Avg(Hrs.Enero)[Ene-Hrs Promedio],Sum(Ing.Febrero)[Feb-Ingresos],Avg(Hrs.Febrero)[Feb-Hrs Promedio],Sum(Ing.Marzo)[Mar-Ingresos],Avg(Hrs.Marzo)[Mar-Hrs Promedio],Sum(Ing.Abril)[Abr-Ingresos],Avg(Hrs.Abril)[Abr-Hrs Promedio],Sum(Ing.Mayo)[May-Ingresos],Avg(Hrs.Mayo)[May-Hrs Promedio],Sum(Ing.Junio)[Jun-Ingresos],Avg(Hrs.Junio)[Jun-Hrs Promedio],Sum(Ing.Julio)[Jul-Ingresos],Avg(Hrs.Julio)[Jul-Hrs Promedio],Sum(Ing.Agosto)[Ago-Ingresos],Avg(Hrs.Agosto)[Ago-Hrs Promedio],Sum(Ing.Septiembre)[Sep-Ingresos],Avg(Hrs.Septiembre)[Sep-Hrs Promedio],Sum(Ing.Octubre)[Oct-Ingresos],Avg(Hrs.Octubre)[Oct-Hrs Promedio],Sum(Ing.Noviembre)[Nov-Ingresos],Avg(Hrs.Noviembre)[Nov-Hrs Promedio],Sum(Ing.Diciembre)[Dic-Ingresos],Avg(Hrs.Diciembre)[Dic-Hrs Promedio]  
                                                     From 
-                                                    (Select Id_costeo,Grupo_de_empresas,Tipo_de_mercaderia,Año_recepcion,'Semana - '+Convert(NvarChar,Semana_recepcion) As Semana,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " As Estadia,Recibido,Estado,Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre From
+                                                    (Select Id_costeo,Grupo_de_empresas,Tipo_de_mercaderia,Año_recepcion,'Semana - '+Format(Semana_recepcion,'00') As Semana,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " As Estadia,Recibido,Estado,Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre From
                                                     (Select Id_costeo,Grupo_de_empresas,Tipo_de_mercaderia,Año_recepcion,Mes_recepcion,Semana_recepcion,Estadia_" + LUE_Datos_sobre.EditValue.ToString + ",Recibido,Estado,Ingreso_a_bodega From Costeos)D 
                                                     Pivot (Count(Ingreso_a_bodega) For Mes_recepcion In (Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre))I)Ing
                                                     Inner Join
@@ -143,7 +143,7 @@
             Next
 
             AddHandler GridView.RowStyle, Sub(s, e)
-                                              e.Appearance.Font = New Font(e.Appearance.Font, FontStyle.Bold)
+                                              e.Appearance.Font = New Font(e.Appearance.Font, FontStyle.Regular)
                                               Select Case GridView.GetRowCellValue(e.RowHandle, "Estadia")
                                                   Case "Dentro de rango"
                                                       e.Appearance.ForeColor = Color.Green
@@ -167,9 +167,17 @@
                                                      End Select
                                                  End Sub
 
-            '.OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
+            Dim Fuente As Font = New Font("Tahoma", 7)
+            .Appearance.HeaderPanel.Font = Fuente
+            .Appearance.GroupRow.Font = New Font(Fuente, FontStyle.Bold)
+            .Appearance.FooterPanel.Font = Fuente
+            .Appearance.GroupFooter.Font = Fuente
+            .Appearance.Row.Font = Fuente
+
+            .OptionsBehavior.Editable = False
             .OptionsBehavior.ReadOnly = True
             .OptionsBehavior.SummariesIgnoreNullValues = True
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
             .OptionsView.AllowCellMerge = True
             .ExpandAllGroups()
             .OptionsView.ColumnAutoWidth = False
@@ -187,12 +195,14 @@
 
     Private Sub BBI_Imprimir_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Imprimir.ItemClick
         If GridControl.IsPrintingAvailable Then
-            GridView.AppearancePrint.HeaderPanel.Font = New Font("Tahoma", 6)
+            Dim Fuente As Font = New Font("Tahoma", 5)
+
+            GridView.AppearancePrint.HeaderPanel.Font = Fuente
             GridView.AppearancePrint.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-            GridView.AppearancePrint.GroupRow.Font = New Font("Tahoma", 6, FontStyle.Bold)
-            GridView.AppearancePrint.Row.Font = New Font("Tahoma", 6)
-            GridView.AppearancePrint.GroupFooter.Font = New Font("Tahoma", 6)
-            GridView.AppearancePrint.FooterPanel.Font = New Font("Tahoma", 6)
+            GridView.AppearancePrint.GroupRow.Font = New Font(Fuente, FontStyle.Bold)
+            GridView.AppearancePrint.Row.Font = Fuente
+            GridView.AppearancePrint.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+            GridView.AppearancePrint.GroupFooter.Font = Fuente
             GridView.OptionsPrint.UsePrintStyles = True
             GridControl.ShowPrintPreview()
         End If

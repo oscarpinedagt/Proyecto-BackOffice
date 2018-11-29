@@ -44,6 +44,22 @@
                 End Select
 
             Next
+
+            AddHandler GridView.GroupLevelStyle, Sub(s, e)
+                                                     Select Case e.Level
+                                                         Case 0
+                                                             e.LevelAppearance.ForeColor = Color.WhiteSmoke
+                                                             e.LevelAppearance.BackColor = Color.LightSlateGray
+                                                     End Select
+                                                 End Sub
+
+            Dim Fuente As Font = New Font("Tahoma", 7)
+            .Appearance.HeaderPanel.Font = Fuente
+            .Appearance.GroupRow.Font = New Font(Fuente, FontStyle.Bold)
+            .Appearance.FooterPanel.Font = Fuente
+            .Appearance.GroupFooter.Font = Fuente
+            .Appearance.Row.Font = Fuente
+
             .ExpandAllGroups()
             .OptionsBehavior.Editable = False
             .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
@@ -200,23 +216,34 @@
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
         If e.KeyData = Keys.Enter Then
-            GridControl_DoubleClick(sender, Nothing)
+            GridView_DoubleClick(sender, Nothing)
         End If
     End Sub
 
-    Private Sub GridControl_DoubleClick(sender As Object, e As EventArgs) Handles GridControl.DoubleClick
-        If GridView.GetRowCellValue(GridView.FocusedRowHandle, "Grupo_de_empresas") = "Grupo Automotriz" Then
-            FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Elaboración_de_costeos)
-            With Movimientos_Elaboración_de_costeos
-                .ID = GridView.GetRowCellValue(GridView.FocusedRowHandle, "Id_costeo")
-                .Datos_consulta()
-            End With
-        Else
-            FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Recepción_de_costeos)
-            With Movimientos_Recepción_de_costeos
-                .ID = GridView.GetRowCellValue(GridView.FocusedRowHandle, "Id_costeo")
-                .Datos_consulta()
-            End With
+    Private Sub GridView_DoubleClick(sender As Object, e As EventArgs) Handles GridView.DoubleClick
+        Dim ea As DevExpress.Utils.DXMouseEventArgs = TryCast(e, DevExpress.Utils.DXMouseEventArgs)
+        Dim Info As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo = GridView.CalcHitInfo(ea.Location)
+
+        Dim i As Integer = GridView.GetRowCellValue(Info.RowHandle, "Id_costeo")
+
+        If Info.InRow Or Info.InRowCell Then
+            If i > 0 And i.ToString <> "" Then
+                If GridView.GetRowCellValue(Info.RowHandle, "Grupo_de_empresas") = "Grupo Automotriz" Then
+                    FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Elaboración_de_costeos)
+                    With Movimientos_Elaboración_de_costeos
+                        .ID = i
+                        FN.Estado_del_menú("Buscar", .BarManager)
+                        .Datos_consulta()
+                    End With
+                Else
+                    FN.Abrir_formulario(Costos_e_Importaciones, Movimientos_Recepción_de_costeos)
+                    With Movimientos_Recepción_de_costeos
+                        .ID = i
+                        FN.Estado_del_menú("Buscar", .BarManager)
+                        .Datos_consulta()
+                    End With
+                End If
+            End If
         End If
     End Sub
 

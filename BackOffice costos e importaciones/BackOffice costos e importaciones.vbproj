@@ -243,10 +243,16 @@
     <Compile Include="Mantenimiento - Tipos de costeo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tableros 4DX - Unidades y tiempos por mes - semana - estadia.Designer.vb">
-      <DependentUpon>Tableros 4DX - Unidades y tiempos por mes - semana - estadia.vb</DependentUpon>
+    <Compile Include="Tableros 4DX - Información detallada por mes - semana.Designer.vb">
+      <DependentUpon>Tableros 4DX - Información detallada por mes - semana.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tableros 4DX - Unidades y tiempos por mes - semana - estadia.vb">
+    <Compile Include="Tableros 4DX - Información detallada por mes - semana.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tableros 4DX - Resumen de unidades y tiempos por mes - semana - estadia.Designer.vb">
+      <DependentUpon>Tableros 4DX - Resumen de unidades y tiempos por mes - semana - estadia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tableros 4DX - Resumen de unidades y tiempos por mes - semana - estadia.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -318,8 +324,11 @@
     <EmbeddedResource Include="Mantenimiento - Tipos de costeo.resx">
       <DependentUpon>Mantenimiento - Tipos de costeo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tableros 4DX - Unidades y tiempos por mes - semana - estadia.resx">
-      <DependentUpon>Tableros 4DX - Unidades y tiempos por mes - semana - estadia.vb</DependentUpon>
+    <EmbeddedResource Include="Tableros 4DX - Información detallada por mes - semana.resx">
+      <DependentUpon>Tableros 4DX - Información detallada por mes - semana.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tableros 4DX - Resumen de unidades y tiempos por mes - semana - estadia.resx">
+      <DependentUpon>Tableros 4DX - Resumen de unidades y tiempos por mes - semana - estadia.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

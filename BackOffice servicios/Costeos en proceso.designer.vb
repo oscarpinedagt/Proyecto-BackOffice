@@ -22,13 +22,15 @@ Partial Class Costeos_en_proceso
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Costeos_en_proceso))
         Me.TMR_Cerrar_notificación = New System.Windows.Forms.Timer(Me.components)
-        Me.GC_DUAS_IPRIMAS_FAUCAS = New DevExpress.XtraEditors.GroupControl()
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
-        CType(Me.GC_DUAS_IPRIMAS_FAUCAS, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GC_DUAS_IPRIMAS_FAUCAS.SuspendLayout()
+        Me.PC_Parametros = New DevExpress.XtraEditors.PanelControl()
+        Me.CKE_Ver_comentarios = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PC_Parametros.SuspendLayout()
+        CType(Me.CKE_Ver_comentarios.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TMR_Cerrar_notificación
@@ -36,60 +38,70 @@ Partial Class Costeos_en_proceso
         Me.TMR_Cerrar_notificación.Enabled = True
         Me.TMR_Cerrar_notificación.Interval = 1500000
         '
-        'GC_DUAS_IPRIMAS_FAUCAS
-        '
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Controls.Add(Me.GridControl)
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Location = New System.Drawing.Point(14, 0)
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Name = "GC_DUAS_IPRIMAS_FAUCAS"
-        Me.GC_DUAS_IPRIMAS_FAUCAS.Size = New System.Drawing.Size(934, 513)
-        Me.GC_DUAS_IPRIMAS_FAUCAS.TabIndex = 1
-        '
         'GridControl
         '
         Me.GridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.GridControl.Font = New System.Drawing.Font("Tahoma", 7.0!)
-        Me.GridControl.Location = New System.Drawing.Point(2, 21)
+        Me.GridControl.EmbeddedNavigator.Buttons.Append.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Edit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.EndEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Remove.Visible = False
+        Me.GridControl.Location = New System.Drawing.Point(14, 26)
         Me.GridControl.MainView = Me.GridView
-        Me.GridControl.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.GridControl.Name = "GridControl"
-        Me.GridControl.Size = New System.Drawing.Size(930, 490)
-        Me.GridControl.TabIndex = 1
+        Me.GridControl.Size = New System.Drawing.Size(934, 487)
+        Me.GridControl.TabIndex = 19
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
         '
         'GridView
         '
-        Me.GridView.DetailHeight = 296
         Me.GridView.GridControl = Me.GridControl
         Me.GridView.Name = "GridView"
-        Me.GridView.OptionsBehavior.Editable = False
-        Me.GridView.OptionsSelection.MultiSelect = True
+        Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
+        '
+        'PC_Parametros
+        '
+        Me.PC_Parametros.Controls.Add(Me.CKE_Ver_comentarios)
+        Me.PC_Parametros.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PC_Parametros.Location = New System.Drawing.Point(14, 0)
+        Me.PC_Parametros.Name = "PC_Parametros"
+        Me.PC_Parametros.Size = New System.Drawing.Size(934, 26)
+        Me.PC_Parametros.TabIndex = 18
+        '
+        'CKE_Ver_comentarios
+        '
+        Me.CKE_Ver_comentarios.Location = New System.Drawing.Point(6, 4)
+        Me.CKE_Ver_comentarios.Name = "CKE_Ver_comentarios"
+        Me.CKE_Ver_comentarios.Properties.Caption = "Ver comentarios"
+        Me.CKE_Ver_comentarios.Size = New System.Drawing.Size(109, 19)
+        Me.CKE_Ver_comentarios.TabIndex = 4
         '
         'Costeos_en_proceso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(948, 528)
-        Me.Controls.Add(Me.GC_DUAS_IPRIMAS_FAUCAS)
+        Me.Controls.Add(Me.GridControl)
+        Me.Controls.Add(Me.PC_Parametros)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.Name = "Costeos_en_proceso"
         Me.Padding = New System.Windows.Forms.Padding(14, 0, 0, 15)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Costeos en proceso de elaboración y envío"
-        CType(Me.GC_DUAS_IPRIMAS_FAUCAS, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GC_DUAS_IPRIMAS_FAUCAS.ResumeLayout(False)
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PC_Parametros.ResumeLayout(False)
+        CType(Me.CKE_Ver_comentarios.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TMR_Cerrar_notificación As Timer
-    Friend WithEvents GC_DUAS_IPRIMAS_FAUCAS As DevExpress.XtraEditors.GroupControl
-    Public WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents PC_Parametros As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents CKE_Ver_comentarios As DevExpress.XtraEditors.CheckEdit
     Public WithEvents GridControl As DevExpress.XtraGrid.GridControl
+    Public WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

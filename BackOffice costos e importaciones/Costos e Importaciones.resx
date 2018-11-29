@@ -469,23 +469,43 @@
         LU76Cyz4Dkit0JInWIvZAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBHYXVnZTtM
-        aW5lYXI73Jtj8QAAAH9JREFUOE/NzMERgCAMBEB6ogW/VmEnvinIUuwm5pgk4pgMoh8fK3CJl4joEzcc
-        4YYjUinlAiGfmVEjtz/x23ZxaRcrWdISnOGeDmqjkoKQzM8CXOZ1owjm+zKRwvuHBT38o8H7VuCdrJvb
-        RcnQRDnjWAreqgX4fOGGI9zwOUoHzp2u3cB6VUMAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAATdEVYdFRpdGxlAEdhdWdlO0xpbmVhcjvcm2PxAAAA
+        f0lEQVQ4T83MwRGAIAwEQHqiBb9WYSe+KchS7CbmmCTimAyiHx8rcImXiOgTNxzhhiNSKeUCIZ+ZUSO3
+        P/HbdnFpFytZ0hKc4Z4OaqOSgpDMzwJc5nWjCOb7MpHC+4cFPfyjwftW4J2sm9tFydBEOeNYCt6qBfh8
+        4YYj3PA5SgfOna7dwHpVQwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="BBI_Unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBHYXVnZTtM
-        aW5lYXI73Jtj8QAAALRJREFUWEftzsERwiAQheH0lBa8pgo78UxBlpJu1iwDDOKvmIy+5JDDF3eeC7zB
-        zHaFoRKGShgqYaiEoRKGShgqYdgTQrB32t2e+KGLPvD9scmyce19dQH//Uo605aIj6f/uvK7mwukc7lE
-        eTzlXWnvuUB9iQIWmG5328rPz9eL9fieOwucBbCAEhbwuV7491yGxaqDv5rLsIiz0uEK7OKllRqGShgq
-        YaiEoRKGShgqYahjwwNpREbEIRYuvAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAATdEVYdFRpdGxlAEdhdWdlO0xpbmVhcjvcm2PxAAAA
+        tElEQVRYR+3OwRHCIBCF4fSUFrymCjvxTEGWkm7WLAMM4q+YjL7kkMMXd54LvMHMdoWhEoZKGCphqISh
+        EoZKGCph2BNCsHfa3Z74oYs+8P2xybJx7X11Af/9SjrTloiPp/+68rubC6RzuUR5POVdae+5QH2JAhaY
+        bnfbys/P14v1+J47C5wFsIASFvC5Xvj3XIbFqoO/msuwiLPS4Qrs4qWVGoZKGCphqIShEoZKGCphqGPD
+        A2lERsQhFi68AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="BBI_Información_detallada_por_semana_mes.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAATdEVYdFRpdGxlAEdhdWdlO0xpbmVhcjvcm2PxAAAA
+        lElEQVQ4T52OwRGAIBAD6ckW/FqFnfimIEuxm9MwhAmIJ/rYAXJhIZhZIcYI7A290xVoRvLsNq9KAAUU
+        j3U2oeS/BXn2X8DcFVzDKZeqXHkT4JUkWbbdCGe6kp4gfbUjIOlMeoLHHyDHyj5oBRP3rSDPfQFAAcVW
+        wNwVsIC1FUinOpcN8AS8OCzQXBkVuOidSvAdCyfr3q7dusu7ZwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="BBI_Información_detallada_por_semana_mes.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAbdEVYdFRpdGxlAEdhdWdlO0xpbmVhclZlcnRpY2Fs
+        O4Wdjq0AAAEESURBVFhH5ZPBDcIwEATTEy3wpQo64Z2CKIVujG3dGrPak0PkxEh+jNi7HKsBwRJCaLKu
+        a9gLdzFyyWwpUnQViKRX+dzjMIHX/RqY6i5nzMgecslYcVOAmU/A7nLGjOwhl4wVNwWY+QTsLmfMyB5y
+        yVhxU4DpJsCcKmCf/qKeMXYb42dG9pDLGpRGisTt8QwMntX0FigSIwXiyheobzAje8hlDUqNod/A0N/A
+        17/AE7DbnDEje8glE4sKafYEmJ4C6ZP9v4Dd5YwZ2UMuGStuCjDzCdhdzpiRPeSSseKmADOfgN3ljBnZ
+        Qy4ZKy4CWzlE4Efi23UnkEsmFe2Fuxi5PI+wvAGjN0bE4eZ8fwAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="DefaultLookAndFeel.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
