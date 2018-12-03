@@ -1,5 +1,6 @@
 ﻿Public Class Seguimientos_Contraseñas
     Dim SQL As New BackOffice_datos.SQL
+    Dim FN As New BackOffice_servicios.Funciones
     Private Sub Seguimientos_Contraseñas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DE_Fecha_inicial.DateTime = Format(Now, "01/MM/yyyy")
         DE_Fecha_final.DateTime = Format(Now, "dd/MM/yyyy")
@@ -31,6 +32,14 @@
                     Case "Id_contraseña"
                         CL.Visible = False
                 End Select
+
+                If CL.FieldName.ToString.Contains("días") Then
+                    CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                    CL.DisplayFormat.FormatString = "n2"
+                    CL.OptionsColumn.AllowEdit = False
+                    CL.OptionsColumn.AllowFocus = False
+                    CL.AppearanceCell.BackColor = Color.LightSalmon
+                End If
 
             Next
             .OptionsView.ColumnAutoWidth = False
@@ -150,4 +159,11 @@
 
         End If
     End Sub
+
+    Private Sub BBI_Generar_a_Excel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_a_Excel.ItemClick
+        If GridView.RowCount > 0 Then
+            FN.Exportar_GridControl_a_Excel(GridControl, "Control de contraseñas y traslados a Tesorería del " + Replace(DE_Fecha_inicial.EditValue.ToShortDateString, "/", "-") + " al " + Replace(DE_Fecha_final.EditValue.ToShortDateString, "/", "-"))
+        End If
+    End Sub
+
 End Class

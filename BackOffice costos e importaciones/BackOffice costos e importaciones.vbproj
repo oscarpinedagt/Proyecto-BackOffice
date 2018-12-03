@@ -65,18 +65,41 @@
     <ApplicationIcon>BO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v18.1.Win, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Map.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Presets, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Win, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraMap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -136,6 +159,12 @@
       <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.vb</DependentUpon>
     </Compile>
     <Compile Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes - Pago de impuestos Tesorería.Designer.vb">
+      <DependentUpon>Reportes - Pago de impuestos Tesorería.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes - Pago de impuestos Tesorería.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Seguimientos - Contraseñas.Designer.vb">
@@ -243,6 +272,18 @@
     <Compile Include="Mantenimiento - Tipos de costeo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Seguimientos - Solicitud de pago de impuestos.Designer.vb">
+      <DependentUpon>Seguimientos - Solicitud de pago de impuestos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguimientos - Solicitud de pago de impuestos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tableros 4DX - Graficos.Designer.vb">
+      <DependentUpon>Tableros 4DX - Graficos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tableros 4DX - Graficos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tableros 4DX - Información detallada por mes - semana.Designer.vb">
       <DependentUpon>Tableros 4DX - Información detallada por mes - semana.vb</DependentUpon>
     </Compile>
@@ -271,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.resx">
       <DependentUpon>Movimientos - Contabilización de - DUAS - IPRIMAS - FAUCAS - FYDUCAS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes - Pago de impuestos Tesorería.resx">
+      <DependentUpon>Reportes - Pago de impuestos Tesorería.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguimientos - Contraseñas.resx">
       <DependentUpon>Seguimientos - Contraseñas.vb</DependentUpon>
@@ -323,6 +367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento - Tipos de costeo.resx">
       <DependentUpon>Mantenimiento - Tipos de costeo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguimientos - Solicitud de pago de impuestos.resx">
+      <DependentUpon>Seguimientos - Solicitud de pago de impuestos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tableros 4DX - Graficos.resx">
+      <DependentUpon>Tableros 4DX - Graficos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tableros 4DX - Información detallada por mes - semana.resx">
       <DependentUpon>Tableros 4DX - Información detallada por mes - semana.vb</DependentUpon>

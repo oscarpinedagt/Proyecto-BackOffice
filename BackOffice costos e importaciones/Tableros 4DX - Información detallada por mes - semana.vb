@@ -146,7 +146,9 @@
                                                               e.Appearance.BackColor = Color.LightGreen
                                                           Case 4 To 6
                                                               e.Appearance.BackColor = Color.LightYellow
-                                                          Case > 6
+                                                          Case 6 To 8
+                                                              e.Appearance.BackColor = Color.LightSalmon
+                                                          Case > 8
                                                               e.Appearance.BackColor = Color.LightCoral
                                                       End Select
                                                   End If
@@ -175,8 +177,6 @@
             .BestFitColumns()
 
         End With
-        Columna_fecha_y_hora()
-        Columna_usuario()
 
     End Sub
 
@@ -305,7 +305,7 @@
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
         If GridView.OptionsBehavior.Editable = True Then
-            If e.KeyData = e.KeyData = Keys.Control + Keys.Delete Then
+            If e.KeyData = Keys.Shift + Keys.Delete Then
                 If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                     Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Eliminar"}
                     SEG.ShowDialog()
@@ -327,6 +327,8 @@
                 BBI_Editar.Enabled = False
                 GridView.OptionsBehavior.Editable = True
                 GridView.OptionsBehavior.ReadOnly = False
+                Columna_fecha_y_hora()
+                Columna_usuario()
             End If
         End If
     End Sub

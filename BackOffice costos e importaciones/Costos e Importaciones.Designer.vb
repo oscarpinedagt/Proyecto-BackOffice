@@ -43,6 +43,8 @@ Partial Class Costos_e_Importaciones
         Me.BBI_Garantias_fabrica_taller = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Información_detallada_por_semana_mes = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_DashBoard = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_SEG_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.BarButtonItem()
         Me.RP_Movimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_MOV_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Contabilización = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -50,21 +52,25 @@ Partial Class Costos_e_Importaciones
         Me.RPG_SEG_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Mercadería_en_transito = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Control_de_IPRIMA = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RPG_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Contraseñas = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Garantias_taller_fabrica = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Reportes = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_Seguro = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RP_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RPG_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RPG_DashBoard = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Mantenimiento = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_Correos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Proveedores = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_MAN_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RP_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RPG_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.DefaultLookAndFeel = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
         Me.NoDocumentsView1 = New DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(Me.components)
+        Me.RPG_REP_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.BBI_REP_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,9 +80,9 @@ Partial Class Costos_e_Importaciones
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas, Me.BBI_DUAS_IPRIMAS_FAUCAS, Me.BBI_Garantias_fabrica_taller, Me.BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia, Me.BBI_Información_detallada_por_semana_mes})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBI_MAN_Envió_de_costeos, Me.BBI_MAN_Seguimientos_y_correos, Me.BBI_MAN_Tipos_de_costeo, Me.BBI_MAN_Proveedores_del_exterior_cuentas_y_complementos_contables, Me.BBI_MAN_Incoterms, Me.BBI_MOV_Recepción, Me.BBI_MOV_Elaboración, Me.BBI_SEG_Recepción, Me.BBI_SEG_Elaboración, Me.BBI_SEG_Envió, Me.BBI_MAN_Shipper_o_Carrier, Me.BBI_MAN_Proveedores_locales, Me.BBI_RP_Seguro, Me.BBI_MAN_Tipos_de_gasto, Me.BBI_SEG_Mercadería_en_transito, Me.BBI_SEG_Control_de_IPRIMA, Me.BBI_Contraseñas, Me.BBI_DUAS_IPRIMAS_FAUCAS, Me.BBI_Garantias_fabrica_taller, Me.BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia, Me.BBI_Información_detallada_por_semana_mes, Me.BBI_DashBoard, Me.BBI_SEG_Pago_de_impuestos_Tesorería, Me.BBI_REP_Pago_de_impuestos_Tesorería})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 22
+        Me.RibbonControl.MaxItemId = 25
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RP_Movimientos, Me.RP_Seguimientos, Me.RP_Reportes, Me.RP_Tableros_4DX, Me.RP_Mantenimiento})
         Me.RibbonControl.Size = New System.Drawing.Size(893, 146)
@@ -254,6 +260,22 @@ Partial Class Costos_e_Importaciones
         Me.BBI_Información_detallada_por_semana_mes.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Información_detallada_por_semana_mes.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Información_detallada_por_semana_mes.Name = "BBI_Información_detallada_por_semana_mes"
         '
+        'BBI_DashBoard
+        '
+        Me.BBI_DashBoard.Caption = "DashBoard"
+        Me.BBI_DashBoard.Id = 22
+        Me.BBI_DashBoard.ImageOptions.Image = CType(resources.GetObject("BBI_DashBoard.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_DashBoard.ImageOptions.LargeImage = CType(resources.GetObject("BBI_DashBoard.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_DashBoard.Name = "BBI_DashBoard"
+        '
+        'BBI_SEG_Pago_de_impuestos_Tesorería
+        '
+        Me.BBI_SEG_Pago_de_impuestos_Tesorería.Caption = "Pago de impuestos Tesorería"
+        Me.BBI_SEG_Pago_de_impuestos_Tesorería.Id = 23
+        Me.BBI_SEG_Pago_de_impuestos_Tesorería.ImageOptions.Image = CType(resources.GetObject("BBI_Pago_de_impuestos_Tesorería.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_SEG_Pago_de_impuestos_Tesorería.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Pago_de_impuestos_Tesorería.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_SEG_Pago_de_impuestos_Tesorería.Name = "BBI_SEG_Pago_de_impuestos_Tesorería"
+        '
         'RP_Movimientos
         '
         Me.RP_Movimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_MOV_Costeos, Me.RPG_Contabilización})
@@ -276,7 +298,7 @@ Partial Class Costos_e_Importaciones
         '
         'RP_Seguimientos
         '
-        Me.RP_Seguimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_SEG_Costeos, Me.RPG_Mercadería_en_transito, Me.RPG_Control_de_IPRIMA, Me.RPG_Contraseñas, Me.RPG_Garantias_taller_fabrica})
+        Me.RP_Seguimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_SEG_Costeos, Me.RPG_Mercadería_en_transito, Me.RPG_Control_de_IPRIMA, Me.RPG_Pago_de_impuestos_Tesorería, Me.RPG_Contraseñas, Me.RPG_Garantias_taller_fabrica})
         Me.RP_Seguimientos.Name = "RP_Seguimientos"
         Me.RP_Seguimientos.Text = "Seguimientos"
         '
@@ -302,6 +324,13 @@ Partial Class Costos_e_Importaciones
         Me.RPG_Control_de_IPRIMA.Name = "RPG_Control_de_IPRIMA"
         Me.RPG_Control_de_IPRIMA.Text = "Control de IPRIMA"
         '
+        'RPG_Pago_de_impuestos_Tesorería
+        '
+        Me.RPG_Pago_de_impuestos_Tesorería.AllowTextClipping = False
+        Me.RPG_Pago_de_impuestos_Tesorería.ItemLinks.Add(Me.BBI_SEG_Pago_de_impuestos_Tesorería)
+        Me.RPG_Pago_de_impuestos_Tesorería.Name = "RPG_Pago_de_impuestos_Tesorería"
+        Me.RPG_Pago_de_impuestos_Tesorería.Text = "Pago de impuestos Tesorería"
+        '
         'RPG_Contraseñas
         '
         Me.RPG_Contraseñas.AllowTextClipping = False
@@ -318,7 +347,7 @@ Partial Class Costos_e_Importaciones
         '
         'RP_Reportes
         '
-        Me.RP_Reportes.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_Seguro})
+        Me.RP_Reportes.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_Seguro, Me.RPG_REP_Pago_de_impuestos_Tesorería})
         Me.RP_Reportes.Name = "RP_Reportes"
         Me.RP_Reportes.Text = "Reportes"
         '
@@ -328,6 +357,26 @@ Partial Class Costos_e_Importaciones
         Me.RPG_Seguro.ItemLinks.Add(Me.BBI_RP_Seguro)
         Me.RPG_Seguro.Name = "RPG_Seguro"
         Me.RPG_Seguro.Text = "Seguro"
+        '
+        'RP_Tableros_4DX
+        '
+        Me.RP_Tableros_4DX.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_Tableros_4DX, Me.RPG_DashBoard})
+        Me.RP_Tableros_4DX.Name = "RP_Tableros_4DX"
+        Me.RP_Tableros_4DX.Text = "Tableros 4DX"
+        '
+        'RPG_Tableros_4DX
+        '
+        Me.RPG_Tableros_4DX.ItemLinks.Add(Me.BBI_Información_detallada_por_semana_mes)
+        Me.RPG_Tableros_4DX.ItemLinks.Add(Me.BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia)
+        Me.RPG_Tableros_4DX.Name = "RPG_Tableros_4DX"
+        Me.RPG_Tableros_4DX.Text = "Tableros 4DX"
+        '
+        'RPG_DashBoard
+        '
+        Me.RPG_DashBoard.AllowTextClipping = False
+        Me.RPG_DashBoard.ItemLinks.Add(Me.BBI_DashBoard)
+        Me.RPG_DashBoard.Name = "RPG_DashBoard"
+        Me.RPG_DashBoard.Text = "DashBoard"
         '
         'RP_Mantenimiento
         '
@@ -358,19 +407,6 @@ Partial Class Costos_e_Importaciones
         Me.RPG_MAN_Costeos.Name = "RPG_MAN_Costeos"
         Me.RPG_MAN_Costeos.Text = "Costeos"
         '
-        'RP_Tableros_4DX
-        '
-        Me.RP_Tableros_4DX.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_Tableros_4DX})
-        Me.RP_Tableros_4DX.Name = "RP_Tableros_4DX"
-        Me.RP_Tableros_4DX.Text = "Tableros 4DX"
-        '
-        'RPG_Tableros_4DX
-        '
-        Me.RPG_Tableros_4DX.ItemLinks.Add(Me.BBI_Información_detallada_por_semana_mes)
-        Me.RPG_Tableros_4DX.ItemLinks.Add(Me.BBI_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia)
-        Me.RPG_Tableros_4DX.Name = "RPG_Tableros_4DX"
-        Me.RPG_Tableros_4DX.Text = "Tableros 4DX"
-        '
         'RibbonStatusBar
         '
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 634)
@@ -389,6 +425,21 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager.MenuManager = Me.RibbonControl
         Me.DocumentManager.View = Me.TabbedView
         Me.DocumentManager.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView, Me.NoDocumentsView1})
+        '
+        'RPG_REP_Pago_de_impuestos_Tesorería
+        '
+        Me.RPG_REP_Pago_de_impuestos_Tesorería.AllowTextClipping = False
+        Me.RPG_REP_Pago_de_impuestos_Tesorería.ItemLinks.Add(Me.BBI_REP_Pago_de_impuestos_Tesorería)
+        Me.RPG_REP_Pago_de_impuestos_Tesorería.Name = "RPG_REP_Pago_de_impuestos_Tesorería"
+        Me.RPG_REP_Pago_de_impuestos_Tesorería.Text = "Pago de impuestos Tesorería"
+        '
+        'BBI_REP_Pago_de_impuestos_Tesorería
+        '
+        Me.BBI_REP_Pago_de_impuestos_Tesorería.Caption = "Pago de impuestos Tesorería"
+        Me.BBI_REP_Pago_de_impuestos_Tesorería.Id = 24
+        Me.BBI_REP_Pago_de_impuestos_Tesorería.ImageOptions.Image = CType(resources.GetObject("BBI_REP_Pago_de_impuestos_Tesorería.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_REP_Pago_de_impuestos_Tesorería.ImageOptions.LargeImage = CType(resources.GetObject("BBI_REP_Pago_de_impuestos_Tesorería.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_REP_Pago_de_impuestos_Tesorería.Name = "BBI_REP_Pago_de_impuestos_Tesorería"
         '
         'Costos_e_Importaciones
         '
@@ -458,4 +509,10 @@ Partial Class Costos_e_Importaciones
     Friend WithEvents RP_Tableros_4DX As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RPG_Tableros_4DX As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BBI_Información_detallada_por_semana_mes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_DashBoard As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RPG_DashBoard As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BBI_SEG_Pago_de_impuestos_Tesorería As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RPG_Pago_de_impuestos_Tesorería As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RPG_REP_Pago_de_impuestos_Tesorería As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BBI_REP_Pago_de_impuestos_Tesorería As DevExpress.XtraBars.BarButtonItem
 End Class

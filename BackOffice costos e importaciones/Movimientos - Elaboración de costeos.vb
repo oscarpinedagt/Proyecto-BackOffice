@@ -1004,9 +1004,10 @@
                                                 If e.Item.Name = "Expandir" Then
                                                     GridView_CF.PostEditor()
                                                     GridView_CF.UpdateCurrentRow()
+                                                    VI.Text = VI.Text + " - " + GridView_CF.GetRowCellValue(GridView_CF.FocusedRowHandle, "Tipo_de_certificación")
                                                     VI.PictureEdit.EditValue = GridView_CF.GetRowCellValue(GridView_CF.FocusedRowHandle, GridView_CF.FocusedColumn)
                                                     VI.StartPosition = FormStartPosition.CenterScreen
-                                                    VI.ShowDialog()
+                                                    VI.Show()
                                                 End If
                                             End Sub
 

@@ -28,6 +28,11 @@
                         CL.Group()
                 End Select
 
+                'If CL.FieldName.Contains("Ingreso_a_bodega") Then
+                '    Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Count, .ShowInGroupColumnFooter = GridView.Columns(CL.FieldName), .DisplayFormat = "{0:n0}"}
+                '    .GroupSummary.Add(Item)
+                'End If
+
                 Select Case CL.FieldName
                     Case "Dif_Rec_Ela", "Dif_Rec_Env"
                         CL.Caption = "Tiempo transcurrido en Hrs"
@@ -54,7 +59,9 @@
                                                               e.Appearance.BackColor = Color.LightGreen
                                                           Case 4 To 6
                                                               e.Appearance.BackColor = Color.LightYellow
-                                                          Case > 6
+                                                          Case 6 To 8
+                                                              e.Appearance.BackColor = Color.LightSalmon
+                                                          Case > 8
                                                               e.Appearance.BackColor = Color.LightCoral
                                                       End Select
                                                   End If
@@ -68,9 +75,16 @@
                                                      End Select
                                                  End Sub
 
-            .ExpandAllGroups()
+            Dim Fuente As Font = New Font("Tahoma", 8)
+            .Appearance.HeaderPanel.Font = Fuente
+            .Appearance.GroupRow.Font = New Font(Fuente, FontStyle.Bold)
+            .Appearance.FooterPanel.Font = Fuente
+            .Appearance.GroupFooter.Font = Fuente
+            .Appearance.Row.Font = Fuente
+
             .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
             .OptionsView.ColumnAutoWidth = False
+            .ExpandAllGroups()
             .BestFitColumns()
         End With
 

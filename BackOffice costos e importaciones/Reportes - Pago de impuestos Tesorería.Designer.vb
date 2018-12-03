@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Seguimientos_Contraseñas
+Partial Class Reportes_Pago_de_impuestos_Tesorería
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,7 +20,7 @@ Partial Class Seguimientos_Contraseñas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Seguimientos_Contraseñas))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Reportes_Pago_de_impuestos_Tesorería))
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Generar_información = New DevExpress.XtraBars.BarButtonItem()
@@ -58,7 +58,7 @@ Partial Class Seguimientos_Contraseñas
         Me.BarManager.Form = Me
         Me.BarManager.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BBI_Generar_información, Me.BBI_Generar_a_Excel})
         Me.BarManager.MainMenu = Me.Menú
-        Me.BarManager.MaxItemId = 24
+        Me.BarManager.MaxItemId = 21
         '
         'Menú
         '
@@ -82,7 +82,7 @@ Partial Class Seguimientos_Contraseñas
         'BBI_Generar_a_Excel
         '
         Me.BBI_Generar_a_Excel.Caption = "Trasladar a Exel"
-        Me.BBI_Generar_a_Excel.Id = 23
+        Me.BBI_Generar_a_Excel.Id = 20
         Me.BBI_Generar_a_Excel.ImageOptions.Image = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_Generar_a_Excel.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Generar_a_Excel.Name = "BBI_Generar_a_Excel"
@@ -122,6 +122,11 @@ Partial Class Seguimientos_Contraseñas
         'GridControl
         '
         Me.GridControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl.EmbeddedNavigator.Buttons.Append.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Edit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.EndEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Remove.Visible = False
         Me.GridControl.Location = New System.Drawing.Point(0, 85)
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
@@ -193,11 +198,11 @@ Partial Class Seguimientos_Contraseñas
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BarDockControl1.Location = New System.Drawing.Point(0, 26)
+        Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager
         Me.BarDockControl1.Size = New System.Drawing.Size(498, 0)
         '
-        'Seguimientos_Contraseñas
+        'Reportes_Pago_de_impuestos_Tesorería
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -210,9 +215,9 @@ Partial Class Seguimientos_Contraseñas
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Seguimientos_Contraseñas"
+        Me.Name = "Reportes_Pago_de_impuestos_Tesorería"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Seguimientos - Contraseñas"
+        Me.Text = "Reportes - Pago de impuestos Tesorería"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -231,6 +236,7 @@ Partial Class Seguimientos_Contraseñas
     Friend WithEvents BarManager As DevExpress.XtraBars.BarManager
     Friend WithEvents Menú As DevExpress.XtraBars.Bar
     Friend WithEvents BBI_Generar_información As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_Generar_a_Excel As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
@@ -243,5 +249,4 @@ Partial Class Seguimientos_Contraseñas
     Friend WithEvents LC_Fecha_final As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LC_Fecha_inicial As DevExpress.XtraEditors.LabelControl
     Friend WithEvents BarDockControl1 As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents BBI_Generar_a_Excel As DevExpress.XtraBars.BarButtonItem
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Seguimientos_Contraseñas
+Partial Class Seguimientos_Solicitud_de_pago_de_impuestos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,10 +20,15 @@ Partial Class Seguimientos_Contraseñas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Seguimientos_Contraseñas))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Seguimientos_Solicitud_de_pago_de_impuestos))
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
-        Me.Menú = New DevExpress.XtraBars.Bar()
+        Me.Bar = New DevExpress.XtraBars.Bar()
         Me.BBI_Generar_información = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu_Generación = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.BBI_Solicitar = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Solicitados = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Liquidados = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Envió_a_tesorería = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Generar_a_Excel = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
@@ -32,57 +37,84 @@ Partial Class Seguimientos_Contraseñas
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.PC_Parametros = New DevExpress.XtraEditors.PanelControl()
-        Me.DE_Fecha_final = New DevExpress.XtraEditors.DateEdit()
-        Me.DE_Fecha_inicial = New DevExpress.XtraEditors.DateEdit()
-        Me.LC_Fecha_final = New DevExpress.XtraEditors.LabelControl()
-        Me.LC_Fecha_inicial = New DevExpress.XtraEditors.LabelControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu_Generación, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PC_Parametros.SuspendLayout()
-        CType(Me.DE_Fecha_final.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DE_Fecha_final.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DE_Fecha_inicial.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DE_Fecha_inicial.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager
         '
-        Me.BarManager.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Menú})
+        Me.BarManager.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar})
         Me.BarManager.DockControls.Add(Me.barDockControlTop)
         Me.BarManager.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager.DockControls.Add(Me.barDockControlRight)
         Me.BarManager.Form = Me
-        Me.BarManager.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BBI_Generar_información, Me.BBI_Generar_a_Excel})
-        Me.BarManager.MainMenu = Me.Menú
-        Me.BarManager.MaxItemId = 24
+        Me.BarManager.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BBI_Generar_información, Me.BBI_Solicitar, Me.BBI_Solicitados, Me.BBI_Liquidados, Me.BBI_Envió_a_tesorería, Me.BBI_Generar_a_Excel})
+        Me.BarManager.MainMenu = Me.Bar
+        Me.BarManager.MaxItemId = 33
         '
-        'Menú
+        'Bar
         '
-        Me.Menú.BarName = "Menú"
-        Me.Menú.DockCol = 0
-        Me.Menú.DockRow = 0
-        Me.Menú.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Menú.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_a_Excel, True)})
-        Me.Menú.OptionsBar.UseWholeRow = True
-        Me.Menú.Text = "Menú"
+        Me.Bar.BarName = "Menú"
+        Me.Bar.DockCol = 0
+        Me.Bar.DockRow = 0
+        Me.Bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
+        Me.Bar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Envió_a_tesorería, True), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_a_Excel, True)})
+        Me.Bar.OptionsBar.UseWholeRow = True
+        Me.Bar.Text = "Menú"
         '
         'BBI_Generar_información
         '
         Me.BBI_Generar_información.ActAsDropDown = True
+        Me.BBI_Generar_información.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
         Me.BBI_Generar_información.Caption = "Generar información"
+        Me.BBI_Generar_información.DropDownControl = Me.PopupMenu_Generación
         Me.BBI_Generar_información.Id = 15
         Me.BBI_Generar_información.ImageOptions.Image = CType(resources.GetObject("BBI_Generar_información.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_Generar_información.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Generar_información.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Generar_información.Name = "BBI_Generar_información"
         '
+        'PopupMenu_Generación
+        '
+        Me.PopupMenu_Generación.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Solicitar), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Solicitados), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Liquidados)})
+        Me.PopupMenu_Generación.Manager = Me.BarManager
+        Me.PopupMenu_Generación.Name = "PopupMenu_Generación"
+        '
+        'BBI_Solicitar
+        '
+        Me.BBI_Solicitar.Caption = "Solicitar"
+        Me.BBI_Solicitar.Id = 26
+        Me.BBI_Solicitar.Name = "BBI_Solicitar"
+        '
+        'BBI_Solicitados
+        '
+        Me.BBI_Solicitados.Caption = "Solicitados"
+        Me.BBI_Solicitados.Id = 27
+        Me.BBI_Solicitados.Name = "BBI_Solicitados"
+        '
+        'BBI_Liquidados
+        '
+        Me.BBI_Liquidados.Caption = "Liquidados"
+        Me.BBI_Liquidados.Id = 28
+        Me.BBI_Liquidados.Name = "BBI_Liquidados"
+        '
+        'BBI_Envió_a_tesorería
+        '
+        Me.BBI_Envió_a_tesorería.ActAsDropDown = True
+        Me.BBI_Envió_a_tesorería.Caption = "Envió a tesorería"
+        Me.BBI_Envió_a_tesorería.Id = 29
+        Me.BBI_Envió_a_tesorería.ImageOptions.Image = CType(resources.GetObject("BBI_Envió_a_tesorería.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Envió_a_tesorería.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Envió_a_tesorería.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Envió_a_tesorería.Name = "BBI_Envió_a_tesorería"
+        '
         'BBI_Generar_a_Excel
         '
         Me.BBI_Generar_a_Excel.Caption = "Trasladar a Exel"
-        Me.BBI_Generar_a_Excel.Id = 23
+        Me.BBI_Generar_a_Excel.Id = 32
         Me.BBI_Generar_a_Excel.ImageOptions.Image = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.Image"), System.Drawing.Image)
         Me.BBI_Generar_a_Excel.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Generar_a_Excel.Name = "BBI_Generar_a_Excel"
@@ -122,10 +154,15 @@ Partial Class Seguimientos_Contraseñas
         'GridControl
         '
         Me.GridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridControl.Location = New System.Drawing.Point(0, 85)
+        Me.GridControl.EmbeddedNavigator.Buttons.Append.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Edit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.EndEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Remove.Visible = False
+        Me.GridControl.Location = New System.Drawing.Point(0, 36)
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
-        Me.GridControl.Size = New System.Drawing.Size(498, 233)
+        Me.GridControl.Size = New System.Drawing.Size(498, 282)
         Me.GridControl.TabIndex = 8
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
@@ -134,60 +171,19 @@ Partial Class Seguimientos_Contraseñas
         '
         Me.GridView.GridControl = Me.GridControl
         Me.GridView.Name = "GridView"
+        Me.GridView.OptionsFind.AlwaysVisible = True
+        Me.GridView.OptionsMenu.ShowConditionalFormattingItem = True
         Me.GridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
         Me.GridView.OptionsView.ShowFooter = True
         Me.GridView.OptionsView.ShowGroupPanel = False
         '
         'PC_Parametros
         '
-        Me.PC_Parametros.Controls.Add(Me.DE_Fecha_final)
-        Me.PC_Parametros.Controls.Add(Me.DE_Fecha_inicial)
-        Me.PC_Parametros.Controls.Add(Me.LC_Fecha_final)
-        Me.PC_Parametros.Controls.Add(Me.LC_Fecha_inicial)
         Me.PC_Parametros.Dock = System.Windows.Forms.DockStyle.Top
         Me.PC_Parametros.Location = New System.Drawing.Point(0, 26)
         Me.PC_Parametros.Name = "PC_Parametros"
-        Me.PC_Parametros.Size = New System.Drawing.Size(498, 59)
+        Me.PC_Parametros.Size = New System.Drawing.Size(498, 10)
         Me.PC_Parametros.TabIndex = 7
-        '
-        'DE_Fecha_final
-        '
-        Me.DE_Fecha_final.EditValue = Nothing
-        Me.DE_Fecha_final.Location = New System.Drawing.Point(169, 26)
-        Me.DE_Fecha_final.Name = "DE_Fecha_final"
-        Me.DE_Fecha_final.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DE_Fecha_final.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DE_Fecha_final.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.DE_Fecha_final.Size = New System.Drawing.Size(150, 20)
-        Me.DE_Fecha_final.TabIndex = 3
-        '
-        'DE_Fecha_inicial
-        '
-        Me.DE_Fecha_inicial.EditValue = Nothing
-        Me.DE_Fecha_inicial.Location = New System.Drawing.Point(13, 26)
-        Me.DE_Fecha_inicial.MenuManager = Me.BarManager
-        Me.DE_Fecha_inicial.Name = "DE_Fecha_inicial"
-        Me.DE_Fecha_inicial.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DE_Fecha_inicial.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DE_Fecha_inicial.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.DE_Fecha_inicial.Size = New System.Drawing.Size(150, 20)
-        Me.DE_Fecha_inicial.TabIndex = 1
-        '
-        'LC_Fecha_final
-        '
-        Me.LC_Fecha_final.Location = New System.Drawing.Point(169, 5)
-        Me.LC_Fecha_final.Name = "LC_Fecha_final"
-        Me.LC_Fecha_final.Size = New System.Drawing.Size(52, 13)
-        Me.LC_Fecha_final.TabIndex = 2
-        Me.LC_Fecha_final.Text = "Fecha final"
-        '
-        'LC_Fecha_inicial
-        '
-        Me.LC_Fecha_inicial.Location = New System.Drawing.Point(13, 6)
-        Me.LC_Fecha_inicial.Name = "LC_Fecha_inicial"
-        Me.LC_Fecha_inicial.Size = New System.Drawing.Size(57, 13)
-        Me.LC_Fecha_inicial.TabIndex = 0
-        Me.LC_Fecha_inicial.Text = "Fecha inicial"
         '
         'BarDockControl1
         '
@@ -197,7 +193,7 @@ Partial Class Seguimientos_Contraseñas
         Me.BarDockControl1.Manager = Me.BarManager
         Me.BarDockControl1.Size = New System.Drawing.Size(498, 0)
         '
-        'Seguimientos_Contraseñas
+        'Seguimientos_Solicitud_de_pago_de_impuestos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -210,27 +206,28 @@ Partial Class Seguimientos_Contraseñas
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Seguimientos_Contraseñas"
+        Me.Name = "Seguimientos_Solicitud_de_pago_de_impuestos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Seguimientos - Contraseñas"
+        Me.Text = "Seguimientos - Solicitud de pago de impuestos"
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu_Generación, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PC_Parametros.ResumeLayout(False)
-        Me.PC_Parametros.PerformLayout()
-        CType(Me.DE_Fecha_final.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DE_Fecha_final.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DE_Fecha_inicial.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DE_Fecha_inicial.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents BarManager As DevExpress.XtraBars.BarManager
-    Friend WithEvents Menú As DevExpress.XtraBars.Bar
+    Friend WithEvents Bar As DevExpress.XtraBars.Bar
     Friend WithEvents BBI_Generar_información As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu_Generación As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents BBI_Solicitar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_Solicitados As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_Liquidados As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_Envió_a_tesorería As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BBI_Generar_a_Excel As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
@@ -238,10 +235,5 @@ Partial Class Seguimientos_Contraseñas
     Friend WithEvents GridControl As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents PC_Parametros As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents DE_Fecha_final As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents DE_Fecha_inicial As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents LC_Fecha_final As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LC_Fecha_inicial As DevExpress.XtraEditors.LabelControl
     Friend WithEvents BarDockControl1 As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents BBI_Generar_a_Excel As DevExpress.XtraBars.BarButtonItem
 End Class

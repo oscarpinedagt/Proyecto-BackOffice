@@ -351,17 +351,13 @@
     End Sub
 
     Private Sub GridView_DC_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView_DC.KeyDown
-        If e.KeyData = Keys.Delete Then
+        If e.KeyData = Keys.Shift + Keys.Delete Then
             If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-
                 GridView_MT.DeleteRow(GridView_MT.FocusedRowHandle)
-
             End If
-        ElseIf e.KeyData = Keys.Control + Keys.Delete Then
+        ElseIf e.KeyData = Keys.Delete Then
             GridView_DC.SetRowCellValue(GridView_DC.FocusedRowHandle, GridView_DC.FocusedColumn, Nothing)
         End If
-
-
     End Sub
 
 #End Region

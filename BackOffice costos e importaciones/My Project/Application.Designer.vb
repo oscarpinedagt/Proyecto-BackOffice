@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.BackOffice_costos_e_importaciones.Costos_e_Importaciones
+            Me.MainForm = Global.BackOffice_costos_e_importaciones.Reportes_Pago_de_impuestos_Tesorería
         End Sub
     End Class
 End Namespace

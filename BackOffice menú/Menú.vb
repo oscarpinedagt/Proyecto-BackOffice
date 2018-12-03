@@ -104,8 +104,9 @@
     End Sub
     Private Sub TRM_Costeos_en_proceso_Tick(sender As Object, e As EventArgs) Handles TRM_Costeos_en_proceso.Tick
         Dim CEP As New BackOffice_servicios.Costeos_en_proceso
-        CEP.GridControl.DataSource = SQL.Tabla_de_datos("SELECT Costeo_asignado_a,Empresa,Tipo_de_mercaderia,Sub_empresa,Tipo_de_importacion,Compra,Ingreso_a_bodega,Fecha_de_recepcion,Elaborado,Dif_Rec_Ela,Enviado,Dif_Rec_Env,Comentarios From Costeos Where Recibido='True' And ((Elaborado='False' or Elaborado Is Null) Or (Enviado='False' or Enviado Is Null)) And (Fecha_de_ingreso_a_bodega>= GETDATE()-60) Order By Ingreso_a_bodega")
-        If CEP.GridView.RowCount > 0 Then
+        Dim DT As DataTable = SQL.Tabla_de_datos("SELECT Costeo_asignado_a,Empresa,Tipo_de_mercaderia,Sub_empresa,Tipo_de_importacion,Compra,Ingreso_a_bodega,Fecha_de_recepcion,Elaborado,Dif_Rec_Ela,Enviado,Dif_Rec_Env,Comentarios From Costeos Where Recibido='True' And ((Elaborado='False' or Elaborado Is Null) Or (Enviado='False' or Enviado Is Null)) And (Fecha_de_ingreso_a_bodega>= GETDATE()-60) Order By Ingreso_a_bodega")
+        If DT.Rows.Count > 0 Then
+            CEP.GridControl.DataSource = DT
             CEP.Show()
         End If
     End Sub

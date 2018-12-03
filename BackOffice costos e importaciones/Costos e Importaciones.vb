@@ -107,4 +107,17 @@
     Private Sub BBI_Información_detallada_por_semana_mes_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Información_detallada_por_semana_mes.ItemClick
         FN.Abrir_formulario(Me, Tableros_4DX_Información_detallada_por_mes_semana)
     End Sub
+
+    Private Sub BBI_DashBoard_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_DashBoard.ItemClick
+        Dim GF As New Tableros_4DX_Graficos
+        GF.Show()
+    End Sub
+
+    Private Sub BBI_SEG_Pago_de_impuestos_Tesorería_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_SEG_Pago_de_impuestos_Tesorería.ItemClick
+        FN.Abrir_formulario(Me, Seguimientos_Solicitud_de_pago_de_impuestos)
+    End Sub
+
+    Private Sub BBI_REP_Pago_de_impuestos_Tesorería_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_REP_Pago_de_impuestos_Tesorería.ItemClick
+        FN.Abrir_formulario(Me, Reportes_Pago_de_impuestos_Tesorería)
+    End Sub
 End Class

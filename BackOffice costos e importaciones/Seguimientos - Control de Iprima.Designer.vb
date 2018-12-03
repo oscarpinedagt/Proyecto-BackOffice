@@ -32,6 +32,7 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.BBI_Cargar_reporte_de_polizas = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Cargar_facturación = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_Envió_a_tesorería = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Generar_a_Excel = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -39,7 +40,6 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.GridControl = New DevExpress.XtraGrid.GridControl()
         Me.GridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.PC_Parametros = New DevExpress.XtraEditors.PanelControl()
-        Me.BBI_Generar_a_Excel = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu_Generación, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +74,7 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.Bar.DockCol = 0
         Me.Bar.DockRow = 0
         Me.Bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_reporte_de_polizas, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_facturación, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Envió_a_tesorería), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_a_Excel)})
+        Me.Bar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_reporte_de_polizas, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BBI_Cargar_facturación, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Envió_a_tesorería, True), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_a_Excel, True)})
         Me.Bar.OptionsBar.UseWholeRow = True
         Me.Bar.Text = "Menú"
         '
@@ -138,6 +138,14 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.BBI_Envió_a_tesorería.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Envió_a_tesorería.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_Envió_a_tesorería.Name = "BBI_Envió_a_tesorería"
         '
+        'BBI_Generar_a_Excel
+        '
+        Me.BBI_Generar_a_Excel.Caption = "Trasladar a Exel"
+        Me.BBI_Generar_a_Excel.Id = 32
+        Me.BBI_Generar_a_Excel.ImageOptions.Image = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Generar_a_Excel.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Generar_a_Excel.Name = "BBI_Generar_a_Excel"
+        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
@@ -198,14 +206,6 @@ Partial Class Seguimientos_Control_de_IPRIMA
         Me.PC_Parametros.Name = "PC_Parametros"
         Me.PC_Parametros.Size = New System.Drawing.Size(498, 10)
         Me.PC_Parametros.TabIndex = 4
-        '
-        'BBI_Generar_a_Excel
-        '
-        Me.BBI_Generar_a_Excel.Caption = "Trasladar a Exel"
-        Me.BBI_Generar_a_Excel.Id = 32
-        Me.BBI_Generar_a_Excel.ImageOptions.Image = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.Image"), System.Drawing.Image)
-        Me.BBI_Generar_a_Excel.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Generar_a_Excel.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BBI_Generar_a_Excel.Name = "BBI_Generar_a_Excel"
         '
         'Seguimientos_Control_de_IPRIMA
         '
