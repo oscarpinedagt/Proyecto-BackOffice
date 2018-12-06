@@ -575,6 +575,12 @@ Partial Public Class DS_BackOffice
         
         Private columnComparativo_moneda_USD As Global.System.Data.DataColumn
         
+        Private columnTiempo_de_estadia As Global.System.Data.DataColumn
+        
+        Private columnEstadia_Rec_Ela As Global.System.Data.DataColumn
+        
+        Private columnEstadia_Rec_Env As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1299,6 +1305,30 @@ Partial Public Class DS_BackOffice
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Tiempo_de_estadiaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTiempo_de_estadia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Estadia_Rec_ElaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstadia_Rec_Ela
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Estadia_Rec_EnvColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstadia_Rec_Env
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1421,9 +1451,12 @@ Partial Public Class DS_BackOffice
                     ByVal Id_moneda As Integer,  _
                     ByVal Moneda1 As String,  _
                     ByVal Descripción As String,  _
-                    ByVal Comparativo_moneda_USD As String) As CosteosRow
+                    ByVal Comparativo_moneda_USD As String,  _
+                    ByVal Tiempo_de_estadia As Decimal,  _
+                    ByVal Estadia_Rec_Ela As String,  _
+                    ByVal Estadia_Rec_Env As String) As CosteosRow
             Dim rowCosteosRow As CosteosRow = CType(Me.NewRow,CosteosRow)
-            Dim columnValuesArray() As Object = New Object() {Id_costeo, Grupo_de_empresas, Empresa, Tipo_de_mercaderia, SE, Sub_empresa, Compra, Ingreso_a_bodega, Fecha_de_ingreso_a_bodega, Semana_ingreso_a_bodega, Mes_ingreso_a_bodega, Año_ingreso_a_bodega, Tipo_de_costeo, Estado, Proveedor, Marca, País_de_procedencia, Tipo_de_importacion, Incoterm, Moneda_de_negociación, _Shipper_Carrier, _Guia_BL_Carta_de_porte, _Fecha_de_Guia_BL_Carta_de_porte, Fecha_de_arribo, Régimen, _Dua_Fauca_Face, _Fecha_de_Dua_Fauca_Face, Contenedores_o_bultos, Moneda, Factor_de_cambio_USD, Factor_de_cambio_GTQ, FOB_USD, Flete_USD, Seguro_USD, Otros_USD, Total_USD, Total_GTQ, DAI, IVA, DAI_e_IVA, Rectificación, _R_Dua_Fauca_Face, _R_Fecha_de_Dua_Fauca_Face, R_DAI, R_IVA, R_DAI_e_IVA, Recibido, Usuario_que_recibe, Fecha_de_recepcion, Semana_recepcion_año, Semana_recepcion, Mes_recepcion, Año_recepcion, Dif_Ing_Rec, Costeo_asignado_a, Elaborado, Usuario_que_elabora, Fecha_de_elaboracion, Semana_elaboracion, Mes_elaboracion, Año_elaboracion, Dif_Rec_Ela, Revisado, Usuario_que_revisa, Fecha_de_revision, Dif_Ela_Rev, Enviado, Usuario_que_envia, Fecha_de_envio, Dif_Rev_Env, Dif_Ela_Env, Dif_Rec_Env, Archivo, Comentarios, Id_empresa, Nit, Literales, Razon_social, Razon_comercial, Domicilio_fiscal, Logo, RL_GE, Id_moneda, Moneda1, Descripción, Comparativo_moneda_USD}
+            Dim columnValuesArray() As Object = New Object() {Id_costeo, Grupo_de_empresas, Empresa, Tipo_de_mercaderia, SE, Sub_empresa, Compra, Ingreso_a_bodega, Fecha_de_ingreso_a_bodega, Semana_ingreso_a_bodega, Mes_ingreso_a_bodega, Año_ingreso_a_bodega, Tipo_de_costeo, Estado, Proveedor, Marca, País_de_procedencia, Tipo_de_importacion, Incoterm, Moneda_de_negociación, _Shipper_Carrier, _Guia_BL_Carta_de_porte, _Fecha_de_Guia_BL_Carta_de_porte, Fecha_de_arribo, Régimen, _Dua_Fauca_Face, _Fecha_de_Dua_Fauca_Face, Contenedores_o_bultos, Moneda, Factor_de_cambio_USD, Factor_de_cambio_GTQ, FOB_USD, Flete_USD, Seguro_USD, Otros_USD, Total_USD, Total_GTQ, DAI, IVA, DAI_e_IVA, Rectificación, _R_Dua_Fauca_Face, _R_Fecha_de_Dua_Fauca_Face, R_DAI, R_IVA, R_DAI_e_IVA, Recibido, Usuario_que_recibe, Fecha_de_recepcion, Semana_recepcion_año, Semana_recepcion, Mes_recepcion, Año_recepcion, Dif_Ing_Rec, Costeo_asignado_a, Elaborado, Usuario_que_elabora, Fecha_de_elaboracion, Semana_elaboracion, Mes_elaboracion, Año_elaboracion, Dif_Rec_Ela, Revisado, Usuario_que_revisa, Fecha_de_revision, Dif_Ela_Rev, Enviado, Usuario_que_envia, Fecha_de_envio, Dif_Rev_Env, Dif_Ela_Env, Dif_Rec_Env, Archivo, Comentarios, Id_empresa, Nit, Literales, Razon_social, Razon_comercial, Domicilio_fiscal, Logo, RL_GE, Id_moneda, Moneda1, Descripción, Comparativo_moneda_USD, Tiempo_de_estadia, Estadia_Rec_Ela, Estadia_Rec_Env}
             rowCosteosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCosteosRow)
             Return rowCosteosRow
@@ -1532,6 +1565,9 @@ Partial Public Class DS_BackOffice
             Me.columnMoneda1 = MyBase.Columns("Moneda1")
             Me.columnDescripción = MyBase.Columns("Descripción")
             Me.columnComparativo_moneda_USD = MyBase.Columns("Comparativo_moneda_USD")
+            Me.columnTiempo_de_estadia = MyBase.Columns("Tiempo_de_estadia")
+            Me.columnEstadia_Rec_Ela = MyBase.Columns("Estadia_Rec_Ela")
+            Me.columnEstadia_Rec_Env = MyBase.Columns("Estadia_Rec_Env")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1723,6 +1759,12 @@ Partial Public Class DS_BackOffice
             MyBase.Columns.Add(Me.columnDescripción)
             Me.columnComparativo_moneda_USD = New Global.System.Data.DataColumn("Comparativo_moneda_USD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnComparativo_moneda_USD)
+            Me.columnTiempo_de_estadia = New Global.System.Data.DataColumn("Tiempo_de_estadia", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTiempo_de_estadia)
+            Me.columnEstadia_Rec_Ela = New Global.System.Data.DataColumn("Estadia_Rec_Ela", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstadia_Rec_Ela)
+            Me.columnEstadia_Rec_Env = New Global.System.Data.DataColumn("Estadia_Rec_Env", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstadia_Rec_Env)
             Me.columnId_costeo.AllowDBNull = false
             Me.columnGrupo_de_empresas.MaxLength = 100
             Me.columnEmpresa.MaxLength = 100
@@ -1779,6 +1821,11 @@ Partial Public Class DS_BackOffice
             Me.columnMoneda1.MaxLength = 15
             Me.columnDescripción.MaxLength = 50
             Me.columnComparativo_moneda_USD.MaxLength = 15
+            Me.columnTiempo_de_estadia.ReadOnly = true
+            Me.columnEstadia_Rec_Ela.ReadOnly = true
+            Me.columnEstadia_Rec_Ela.MaxLength = 15
+            Me.columnEstadia_Rec_Env.ReadOnly = true
+            Me.columnEstadia_Rec_Env.MaxLength = 15
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2232,6 +2279,12 @@ Partial Public Class DS_BackOffice
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindById_documento_del_exterior(ByVal Id_documento_del_exterior As Long) As Documentos_del_exteriorRow
+            Return CType(Me.Rows.Find(New Object() {Id_documento_del_exterior}),Documentos_del_exteriorRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As Documentos_del_exteriorDataTable = CType(MyBase.Clone,Documentos_del_exteriorDataTable)
             cln.InitVars
@@ -2315,7 +2368,9 @@ Partial Public Class DS_BackOffice
             MyBase.Columns.Add(Me.columnDiferencial_USD)
             Me.columnDiferencial_GTQ = New Global.System.Data.DataColumn("Diferencial_GTQ", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDiferencial_GTQ)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId_documento_del_exterior}, true))
             Me.columnId_documento_del_exterior.AllowDBNull = false
+            Me.columnId_documento_del_exterior.Unique = true
             Me.columnTipo_de_documento.MaxLength = 50
             Me.columnDocumento.MaxLength = 50
             Me.columnMoneda.MaxLength = 10
@@ -2631,6 +2686,12 @@ Partial Public Class DS_BackOffice
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindById_documento_local(ByVal Id_documento_local As Long) As Documentos_localesRow
+            Return CType(Me.Rows.Find(New Object() {Id_documento_local}),Documentos_localesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As Documentos_localesDataTable = CType(MyBase.Clone,Documentos_localesDataTable)
             cln.InitVars
@@ -2678,7 +2739,9 @@ Partial Public Class DS_BackOffice
             MyBase.Columns.Add(Me.columnValor)
             Me.columnValor_sin_IVA = New Global.System.Data.DataColumn("Valor_sin_IVA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnValor_sin_IVA)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId_documento_local}, true))
             Me.columnId_documento_local.AllowDBNull = false
+            Me.columnId_documento_local.Unique = true
             Me.columnTipo_de_documento.MaxLength = 50
             Me.columnDocumento.MaxLength = 50
             Me.columnProveedor.MaxLength = 50
@@ -4703,6 +4766,51 @@ Partial Public Class DS_BackOffice
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Tiempo_de_estadia() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.Tiempo_de_estadiaColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tiempo_de_estadia' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.Tiempo_de_estadiaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Estadia_Rec_Ela() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.Estadia_Rec_ElaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Estadia_Rec_Ela' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.Estadia_Rec_ElaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Estadia_Rec_Env() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCosteos.Estadia_Rec_EnvColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Estadia_Rec_Env' de la tabla 'Costeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCosteos.Estadia_Rec_EnvColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsGrupo_de_empresasNull() As Boolean
             Return Me.IsNull(Me.tableCosteos.Grupo_de_empresasColumn)
         End Function
@@ -5707,6 +5815,42 @@ Partial Public Class DS_BackOffice
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetComparativo_moneda_USDNull()
             Me(Me.tableCosteos.Comparativo_moneda_USDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTiempo_de_estadiaNull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.Tiempo_de_estadiaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTiempo_de_estadiaNull()
+            Me(Me.tableCosteos.Tiempo_de_estadiaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsEstadia_Rec_ElaNull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.Estadia_Rec_ElaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetEstadia_Rec_ElaNull()
+            Me(Me.tableCosteos.Estadia_Rec_ElaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsEstadia_Rec_EnvNull() As Boolean
+            Return Me.IsNull(Me.tableCosteos.Estadia_Rec_EnvColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetEstadia_Rec_EnvNull()
+            Me(Me.tableCosteos.Estadia_Rec_EnvColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7583,6 +7727,9 @@ Namespace DS_BackOfficeTableAdapters
             tableMapping.ColumnMappings.Add("Moneda1", "Moneda1")
             tableMapping.ColumnMappings.Add("Descripción", "Descripción")
             tableMapping.ColumnMappings.Add("Comparativo_moneda_USD", "Comparativo_moneda_USD")
+            tableMapping.ColumnMappings.Add("Tiempo_de_estadia", "Tiempo_de_estadia")
+            tableMapping.ColumnMappings.Add("Estadia_Rec_Ela", "Estadia_Rec_Ela")
+            tableMapping.ColumnMappings.Add("Estadia_Rec_Env", "Estadia_Rec_Env")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -7781,6 +7928,78 @@ Namespace DS_BackOfficeTableAdapters
             tableMapping.ColumnMappings.Add("Diferencial_USD", "Diferencial_USD")
             tableMapping.ColumnMappings.Add("Diferencial_GTQ", "Diferencial_GTQ")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Documentos_del_exterior] WHERE (([Id_documento_del_exterior] = @Orig"& _ 
+                "inal_Id_documento_del_exterior) AND ((@IsNull_RL_id_costeo = 1 AND [RL_id_costeo"& _ 
+                "] IS NULL) OR ([RL_id_costeo] = @Original_RL_id_costeo)) AND ((@IsNull_Tipo_de_d"& _ 
+                "ocumento = 1 AND [Tipo_de_documento] IS NULL) OR ([Tipo_de_documento] = @Origina"& _ 
+                "l_Tipo_de_documento)) AND ((@IsNull_Documento = 1 AND [Documento] IS NULL) OR (["& _ 
+                "Documento] = @Original_Documento)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) "& _ 
+                "OR ([Fecha] = @Original_Fecha)) AND ((@IsNull_FOB = 1 AND [FOB] IS NULL) OR ([FO"& _ 
+                "B] = @Original_FOB)) AND ((@IsNull_Flete = 1 AND [Flete] IS NULL) OR ([Flete] = "& _ 
+                "@Original_Flete)) AND ((@IsNull_Seguro = 1 AND [Seguro] IS NULL) OR ([Seguro] = "& _ 
+                "@Original_Seguro)) AND ((@IsNull_Otros = 1 AND [Otros] IS NULL) OR ([Otros] = @O"& _ 
+                "riginal_Otros)) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Orig"& _ 
+                "inal_Total)) AND ((@IsNull_Moneda = 1 AND [Moneda] IS NULL) OR ([Moneda] = @Orig"& _ 
+                "inal_Moneda)) AND ((@IsNull_Factor_de_cambio_USD = 1 AND [Factor_de_cambio_USD] "& _ 
+                "IS NULL) OR ([Factor_de_cambio_USD] = @Original_Factor_de_cambio_USD)) AND ((@Is"& _ 
+                "Null_Total_USD = 1 AND [Total_USD] IS NULL) OR ([Total_USD] = @Original_Total_US"& _ 
+                "D)) AND ((@IsNull_Factor_de_cambio_GTQ = 1 AND [Factor_de_cambio_GTQ] IS NULL) O"& _ 
+                "R ([Factor_de_cambio_GTQ] = @Original_Factor_de_cambio_GTQ)) AND ((@IsNull_Total"& _ 
+                "_GTQ = 1 AND [Total_GTQ] IS NULL) OR ([Total_GTQ] = @Original_Total_GTQ)) AND (("& _ 
+                "@IsNull_Factor_de_provisión_USD = 1 AND [Factor_de_provisión_USD] IS NULL) OR (["& _ 
+                "Factor_de_provisión_USD] = @Original_Factor_de_provisión_USD)) AND ((@IsNull_Tot"& _ 
+                "al_provisión_USD = 1 AND [Total_provisión_USD] IS NULL) OR ([Total_provisión_USD"& _ 
+                "] = @Original_Total_provisión_USD)) AND ((@IsNull_Factor_de_provisión_GTQ = 1 AN"& _ 
+                "D [Factor_de_provisión_GTQ] IS NULL) OR ([Factor_de_provisión_GTQ] = @Original_F"& _ 
+                "actor_de_provisión_GTQ)) AND ((@IsNull_Total_provisión_GTQ = 1 AND [Total_provis"& _ 
+                "ión_GTQ] IS NULL) OR ([Total_provisión_GTQ] = @Original_Total_provisión_GTQ)) AN"& _ 
+                "D ((@IsNull_Diferencial_USD = 1 AND [Diferencial_USD] IS NULL) OR ([Diferencial_"& _ 
+                "USD] = @Original_Diferencial_USD)) AND ((@IsNull_Diferencial_GTQ = 1 AND [Difere"& _ 
+                "ncial_GTQ] IS NULL) OR ([Diferencial_GTQ] = @Original_Diferencial_GTQ)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id_documento_del_exterior", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_documento_del_exterior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tipo_de_documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo_de_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Fecha", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FOB", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FOB", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FOB", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "FOB", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Flete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Flete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Flete", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Flete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Seguro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Seguro", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Seguro", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Seguro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Otros", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Otros", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Otros", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Otros", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Moneda", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Moneda", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_cambio_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_cambio_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_cambio_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_cambio_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_cambio_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_cambio_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_cambio_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_cambio_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_provisión_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_provisión_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_provisión_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_provisión_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_provisión_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_provisión_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_provisión_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_provisión_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_provisión_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_provisión_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_provisión_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_provisión_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Diferencial_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diferencial_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diferencial_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Diferencial_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diferencial_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diferencial_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Documentos_del_exterior] ([Id_documento_del_exterior], [RL_id_costeo"& _ 
@@ -7815,6 +8034,108 @@ Namespace DS_BackOfficeTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diferencial_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_USD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diferencial_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Documentos_del_exterior] SET [Id_documento_del_exterior] = @Id_documento_"& _ 
+                "del_exterior, [RL_id_costeo] = @RL_id_costeo, [Tipo_de_documento] = @Tipo_de_doc"& _ 
+                "umento, [Documento] = @Documento, [Fecha] = @Fecha, [FOB] = @FOB, [Flete] = @Fle"& _ 
+                "te, [Seguro] = @Seguro, [Otros] = @Otros, [Total] = @Total, [Moneda] = @Moneda, "& _ 
+                "[Factor_de_cambio_USD] = @Factor_de_cambio_USD, [Total_USD] = @Total_USD, [Facto"& _ 
+                "r_de_cambio_GTQ] = @Factor_de_cambio_GTQ, [Total_GTQ] = @Total_GTQ, [Factor_de_p"& _ 
+                "rovisión_USD] = @Factor_de_provisión_USD, [Total_provisión_USD] = @Total_provisi"& _ 
+                "ón_USD, [Factor_de_provisión_GTQ] = @Factor_de_provisión_GTQ, [Total_provisión_G"& _ 
+                "TQ] = @Total_provisión_GTQ, [Diferencial_USD] = @Diferencial_USD, [Diferencial_G"& _ 
+                "TQ] = @Diferencial_GTQ WHERE (([Id_documento_del_exterior] = @Original_Id_docume"& _ 
+                "nto_del_exterior) AND ((@IsNull_RL_id_costeo = 1 AND [RL_id_costeo] IS NULL) OR "& _ 
+                "([RL_id_costeo] = @Original_RL_id_costeo)) AND ((@IsNull_Tipo_de_documento = 1 A"& _ 
+                "ND [Tipo_de_documento] IS NULL) OR ([Tipo_de_documento] = @Original_Tipo_de_docu"& _ 
+                "mento)) AND ((@IsNull_Documento = 1 AND [Documento] IS NULL) OR ([Documento] = @"& _ 
+                "Original_Documento)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fecha] = "& _ 
+                "@Original_Fecha)) AND ((@IsNull_FOB = 1 AND [FOB] IS NULL) OR ([FOB] = @Original"& _ 
+                "_FOB)) AND ((@IsNull_Flete = 1 AND [Flete] IS NULL) OR ([Flete] = @Original_Flet"& _ 
+                "e)) AND ((@IsNull_Seguro = 1 AND [Seguro] IS NULL) OR ([Seguro] = @Original_Segu"& _ 
+                "ro)) AND ((@IsNull_Otros = 1 AND [Otros] IS NULL) OR ([Otros] = @Original_Otros)"& _ 
+                ") AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) A"& _ 
+                "ND ((@IsNull_Moneda = 1 AND [Moneda] IS NULL) OR ([Moneda] = @Original_Moneda)) "& _ 
+                "AND ((@IsNull_Factor_de_cambio_USD = 1 AND [Factor_de_cambio_USD] IS NULL) OR (["& _ 
+                "Factor_de_cambio_USD] = @Original_Factor_de_cambio_USD)) AND ((@IsNull_Total_USD"& _ 
+                " = 1 AND [Total_USD] IS NULL) OR ([Total_USD] = @Original_Total_USD)) AND ((@IsN"& _ 
+                "ull_Factor_de_cambio_GTQ = 1 AND [Factor_de_cambio_GTQ] IS NULL) OR ([Factor_de_"& _ 
+                "cambio_GTQ] = @Original_Factor_de_cambio_GTQ)) AND ((@IsNull_Total_GTQ = 1 AND ["& _ 
+                "Total_GTQ] IS NULL) OR ([Total_GTQ] = @Original_Total_GTQ)) AND ((@IsNull_Factor"& _ 
+                "_de_provisión_USD = 1 AND [Factor_de_provisión_USD] IS NULL) OR ([Factor_de_prov"& _ 
+                "isión_USD] = @Original_Factor_de_provisión_USD)) AND ((@IsNull_Total_provisión_U"& _ 
+                "SD = 1 AND [Total_provisión_USD] IS NULL) OR ([Total_provisión_USD] = @Original_"& _ 
+                "Total_provisión_USD)) AND ((@IsNull_Factor_de_provisión_GTQ = 1 AND [Factor_de_p"& _ 
+                "rovisión_GTQ] IS NULL) OR ([Factor_de_provisión_GTQ] = @Original_Factor_de_provi"& _ 
+                "sión_GTQ)) AND ((@IsNull_Total_provisión_GTQ = 1 AND [Total_provisión_GTQ] IS NU"& _ 
+                "LL) OR ([Total_provisión_GTQ] = @Original_Total_provisión_GTQ)) AND ((@IsNull_Di"& _ 
+                "ferencial_USD = 1 AND [Diferencial_USD] IS NULL) OR ([Diferencial_USD] = @Origin"& _ 
+                "al_Diferencial_USD)) AND ((@IsNull_Diferencial_GTQ = 1 AND [Diferencial_GTQ] IS "& _ 
+                "NULL) OR ([Diferencial_GTQ] = @Original_Diferencial_GTQ)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id_documento_del_exterior", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_documento_del_exterior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo_de_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FOB", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "FOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Flete", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Flete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Seguro", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Seguro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Otros", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Otros", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Moneda", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factor_de_cambio_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_cambio_USD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_USD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factor_de_cambio_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_cambio_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factor_de_provisión_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_provisión_USD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total_provisión_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_USD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factor_de_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_provisión_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diferencial_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_USD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diferencial_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_GTQ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id_documento_del_exterior", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_documento_del_exterior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tipo_de_documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo_de_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Fecha", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FOB", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FOB", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FOB", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "FOB", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Flete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Flete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Flete", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Flete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Seguro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Seguro", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Seguro", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Seguro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Otros", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Otros", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Otros", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Otros", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Moneda", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Moneda", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_cambio_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_cambio_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_cambio_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_cambio_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_cambio_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_cambio_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_cambio_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_cambio_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_provisión_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_provisión_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_provisión_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_provisión_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_provisión_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_provisión_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_provisión_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Factor_de_provisión_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factor_de_provisión_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Factor_de_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 6, "Factor_de_provisión_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total_provisión_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total_provisión_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total_provisión_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Total_provisión_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Diferencial_USD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diferencial_USD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diferencial_USD", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_USD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Diferencial_GTQ", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diferencial_GTQ", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diferencial_GTQ", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Diferencial_GTQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7895,6 +8216,188 @@ Namespace DS_BackOfficeTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete( _
+                    ByVal Original_Id_documento_del_exterior As Long,  _
+                    ByVal Original_RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Tipo_de_documento As String,  _
+                    ByVal Original_Documento As String,  _
+                    ByVal Original_Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Original_FOB As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Flete As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Seguro As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Otros As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Moneda As String,  _
+                    ByVal Original_Factor_de_cambio_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_cambio_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Diferencial_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Diferencial_GTQ As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id_documento_del_exterior,Long)
+            If (Original_RL_id_costeo.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_RL_id_costeo.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Tipo_de_documento Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Tipo_de_documento,String)
+            End If
+            If (Original_Documento Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Documento,String)
+            End If
+            If (Original_Fecha.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Fecha.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FOB.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_FOB.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Flete.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Flete.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Seguro.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Seguro.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Otros.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Otros.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Total.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Moneda Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Moneda,String)
+            End If
+            If (Original_Factor_de_cambio_USD.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Factor_de_cambio_USD.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_USD.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Total_USD.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Factor_de_cambio_GTQ.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Factor_de_cambio_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_GTQ.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_Total_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Factor_de_provisión_USD.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_Factor_de_provisión_USD.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_provisión_USD.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_Total_provisión_USD.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Factor_de_provisión_GTQ.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Factor_de_provisión_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_provisión_GTQ.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_Total_provisión_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Diferencial_USD.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_Diferencial_USD.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Diferencial_GTQ.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Diferencial_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8038,6 +8541,359 @@ Namespace DS_BackOfficeTableAdapters
                 End If
             End Try
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal Id_documento_del_exterior As Long,  _
+                    ByVal RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Tipo_de_documento As String,  _
+                    ByVal Documento As String,  _
+                    ByVal Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal FOB As Global.System.Nullable(Of Decimal),  _
+                    ByVal Flete As Global.System.Nullable(Of Decimal),  _
+                    ByVal Seguro As Global.System.Nullable(Of Decimal),  _
+                    ByVal Otros As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total As Global.System.Nullable(Of Decimal),  _
+                    ByVal Moneda As String,  _
+                    ByVal Factor_de_cambio_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Factor_de_cambio_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Factor_de_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Factor_de_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Diferencial_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Diferencial_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Id_documento_del_exterior As Long,  _
+                    ByVal Original_RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Tipo_de_documento As String,  _
+                    ByVal Original_Documento As String,  _
+                    ByVal Original_Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Original_FOB As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Flete As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Seguro As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Otros As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Moneda As String,  _
+                    ByVal Original_Factor_de_cambio_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_cambio_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Diferencial_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Diferencial_GTQ As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Id_documento_del_exterior,Long)
+            If (RL_id_costeo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(RL_id_costeo.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Tipo_de_documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Tipo_de_documento,String)
+            End If
+            If (Documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Documento,String)
+            End If
+            If (Fecha.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Fecha.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (FOB.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FOB.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Flete.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Flete.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Seguro.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Seguro.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (Otros.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Otros.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Total.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Total.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Moneda Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Moneda,String)
+            End If
+            If (Factor_de_cambio_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Factor_de_cambio_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (Total_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Total_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Factor_de_cambio_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Factor_de_cambio_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (Total_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Total_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Factor_de_provisión_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Factor_de_provisión_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (Total_provisión_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Total_provisión_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Factor_de_provisión_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Factor_de_provisión_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (Total_provisión_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Total_provisión_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (Diferencial_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Diferencial_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (Diferencial_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Diferencial_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Id_documento_del_exterior,Long)
+            If (Original_RL_id_costeo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_RL_id_costeo.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Tipo_de_documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Tipo_de_documento,String)
+            End If
+            If (Original_Documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Documento,String)
+            End If
+            If (Original_Fecha.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Fecha.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FOB.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_FOB.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Flete.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Flete.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Seguro.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Seguro.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Otros.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Otros.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Total.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Moneda Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_Moneda,String)
+            End If
+            If (Original_Factor_de_cambio_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_Factor_de_cambio_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_Total_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Factor_de_cambio_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_Factor_de_cambio_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_Total_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Factor_de_provisión_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_Factor_de_provisión_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_provisión_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_Total_provisión_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Factor_de_provisión_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_Factor_de_provisión_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Total_provisión_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_Total_provisión_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Diferencial_USD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_Diferencial_USD.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Diferencial_GTQ.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_Diferencial_GTQ.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Tipo_de_documento As String,  _
+                    ByVal Documento As String,  _
+                    ByVal Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal FOB As Global.System.Nullable(Of Decimal),  _
+                    ByVal Flete As Global.System.Nullable(Of Decimal),  _
+                    ByVal Seguro As Global.System.Nullable(Of Decimal),  _
+                    ByVal Otros As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total As Global.System.Nullable(Of Decimal),  _
+                    ByVal Moneda As String,  _
+                    ByVal Factor_de_cambio_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Factor_de_cambio_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Factor_de_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Factor_de_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Total_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Diferencial_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Diferencial_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Id_documento_del_exterior As Long,  _
+                    ByVal Original_RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Tipo_de_documento As String,  _
+                    ByVal Original_Documento As String,  _
+                    ByVal Original_Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Original_FOB As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Flete As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Seguro As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Otros As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Moneda As String,  _
+                    ByVal Original_Factor_de_cambio_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_cambio_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_provisión_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Factor_de_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Total_provisión_GTQ As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Diferencial_USD As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Diferencial_GTQ As Global.System.Nullable(Of Decimal)) As Integer
+            Return Me.Update(Original_Id_documento_del_exterior, RL_id_costeo, Tipo_de_documento, Documento, Fecha, FOB, Flete, Seguro, Otros, Total, Moneda, Factor_de_cambio_USD, Total_USD, Factor_de_cambio_GTQ, Total_GTQ, Factor_de_provisión_USD, Total_provisión_USD, Factor_de_provisión_GTQ, Total_provisión_GTQ, Diferencial_USD, Diferencial_GTQ, Original_Id_documento_del_exterior, Original_RL_id_costeo, Original_Tipo_de_documento, Original_Documento, Original_Fecha, Original_FOB, Original_Flete, Original_Seguro, Original_Otros, Original_Total, Original_Moneda, Original_Factor_de_cambio_USD, Original_Total_USD, Original_Factor_de_cambio_GTQ, Original_Total_GTQ, Original_Factor_de_provisión_USD, Original_Total_provisión_USD, Original_Factor_de_provisión_GTQ, Original_Total_provisión_GTQ, Original_Diferencial_USD, Original_Diferencial_GTQ)
+        End Function
     End Class
     
     '''<summary>
@@ -8177,6 +9033,38 @@ Namespace DS_BackOfficeTableAdapters
             tableMapping.ColumnMappings.Add("Valor", "Valor")
             tableMapping.ColumnMappings.Add("Valor_sin_IVA", "Valor_sin_IVA")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Documentos_locales] WHERE (([Id_documento_local] = @Original_Id_docu"& _ 
+                "mento_local) AND ((@IsNull_RL_id_costeo = 1 AND [RL_id_costeo] IS NULL) OR ([RL_"& _ 
+                "id_costeo] = @Original_RL_id_costeo)) AND ((@IsNull_Tipo_de_documento = 1 AND [T"& _ 
+                "ipo_de_documento] IS NULL) OR ([Tipo_de_documento] = @Original_Tipo_de_documento"& _ 
+                ")) AND ((@IsNull_Documento = 1 AND [Documento] IS NULL) OR ([Documento] = @Origi"& _ 
+                "nal_Documento)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fecha] = @Orig"& _ 
+                "inal_Fecha)) AND ((@IsNull_Proveedor = 1 AND [Proveedor] IS NULL) OR ([Proveedor"& _ 
+                "] = @Original_Proveedor)) AND ((@IsNull_Tipo_de_gasto = 1 AND [Tipo_de_gasto] IS"& _ 
+                " NULL) OR ([Tipo_de_gasto] = @Original_Tipo_de_gasto)) AND ((@IsNull_Valor = 1 A"& _ 
+                "ND [Valor] IS NULL) OR ([Valor] = @Original_Valor)) AND ((@IsNull_Valor_sin_IVA "& _ 
+                "= 1 AND [Valor_sin_IVA] IS NULL) OR ([Valor_sin_IVA] = @Original_Valor_sin_IVA))"& _ 
+                ")"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id_documento_local", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_documento_local", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tipo_de_documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo_de_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Fecha", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Proveedor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Proveedor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Proveedor", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Proveedor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tipo_de_gasto", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_gasto", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo_de_gasto", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_gasto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Valor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Valor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Valor_sin_IVA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Valor_sin_IVA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Valor_sin_IVA", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor_sin_IVA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Documentos_locales] ([Id_documento_local], [RL_id_costeo], [Tipo_de_"& _ 
@@ -8193,6 +9081,50 @@ Namespace DS_BackOfficeTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo_de_gasto", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_gasto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Valor_sin_IVA", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor_sin_IVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Documentos_locales] SET [Id_documento_local] = @Id_documento_local, [RL_i"& _ 
+                "d_costeo] = @RL_id_costeo, [Tipo_de_documento] = @Tipo_de_documento, [Documento]"& _ 
+                " = @Documento, [Fecha] = @Fecha, [Proveedor] = @Proveedor, [Tipo_de_gasto] = @Ti"& _ 
+                "po_de_gasto, [Valor] = @Valor, [Valor_sin_IVA] = @Valor_sin_IVA WHERE (([Id_docu"& _ 
+                "mento_local] = @Original_Id_documento_local) AND ((@IsNull_RL_id_costeo = 1 AND "& _ 
+                "[RL_id_costeo] IS NULL) OR ([RL_id_costeo] = @Original_RL_id_costeo)) AND ((@IsN"& _ 
+                "ull_Tipo_de_documento = 1 AND [Tipo_de_documento] IS NULL) OR ([Tipo_de_document"& _ 
+                "o] = @Original_Tipo_de_documento)) AND ((@IsNull_Documento = 1 AND [Documento] I"& _ 
+                "S NULL) OR ([Documento] = @Original_Documento)) AND ((@IsNull_Fecha = 1 AND [Fec"& _ 
+                "ha] IS NULL) OR ([Fecha] = @Original_Fecha)) AND ((@IsNull_Proveedor = 1 AND [Pr"& _ 
+                "oveedor] IS NULL) OR ([Proveedor] = @Original_Proveedor)) AND ((@IsNull_Tipo_de_"& _ 
+                "gasto = 1 AND [Tipo_de_gasto] IS NULL) OR ([Tipo_de_gasto] = @Original_Tipo_de_g"& _ 
+                "asto)) AND ((@IsNull_Valor = 1 AND [Valor] IS NULL) OR ([Valor] = @Original_Valo"& _ 
+                "r)) AND ((@IsNull_Valor_sin_IVA = 1 AND [Valor_sin_IVA] IS NULL) OR ([Valor_sin_"& _ 
+                "IVA] = @Original_Valor_sin_IVA)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id_documento_local", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_documento_local", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo_de_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Proveedor", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Proveedor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo_de_gasto", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_gasto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Valor_sin_IVA", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor_sin_IVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id_documento_local", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id_documento_local", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RL_id_costeo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RL_id_costeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tipo_de_documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo_de_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Documento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Fecha", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Proveedor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Proveedor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Proveedor", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Proveedor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tipo_de_gasto", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_gasto", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo_de_gasto", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo_de_gasto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Valor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Valor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Valor_sin_IVA", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Valor_sin_IVA", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Valor_sin_IVA", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "Valor_sin_IVA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8278,6 +9210,83 @@ Namespace DS_BackOfficeTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Id_documento_local As Long, ByVal Original_RL_id_costeo As Global.System.Nullable(Of Integer), ByVal Original_Tipo_de_documento As String, ByVal Original_Documento As String, ByVal Original_Fecha As Global.System.Nullable(Of Date), ByVal Original_Proveedor As String, ByVal Original_Tipo_de_gasto As String, ByVal Original_Valor As Global.System.Nullable(Of Decimal), ByVal Original_Valor_sin_IVA As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id_documento_local,Long)
+            If (Original_RL_id_costeo.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_RL_id_costeo.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Tipo_de_documento Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Tipo_de_documento,String)
+            End If
+            If (Original_Documento Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Documento,String)
+            End If
+            If (Original_Fecha.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Fecha.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Proveedor Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Proveedor,String)
+            End If
+            If (Original_Tipo_de_gasto Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Tipo_de_gasto,String)
+            End If
+            If (Original_Valor.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Valor.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Valor_sin_IVA.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Valor_sin_IVA.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
         Public Overloads Overridable Function Insert(ByVal Id_documento_local As Long, ByVal RL_id_costeo As Global.System.Nullable(Of Integer), ByVal Tipo_de_documento As String, ByVal Documento As String, ByVal Fecha As Global.System.Nullable(Of Date), ByVal Proveedor As String, ByVal Tipo_de_gasto As String, ByVal Valor As Global.System.Nullable(Of Decimal), ByVal Valor_sin_IVA As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(Id_documento_local,Long)
@@ -8334,6 +9343,167 @@ Namespace DS_BackOfficeTableAdapters
                     Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal Id_documento_local As Long,  _
+                    ByVal RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Tipo_de_documento As String,  _
+                    ByVal Documento As String,  _
+                    ByVal Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Proveedor As String,  _
+                    ByVal Tipo_de_gasto As String,  _
+                    ByVal Valor As Global.System.Nullable(Of Decimal),  _
+                    ByVal Valor_sin_IVA As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Id_documento_local As Long,  _
+                    ByVal Original_RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Tipo_de_documento As String,  _
+                    ByVal Original_Documento As String,  _
+                    ByVal Original_Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Proveedor As String,  _
+                    ByVal Original_Tipo_de_gasto As String,  _
+                    ByVal Original_Valor As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Valor_sin_IVA As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Id_documento_local,Long)
+            If (RL_id_costeo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(RL_id_costeo.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Tipo_de_documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Tipo_de_documento,String)
+            End If
+            If (Documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Documento,String)
+            End If
+            If (Fecha.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Fecha.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Proveedor Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Proveedor,String)
+            End If
+            If (Tipo_de_gasto Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Tipo_de_gasto,String)
+            End If
+            If (Valor.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Valor.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (Valor_sin_IVA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Valor_sin_IVA.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Id_documento_local,Long)
+            If (Original_RL_id_costeo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_RL_id_costeo.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Tipo_de_documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Tipo_de_documento,String)
+            End If
+            If (Original_Documento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Documento,String)
+            End If
+            If (Original_Fecha.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Fecha.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Proveedor Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Proveedor,String)
+            End If
+            If (Original_Tipo_de_gasto Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Tipo_de_gasto,String)
+            End If
+            If (Original_Valor.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Valor.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Valor_sin_IVA.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Valor_sin_IVA.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Tipo_de_documento As String,  _
+                    ByVal Documento As String,  _
+                    ByVal Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Proveedor As String,  _
+                    ByVal Tipo_de_gasto As String,  _
+                    ByVal Valor As Global.System.Nullable(Of Decimal),  _
+                    ByVal Valor_sin_IVA As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Id_documento_local As Long,  _
+                    ByVal Original_RL_id_costeo As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Tipo_de_documento As String,  _
+                    ByVal Original_Documento As String,  _
+                    ByVal Original_Fecha As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Proveedor As String,  _
+                    ByVal Original_Tipo_de_gasto As String,  _
+                    ByVal Original_Valor As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_Valor_sin_IVA As Global.System.Nullable(Of Decimal)) As Integer
+            Return Me.Update(Original_Id_documento_local, RL_id_costeo, Tipo_de_documento, Documento, Fecha, Proveedor, Tipo_de_gasto, Valor, Valor_sin_IVA, Original_Id_documento_local, Original_RL_id_costeo, Original_Tipo_de_documento, Original_Documento, Original_Fecha, Original_Proveedor, Original_Tipo_de_gasto, Original_Valor, Original_Valor_sin_IVA)
         End Function
     End Class
     

@@ -61,6 +61,7 @@
             .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
             .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
             .OptionsView.ColumnAutoWidth = False
+            GridView.BestFitColumns()
 
         End With
         Columna_empresa()
@@ -172,7 +173,6 @@
         Cargar_datos("Where (Formulario Is Not Null And Formulario <> '') And (Fecha_de_confirmación_de_pago Is Null Or Fecha_de_confirmación_de_pago = '')  Order By Documento")
         GridView.Columns("Empresa").Group()
         GridView.ExpandAllGroups()
-        GridView.BestFitColumns()
     End Sub
 
     Private Sub BBI_Liquidados_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Liquidados.ItemClick
@@ -182,7 +182,6 @@
         Cargar_datos("Where (Formulario Is Not Null And Formulario <> '') And (Fecha_de_solicitud_de_pago Is Not Null And Fecha_de_solicitud_de_pago <> '') And (Fecha_de_confirmación_de_pago Is Not Null And Fecha_de_confirmación_de_pago <> '') Order By Documento")
         GridView.Columns("Empresa").Group()
         GridView.ExpandAllGroups()
-        GridView.BestFitColumns()
     End Sub
 
     Private Sub GridView_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView.InitNewRow
@@ -196,7 +195,7 @@
         If GridView.GetRowCellValue(i, "Empresa").ToString <> "" And GridView.GetRowCellValue(i, "Tipo_de_mercaderia").ToString <> "" And GridView.GetRowCellValue(i, "Tipo_de_documento").ToString <> "" And GridView.GetRowCellValue(i, "Documento").ToString <> "" Then
             e.Valid = True
         Else
-            e.ErrorText = "Valida los campos tipo de ducumento y diferencia"
+            e.ErrorText = "Valida los campos Empresa, tipo de mercaderia, tipo de documento y documento"
             e.Valid = False
         End If
 
@@ -243,37 +242,56 @@
 
             For Each Emp In Empresas
 
-                Dim Datos = From R In DT Where R("Empresa") = Emp.Empresa And R("Formulario").ToString <> "" Group R By Empresa = R("Empresa").ToString, Documento = R("Documento").ToString, Boleta = R("Formulario").ToString, No_de_contingencia = R("No_de_contingencia_formulario").ToString Into Group
-                            Select New With {Empresa, Documento, Boleta, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_SAT") Is DBNull.Value, 0, x("Valor_SAT")))), No_de_contingencia}
+                Dim Datos = From R In DT Where R("Empresa") = Emp.Empresa And R("Formulario").ToString <> "" Group R By Empresa = R("Empresa").ToString, Documento = R("Documento").ToString, Boleta = R("Formulario").ToString, Fecha_solicitud = R("Fecha_de_solicitud_de_pago").ToString, No_de_contingencia = R("No_de_contingencia_formulario").ToString Into Group
+                            Select New With {Empresa, Documento, Boleta, Fecha_solicitud, .Valor = Group.Sum(Function(x) Decimal.Parse(IIf(x("Valor_SAT") Is DBNull.Value, 0, x("Valor_SAT")))), No_de_contingencia}
 
                 If Datos.Count.ToString > 0 Then
 
-                    MyString.AppendLine("<p><b><big>" + Emp.Empresa + "</big></b></p>")
-
-                    MyString.AppendLine("<left><table border='1' cellpadding='0' cellspacing='1'>")
-                    MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr bgcolor='#AEB6BF'>")
-                    MyString.AppendLine("<th align='center' valign='middle' width='150'> Empresa </th>")
-                    MyString.AppendLine("<th align='center' valign='middle' width='150'> Documento </th>")
-                    MyString.AppendLine("<th align='center' valign='middle' width='100'> Boleta</th>")
-                    MyString.AppendLine("<th align='center' valign='middle' width='150'> Valor </th>")
-                    MyString.AppendLine("<th align='center' valign='middle' width='200'> No. de contingencia </th>")
-
-                    MyString.AppendLine("</tr></font></tt>")
-
+                    Dim Dts As Integer = 0
                     For Each i In Datos
-                        MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
-                        MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Empresa + "&nbsp;</td>")
-                        MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Documento + "&nbsp;</td>")
-                        MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.Boleta) + "&nbsp;</td>")
-                        MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
-                        MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.No_de_contingencia) + "&nbsp;</td>")
-                        MyString.AppendLine("</tr></font></tt>")
+                        If i.Fecha_solicitud.ToString = "" Then
+                            Dts += 1
+                        End If
                     Next
 
-                    MyString.AppendLine("</table></left>")
+                    If Dts > 0 Then
 
+                        MyString.AppendLine("<p><b><big>" + Emp.Empresa + "</big></b></p>")
+
+                        MyString.AppendLine("<left><table border='1' cellpadding='0' cellspacing='1'>")
+                        MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr bgcolor='#eca41c'>")
+                        MyString.AppendLine("<th align='center' valign='middle' width='150'> Empresa </th>")
+                        MyString.AppendLine("<th align='center' valign='middle' width='150'> Documento </th>")
+                        MyString.AppendLine("<th align='center' valign='middle' width='100'> Boleta</th>")
+                        MyString.AppendLine("<th align='center' valign='middle' width='200'> No. de contingencia </th>")
+                        MyString.AppendLine("<th align='center' valign='middle' width='150'> Valor </th>")
+
+
+                        MyString.AppendLine("</tr></font></tt>")
+
+                        Dim Total As Double = 0
+                        For Each i In Datos
+                            If i.Fecha_solicitud.ToString = "" Then
+                                MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
+                                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Empresa + "&nbsp;</td>")
+                                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Documento + "&nbsp;</td>")
+                                MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.Boleta) + "&nbsp;</td>")
+                                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.No_de_contingencia) + "&nbsp;</td>")
+                                MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
+                                MyString.AppendLine("</tr></font></tt>")
+                                Total += i.Valor
+                            End If
+                        Next
+
+                        MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
+                        MyString.AppendLine("<td align='right' valign='middle' colspan=4><b> &nbsp; Total &nbsp;</b></td>")
+                        MyString.AppendLine("<td align='right' valign='middle'><b> &nbsp;" + Total.ToString("n2") + "&nbsp;</b></td>")
+                        MyString.AppendLine("</tr></font></tt>")
+
+                        MyString.AppendLine("</table></left>")
+
+                    End If
                 End If
-
             Next
 
             MyString.AppendLine("<p>""Recuerda que trabajar en equipo y confiar en la capacidad de este, forma parte del éxito.""</p>")
@@ -281,7 +299,6 @@
 
             Dim Dt_correo As DataTable = SQL.Tabla_de_datos("Select * From Seguimientos_y_correos Where Tipo_de_seguimiento ='Pagos Tesorería'")
             FN.Enviar_correo(, Dt_correo.Rows(0)("Correo_electronico_para").ToString, Dt_correo.Rows(0)("Correo_electronico_cc").ToString, Dt_correo.Rows(0)("Correo_electronico_cco").ToString, "Solicitud de pago de impuestos " & Fecha, MyString.ToString, )
-
 
         End If
     End Sub

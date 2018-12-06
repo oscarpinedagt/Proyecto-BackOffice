@@ -195,6 +195,9 @@
 
     Private Sub BBI_Imprimir_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Imprimir.ItemClick
         If GridControl.IsPrintingAvailable Then
+
+            Dim PSB As New DevExpress.XtraPrinting.PrintingSystem
+            Dim CLK As New DevExpress.XtraPrinting.PrintableComponentLink(PSB)
             Dim Fuente As Font = New Font("Tahoma", 5)
 
             GridView.AppearancePrint.HeaderPanel.Font = Fuente
@@ -204,29 +207,26 @@
             GridView.AppearancePrint.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
             GridView.AppearancePrint.GroupFooter.Font = Fuente
             GridView.OptionsPrint.UsePrintStyles = True
-            GridControl.ShowPrintPreview()
+
+            CLK.Component = GridControl
+            CLK.Margins = New System.Drawing.Printing.Margins(0, 0, 50, 35)
+
+            CType(CLK.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.Content.AddRange(New String() {"", "Tablero 4DX [Unidades y Tiempos]\[Semana - Mes - Rango]", "Año " + TE_Año.EditValue.ToString})
+            CType(CLK.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.LineAlignment = DevExpress.XtraPrinting.BrickAlignment.Far
+            CType(CLK.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.Font = New Font("Tahoma", 8, FontStyle.Bold)
+
+            CType(CLK.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Footer.Content.AddRange(New String() {"Datos presentados sobre = " + LUE_Datos_sobre.Text + "\ Grupo de empresas = " + LUE_Grupo_de_empresas.Text, "", "Página: [Page #] de [Páginas #]"})
+            CType(CLK.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Footer.Font = New Font("Tahoma", 6)
+
+            CLK.CreateDocument()
+
+            PSB.Document.AutoFitToPagesWidth = 1
+            PSB.PageSettings.Landscape = True
+            PSB.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Letter
+
+            CLK.ShowPreview()
+
         End If
     End Sub
 
-    Private Sub GridView_PrintInitialize(sender As Object, e As DevExpress.XtraGrid.Views.Base.PrintInitializeEventArgs) Handles GridView.PrintInitialize
-        Dim PSB As DevExpress.XtraPrinting.PrintingSystemBase = CType(e.PrintingSystem, DevExpress.XtraPrinting.PrintingSystemBase)
-        PSB.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Letter
-
-        PSB.Document.AutoFitToPagesWidth = 1
-
-        PSB.PageSettings.Landscape = True
-        PSB.PageSettings.TopMargin = 50
-        PSB.PageSettings.LeftMargin = 0
-        PSB.PageSettings.RightMargin = 0
-        PSB.PageSettings.BottomMargin = 35
-
-        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.Content.AddRange(New String() {"", "Tablero 4DX [Unidades y Tiempos]\[Semana - Mes - Rango]", "Año " + TE_Año.EditValue.ToString})
-        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.LineAlignment = DevExpress.XtraPrinting.BrickAlignment.Far
-        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Header.Font = New Font("Tahoma", 8, FontStyle.Bold)
-
-        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Footer.Content.AddRange(New String() {"Datos presentados sobre = " + LUE_Datos_sobre.Text + "\ Grupo de empresas = " + LUE_Grupo_de_empresas.Text, "", "Página: [Page #] de [Páginas #]"})
-        CType(e.Link.PageHeaderFooter, DevExpress.XtraPrinting.PageHeaderFooter).Footer.Font = New Font("Tahoma", 6)
-
-
-    End Sub
 End Class

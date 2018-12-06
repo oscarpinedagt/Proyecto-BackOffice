@@ -109,7 +109,7 @@
     End Sub
 
     Private Sub BBI_DashBoard_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_DashBoard.ItemClick
-        Dim GF As New Tableros_4DX_Graficos
+        Dim GF As New Tableros_4DX_DashBoard
         GF.Show()
     End Sub
 
@@ -119,5 +119,9 @@
 
     Private Sub BBI_REP_Pago_de_impuestos_Tesorería_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_REP_Pago_de_impuestos_Tesorería.ItemClick
         FN.Abrir_formulario(Me, Reportes_Pago_de_impuestos_Tesorería)
+    End Sub
+
+    Private Sub BBI_Graficas_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Graficas.ItemClick
+        FN.Abrir_formulario(Me, Tableros_4DX_Graficos)
     End Sub
 End Class

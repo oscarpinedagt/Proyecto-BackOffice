@@ -18,13 +18,11 @@
         With GridView
 
             For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns
+                CL.Caption = Replace(CL.FieldName, "_", " ")
 
                 If CL.FieldName.ToString.Contains("Fecha") Then
-                    CL.Caption = "Fecha"
                     CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
                     CL.DisplayFormat.FormatString = "g"
-                Else
-                    CL.Caption = Replace(CL.FieldName, "_", " ")
                 End If
 
                 Select Case CL.FieldName
@@ -58,7 +56,6 @@
         Dim FI As Date = DE_Fecha_inicial.DateTime.ToString("dd/MM/yyyy 00:00:01")
         Dim FF As Date = DE_Fecha_final.DateTime.ToString("dd/MM/yyyy 23:59:59")
 
-        MsgBox(FI)
         If FF >= FI Then
 
             Cargar_datos("Select Empresa,DUA as Documento,Formulario_IPRIMA as Formulario,Sum(Valor_IPRIMA_SAT) as Valor_SAT,'Pago de IPRIMA'as Solicitud,Fecha_de_solicitud_de_pago,Fecha_de_confirmación_de_pago,Avg(Tiempo_de_pago_en_HRS) as Tiempo_de_pago_en_HRS From Control_de_iprima Where " + CF + " Between '" + FI.ToString + "' And '" + FF.ToString + "' Group By Empresa,DUA,Formulario_IPRIMA,Fecha_de_solicitud_de_pago,Fecha_de_confirmación_de_pago

@@ -214,7 +214,7 @@
     End Sub
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
-        If e.KeyData = Keys.Delete Then
+        If e.KeyData = Keys.Shift + Keys.Delete Then
             If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Eliminar"}
                 SEG.ShowDialog()
@@ -222,6 +222,8 @@
                     GridView.DeleteRow(GridView.FocusedRowHandle)
                 End If
             End If
+        ElseIf e.KeyData = Keys.Delete Then
+            GridView.SetRowCellValue(GridView.FocusedRowHandle, GridView.FocusedColumn, Nothing)
         End If
     End Sub
 
@@ -256,27 +258,32 @@
                     MyString.AppendLine("<th align='center' valign='middle' width='150'> Empresa </th>")
                     MyString.AppendLine("<th align='center' valign='middle' width='150'> Póliza </th>")
                     MyString.AppendLine("<th align='center' valign='middle' width='100'> Boleta</th>")
-                    MyString.AppendLine("<th align='center' valign='middle' width='150'> Valor </th>")
                     MyString.AppendLine("<th align='center' valign='middle' width='200'> No. de contingencia </th>")
-
+                    MyString.AppendLine("<th align='center' valign='middle' width='150'> Valor </th>")
                     MyString.AppendLine("</tr></font></tt>")
 
+                    Dim Total As Double = 0
                     For Each i In Datos
                         MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
                         MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Empresa + "&nbsp;</td>")
                         MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + i.Póliza + "&nbsp;</td>")
                         MyString.AppendLine("<td align='center' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.Boleta) + "&nbsp;</td>")
-                        MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
                         MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + FN.Quitar_espacios_innecesarios(i.No_de_contingencia) + "&nbsp;</td>")
+                        MyString.AppendLine("<td align='right' valign='middle'> &nbsp;" + i.Valor.ToString("n2") + "&nbsp;</td>")
                         MyString.AppendLine("</tr></font></tt>")
+                        Total += i.Valor
                     Next
+
+                    MyString.AppendLine("<tt><font face='calibri,arial narrow'><tr>")
+                    MyString.AppendLine("<td align='right' valign='middle' colspan=4><b> &nbsp; Total &nbsp;</b></td>")
+                    MyString.AppendLine("<td align='right' valign='middle'><b> &nbsp;" + Total.ToString("n2") + "&nbsp;</b></td>")
+                    MyString.AppendLine("</tr></font></tt>")
 
                     MyString.AppendLine("</table></left>")
 
                 End If
 
             Next
-
 
             MyString.AppendLine("<p>""Recuerda que trabajar en equipo y confiar en la capacidad de este, forma parte del éxito.""</p>")
             MyString.AppendLine("</font></tt></body></html>")
