@@ -6,6 +6,7 @@
         TE_Año.EditValue = Now.ToString("yyyy")
         TE_Meta.EditValue = 0.85
         Cargar_mes()
+        Cargar_datos_sobre()
     End Sub
 
     Private Sub Cargar_grupo_de_empresas()
@@ -36,28 +37,52 @@
 
         Dim DT As New DataTable
 
+        DT.Columns.Add("Num_y_Mes")
         DT.Columns.Add("Mes")
         For i As Integer = 1 To 12
-            DT.Rows.Add(StrConv(MonthName(i), VbStrConv.ProperCase))
+            DT.Rows.Add(i.ToString("00") + "-" + Strings.Left(StrConv(MonthName(i), VbStrConv.ProperCase), 3), StrConv(MonthName(i), VbStrConv.ProperCase))
         Next
 
         With LUE_Mes.Properties
             .DataSource = DT
-            .ValueMember = "Mes"
+            .ValueMember = "Num_y_Mes"
             .DisplayMember = "Mes"
+            .PopulateColumns()
+            .Columns(.ValueMember).Visible = False
             .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
             LUE_Mes.EditValue = .GetKeyValueByDisplayText(StrConv(Now.ToString("MMMM"), VbStrConv.ProperCase))
         End With
 
     End Sub
 
+    Private Sub Cargar_datos_sobre()
+
+        Dim DT As New DataTable
+        DT.Columns.Add("DS")
+        DT.Columns.Add("Datos_sobre")
+        DT.Rows.Add("Rec_Ela", "Recibido - Elaborado")
+        DT.Rows.Add("Rec_Env", "Recibido - Enviado")
+
+        With LUE_Datos_sobre.Properties
+            .DataSource = DT
+            .ValueMember = "DS"
+            .DisplayMember = "Datos_sobre"
+            .PopulateColumns()
+            .Columns(.ValueMember).Visible = False
+            .Columns(.DisplayMember).Caption = Replace(.DisplayMember, "_", " ")
+            .BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+            LUE_Datos_sobre.EditValue = .GetKeyValueByDisplayText("Recibido - Elaborado")
+        End With
+
+    End Sub
+
     Private Sub Cargar_unidades_recibidas_por_mes(Condicion As String)
         With Chart_Unidades_costeadas
-            .DataSource = SQL.Tabla_de_datos("Select a.Costeos,a.Mes,Sum(a.Ingresos) as Ingresos 
-                                              From (Select Grupo_de_empresas,'Costeos' as Costeos,Recibido,Estadia_Rec_Env as Estadia,Estado,DateName(Year,Fecha_de_recepcion) as Año,DateName(Month,Fecha_de_recepcion) as Mes,DatePart(Month,Fecha_de_recepcion) as Orden_mes,'Semana '+Format(Semana_recepcion,'00') as Semana,Count(Ingreso_a_bodega) as Ingresos From Costeos Group By Grupo_de_empresas,Recibido,Estadia_Rec_Env,Estado,Fecha_de_recepcion,Semana_recepcion) a 
-                                              Where " + Condicion + " 
-                                              Group By a.Costeos,a.Mes,a.Orden_mes 
-                                              Order By a.Orden_mes")
+            .DataSource = SQL.Tabla_de_datos("Select * From 
+                                             (Select a.Costeos,a.Mes,COUNT(a.Ingreso_a_bodega) As Ingresos From
+                                             (Select Grupo_de_empresas,Recibido,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " as Estadia,Estado,Año_recepcion As Año,Format(No_mes_recepcion,'00')+'-'+Left(Mes_recepcion,3) As Mes,'Semana - '+Format(Semana_recepcion,'00') As Semana,Ingreso_a_bodega,'Costeos' As Costeos From Costeos)a
+                                              Where " + Condicion + "
+                                              Group By a.Costeos,a.Mes)b")
 
             .SeriesTemplate.SeriesDataMember = "Costeos"
             .SeriesTemplate.ArgumentDataMember = "Mes"
@@ -72,7 +97,7 @@
 
             .SeriesTemplate.LabelsVisibility = True
             .SeriesTemplate.Label.TextAlignment = StringAlignment.Far
-            .SeriesTemplate.Label.TextOrientation = DevExpress.XtraCharts.TextOrientation.BottomToTop
+            .SeriesTemplate.Label.TextOrientation = DevExpress.XtraCharts.TextOrientation.Horizontal
             .SeriesTemplate.View = New DevExpress.XtraCharts.LineSeriesView With {.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True}
 
         End With
@@ -80,19 +105,20 @@
 
     Private Sub Cargar_cumplimiento_mensual(Condicion As String)
         With Chart_Progreso
-            .DataSource = SQL.Tabla_de_datos("Select * from
-                                             (Select a.Costeos,a.Mes,a.Orden_mes,Round((Convert(float,sum(a.Ingresos_Dr))/Convert(float,Sum(a.Ingresos)))*100,0) as Cumplimiento
-                                              From (Select Grupo_de_empresas,'Cumplimiento' as Costeos,Recibido,Estadia_Rec_Env as Estadia,Estado,DateName(Year,Fecha_de_recepcion) as Año,DateName(Month,Fecha_de_recepcion) as Mes,DatePart(Month,Fecha_de_recepcion) as Orden_mes,'Semana '+Format(Semana_recepcion,'00') as Semana,Count(Ingreso_a_bodega) as Ingresos,iif(Estadia_Rec_Env='Dentro de rango', Count(Ingreso_a_bodega),0) as Ingresos_Dr From Costeos Group By Grupo_de_empresas,Recibido,Estadia_Rec_Env,Estado,Fecha_de_recepcion,Semana_recepcion) a 
-											  Where " + Condicion + " 
-                                              Group By a.Costeos,a.Mes,a.Orden_mes)a
-                                              
-                                              Union all 										  
+            .DataSource = SQL.Tabla_de_datos("Select * From 
+                                             (Select b.Costeos,b.Mes,Round((Convert(Float,Sum(b.Ingresos_DR),0))/Convert(Float,Sum(b.Ingresos))*100,0) As Cumplimiento From
+                                             (Select a.Costeos,a.Mes,a.Estadia,Count(a.Ingreso_a_bodega) as Ingresos,Iif(a.Estadia ='Dentro de rango', Count(a.Ingreso_a_bodega),0) as Ingresos_DR From
+                                             (Select Grupo_de_empresas,Recibido,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " as Estadia,Estado,Año_recepcion As Año,Format(No_mes_recepcion,'00')+'-'+Left(Mes_recepcion,3) As Mes,'Semana - '+Format(Semana_recepcion,'00') As Semana,Ingreso_a_bodega,'Cumplimiento' As Costeos From Costeos)a
+                                              Where " + Condicion + " 
+                                              Group By a.Costeos,a.Mes,a.Estadia)b
+                                              Group By b.Costeos,b.Mes)c
 
-                                             (Select a.Costeos,a.Mes,a.Orden_mes,Round(" + TE_Meta.EditValue.ToString + "*100,0) as Cumplimiento
-                                              From (Select Grupo_de_empresas,'Meta' as Costeos,Recibido,Estadia_Rec_Env as Estadia,Estado,DateName(Year,Fecha_de_recepcion) as Año,DateName(Month,Fecha_de_recepcion) as Mes,DatePart(Month,Fecha_de_recepcion) as Orden_mes,'Semana '+Format(Semana_recepcion,'00') as Semana,Count(Ingreso_a_bodega) as Ingresos,iif(Estadia_Rec_Env='Dentro de rango', Count(Ingreso_a_bodega),0) as Ingresos_Dr From Costeos Group By Grupo_de_empresas,Recibido,Estadia_Rec_Env,Estado,Fecha_de_recepcion,Semana_recepcion) a 
-											  Where " + Condicion + " 
-                                              Group By a.Costeos,a.Mes,a.Orden_mes)
-											  Order by Orden_mes")
+                                             Union all
+
+                                             (Select a.Costeos,a.Mes,Round(" + TE_Meta.EditValue.ToString + "*100,0) As Cumplimiento From
+                                             (Select Grupo_de_empresas,Recibido,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " as Estadia,Estado,Año_recepcion As Año,Format(No_mes_recepcion,'00')+'-'+Left(Mes_recepcion,3) As Mes,'Semana - '+Format(Semana_recepcion,'00') As Semana,Ingreso_a_bodega,'Meta' As Costeos From Costeos)a
+                                              Where " + Condicion + " 
+                                              Group By a.Costeos,a.Mes)")
 
             .SeriesTemplate.SeriesDataMember = "Costeos"
             .SeriesTemplate.ArgumentDataMember = "Mes"
@@ -108,7 +134,7 @@
             .SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True
             .SeriesTemplate.Label.LineLength = 15
             .SeriesTemplate.Label.TextAlignment = StringAlignment.Far
-            .SeriesTemplate.Label.TextOrientation = DevExpress.XtraCharts.TextOrientation.BottomToTop
+            .SeriesTemplate.Label.TextOrientation = DevExpress.XtraCharts.TextOrientation.Horizontal
             .SeriesTemplate.View = New DevExpress.XtraCharts.LineSeriesView With {.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True}
 
 
@@ -116,20 +142,22 @@
     End Sub
 
     Private Sub Cargar_cumplimiento_anual(Condicion As String)
-        Dim DT As DataTable = SQL.Tabla_de_datos("Select Convert(float, sum(a.Ingresos_Dr)) / Convert(float, Sum(a.Ingresos)) As Cumplimiento
-                                                  From(Select Grupo_de_empresas,'Costeos cumplimiento' as Costeos,Recibido,Estadia_Rec_Env as Estadia,Estado,DateName(Year,Fecha_de_recepcion) as Año,DateName(Month,Fecha_de_recepcion) as Mes,DatePart(Month,Fecha_de_recepcion) as Orden_mes,'Semana '+Format(Semana_recepcion,'00') as Semana,Count(Ingreso_a_bodega) as Ingresos,iif(Estadia_Rec_Env='Dentro de rango', Count(Ingreso_a_bodega),0) as Ingresos_Dr From Costeos Group By Grupo_de_empresas,Recibido,Estadia_Rec_Env,Estado,Fecha_de_recepcion,Semana_recepcion) a 
+        Dim DT As DataTable = SQL.Tabla_de_datos("Select * From 
+                                                 (Select Convert(Float,Sum(b.Ingresos_DR),0)/Convert(Float,Sum(b.Ingresos)) As Cumplimiento From
+                                                 (Select a.Costeos,a.Mes,a.Estadia,Count(a.Ingreso_a_bodega) as Ingresos,Iif(a.Estadia ='Dentro de rango', Count(a.Ingreso_a_bodega),0) as Ingresos_DR From
+                                                 (Select Grupo_de_empresas,Recibido,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " as Estadia,Estado,Año_recepcion As Año,Format(No_mes_recepcion,'00')+'-'+Left(Mes_recepcion,3) As Mes,'Semana - '+Format(Semana_recepcion,'00') As Semana,Ingreso_a_bodega,'Cumplimiento' As Costeos From Costeos)a
                                                   Where " + Condicion + " 
-                                                  Group By a.Costeos")
+                                                  Group By a.Costeos,a.Mes,a.Estadia)b)c")
         LC_Cumplimiento.Text = "Meta anual " + Format(TE_Meta.EditValue, "0.00%") + " cumplimiento " + Format(DT.Rows(0)("Cumplimiento"), "0.00%")
     End Sub
 
     Private Sub Cargar_estadia_por_mes(Condicion As String)
         With Chart_Estadia_por_mes
-            .DataSource = SQL.Tabla_de_datos("Select a.Estadia,a.Mes,Sum(a.Ingresos) as Ingresos 
-                                              From (Select Grupo_de_empresas,Recibido,Estadia_Rec_Env as Estadia,Estado,DateName(Year,Fecha_de_recepcion) as Año,DateName(Month,Fecha_de_recepcion) as Mes,DatePart(Month,Fecha_de_recepcion) as Orden_mes,'Semana '+Format(Semana_recepcion,'00') as Semana,Count(Ingreso_a_bodega) as Ingresos From Costeos Group By Grupo_de_empresas,Recibido,Estadia_Rec_Env,Estado,Fecha_de_recepcion,Semana_recepcion) a 
+            .DataSource = SQL.Tabla_de_datos("Select * From
+                                             (Select a.Mes,a.Estadia,Count(a.Ingreso_a_bodega) Ingresos From
+                                             (Select Grupo_de_empresas,Recibido,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " as Estadia,Estado,Año_recepcion As Año,Format(No_mes_recepcion,'00')+'-'+Left(Mes_recepcion,3) As Mes,'Semana - '+Format(Semana_recepcion,'00') As Semana,Ingreso_a_bodega From Costeos)a
                                               Where " + Condicion + " 
-                                              Group By a.Estadia,a.Mes,a.Orden_mes 
-                                              Order By a.Orden_mes ")
+                                              Group By a.Mes,a.Estadia)b")
 
             .SeriesTemplate.SeriesDataMember = "Estadia"
             .SeriesTemplate.ArgumentDataMember = "Mes"
@@ -153,12 +181,11 @@
 
     Private Sub Cargar_estadia_por_semana(Condicion As String)
         With Chart_Estadia_por_semana
-            .DataSource = SQL.Tabla_de_datos("Select a.Estadia,a.Semana,Sum(a.Ingresos) as Ingresos 
-                                              From (Select Grupo_de_empresas,Recibido,Estadia_Rec_Env as Estadia,Estado,DateName(Year,Fecha_de_recepcion) as Año,DateName(Month,Fecha_de_recepcion) as Mes,DatePart(Month,Fecha_de_recepcion) as Orden_mes,'Semana '+Format(Semana_recepcion,'00') as Semana,Count(Ingreso_a_bodega) as Ingresos From Costeos Group By Grupo_de_empresas,Recibido,Estadia_Rec_Env,Estado,Fecha_de_recepcion,Semana_recepcion) a 
+            .DataSource = SQL.Tabla_de_datos("Select * From
+                                             (Select a.Semana,a.Estadia,Count(a.Ingreso_a_bodega) Ingresos From
+                                             (Select Grupo_de_empresas,Recibido,Estadia_" + LUE_Datos_sobre.EditValue.ToString + " as Estadia,Estado,Año_recepcion As Año,Format(No_mes_recepcion,'00')+'-'+Left(Mes_recepcion,3) As Mes,'Semana - '+Format(Semana_recepcion,'00') As Semana,Ingreso_a_bodega From Costeos)a
                                               Where " + Condicion + " 
-                                              Group By a.Estadia,a.Semana")
-
-
+                                              Group By a.Semana,a.Estadia)b")
 
             .SeriesTemplate.SeriesDataMember = "Estadia"
             .SeriesTemplate.ArgumentDataMember = "Semana"

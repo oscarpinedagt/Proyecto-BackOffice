@@ -71,8 +71,6 @@
     Private Sub Configurar_GridControl()
         With GridView
 
-
-
             For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns
                 CL.Caption = Replace(CL.FieldName, "_", " ")
                 CL.UnGroup()

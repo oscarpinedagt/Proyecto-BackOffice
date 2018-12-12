@@ -65,7 +65,7 @@ Partial Class Reportes_seguro
         Me.Menú.DockCol = 0
         Me.Menú.DockRow = 0
         Me.Menú.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Menú.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_a_Excel)})
+        Me.Menú.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_información), New DevExpress.XtraBars.LinkPersistInfo(Me.BBI_Generar_a_Excel, True)})
         Me.Menú.OptionsBar.UseWholeRow = True
         Me.Menú.Text = "Menú"
         '
@@ -121,6 +121,11 @@ Partial Class Reportes_seguro
         'GridControl
         '
         Me.GridControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl.EmbeddedNavigator.Buttons.Append.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Edit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.EndEdit.Visible = False
+        Me.GridControl.EmbeddedNavigator.Buttons.Remove.Visible = False
         Me.GridControl.Location = New System.Drawing.Point(0, 85)
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"

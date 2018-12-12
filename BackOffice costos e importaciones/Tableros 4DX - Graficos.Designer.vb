@@ -20,11 +20,11 @@ Partial Class Tableros_4DX_Graficos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartTitle5 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
+        Dim ChartTitle6 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
+        Dim ChartTitle7 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
+        Dim ChartTitle8 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tableros_4DX_Graficos))
-        Dim ChartTitle1 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
-        Dim ChartTitle2 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
-        Dim ChartTitle3 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
-        Dim ChartTitle4 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Generar_información = New DevExpress.XtraBars.BarButtonItem()
@@ -34,6 +34,9 @@ Partial Class Tableros_4DX_Graficos
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.PC_Parametros = New DevExpress.XtraEditors.PanelControl()
+        Me.LC_Datos_sobre = New DevExpress.XtraEditors.LabelControl()
+        Me.LUE_Datos_sobre = New DevExpress.XtraEditors.LookUpEdit()
+        Me.CKE_Auto_actualizar = New DevExpress.XtraEditors.CheckEdit()
         Me.LC_Mes = New DevExpress.XtraEditors.LabelControl()
         Me.LC_Grupo_de_empresas = New DevExpress.XtraEditors.LabelControl()
         Me.LC_Meta = New DevExpress.XtraEditors.LabelControl()
@@ -59,10 +62,11 @@ Partial Class Tableros_4DX_Graficos
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.TMR_Auto_actualizar = New System.Windows.Forms.Timer(Me.components)
-        Me.CKE_Auto_actualizar = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.BarManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PC_Parametros.SuspendLayout()
+        CType(Me.LUE_Datos_sobre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CKE_Auto_actualizar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LUE_Mes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TE_Meta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TE_Año.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,7 +83,6 @@ Partial Class Tableros_4DX_Graficos
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CKE_Auto_actualizar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager
@@ -155,6 +158,8 @@ Partial Class Tableros_4DX_Graficos
         '
         'PC_Parametros
         '
+        Me.PC_Parametros.Controls.Add(Me.LC_Datos_sobre)
+        Me.PC_Parametros.Controls.Add(Me.LUE_Datos_sobre)
         Me.PC_Parametros.Controls.Add(Me.CKE_Auto_actualizar)
         Me.PC_Parametros.Controls.Add(Me.LC_Mes)
         Me.PC_Parametros.Controls.Add(Me.LC_Grupo_de_empresas)
@@ -169,6 +174,35 @@ Partial Class Tableros_4DX_Graficos
         Me.PC_Parametros.Name = "PC_Parametros"
         Me.PC_Parametros.Size = New System.Drawing.Size(898, 59)
         Me.PC_Parametros.TabIndex = 0
+        '
+        'LC_Datos_sobre
+        '
+        Me.LC_Datos_sobre.Location = New System.Drawing.Point(536, 6)
+        Me.LC_Datos_sobre.Name = "LC_Datos_sobre"
+        Me.LC_Datos_sobre.Size = New System.Drawing.Size(58, 13)
+        Me.LC_Datos_sobre.TabIndex = 8
+        Me.LC_Datos_sobre.Text = "Datos sobre"
+        '
+        'LUE_Datos_sobre
+        '
+        Me.LUE_Datos_sobre.Location = New System.Drawing.Point(536, 26)
+        Me.LUE_Datos_sobre.MenuManager = Me.BarManager
+        Me.LUE_Datos_sobre.Name = "LUE_Datos_sobre"
+        Me.LUE_Datos_sobre.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.LUE_Datos_sobre.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.LUE_Datos_sobre.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.LUE_Datos_sobre.Properties.NullText = ""
+        Me.LUE_Datos_sobre.Size = New System.Drawing.Size(150, 20)
+        Me.LUE_Datos_sobre.TabIndex = 9
+        '
+        'CKE_Auto_actualizar
+        '
+        Me.CKE_Auto_actualizar.Location = New System.Drawing.Point(692, 26)
+        Me.CKE_Auto_actualizar.MenuManager = Me.BarManager
+        Me.CKE_Auto_actualizar.Name = "CKE_Auto_actualizar"
+        Me.CKE_Auto_actualizar.Properties.Caption = "Auto-Actualizar"
+        Me.CKE_Auto_actualizar.Size = New System.Drawing.Size(99, 19)
+        Me.CKE_Auto_actualizar.TabIndex = 10
         '
         'LC_Mes
         '
@@ -293,6 +327,7 @@ Partial Class Tableros_4DX_Graficos
         Me.LayoutControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl.Location = New System.Drawing.Point(0, 85)
         Me.LayoutControl.Name = "LayoutControl"
+        Me.LayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(790, 320, 650, 400)
         Me.LayoutControl.Root = Me.LayoutControlGroup
         Me.LayoutControl.Size = New System.Drawing.Size(898, 483)
         Me.LayoutControl.TabIndex = 1
@@ -322,10 +357,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Progreso.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Progreso.Size = New System.Drawing.Size(435, 214)
         Me.Chart_Progreso.TabIndex = 2
-        ChartTitle1.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle1.Indent = 0
-        ChartTitle1.Text = "Cumplimiento mensual"
-        Me.Chart_Progreso.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle1})
+        ChartTitle5.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle5.Indent = 0
+        ChartTitle5.Text = "Cumplimiento mensual"
+        Me.Chart_Progreso.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle5})
         '
         'Chart_Unidades_costeadas
         '
@@ -335,10 +370,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Unidades_costeadas.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Unidades_costeadas.Size = New System.Drawing.Size(435, 214)
         Me.Chart_Unidades_costeadas.TabIndex = 1
-        ChartTitle2.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle2.Indent = 0
-        ChartTitle2.Text = "Unidades recibidas por mes"
-        Me.Chart_Unidades_costeadas.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle2})
+        ChartTitle6.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle6.Indent = 0
+        ChartTitle6.Text = "Unidades recibidas por mes"
+        Me.Chart_Unidades_costeadas.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle6})
         '
         'Chart_Estadia_por_semana
         '
@@ -348,10 +383,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Estadia_por_semana.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Estadia_por_semana.Size = New System.Drawing.Size(435, 215)
         Me.Chart_Estadia_por_semana.TabIndex = 4
-        ChartTitle3.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle3.Indent = 0
-        ChartTitle3.Text = "Estadia de costeos por semana"
-        Me.Chart_Estadia_por_semana.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle3})
+        ChartTitle7.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle7.Indent = 0
+        ChartTitle7.Text = "Estadia de costeos por semana"
+        Me.Chart_Estadia_por_semana.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle7})
         '
         'Chart_Estadia_por_mes
         '
@@ -361,19 +396,20 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Estadia_por_mes.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Estadia_por_mes.Size = New System.Drawing.Size(435, 215)
         Me.Chart_Estadia_por_mes.TabIndex = 3
-        ChartTitle4.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle4.Indent = 0
-        ChartTitle4.Text = "Estadia de costeos por mes"
-        Me.Chart_Estadia_por_mes.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle4})
+        ChartTitle8.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle8.Indent = 0
+        ChartTitle8.Text = "Estadia de costeos por mes"
+        Me.Chart_Estadia_por_mes.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle8})
         '
         'LayoutControlGroup
         '
         Me.LayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup.ExpandButtonVisible = True
+        Me.LayoutControlGroup.ExpandOnDoubleClick = True
         Me.LayoutControlGroup.GroupBordersVisible = False
         Me.LayoutControlGroup.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem1, Me.LayoutControlItem5})
-        Me.LayoutControlGroup.Name = "LayoutControlGroup"
+        Me.LayoutControlGroup.Name = "Root"
         Me.LayoutControlGroup.Size = New System.Drawing.Size(898, 483)
-        Me.LayoutControlGroup.TextVisible = False
         '
         'LayoutControlItem4
         '
@@ -430,15 +466,6 @@ Partial Class Tableros_4DX_Graficos
         '
         Me.TMR_Auto_actualizar.Interval = 60000
         '
-        'CKE_Auto_actualizar
-        '
-        Me.CKE_Auto_actualizar.Location = New System.Drawing.Point(537, 29)
-        Me.CKE_Auto_actualizar.MenuManager = Me.BarManager
-        Me.CKE_Auto_actualizar.Name = "CKE_Auto_actualizar"
-        Me.CKE_Auto_actualizar.Properties.Caption = "Auto-Actualizar"
-        Me.CKE_Auto_actualizar.Size = New System.Drawing.Size(99, 19)
-        Me.CKE_Auto_actualizar.TabIndex = 8
-        '
         'Tableros_4DX_Graficos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -462,6 +489,8 @@ Partial Class Tableros_4DX_Graficos
         CType(Me.PC_Parametros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PC_Parametros.ResumeLayout(False)
         Me.PC_Parametros.PerformLayout()
+        CType(Me.LUE_Datos_sobre.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CKE_Auto_actualizar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LUE_Mes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Meta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TE_Año.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -478,7 +507,6 @@ Partial Class Tableros_4DX_Graficos
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CKE_Auto_actualizar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -518,4 +546,6 @@ Partial Class Tableros_4DX_Graficos
     Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents CKE_Auto_actualizar As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents TMR_Auto_actualizar As Windows.Forms.Timer
+    Friend WithEvents LC_Datos_sobre As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LUE_Datos_sobre As DevExpress.XtraEditors.LookUpEdit
 End Class

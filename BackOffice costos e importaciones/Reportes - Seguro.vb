@@ -4,8 +4,8 @@
 
     Private Sub Seguro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_datos("Where Id_seguro = 0")
-        DE_Fecha_inicial.DateTime = Format(Now, "01/MM/yyyy")
-        DE_Fecha_final.DateTime = Format(Now, "dd/MM/yyyy")
+        DE_Fecha_inicial.DateTime = Now.ToString("01/MM/yyyy")
+        DE_Fecha_final.DateTime = Now.ToString("dd/MM/yyyy")
     End Sub
 
     Private Sub Cargar_datos(Condicion As String)
@@ -19,7 +19,6 @@
             For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns
 
                 If CL.FieldName.ToString.Contains("Fecha") Then
-                    CL.Caption = "Fecha"
                     CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
                     CL.DisplayFormat.FormatString = "d"
                 Else
@@ -65,8 +64,8 @@
 
     Private Sub BBI_Generar_información_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_información.ItemClick
         Dim CF As String = "Fecha_de_provisión"
-        Dim FI As DateTime = Convert.ToDateTime(DE_Fecha_inicial.DateTime.ToShortDateString + " 00:00:01")
-        Dim FF As DateTime = Convert.ToDateTime(DE_Fecha_final.DateTime.ToShortDateString + " 23:59:59")
+        Dim FI As Date = DE_Fecha_inicial.DateTime.ToShortDateString
+        Dim FF As Date = DE_Fecha_final.DateTime.ToShortDateString
         If FF >= FI Then
             Cargar_datos("Where (" + CF + " Between '" + FI.ToString + "' And '" + FF.ToString + "') Or " + CF + " Is Null Or " + CF + "='' Order By " + CF)
         End If
@@ -74,7 +73,7 @@
 
     Private Sub BBI_Generar_a_Excel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBI_Generar_a_Excel.ItemClick
         If GridView.RowCount > 0 Then
-            FN.Exportar_GridControl_a_Excel(GridControl, "Seguro del " + Replace(DE_Fecha_inicial.DateTime.ToShortDateString, "/", "") + " al " + Replace(DE_Fecha_final.DateTime.ToShortDateString, "/", ""))
+            FN.Exportar_GridControl_a_Excel(GridControl, "Seguro del " + Replace(DE_Fecha_inicial.DateTime.ToShortDateString, "/", "-") + " al " + Replace(DE_Fecha_final.DateTime.ToShortDateString, "/", "-"))
         End If
     End Sub
 
@@ -83,7 +82,7 @@
     End Sub
 
     Private Sub GridView_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView.KeyDown
-        If e.KeyData = Keys.Delete Then
+        If e.KeyData = Keys.Shift + Keys.Delete Then
             If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Eliminar"}
                 SEG.ShowDialog()

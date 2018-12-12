@@ -339,13 +339,22 @@
     Public Sub Exportar_GridControl_a_Excel(GC As DevExpress.XtraGrid.GridControl, Nombre As String)
         Dim SFD As New SaveFileDialog With {.Filter = "Exportar formato Excel|*.xlsx", .FileName = Nombre}
         If SFD.ShowDialog = Windows.Forms.DialogResult.OK Then
-            Dim OP As New DevExpress.XtraPrinting.XlsxExportOptions With {.ShowGridLines = False, .FitToPrintedPageWidth = True}
-            GC.ExportToXlsx(SFD.FileName, OP)
+            Dim OP As New DevExpress.XtraPrinting.XlsxExportOptionsEx With {.ExportType = DevExpress.Export.ExportType.DataAware, .ShowGridLines = True}
+
+            CType(OP, DevExpress.Export.IDataAwareExportOptions).AllowHorzLines = DevExpress.Utils.DefaultBoolean.False
+            CType(OP, DevExpress.Export.IDataAwareExportOptions).AllowVertLines = DevExpress.Utils.DefaultBoolean.False
+
+            Dim GV As DevExpress.XtraGrid.Views.Grid.GridView = GC.MainView
+
+            GV.ExportToXlsx(SFD.FileName, OP)
+
             If MsgBox("Desea abrir el archivo", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 Process.Start(SFD.FileName, vbMaximizedFocus)
             End If
+
         End If
     End Sub
+
 
     '*****************************
 

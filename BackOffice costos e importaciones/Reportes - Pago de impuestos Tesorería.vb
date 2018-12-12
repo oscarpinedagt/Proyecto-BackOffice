@@ -36,13 +36,39 @@
                 End Select
 
                 Select Case CL.FieldName
-                    Case "Valor_SAT", "Tiempo_de_pago_en_HRS"
+                    Case "Valor_SAT"
                         CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         CL.DisplayFormat.FormatString = "n2"
+
+                        Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Sum, .ShowInGroupColumnFooter = GridView.Columns(CL.FieldName), .DisplayFormat = "{0:n2}"}
+                        .GroupSummary.Add(Item)
+
+                        With CL.SummaryItem
+                            .SummaryType = DevExpress.Data.SummaryItemType.Sum
+                            .FieldName = CL.FieldName
+                            .DisplayFormat = "{0:n2}"
+                        End With
+
+                End Select
+
+                Select Case CL.FieldName
+                    Case "Tiempo_de_pago_en_HRS"
+                        CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        CL.DisplayFormat.FormatString = "n2"
+
+                        Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Average, .ShowInGroupColumnFooter = GridView.Columns(CL.FieldName), .DisplayFormat = "{0:n2}"}
+                        .GroupSummary.Add(Item)
+
+                        With CL.SummaryItem
+                            .SummaryType = DevExpress.Data.SummaryItemType.Average
+                            .FieldName = CL.FieldName
+                            .DisplayFormat = "{0:n2}"
+                        End With
+
                 End Select
 
             Next
-            .ExpandAllGroups()
+            '.ExpandAllGroups()
             .OptionsBehavior.Editable = False
             .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
             .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None

@@ -351,7 +351,7 @@
 
     Private Sub GridView_DE_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView_DE.InitNewRow
 
-        GridView_DE.SetRowCellValue(e.RowHandle, "Id_documento_del_exterior", Format(Now, "yyMMddHHmmssfff"))
+        GridView_DE.SetRowCellValue(e.RowHandle, "Id_documento_del_exterior", Now.ToString("yyMMddHHmmssfff"))
         GridView_DE.SetRowCellValue(e.RowHandle, "RL_id_costeo", ID)
 
         If LUE_Moneda.EditValue <> Nothing Then
@@ -478,11 +478,13 @@
     End Sub
 
     Private Sub GridView_DE_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView_DE.KeyDown
-        If e.KeyData = Keys.Delete Then
+        If e.KeyData = Keys.Shift + Keys.Delete Then
             If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 GridView_DE.DeleteRow(GridView_DE.FocusedRowHandle)
                 Total_general()
             End If
+        ElseIf e.KeyData = Keys.Delete Then
+            GridView_DE.SetRowCellValue(GridView_DE.FocusedRowHandle, GridView_DE.FocusedColumn, Nothing)
         End If
     End Sub
 
@@ -693,11 +695,13 @@
     End Sub
 
     Private Sub GridView_DL_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView_DL.KeyDown
-        If e.KeyData = Keys.Delete Then
+        If e.KeyData = Keys.Shift + Keys.Delete Then
             If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 GridView_DL.DeleteRow(GridView_DL.FocusedRowHandle)
                 Total_general()
             End If
+        ElseIf e.KeyData = Keys.Delete Then
+            GridView_DL.SetRowCellValue(GridView_DL.FocusedRowHandle, GridView_DL.FocusedColumn, Nothing)
         End If
     End Sub
 
@@ -1020,10 +1024,12 @@
     End Sub
 
     Private Sub GridView_CF_KeyDown(sender As Object, e As KeyEventArgs) Handles GridView_CF.KeyDown
-        If e.KeyData = Keys.Delete Then
+        If e.KeyData = Keys.Shift + Keys.Delete Then
             If MsgBox("Esta seguro de eliminar el contenido", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 GridView_CF.DeleteRow(GridView_CF.FocusedRowHandle)
             End If
+        ElseIf e.KeyData = Keys.Delete Then
+            GridView_CF.SetRowCellValue(GridView_CF.FocusedRowHandle, GridView_CF.FocusedColumn, Nothing)
         End If
     End Sub
 
@@ -1599,6 +1605,12 @@
                                                     GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvNeg"))
                                                     GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvNeg"))
                                                     GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvNeg"))
+                                                ElseIf LUE_Tipo_de_mercadería.EditValue = "Vehiculos" And GridView_DL.GetRowCellValue(i, "Tipo_de_gasto") = "Gastos bancarios" Then
+                                                    GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_ProvPos"))
+                                                    GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_ProvPos"))
+                                                    GridView_CT.SetRowCellValue(Dr, "DP", Dt.Rows(0)("DP_ProvPos"))
+                                                    GridView_CT.SetRowCellValue(Dr, "SC", Dt.Rows(0)("SC_ProvPos"))
+                                                    GridView_CT.SetRowCellValue(Dr, "CC", Dt.Rows(0)("CC_ProvPos"))
                                                 Else
                                                     GridView_CT.SetRowCellValue(Dr, "Alterno", Dt.Rows(0)("CT_GtsLoc"))
                                                     GridView_CT.SetRowCellValue(Dr, "SE", Dt.Rows(0)("SE_GtsLoc"))
@@ -2235,7 +2247,7 @@
                 FN.Validar_controles(NP_Datos_de_importación)
                 FN.Validar_controles(NP_Declaración_aduanal)
 
-                Dim Dt_DOC As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select Pedido,Factura,Tasa,Count(No_de_Inv) As VH,Sum(Fob) As FOB,Sum(Flete) As Flete,Sum(Seguro) As Seguro,Sum(Arancel) As Arancel,Sum(Agente)+Sum(Gastos_bancarios)+Sum(Terrestre)+Sum(Muellaje)+Sum(Oirsa)+Sum(Otros) As Gastos From [Costeo$] Group By Pedido,Factura,Tasa")
+                Dim Dt_DOC As DataTable = SQL.Tabla_de_datos_desde_Excel(File.FileName, "Select Pedido,Factura,Tasa,Count(No_de_Inv) As VH,Sum(Fob) As FOB,Sum(Flete) As Flete,Sum(Seguro) As Seguro,Sum(Arancel) As Arancel,Sum(Gastos_bancarios) As Gastos_bancarios,Sum(Agente)+Sum(Terrestre)+Sum(Muellaje)+Sum(Oirsa)+Sum(Otros) As Gastos From [Costeo$] Group By Pedido,Factura,Tasa")
                 For Each Dr As DataRow In Dt_DOC.Rows
                     If Dr("Factura").ToString <> "" Then
                         'Documento
@@ -2268,8 +2280,14 @@
                         End If
                     End If
 
-                    For x As Integer = 1 To 2
-                        GridView_DL.AddNewRow()
+                    For x As Integer = 1 To 3
+
+                        If x <> 2 Then
+                            GridView_DL.AddNewRow()
+                        ElseIf x = 2 And Val(Dr("Gastos_bancarios").ToString) > 0 Then
+                            GridView_DL.AddNewRow()
+                        End If
+
                         Dim Dr_DL As Integer = GridView_DL.GetRowHandle(GridView_DL.DataRowCount)
                         If GridView_DE.IsNewItemRow(Dr_DL) Then
                             Select Case x
@@ -2281,6 +2299,13 @@
                                     GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_gasto", "Iprima")
                                     GridView_DL.SetRowCellValue(Dr_DL, "Valor", Dr("Arancel"))
                                 Case 2
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_documento", "GTS")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Documento", TE_Dua_Fauca_Face.EditValue + "-VH-" + Dr("VH").ToString + "-" + Dr("Pedido").ToString)
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Fecha", CDate(TE_Fecha_de_arribo.EditValue).ToShortDateString)
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Proveedor", "GENERAL")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_gasto", "Gastos bancarios")
+                                    GridView_DL.SetRowCellValue(Dr_DL, "Valor", Dr("Gastos_bancarios"))
+                                Case 3
                                     GridView_DL.SetRowCellValue(Dr_DL, "Tipo_de_documento", "GTS")
                                     GridView_DL.SetRowCellValue(Dr_DL, "Documento", TE_Dua_Fauca_Face.EditValue + "-VH-" + Dr("VH").ToString + "-" + Dr("Pedido").ToString)
                                     GridView_DL.SetRowCellValue(Dr_DL, "Fecha", CDate(TE_Fecha_de_arribo.EditValue).ToShortDateString)

@@ -1,6 +1,12 @@
 ﻿Public Class Seguimientos_Garantias_fabrica_taller
     Dim SQL As New BackOffice_datos.SQL, SQL_FC As New BackOffice_datos.SQL, SQL_LQ As New BackOffice_datos.SQL
     Dim FN As New BackOffice_servicios.Funciones
+    Dim DS As DataSet
+
+    Private Sub Seguimientos_Garantias_fabrica_taller_Load(sender As Object, e As EventArgs) Handles Me.Load
+        DE_Fecha_inicial.DateTime = Now.ToString("01/MM/yyyy")
+        DE_Fecha_final.DateTime = Now.ToString("dd/MM/yyyy")
+    End Sub
 
     Private Sub GC_Facturación_CustomButtonClick(sender As Object, e As DevExpress.XtraBars.Docking2010.BaseButtonEventArgs) Handles GC_Facturación.CustomButtonClick
         Select Case e.Button.Properties.Caption
@@ -47,16 +53,46 @@
             Case "Saldo por factura"
                 Cargar_saldo_por_factura()
 
+            Case "Generar a Excel"
+
+                If GridView_FC.RowCount > 0 Then
+                    FN.Exportar_GridControl_a_Excel(GridControl_FC, "Facturación garantias fabrica taller del " + Replace(DE_Fecha_inicial.DateTime.ToShortDateString, "/", "-") + " al " + Replace(DE_Fecha_final.DateTime.ToShortDateString, "/", "-"))
+                End If
+
         End Select
 
     End Sub
 
     Private Sub Cargar_saldos_detalle_facturación()
 
-        Dim DS As New DataSet
+        Dim CF As String = "a.Fecha_de_factura"
+        Dim FI As Date = DE_Fecha_inicial.DateTime.ToShortDateString
+        Dim FF As Date = DE_Fecha_final.DateTime.ToShortDateString
 
-        DS.Tables.Add(SQL_FC.Tabla_con_actualización_de_datos("Select a.Id_facturación,a.Empresa,a.Factura,a.Fecha_de_factura,a.No_de_orden,a.Total_bruto,a.Descuento,a.IVA,a.Total_neto,a.Tipo_de_liquidación,IsNull(b.Valor_fabrica_GTQ,0) As Valor_fabrica_GTQ,IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0) As Diferencia From Garantias_fabrica_taller_facturación a Left Join (Select Empresa,Factura,No_de_orden,Sum(Valor_fabrica_GTQ) As Valor_fabrica_GTQ From Garantias_fabrica_taller_liquidación Group By Empresa,Factura,No_de_orden) b On a.Empresa=b.Empresa And a.Factura=b.Factura And a.No_de_orden=b.No_de_orden Left Join (Select Empresa,Factura,No_de_orden,IIF(Tipo_de_liquidación='Bruto',Total_bruto,Total_neto) As Valor_a_liquidar From Garantias_fabrica_taller_facturación) c On a.Empresa=c.Empresa And a.Factura=c.Factura And a.No_de_orden=c.No_de_orden where (IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0))<>0"))
+        DS = New DataSet
+
+        DS.Reset()
+
+        DS.Tables.Add(SQL_FC.Tabla_con_actualización_de_datos("Select a.Id_facturación,a.Empresa,a.Factura,a.Fecha_de_factura,a.No_de_orden,a.Total_bruto,a.Descuento,a.IVA,a.Total_neto,a.Tipo_de_liquidación,t.Transferencias,IsNull(b.Valor_fabrica_GTQ,0) As Valor_fabrica_GTQ,IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0) As Diferencia From Garantias_fabrica_taller_facturación a 
+																Left Join 
+															   (Select Empresa,Factura,No_de_orden,Sum(Valor_fabrica_GTQ) As Valor_fabrica_GTQ From Garantias_fabrica_taller_liquidación 
+															    Group By Empresa,Factura,No_de_orden) b 
+																On a.Empresa=b.Empresa And a.Factura=b.Factura And a.No_de_orden=b.No_de_orden 
+															    Left Join 
+															   (Select Empresa,Factura,No_de_orden,IIF(Tipo_de_liquidación='Bruto',Total_bruto,Total_neto) As Valor_a_liquidar From Garantias_fabrica_taller_facturación) c 
+															    On a.Empresa=c.Empresa And a.Factura=c.Factura And a.No_de_orden=c.No_de_orden
+																Left Join
+															   (Select b.Empresa,b.Factura,b.No_de_orden, STUFF(( Select ', '+'['+ Transferencia+' - '+convert(nvarchar,Fecha_de_transferencia,103)+']' From Garantias_fabrica_taller_liquidación a 
+															    Where a.Empresa=b.empresa and a.Factura=b.Factura and a.No_de_orden=b.No_de_orden Group by a.Empresa,a.Factura,a.No_de_orden,a.Transferencia,a.Fecha_de_transferencia For xml Path('')),1,1,'') as Transferencias from Garantias_fabrica_taller_liquidación  b
+															    Group by b.Empresa,b.Factura,b.No_de_orden) t
+                                                                On a.Empresa=t.Empresa And a.Factura=t.Factura and a.No_de_orden=t.No_de_orden
+
+                                                                Where " + CF + " Between '" + FI.ToString + "' And '" + FF.ToString + "'"))
+
         DS.Tables.Add(SQL_LQ.Tabla_con_actualización_de_datos("Select Id_liquidación,RL_Id_facturación,Transferencia,Fecha_de_transferencia,Valor_fabrica,Factor_de_cambio_USD,Factor_de_cambio_GTQ,Valor_fabrica_GTQ,Comentarios From Garantias_fabrica_taller_liquidación"))
+
+        GridView_FC.Columns.Clear()
+        GridControl_FC.DataSource = Nothing
 
         Dim KeyCol As DataColumn = DS.Tables(0).Columns("Id_facturación")
         Dim ForeIngKeyCol As DataColumn = DS.Tables(1).Columns("RL_Id_facturación")
@@ -90,9 +126,19 @@
                 End Select
 
                 Select Case CL.FieldName
-                    Case "Total_bruto", "Descuento", "IVA", "Total_neto", "Diferencia"
+                    Case "Total_bruto", "Descuento", "IVA", "Total_neto", "Valor_fabrica_GTQ", "Diferencia"
                         CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         CL.DisplayFormat.FormatString = "n2"
+
+                        Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Sum, .ShowInGroupColumnFooter = GridView_FC.Columns(CL.FieldName), .DisplayFormat = "{0:n2}"}
+                        .GroupSummary.Add(Item)
+
+                        With CL.SummaryItem
+                            .SummaryType = DevExpress.Data.SummaryItemType.Sum
+                            .FieldName = CL.FieldName
+                            .DisplayFormat = "{0:n2}"
+                        End With
+
                 End Select
 
             Next
@@ -109,7 +155,8 @@
                                                  End Sub
             .OptionsBehavior.Editable = False
             .ExpandAllGroups()
-            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
+            .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
@@ -166,7 +213,8 @@
             .OptionsView.ShowFooter = True
             .OptionsSelection.MultiSelect = True
             .ExpandAllGroups()
-            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
+            .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
@@ -194,10 +242,33 @@
 
     Private Sub Cargar_saldo_cero_detalle_facturación()
 
-        Dim DS As New DataSet
+        Dim CF As String = "a.Fecha_de_factura"
+        Dim FI As Date = DE_Fecha_inicial.DateTime.ToShortDateString
+        Dim FF As Date = DE_Fecha_final.DateTime.ToShortDateString
 
-        DS.Tables.Add(SQL_FC.Tabla_con_actualización_de_datos("Select a.Id_facturación,a.Empresa,a.Factura,a.Fecha_de_factura,a.No_de_orden,a.Total_bruto,a.Descuento,a.IVA,a.Total_neto,a.Tipo_de_liquidación,IsNull(b.Valor_fabrica_GTQ,0) As Valor_fabrica_GTQ,IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0) As Diferencia From Garantias_fabrica_taller_facturación a Left Join (Select Empresa,Factura,No_de_orden,Sum(Valor_fabrica_GTQ) As Valor_fabrica_GTQ From Garantias_fabrica_taller_liquidación Group By Empresa,Factura,No_de_orden) b On a.Empresa=b.Empresa And a.Factura=b.Factura And a.No_de_orden=b.No_de_orden Left Join (Select Empresa,Factura,No_de_orden,IIF(Tipo_de_liquidación='Bruto',Total_bruto,Total_neto) As Valor_a_liquidar From Garantias_fabrica_taller_facturación) c On a.Empresa=c.Empresa And a.Factura=c.Factura And a.No_de_orden=c.No_de_orden where (IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0))=0"))
+        DS = New DataSet
+
+        DS.Reset()
+
+        DS.Tables.Add(SQL_FC.Tabla_con_actualización_de_datos("Select a.Id_facturación,a.Empresa,a.Factura,a.Fecha_de_factura,a.No_de_orden,a.Total_bruto,a.Descuento,a.IVA,a.Total_neto,a.Tipo_de_liquidación,t.Transferencias,IsNull(b.Valor_fabrica_GTQ,0) As Valor_fabrica_GTQ,IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0) As Diferencia From Garantias_fabrica_taller_facturación a 
+                                                               Left Join 
+                                                              (Select Empresa,Factura,No_de_orden,Sum(Valor_fabrica_GTQ) As Valor_fabrica_GTQ From Garantias_fabrica_taller_liquidación 
+                                                               Group By Empresa,Factura,No_de_orden) b 
+                                                               On a.Empresa=b.Empresa And a.Factura=b.Factura And a.No_de_orden=b.No_de_orden 
+                                                               Left Join 
+                                                              (Select Empresa,Factura,No_de_orden,IIF(Tipo_de_liquidación='Bruto',Total_bruto,Total_neto) As Valor_a_liquidar From Garantias_fabrica_taller_facturación) c 
+                                                               On a.Empresa=c.Empresa And a.Factura=c.Factura And a.No_de_orden=c.No_de_orden
+															   Left Join
+															  (Select b.Empresa,b.Factura,b.No_de_orden, STUFF(( Select ', '+'['+ Transferencia+' - '+convert(nvarchar,Fecha_de_transferencia,103)+']' From Garantias_fabrica_taller_liquidación a Where a.Empresa=b.empresa and a.Factura=b.Factura and a.No_de_orden=b.No_de_orden Group by a.Empresa,a.Factura,a.No_de_orden,a.Transferencia,a.Fecha_de_transferencia For xml Path('')),1,1,'') as Transferencias from Garantias_fabrica_taller_liquidación  b
+															   Group by b.Empresa,b.Factura,b.No_de_orden) t
+                                                               On a.Empresa=t.Empresa And a.Factura=t.Factura and a.No_de_orden=t.No_de_orden 
+                                                          
+                                                               Where " + CF + " Between '" + FI.ToString + "' And '" + FF.ToString + "' And (IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0))=0"))
+
         DS.Tables.Add(SQL_LQ.Tabla_con_actualización_de_datos("Select Id_liquidación,RL_Id_facturación,Transferencia,Fecha_de_transferencia,Valor_fabrica,Factor_de_cambio_USD,Factor_de_cambio_GTQ,Valor_fabrica_GTQ,Comentarios From Garantias_fabrica_taller_liquidación"))
+
+        GridView_FC.Columns.Clear()
+        GridControl_FC.DataSource = Nothing
 
         Dim KeyCol As DataColumn = DS.Tables(0).Columns("Id_facturación")
         Dim ForeIngKeyCol As DataColumn = DS.Tables(1).Columns("RL_Id_facturación")
@@ -231,9 +302,19 @@
                 End Select
 
                 Select Case CL.FieldName
-                    Case "Total_bruto", "Descuento", "IVA", "Total_neto", "Diferencia"
+                    Case "Total_bruto", "Descuento", "IVA", "Total_neto", "Valor_fabrica_GTQ", "Diferencia"
                         CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         CL.DisplayFormat.FormatString = "n2"
+
+                        Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Sum, .ShowInGroupColumnFooter = GridView_FC.Columns(CL.FieldName), .DisplayFormat = "{0:n2}"}
+                        .GroupSummary.Add(Item)
+
+                        With CL.SummaryItem
+                            .SummaryType = DevExpress.Data.SummaryItemType.Sum
+                            .FieldName = CL.FieldName
+                            .DisplayFormat = "{0:n2}"
+                        End With
+
                 End Select
 
             Next
@@ -250,7 +331,8 @@
                                                  End Sub
             .OptionsBehavior.Editable = False
             .ExpandAllGroups()
-            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
+            .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
@@ -307,7 +389,8 @@
             .OptionsView.ShowFooter = True
             .OptionsSelection.MultiSelect = True
             .ExpandAllGroups()
-            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
+            .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
@@ -316,7 +399,28 @@
 
     Private Sub Cargar_saldo_por_factura()
 
-        GridControl_FC.DataSource = SQL_FC.Tabla_de_datos("Select a.Empresa,a.Factura,a.Fecha_de_factura,SUM(a.Total_bruto) as Total_bruto,Sum(a.Descuento) as Descuento,Sum(a.IVA) as IVA,Sum(a.Total_neto) as Total_neto,a.Tipo_de_liquidación,IsNull(b.Valor_fabrica_GTQ,0) As Valor_fabrica_GTQ,IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0) As Diferencia From Garantias_fabrica_taller_facturación a Left Join (Select Empresa,Factura,IsNull(Sum(Valor_fabrica_GTQ),0) As Valor_fabrica_GTQ From Garantias_fabrica_taller_liquidación Group By Empresa,Factura) b On a.Empresa=b.Empresa And a.Factura=b.Factura Left Join (Select Empresa,Factura,IIF(Tipo_de_liquidación='Bruto',Sum(Total_bruto),Sum(Total_neto)) As Valor_a_liquidar From Garantias_fabrica_taller_facturación Group by Empresa,Factura,Tipo_de_liquidación) c On a.Empresa=c.Empresa And a.Factura=c.Factura Group by a.Empresa,a.Factura,a.Fecha_de_factura,a.Tipo_de_liquidación,b.Valor_fabrica_GTQ,c.Valor_a_liquidar")
+        Dim CF As String = "a.Fecha_de_factura"
+        Dim FI As Date = DE_Fecha_inicial.DateTime.ToShortDateString
+        Dim FF As Date = DE_Fecha_final.DateTime.ToShortDateString
+
+        GridView_FC.Columns.Clear()
+        GridControl_FC.DataSource = Nothing
+
+        GridControl_FC.DataSource = SQL_FC.Tabla_de_datos("Select a.Empresa,a.Factura,a.Fecha_de_factura,SUM(a.Total_bruto) as Total_bruto,Sum(a.Descuento) as Descuento,Sum(a.IVA) as IVA,Sum(a.Total_neto) as Total_neto,a.Tipo_de_liquidación,t.Transferencias,IsNull(b.Valor_fabrica_GTQ,0) As Valor_fabrica_GTQ,IsNull(c.Valor_a_liquidar,0)-IsNull(b.Valor_fabrica_GTQ,0) As Diferencia From Garantias_fabrica_taller_facturación a 
+                                                           Left Join 
+                                                          (Select Empresa,Factura,IsNull(Sum(Valor_fabrica_GTQ),0) As Valor_fabrica_GTQ From Garantias_fabrica_taller_liquidación 
+                                                           Group By Empresa,Factura) b 
+                                                           On a.Empresa=b.Empresa And a.Factura=b.Factura 
+                                                           Left Join 
+                                                          (Select Empresa,Factura,IIF(Tipo_de_liquidación='Bruto',Sum(Total_bruto),Sum(Total_neto)) As Valor_a_liquidar From Garantias_fabrica_taller_facturación 
+                                                           Group by Empresa,Factura,Tipo_de_liquidación) c 
+                                                           On a.Empresa=c.Empresa And a.Factura=c.Factura 
+                                                           Left Join
+                                                          (Select b.Empresa,b.Factura, STUFF(( Select ', '+'['+ Transferencia+' - '+convert(nvarchar,Fecha_de_transferencia,103)+']' From Garantias_fabrica_taller_liquidación a Where a.Empresa=b.empresa and a.Factura=b.Factura Group by a.Empresa,a.Factura,a.Transferencia,a.Fecha_de_transferencia For xml Path('')),1,1,'') as Transferencias from Garantias_fabrica_taller_liquidación  b
+                                                           Group by b.Empresa,b.Factura) t
+                                                           On a.Empresa=t.Empresa And a.Factura=t.Factura
+                                                           Where " + CF + " Between '" + FI.ToString + "' And '" + FF.ToString + "'
+                                                           Group by a.Empresa,a.Factura,a.Fecha_de_factura,t.Transferencias,a.Tipo_de_liquidación,b.Valor_fabrica_GTQ,c.Valor_a_liquidar")
 
         With GridView_FC
             For Each CL As DevExpress.XtraGrid.Columns.GridColumn In .Columns
@@ -330,19 +434,24 @@
                 End If
 
                 Select Case CL.FieldName
-                    Case "Id_facturación"
-                        CL.Visible = False
-                End Select
-
-                Select Case CL.FieldName
                     Case "Empresa"
                         CL.Group()
                 End Select
 
                 Select Case CL.FieldName
-                    Case "Total_bruto", "Descuento", "IVA", "Total_neto", "Diferencia"
+                    Case "Total_bruto", "Descuento", "IVA", "Total_neto", "Valor_fabrica_GTQ", "Diferencia"
                         CL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         CL.DisplayFormat.FormatString = "n2"
+
+                        Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Sum, .ShowInGroupColumnFooter = GridView_FC.Columns(CL.FieldName), .DisplayFormat = "{0:n2}"}
+                        .GroupSummary.Add(Item)
+
+                        With CL.SummaryItem
+                            .SummaryType = DevExpress.Data.SummaryItemType.Sum
+                            .FieldName = CL.FieldName
+                            .DisplayFormat = "{0:n2}"
+                        End With
+
                 End Select
 
             Next
@@ -359,7 +468,8 @@
                                                  End Sub
             .OptionsBehavior.Editable = False
             .ExpandAllGroups()
-            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
+            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.True
+            .OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None
             .OptionsView.ColumnAutoWidth = False
             .BestFitColumns()
         End With
@@ -397,7 +507,7 @@
                     For Each Dr As DataRow In Dt_Uniauto.Rows
                         If Dr("Transferencia").ToString <> "" Then
                             If SQL.Duplicados("Garantias_fabrica_taller_liquidación", "Where Empresa+Factura+No_de_orden+Transferencia ='UNIAUTO, S.A." + Dr("Factura").ToString + Dr("No_de_orden").ToString + Dr("Transferencia").ToString + "'") = False Then
-                                SQL.Insertar("Garantias_fabrica_taller_liquidación", "Id_liquidación,RL_Id_facturación,Empresa,Transferencia,Fecha_de_transferencia,Factura,Fecha_de_factura,No_de_orden,VIN,Valor_fabrica,Factor_de_cambio_USD,Factor_de_cambio_GTQ,Valor_fabrica_GTQ,Comentarios", Now.ToString("yyMMddHHmmssfff") + "," + FN.Campo_tabla(SQL.Extraer_informacion_de_columna("Id_facturación", "Garantias_fabrica_taller_facturación", "Where Empresa+Factura+No_de_orden='UNIAUTO, S.A." + Dr("Factura").ToString + Dr("No_de_orden").ToString + "'")) + ",'UNIAUTO, S.A.'," + FN.Campo_tabla(Dr("Transferencia")) + "," + FN.Campo_tabla(Dr("Fecha_de_transferencia")) + "," + FN.Campo_tabla(Dr("Factura")) + "," + FN.Campo_tabla(Dr("Fecha_de_factura")) + "," + FN.Campo_tabla(Dr("No_de_orden")) + "," + FN.Campo_tabla(Dr("VIN")) + "," + FN.Campo_tabla(Dr("Valor_fabrica")) + "," + FN.Campo_tabla(Dr("Factor_de_cambio_USD")) + "," + FN.Campo_tabla(Dr("Factor_de_cambio_GTQ")) + "," + FN.Campo_tabla(Dr("Valor_fabrica_GTQ")) + "," + FN.Campo_tabla(Dr("Comentarios")))
+        SQL.Insertar("Garantias_fabrica_taller_liquidación", "Id_liquidación,RL_Id_facturación,Empresa,Transferencia,Fecha_de_transferencia,Factura,Fecha_de_factura,No_de_orden,VIN,Valor_fabrica,Factor_de_cambio_USD,Factor_de_cambio_GTQ,Valor_fabrica_GTQ,Comentarios", Now.ToString("yyMMddHHmmssfff") + "," + FN.Campo_tabla(SQL.Extraer_informacion_de_columna("Id_facturación", "Garantias_fabrica_taller_facturación", "Where Empresa+Factura+No_de_orden='UNIAUTO, S.A." + Dr("Factura").ToString + Dr("No_de_orden").ToString + "'")) + ",'UNIAUTO, S.A.'," + FN.Campo_tabla(Dr("Transferencia")) + "," + FN.Campo_tabla(Dr("Fecha_de_transferencia")) + "," + FN.Campo_tabla(Dr("Factura")) + "," + FN.Campo_tabla(Dr("Fecha_de_factura")) + "," + FN.Campo_tabla(Dr("No_de_orden")) + "," + FN.Campo_tabla(Dr("VIN")) + "," + FN.Campo_tabla(Dr("Valor_fabrica")) + "," + FN.Campo_tabla(Dr("Factor_de_cambio_USD")) + "," + FN.Campo_tabla(Dr("Factor_de_cambio_GTQ")) + "," + FN.Campo_tabla(Dr("Valor_fabrica_GTQ")) + "," + FN.Campo_tabla(Dr("Comentarios")))
                             End If
                         End If
                     Next
