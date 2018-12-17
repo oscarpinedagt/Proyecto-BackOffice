@@ -105,12 +105,12 @@
                 Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Eliminar"}
                 SEG.ShowDialog()
                 If SEG.Resultado = True Then
-                    SQL.Eliminar("DUAS_IPRIMAS_FAUCAS_Registro", "Lote_No=" + TE_Lote_No.ToString)
-                    SQL.Eliminar("DUAS_IPRIMAS_FAUCAS", "RL_Lote_No=" + TE_Lote_No.ToString)
+                    SQL.Eliminar("DUAS_IPRIMAS_FAUCAS_Registro", "Lote_No=" + TE_Lote_No.EditValue.ToString)
+                    SQL.Eliminar("DUAS_IPRIMAS_FAUCAS", "RL_Lote_No=" + TE_Lote_No.EditValue.ToString)
                     BBI_Cancelar_ItemClick(sender, Nothing)
                 End If
             Catch ex As Exception
-                MsgBox(ex.Message.ToString, MsgBoxStyle.Critical, "Eliminar usuario")
+                MsgBox(ex.Message.ToString, MsgBoxStyle.Critical, "Eliminar contenido")
             End Try
         End If
     End Sub

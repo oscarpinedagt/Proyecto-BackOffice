@@ -1,5 +1,11 @@
 ﻿Public Class Costeos_en_proceso
     Dim SQL As New BackOffice_datos.SQL
+    Public Property DTS As Integer
+
+    Public Sub New()
+        InitializeComponent()
+        Cargar_costeos_en_proceso()
+    End Sub
 
     Private Sub Costeos_en_proceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text = Text & " al " & Now
@@ -9,6 +15,11 @@
 
     Private Sub TMR_Cerrar_notificación_Tick(sender As Object, e As EventArgs) Handles TMR_Cerrar_notificación.Tick
         Dispose()
+    End Sub
+
+    Private Sub Cargar_costeos_en_proceso()
+        GridControl.DataSource = SQL.Tabla_de_datos("SELECT Costeo_asignado_a,Empresa,Tipo_de_mercaderia,Sub_empresa,Tipo_de_importacion,Compra,Ingreso_a_bodega,Fecha_de_recepcion,Elaborado,Dif_Rec_Ela,Enviado,Dif_Rec_Env,Comentarios From Costeos Where Recibido='True' And ((Elaborado='False' or Elaborado Is Null) Or (Enviado='False' or Enviado Is Null)) And (Fecha_de_ingreso_a_bodega>= GETDATE()-60) Order By Ingreso_a_bodega")
+        DTS = GridView.RowCount
     End Sub
 
     Private Sub Configurar_costeos_en_proceso()
@@ -27,11 +38,6 @@
                     Case "Costeo_asignado_a", "Empresa", "Tipo_de_mercaderia", "Sub_empresa"
                         CL.Group()
                 End Select
-
-                'If CL.FieldName.Contains("Ingreso_a_bodega") Then
-                '    Dim Item As DevExpress.XtraGrid.GridGroupSummaryItem = New DevExpress.XtraGrid.GridGroupSummaryItem With {.FieldName = CL.FieldName, .SummaryType = DevExpress.Data.SummaryItemType.Count, .ShowInGroupColumnFooter = GridView.Columns(CL.FieldName), .DisplayFormat = "{0:n0}"}
-                '    .GroupSummary.Add(Item)
-                'End If
 
                 Select Case CL.FieldName
                     Case "Dif_Rec_Ela", "Dif_Rec_Env"
@@ -82,10 +88,11 @@
             .Appearance.GroupFooter.Font = Fuente
             .Appearance.Row.Font = Fuente
 
-            .OptionsBehavior.AlignGroupSummaryInGroupRow = DevExpress.Utils.DefaultBoolean.False
+            .OptionsBehavior.Editable = False
             .OptionsView.ColumnAutoWidth = False
             .ExpandAllGroups()
             .BestFitColumns()
+
         End With
 
     End Sub

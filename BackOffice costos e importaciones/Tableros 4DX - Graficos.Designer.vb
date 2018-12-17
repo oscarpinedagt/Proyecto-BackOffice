@@ -20,11 +20,11 @@ Partial Class Tableros_4DX_Graficos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartTitle5 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
-        Dim ChartTitle6 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
-        Dim ChartTitle7 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
-        Dim ChartTitle8 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tableros_4DX_Graficos))
+        Dim ChartTitle1 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
+        Dim ChartTitle2 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
+        Dim ChartTitle3 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
+        Dim ChartTitle4 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle()
         Me.BarManager = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Menú = New DevExpress.XtraBars.Bar()
         Me.BBI_Generar_información = New DevExpress.XtraBars.BarButtonItem()
@@ -177,7 +177,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'LC_Datos_sobre
         '
-        Me.LC_Datos_sobre.Location = New System.Drawing.Point(536, 6)
+        Me.LC_Datos_sobre.Location = New System.Drawing.Point(168, 6)
         Me.LC_Datos_sobre.Name = "LC_Datos_sobre"
         Me.LC_Datos_sobre.Size = New System.Drawing.Size(58, 13)
         Me.LC_Datos_sobre.TabIndex = 8
@@ -185,7 +185,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'LUE_Datos_sobre
         '
-        Me.LUE_Datos_sobre.Location = New System.Drawing.Point(536, 26)
+        Me.LUE_Datos_sobre.Location = New System.Drawing.Point(168, 26)
         Me.LUE_Datos_sobre.MenuManager = Me.BarManager
         Me.LUE_Datos_sobre.Name = "LUE_Datos_sobre"
         Me.LUE_Datos_sobre.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -206,7 +206,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'LC_Mes
         '
-        Me.LC_Mes.Location = New System.Drawing.Point(274, 6)
+        Me.LC_Mes.Location = New System.Drawing.Point(430, 6)
         Me.LC_Mes.Name = "LC_Mes"
         Me.LC_Mes.Size = New System.Drawing.Size(19, 13)
         Me.LC_Mes.TabIndex = 4
@@ -222,7 +222,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'LC_Meta
         '
-        Me.LC_Meta.Location = New System.Drawing.Point(430, 6)
+        Me.LC_Meta.Location = New System.Drawing.Point(586, 6)
         Me.LC_Meta.Name = "LC_Meta"
         Me.LC_Meta.Size = New System.Drawing.Size(24, 13)
         Me.LC_Meta.TabIndex = 6
@@ -230,7 +230,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'LC_Año
         '
-        Me.LC_Año.Location = New System.Drawing.Point(168, 6)
+        Me.LC_Año.Location = New System.Drawing.Point(324, 6)
         Me.LC_Año.Name = "LC_Año"
         Me.LC_Año.Size = New System.Drawing.Size(19, 13)
         Me.LC_Año.TabIndex = 2
@@ -238,7 +238,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'LUE_Mes
         '
-        Me.LUE_Mes.Location = New System.Drawing.Point(274, 26)
+        Me.LUE_Mes.Location = New System.Drawing.Point(430, 26)
         Me.LUE_Mes.Name = "LUE_Mes"
         Me.LUE_Mes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LUE_Mes.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -249,7 +249,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'TE_Meta
         '
-        Me.TE_Meta.Location = New System.Drawing.Point(430, 26)
+        Me.TE_Meta.Location = New System.Drawing.Point(586, 26)
         Me.TE_Meta.Name = "TE_Meta"
         Me.TE_Meta.Properties.Appearance.Options.UseTextOptions = True
         Me.TE_Meta.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -262,7 +262,7 @@ Partial Class Tableros_4DX_Graficos
         '
         'TE_Año
         '
-        Me.TE_Año.Location = New System.Drawing.Point(168, 26)
+        Me.TE_Año.Location = New System.Drawing.Point(324, 26)
         Me.TE_Año.MenuManager = Me.BarManager
         Me.TE_Año.Name = "TE_Año"
         Me.TE_Año.Properties.Appearance.Options.UseTextOptions = True
@@ -357,10 +357,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Progreso.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Progreso.Size = New System.Drawing.Size(435, 214)
         Me.Chart_Progreso.TabIndex = 2
-        ChartTitle5.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle5.Indent = 0
-        ChartTitle5.Text = "Cumplimiento mensual"
-        Me.Chart_Progreso.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle5})
+        ChartTitle1.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle1.Indent = 0
+        ChartTitle1.Text = "Cumplimiento mensual"
+        Me.Chart_Progreso.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle1})
         '
         'Chart_Unidades_costeadas
         '
@@ -370,10 +370,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Unidades_costeadas.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Unidades_costeadas.Size = New System.Drawing.Size(435, 214)
         Me.Chart_Unidades_costeadas.TabIndex = 1
-        ChartTitle6.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle6.Indent = 0
-        ChartTitle6.Text = "Unidades recibidas por mes"
-        Me.Chart_Unidades_costeadas.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle6})
+        ChartTitle2.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle2.Indent = 0
+        ChartTitle2.Text = "Unidades recibidas por mes"
+        Me.Chart_Unidades_costeadas.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle2})
         '
         'Chart_Estadia_por_semana
         '
@@ -383,10 +383,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Estadia_por_semana.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Estadia_por_semana.Size = New System.Drawing.Size(435, 215)
         Me.Chart_Estadia_por_semana.TabIndex = 4
-        ChartTitle7.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle7.Indent = 0
-        ChartTitle7.Text = "Estadia de costeos por semana"
-        Me.Chart_Estadia_por_semana.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle7})
+        ChartTitle3.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle3.Indent = 0
+        ChartTitle3.Text = "Estadia de costeos por semana"
+        Me.Chart_Estadia_por_semana.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle3})
         '
         'Chart_Estadia_por_mes
         '
@@ -396,10 +396,10 @@ Partial Class Tableros_4DX_Graficos
         Me.Chart_Estadia_por_mes.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
         Me.Chart_Estadia_por_mes.Size = New System.Drawing.Size(435, 215)
         Me.Chart_Estadia_por_mes.TabIndex = 3
-        ChartTitle8.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        ChartTitle8.Indent = 0
-        ChartTitle8.Text = "Estadia de costeos por mes"
-        Me.Chart_Estadia_por_mes.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle8})
+        ChartTitle4.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        ChartTitle4.Indent = 0
+        ChartTitle4.Text = "Estadia de costeos por mes"
+        Me.Chart_Estadia_por_mes.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle4})
         '
         'LayoutControlGroup
         '

@@ -77,9 +77,11 @@
             End If
         End If
     End Sub
+
     Private Sub MI_Salir_Click(sender As Object, e As EventArgs) Handles MI_Salir.Click
         End
     End Sub
+
     Private Sub MI_Configuración_Click(sender As Object, e As EventArgs) Handles MI_Configuración.Click
         Dim SEG As New BackOffice_servicios.Contraseña With {.Nombre_de_contraseña = "Configuración"}
         SEG.ShowDialog()
@@ -91,6 +93,7 @@
             SEG.Dispose()
         End If
     End Sub
+
     Private Sub MI_Costos_e_Importaciones_Click(sender As Object, e As EventArgs) Handles MI_Costos_e_Importaciones.Click
         Dim IDS As New BackOffice_servicios.Inicio_de_sesión
         IDS.ShowDialog()
@@ -102,11 +105,11 @@
             IDS.Dispose()
         End If
     End Sub
+
     Private Sub TRM_Costeos_en_proceso_Tick(sender As Object, e As EventArgs) Handles TRM_Costeos_en_proceso.Tick
         Dim CEP As New BackOffice_servicios.Costeos_en_proceso
-        Dim DT As DataTable = SQL.Tabla_de_datos("SELECT Costeo_asignado_a,Empresa,Tipo_de_mercaderia,Sub_empresa,Tipo_de_importacion,Compra,Ingreso_a_bodega,Fecha_de_recepcion,Elaborado,Dif_Rec_Ela,Enviado,Dif_Rec_Env,Comentarios From Costeos Where Recibido='True' And ((Elaborado='False' or Elaborado Is Null) Or (Enviado='False' or Enviado Is Null)) And (Fecha_de_ingreso_a_bodega>= GETDATE()-60) Order By Ingreso_a_bodega")
-        If DT.Rows.Count > 0 Then
-            CEP.GridControl.DataSource = DT
+        'Dim DT As DataTable = SQL.Tabla_de_datos("SELECT Costeo_asignado_a,Empresa,Tipo_de_mercaderia,Sub_empresa,Tipo_de_importacion,Compra,Ingreso_a_bodega,Fecha_de_recepcion,Elaborado,Dif_Rec_Ela,Enviado,Dif_Rec_Env,Comentarios From Costeos Where Recibido='True' And ((Elaborado='False' or Elaborado Is Null) Or (Enviado='False' or Enviado Is Null)) And (Fecha_de_ingreso_a_bodega>= GETDATE()-60) Order By Ingreso_a_bodega")
+        If CEP.DTS > 0 Then
             CEP.Show()
         End If
     End Sub

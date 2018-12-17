@@ -133,7 +133,7 @@ Partial Class Tableros_4DX_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
         Me.GridControl.Size = New System.Drawing.Size(498, 233)
-        Me.GridControl.TabIndex = 12
+        Me.GridControl.TabIndex = 1
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
         '
@@ -156,19 +156,19 @@ Partial Class Tableros_4DX_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia
         Me.PC_Parametros.Location = New System.Drawing.Point(0, 26)
         Me.PC_Parametros.Name = "PC_Parametros"
         Me.PC_Parametros.Size = New System.Drawing.Size(498, 59)
-        Me.PC_Parametros.TabIndex = 11
+        Me.PC_Parametros.TabIndex = 0
         '
         'LC_Grupo_de_empresas
         '
-        Me.LC_Grupo_de_empresas.Location = New System.Drawing.Point(275, 6)
+        Me.LC_Grupo_de_empresas.Location = New System.Drawing.Point(12, 6)
         Me.LC_Grupo_de_empresas.Name = "LC_Grupo_de_empresas"
         Me.LC_Grupo_de_empresas.Size = New System.Drawing.Size(93, 13)
-        Me.LC_Grupo_de_empresas.TabIndex = 2
+        Me.LC_Grupo_de_empresas.TabIndex = 0
         Me.LC_Grupo_de_empresas.Text = "Grupo de empresas"
         '
         'LC_Datos_sobre
         '
-        Me.LC_Datos_sobre.Location = New System.Drawing.Point(119, 6)
+        Me.LC_Datos_sobre.Location = New System.Drawing.Point(168, 6)
         Me.LC_Datos_sobre.Name = "LC_Datos_sobre"
         Me.LC_Datos_sobre.Size = New System.Drawing.Size(58, 13)
         Me.LC_Datos_sobre.TabIndex = 2
@@ -176,15 +176,15 @@ Partial Class Tableros_4DX_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia
         '
         'LC_Año
         '
-        Me.LC_Año.Location = New System.Drawing.Point(13, 6)
+        Me.LC_Año.Location = New System.Drawing.Point(324, 6)
         Me.LC_Año.Name = "LC_Año"
         Me.LC_Año.Size = New System.Drawing.Size(19, 13)
-        Me.LC_Año.TabIndex = 0
+        Me.LC_Año.TabIndex = 4
         Me.LC_Año.Text = "Año"
         '
         'TE_Año
         '
-        Me.TE_Año.Location = New System.Drawing.Point(13, 26)
+        Me.TE_Año.Location = New System.Drawing.Point(324, 26)
         Me.TE_Año.MenuManager = Me.BarManager
         Me.TE_Año.Name = "TE_Año"
         Me.TE_Año.Properties.Appearance.Options.UseTextOptions = True
@@ -194,22 +194,22 @@ Partial Class Tableros_4DX_Resumen_de_unidades_y_tiempos_por_mes_semana_estadia
         Me.TE_Año.Properties.Mask.EditMask = "0000"
         Me.TE_Año.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.TE_Año.Size = New System.Drawing.Size(100, 20)
-        Me.TE_Año.TabIndex = 1
+        Me.TE_Año.TabIndex = 5
         '
         'LUE_Grupo_de_empresas
         '
-        Me.LUE_Grupo_de_empresas.Location = New System.Drawing.Point(275, 26)
+        Me.LUE_Grupo_de_empresas.Location = New System.Drawing.Point(12, 26)
         Me.LUE_Grupo_de_empresas.Name = "LUE_Grupo_de_empresas"
         Me.LUE_Grupo_de_empresas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LUE_Grupo_de_empresas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.LUE_Grupo_de_empresas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.LUE_Grupo_de_empresas.Properties.NullText = ""
         Me.LUE_Grupo_de_empresas.Size = New System.Drawing.Size(150, 20)
-        Me.LUE_Grupo_de_empresas.TabIndex = 3
+        Me.LUE_Grupo_de_empresas.TabIndex = 1
         '
         'LUE_Datos_sobre
         '
-        Me.LUE_Datos_sobre.Location = New System.Drawing.Point(119, 26)
+        Me.LUE_Datos_sobre.Location = New System.Drawing.Point(168, 26)
         Me.LUE_Datos_sobre.MenuManager = Me.BarManager
         Me.LUE_Datos_sobre.Name = "LUE_Datos_sobre"
         Me.LUE_Datos_sobre.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})

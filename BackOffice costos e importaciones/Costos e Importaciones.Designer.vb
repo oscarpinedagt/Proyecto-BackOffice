@@ -46,6 +46,7 @@ Partial Class Costos_e_Importaciones
         Me.BBI_DashBoard = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_SEG_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.BarButtonItem()
         Me.BBI_REP_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.BarButtonItem()
+        Me.BBI_Graficas = New DevExpress.XtraBars.BarButtonItem()
         Me.RP_Movimientos = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_MOV_Costeos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_Contabilización = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -61,6 +62,7 @@ Partial Class Costos_e_Importaciones
         Me.RPG_REP_Pago_de_impuestos_Tesorería = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_Tableros_4DX = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RPG_Graficas = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPG_DashBoard = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RP_Mantenimiento = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPG_Correos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -71,8 +73,6 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
         Me.NoDocumentsView1 = New DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(Me.components)
-        Me.RPG_Graficas = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.BBI_Graficas = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -286,6 +286,14 @@ Partial Class Costos_e_Importaciones
         Me.BBI_REP_Pago_de_impuestos_Tesorería.ImageOptions.LargeImage = CType(resources.GetObject("BBI_REP_Pago_de_impuestos_Tesorería.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BBI_REP_Pago_de_impuestos_Tesorería.Name = "BBI_REP_Pago_de_impuestos_Tesorería"
         '
+        'BBI_Graficas
+        '
+        Me.BBI_Graficas.Caption = "Graficas"
+        Me.BBI_Graficas.Id = 25
+        Me.BBI_Graficas.ImageOptions.Image = CType(resources.GetObject("BBI_Graficas.ImageOptions.Image"), System.Drawing.Image)
+        Me.BBI_Graficas.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Graficas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BBI_Graficas.Name = "BBI_Graficas"
+        '
         'RP_Movimientos
         '
         Me.RP_Movimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPG_MOV_Costeos, Me.RPG_Contabilización})
@@ -388,12 +396,20 @@ Partial Class Costos_e_Importaciones
         Me.RPG_Tableros_4DX.Name = "RPG_Tableros_4DX"
         Me.RPG_Tableros_4DX.Text = "Tableros 4DX"
         '
+        'RPG_Graficas
+        '
+        Me.RPG_Graficas.AllowTextClipping = False
+        Me.RPG_Graficas.ItemLinks.Add(Me.BBI_Graficas)
+        Me.RPG_Graficas.Name = "RPG_Graficas"
+        Me.RPG_Graficas.Text = "Graficas"
+        '
         'RPG_DashBoard
         '
         Me.RPG_DashBoard.AllowTextClipping = False
         Me.RPG_DashBoard.ItemLinks.Add(Me.BBI_DashBoard)
         Me.RPG_DashBoard.Name = "RPG_DashBoard"
         Me.RPG_DashBoard.Text = "DashBoard"
+        Me.RPG_DashBoard.Visible = False
         '
         'RP_Mantenimiento
         '
@@ -442,21 +458,6 @@ Partial Class Costos_e_Importaciones
         Me.DocumentManager.MenuManager = Me.RibbonControl
         Me.DocumentManager.View = Me.TabbedView
         Me.DocumentManager.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView, Me.NoDocumentsView1})
-        '
-        'RPG_Graficas
-        '
-        Me.RPG_Graficas.AllowTextClipping = False
-        Me.RPG_Graficas.ItemLinks.Add(Me.BBI_Graficas)
-        Me.RPG_Graficas.Name = "RPG_Graficas"
-        Me.RPG_Graficas.Text = "Graficas"
-        '
-        'BBI_Graficas
-        '
-        Me.BBI_Graficas.Caption = "Graficas"
-        Me.BBI_Graficas.Id = 25
-        Me.BBI_Graficas.ImageOptions.Image = CType(resources.GetObject("BBI_Graficas.ImageOptions.Image"), System.Drawing.Image)
-        Me.BBI_Graficas.ImageOptions.LargeImage = CType(resources.GetObject("BBI_Graficas.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BBI_Graficas.Name = "BBI_Graficas"
         '
         'Costos_e_Importaciones
         '

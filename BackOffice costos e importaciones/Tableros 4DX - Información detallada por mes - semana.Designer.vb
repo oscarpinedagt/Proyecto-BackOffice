@@ -143,7 +143,7 @@ Partial Class Tableros_4DX_Información_detallada_por_mes_semana
         Me.GridControl.MainView = Me.GridView
         Me.GridControl.Name = "GridControl"
         Me.GridControl.Size = New System.Drawing.Size(498, 233)
-        Me.GridControl.TabIndex = 17
+        Me.GridControl.TabIndex = 1
         Me.GridControl.UseEmbeddedNavigator = True
         Me.GridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView})
         '
@@ -165,11 +165,11 @@ Partial Class Tableros_4DX_Información_detallada_por_mes_semana
         Me.PC_Parametros.Location = New System.Drawing.Point(0, 26)
         Me.PC_Parametros.Name = "PC_Parametros"
         Me.PC_Parametros.Size = New System.Drawing.Size(498, 59)
-        Me.PC_Parametros.TabIndex = 16
+        Me.PC_Parametros.TabIndex = 0
         '
         'CKE_Ver_comentarios
         '
-        Me.CKE_Ver_comentarios.Location = New System.Drawing.Point(275, 27)
+        Me.CKE_Ver_comentarios.Location = New System.Drawing.Point(274, 27)
         Me.CKE_Ver_comentarios.MenuManager = Me.BarManager
         Me.CKE_Ver_comentarios.Name = "CKE_Ver_comentarios"
         Me.CKE_Ver_comentarios.Properties.Caption = "Ver comentarios"
@@ -178,23 +178,23 @@ Partial Class Tableros_4DX_Información_detallada_por_mes_semana
         '
         'LC_Grupo_de_empresas
         '
-        Me.LC_Grupo_de_empresas.Location = New System.Drawing.Point(119, 6)
+        Me.LC_Grupo_de_empresas.Location = New System.Drawing.Point(12, 7)
         Me.LC_Grupo_de_empresas.Name = "LC_Grupo_de_empresas"
         Me.LC_Grupo_de_empresas.Size = New System.Drawing.Size(93, 13)
-        Me.LC_Grupo_de_empresas.TabIndex = 2
+        Me.LC_Grupo_de_empresas.TabIndex = 0
         Me.LC_Grupo_de_empresas.Text = "Grupo de empresas"
         '
         'LC_Año
         '
-        Me.LC_Año.Location = New System.Drawing.Point(13, 6)
+        Me.LC_Año.Location = New System.Drawing.Point(168, 7)
         Me.LC_Año.Name = "LC_Año"
         Me.LC_Año.Size = New System.Drawing.Size(19, 13)
-        Me.LC_Año.TabIndex = 0
+        Me.LC_Año.TabIndex = 2
         Me.LC_Año.Text = "Año"
         '
         'TE_Año
         '
-        Me.TE_Año.Location = New System.Drawing.Point(13, 26)
+        Me.TE_Año.Location = New System.Drawing.Point(168, 27)
         Me.TE_Año.MenuManager = Me.BarManager
         Me.TE_Año.Name = "TE_Año"
         Me.TE_Año.Properties.Appearance.Options.UseTextOptions = True
@@ -204,18 +204,18 @@ Partial Class Tableros_4DX_Información_detallada_por_mes_semana
         Me.TE_Año.Properties.Mask.EditMask = "0000"
         Me.TE_Año.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.TE_Año.Size = New System.Drawing.Size(100, 20)
-        Me.TE_Año.TabIndex = 1
+        Me.TE_Año.TabIndex = 3
         '
         'LUE_Grupo_de_empresas
         '
-        Me.LUE_Grupo_de_empresas.Location = New System.Drawing.Point(119, 26)
+        Me.LUE_Grupo_de_empresas.Location = New System.Drawing.Point(12, 27)
         Me.LUE_Grupo_de_empresas.Name = "LUE_Grupo_de_empresas"
         Me.LUE_Grupo_de_empresas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LUE_Grupo_de_empresas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.LUE_Grupo_de_empresas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.LUE_Grupo_de_empresas.Properties.NullText = ""
         Me.LUE_Grupo_de_empresas.Size = New System.Drawing.Size(150, 20)
-        Me.LUE_Grupo_de_empresas.TabIndex = 3
+        Me.LUE_Grupo_de_empresas.TabIndex = 1
         '
         'BarDockControl1
         '

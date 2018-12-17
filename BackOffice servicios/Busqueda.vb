@@ -1,6 +1,7 @@
 ﻿Public Class Busqueda
     Dim SQL As New BackOffice_datos.SQL
     Public Property Consulta As String : Property Columna_ID As String : Property ID_resultado As String : Property Alinear As String
+
     Private Sub Busqueda_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_datos()
         Configurar_GridControl()
@@ -40,7 +41,7 @@
         Dim ea As DevExpress.Utils.DXMouseEventArgs = TryCast(e, DevExpress.Utils.DXMouseEventArgs)
         Dim Info As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo = GridView.CalcHitInfo(ea.Location)
 
-        Dim i As Integer = GridView.GetRowCellValue(Info.RowHandle, Columna_ID)
+        Dim i As String = GridView.GetRowCellValue(Info.RowHandle, Columna_ID)
 
         If Info.InRow Or Info.InRowCell Then
             If i > 0 And i.ToString <> "" Then
