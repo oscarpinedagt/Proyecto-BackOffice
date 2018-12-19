@@ -137,8 +137,8 @@
   <data name="CK_Activar_monitoreo_de_archivos.Properties.DisplayValueUnchecked" xml:space="preserve">
     <value />
   </data>
-  <assembly alias="DevExpress.Data.v18.1" name="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="CK_Activar_monitoreo_de_archivos.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v18.1">
+  <assembly alias="DevExpress.Data.v18.2" name="DevExpress.Data.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="CK_Activar_monitoreo_de_archivos.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v18.2">
     <value>Default</value>
   </data>
   <data name="LC_Directorio_a_validar.Appearance.FontSizeDelta" type="System.Int32, mscorlib">
@@ -172,8 +172,8 @@
         g6ky1BtMl1295AoajrNyArCYwjN4ThJYAAAAAElFTkSuQmCC
 </value>
   </data>
-  <assembly alias="DevExpress.XtraEditors.v18.1" name="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="BE_Directorio.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v18.1">
+  <assembly alias="DevExpress.XtraEditors.v18.2" name="DevExpress.XtraEditors.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="BE_Directorio.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v18.2">
     <value>Default</value>
   </data>
   <data name="BE_Directorio.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
@@ -185,7 +185,7 @@
   <data name="BE_Directorio.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="BE_Directorio.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v18.1">
+  <data name="BE_Directorio.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v18.2">
     <value>None</value>
   </data>
   <data name="BE_Directorio.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">

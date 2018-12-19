@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{91A7B80B-9BF5-4C75-9527-E2E76DF6A8A7}</ProjectGuid>
+    <ProjectGuid>{74506198-819C-4CC8-AC0D-9BD8EC0F5957}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BackOffice_información_de_archivos.My.MyApplication</StartupObject>
-    <RootNamespace>BackOffice_información_de_archivos</RootNamespace>
-    <AssemblyName>BackOffice información de archivos</AssemblyName>
+    <StartupObject>BackOffice_aplicación.My.MyApplication</StartupObject>
+    <RootNamespace>BackOffice_aplicación</RootNamespace>
+    <AssemblyName>BackOffice aplicación</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BackOffice información de archivos.xml</DocumentationFile>
+    <DocumentationFile>BackOffice aplicación.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BackOffice información de archivos.xml</DocumentationFile>
+    <DocumentationFile>BackOffice aplicación.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -50,10 +50,9 @@
     <ApplicationIcon>BO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -74,20 +73,12 @@
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.IO" />
-    <Import Include="System.Security.AccessControl" />
-    <Import Include="System.Security.Principal" />
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Información de archivos.Designer.vb">
-      <DependentUpon>Información de archivos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Información de archivos.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -103,20 +94,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Publicar.Designer.vb">
+      <DependentUpon>Publicar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Publicar.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Información de archivos.es-419.resx">
-      <DependentUpon>Información de archivos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Información de archivos.resx">
-      <DependentUpon>Información de archivos.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicar.es-419.resx">
+      <DependentUpon>Publicar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicar.resx">
+      <DependentUpon>Publicar.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +129,33 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BackOffice configuración\BackOffice configuración.vbproj">
+      <Project>{680cd5bb-dab1-4245-a0ad-ef9dea6200c2}</Project>
+      <Name>BackOffice configuración</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackOffice costos e importaciones\BackOffice costos e importaciones.vbproj">
+      <Project>{f15a96a7-83b9-41f2-ac0e-1fdc6618ce0b}</Project>
+      <Name>BackOffice costos e importaciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BackOffice datos\BackOffice datos.vbproj">
       <Project>{d26a128d-10fc-4121-93b9-e1082298e490}</Project>
       <Name>BackOffice datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackOffice información de archivos\BackOffice información de archivos.vbproj">
+      <Project>{91a7b80b-9bf5-4c75-9527-e2e76df6a8a7}</Project>
+      <Name>BackOffice información de archivos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackOffice menú\BackOffice menú.vbproj">
+      <Project>{2e5cb621-3186-42df-bae4-bcaff2ed5527}</Project>
+      <Name>BackOffice menú</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackOffice servicios\BackOffice servicios.vbproj">
+      <Project>{4f62b523-f171-4786-9294-e27cab2c8b48}</Project>
+      <Name>BackOffice servicios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BackOffice\BackOffice.vbproj">
+      <Project>{b6ebc901-3c0d-4fb4-95dd-4b9b174f2c59}</Project>
+      <Name>BackOffice</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
